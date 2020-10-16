@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Link, Switch, withRouter } from "react-router-dom";
 import IterButton from "./components/button";
 import Navbar from "./components/navbar";
-import { Reflections } from "./pages/Article";
+import Reflections from "./pages/Reflections";
 import Home from "./pages/home";
-import List from "./pages/List";
+import Articles from "./pages/Articles";
 import Images from "./pages/Images";
 import Folder from "./pages/Folders";
 import Drawings from "./pages/Drawings";
@@ -50,7 +50,7 @@ function App() {
           <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
             <Route exact path="/" component={Home} />
             <Route path="/Reflections" component={Reflections} />
-            <Route path="/article" component={List} />
+            <Route path="/Articles" component={Articles} />
             {/* <Route path="/Drawings" component={Drawings} /> */}
             <Route exact path="/Drawings" component={Images} />
             <Route path="/Drawings/:folderName" component={Folder} />

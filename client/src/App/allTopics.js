@@ -1,2 +1,2 @@
-const allTopics = ["Article", "Reflections", "Drawings", "Books", "Music", "Ressources"];
+const allTopics = ["Articles", "Reflections", "Drawings", "Books", "Music", "Ressources"];
 export default allTopics;

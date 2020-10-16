@@ -24,10 +24,6 @@ const listGenerator = (topicName, path, topic = "") => {
 
 const updateState = (callback) => {
   let result = allFolder();
-
-  console.log({ result });
-  console.log({ allFolders });
-
   callback(result);
 };
 
@@ -57,7 +53,7 @@ const Sidebar = ({ match, location }) => {
       case "Drawings":
         getImageDir(updatesideBarState);
         break;
-      case "Article":
+      case "Articles":
         if (test !== 0) {
           window.location.reload();
         }
@@ -109,7 +105,7 @@ const getImageDir = (callback) => {
 };
 
 const getList = async (callback) => {
-  let result = await fetch("/api/getList").then((res) => res.json());
+  let result = await fetch("/api/getArticles").then((res) => res.json());
   // .then((list) => updateListState(list));
 
   callback(result);

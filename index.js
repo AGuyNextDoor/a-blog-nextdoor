@@ -29,6 +29,13 @@ app.use(express.static(path.join(__dirname, "client/pop/_build")));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.get("/api/getArticles", (req, res) => {
+  find_list("articles").then((articles) => {
+    res.json(articles);
+    console.log("Sent list of items");
+  });
+});
+
 app.get("/api/getArticle/:articleId", (req, res) => {
   const newPath = __dirname + "/public/articles/" + req.params.articleId;
   readFile(newPath, "utf8", function (err, data) {
@@ -54,8 +61,8 @@ app.get("/api/getArticles/:articleId", (req, res) => {
   });
 });
 
-app.get("/api/getList", (req, res) => {
-  find_list().then((list) => {
+app.get("/api/getReflectionList", (req, res) => {
+  find_list("reflections").then((list) => {
     res.json(list);
     console.log("Sent list of items");
   });
