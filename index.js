@@ -16,11 +16,6 @@ const readFile = util.promisify(fs.readFile);
 const readdir = util.promisify(fs.readdir);
 const converter = new showdown.Converter();
 
-const upload = multer({
-  dest: "./images_temp",
-  // you might also want to set some limits: https://github.com/expressjs/multer#limits
-});
-
 // Serve the static files from the React app
 app.use(cors());
 app.use(express.static(path.join(__dirname, "client/build")));
@@ -35,28 +30,26 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.get("/api/getArticle/:articleId", (req, res) => {
-  const newPath = __dirname + "/articles/" + req.params.articleId;
+  const newPath = __dirname + "/public/articles/" + req.params.articleId;
   readFile(newPath, "utf8", function (err, data) {
     if (err) {
       console.log(err);
-      res.json(["error", "No data found"]);
+      res.json(["error", "404 - Article not found"]);
     } else {
       res.json(["html", data]);
-      // console.log("article sent", html);
     }
   });
 });
 
 app.get("/api/getArticles/:articleId", (req, res) => {
-  const newPath = __dirname + "/articles/" + req.params.articleId;
+  const newPath = __dirname + "/public/articles/" + req.params.articleId;
   readFile(newPath, "utf8", function (err, data) {
     if (err) {
       console.log(err);
-      res.json(["error", "No data found"]);
+      res.json(["error", "404 - Article not found"]);
     } else {
       const html = converter.makeHtml(data);
       res.json(["markdown", html]);
-      // console.log("article sent", html);
     }
   });
 });
@@ -69,7 +62,7 @@ app.get("/api/getList", (req, res) => {
 });
 
 app.get("/api/getBaseImages", (req, res) => {
-  let images = "./images";
+  let images = "./public/images";
   res.setHeader("Content-Type", "application/json");
   readdir(newFiles, (err, files) => {
     res.send(newFiles);
@@ -77,7 +70,7 @@ app.get("/api/getBaseImages", (req, res) => {
 });
 
 app.get("/api/getImages", (req, res) => {
-  const uploadsDirectory = path.join(__dirname, "/images/");
+  const uploadsDirectory = path.join(__dirname, "/public/images/");
 
   readdir(uploadsDirectory, (err, files) => {
     if (err) {
@@ -88,14 +81,15 @@ app.get("/api/getImages", (req, res) => {
       return res.json({ msg: "No images Found!" });
     }
 
+    res.setHeader("Content-Type", "images/png");
     const newFiles = [];
     files.forEach((url) => {
       console.log(path.join(__dirname, "/images/", url));
-      newFiles.push(path.join(__dirname, "/images/", url));
-    });
+      // newFiles.push(path.join(__dirname, "/images/", url));
+      console.log("sent image :", path.join(__dirname, "/public/images/", url));
 
-    console.log("sent image :", newFiles);
-    res.json({ newFiles });
+      res.sendFile(path.join(__dirname, "/public/images/", url));
+    });
   });
 });
 

@@ -9,7 +9,7 @@ import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import marked from "marked";
 import ReactMarkdown from "react-markdown";
 
-const List = ({ match }) => {
+const List = ({ match, location }) => {
   const [listState, updateListState] = useState([]);
 
   // Retrieves the list of items from the Express app
@@ -25,24 +25,16 @@ const List = ({ match }) => {
 
   return (
     <div className="App">
-      <h2>List of Items</h2>
-      {/* Check to see if any items are found*/}
-      {listState.length ? (
+      {location.pathname.length < 10 ? (
         <div>
           {/* Render the list of items */}
           <ul>
-            {listState.map((articleName) => (
-              <li>
-                <Link to={`/article/${articleName}`}>{articleName}</Link>
-              </li>
-            ))}
+            <li>Choose your article on the sidebar</li>
           </ul>
         </div>
       ) : (
-        <div>Loading...</div>
+        <div></div>
       )}
-
-      {/* <Atom></Atom> */}
 
       <Route path={`${match.url}/:articleId`} component={Article} />
     </div>
@@ -76,11 +68,11 @@ const Article = ({ match }) => {
     <div>
       {articleState ? (
         <div>
-          <div dangerouslySetInnerHTML={{ __html: articleState }} />
+          {/* <div dangerouslySetInnerHTML={{ __html: articleState }} /> */}
           {ReactHtmlParser(articleState)}
         </div>
       ) : (
-        <div>{title}</div>
+        <div></div>
       )}
     </div>
   );

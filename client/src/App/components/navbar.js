@@ -1,10 +1,25 @@
+import { match } from "assert";
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import allTopics from "../allTopics.js";
 
-const Navbar = () => {
+const Navbar = ({ match }) => {
+  const linkGenerator = (topicName) => {
+    return (
+      <li class="nav-item">
+        <Link class="nav-link" to={{ pathname: "/" + topicName, state: "plop" }} href={topicName}>
+          {topicName}
+        </Link>
+      </li>
+    );
+  };
+
   return (
     <div>
-      <nav class="navbar navbar-expand-sm navbar-light bg-light top-navbar bd-navbar">
+      <nav
+        class="navbar navbar-expand-sm navbar-light flex-md-nowrap fixed-top"
+        // style="position: fixed; top: 0;right: 0;left: 0;z-index: 1030;}"
+      >
         <Link class="" to="/">
           <a class="navbar-brand" to="/" href="#">
             A Blog Next Door
@@ -22,23 +37,7 @@ const Navbar = () => {
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <Link class="nav-link" to="/Reflections" href="Reflections">
-                Reflections
-              </Link>
-            </li>
-            <li class="nav-item">
-              <Link class="nav-link" to="/Article" href="Article">
-                Article
-              </Link>
-            </li>
-            <li class="nav-item">
-              <Link class="nav-link" to="/Drawings" href="Drawings">
-                Drawings
-              </Link>
-            </li>
-          </ul>
+          <ul class="navbar-nav">{allTopics.map(linkGenerator)}</ul>
         </div>
       </nav>
     </div>

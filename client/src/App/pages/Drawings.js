@@ -41,9 +41,7 @@ const Drawings = ({ match }) => {
   const getImageDir = () => {
     const uploadsDirectory = path.join(__dirname, "../../images/");
 
-    const completeUrl = importAll(
-      require.context("../../images/", false, /\.(png|jpe?g|svg)$/)
-    );
+    const completeUrl = importAll(require.context("../../images/", false, /\.(png|jpe?g|svg)$/));
 
     updateFolderState(completeUrl);
   };

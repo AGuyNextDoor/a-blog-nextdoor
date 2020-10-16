@@ -15,7 +15,7 @@ async function mainWriteFile(path) {
   return await writeFile(path);
 }
 
-const readPath = path.join(__dirname, "../articles");
+const readPath = path.join(__dirname, "../public/articles");
 // const writePath = path.join(__dirname, "../src/utils/all_articles.js");
 
 async function find_list() {

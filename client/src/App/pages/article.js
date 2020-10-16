@@ -5,20 +5,6 @@ import fs from "fs";
 
 const list = ["../articles/article_1.md"];
 
-// const directoryPath = path.join(__dirname, "../articles");
-// //passsing directoryPath and callback function
-// fs.readdir(directoryPath, function (err, files) {
-//   //handling error
-//   if (err) {
-//     return console.log("Unable to scan directory: " + err);
-//   }
-//   //listing all files using forEach
-//   files.forEach(function (file) {
-//     // Do whatever you want to do with the file
-//     console.log(file);
-//   });
-// });
-
 export const Home = () => (
   <div>
     <h2>Home</h2>
@@ -39,18 +25,14 @@ export const Reflections = ({ match }) => (
         <Link to={`${match.url}/props-v-state`}>Props v. State</Link>
       </li>
     </ul>
-
     <Route path={`${match.url}/:topicId`} component={Reflection} />
-    <Route
-      exact
-      path={match.url}
-      render={() => <h3>Please select a topic.</h3>}
-    />
+    <Route exact path={match.url} render={() => <h3>Please select a topic.</h3>} />
   </div>
 );
 
-const Reflection = ({ match }) => (
+const Reflection = ({ match, location }) => (
   <div>
     <h3>{match.params.topicId}</h3>
+    {match.url}
   </div>
 );
