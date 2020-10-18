@@ -5,6 +5,7 @@ import path from "path";
 
 function allFolder(r) {
   let folder = r.map((element) => {
+    console.log({ element });
     return element.match(/(?<=\.)(.*?)(?=\.)/g)[0];
   });
 

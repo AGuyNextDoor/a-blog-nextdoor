@@ -1,5 +1,4 @@
 import React, { useState, useEffect, Component } from "react";
-import Highlight from "react-highlight.js";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import ReactHtmlParser from "react-html-parser";
 import MathJax from "@matejmazur/react-mathjax";
@@ -47,7 +46,6 @@ const Article = ({ match }) => {
       })
       .then((data) => {
         title = match.params.articleId;
-        console.log(data[1]);
         updateArticleState(data[1]);
       });
   };

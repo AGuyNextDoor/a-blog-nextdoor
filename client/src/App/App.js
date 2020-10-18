@@ -49,9 +49,8 @@ function App() {
           <Route path="/" component={Sidebar} />
           <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
             <Route exact path="/" component={Home} />
-            <Route path="/Reflections" component={Reflections} />
             <Route path="/Articles" component={Articles} />
-            {/* <Route path="/Drawings" component={Drawings} /> */}
+            <Route path="/Reflections" component={Reflections} />
             <Route exact path="/Drawings" component={Images} />
             <Route path="/Drawings/:folderName" component={Folder} />
           </main>
