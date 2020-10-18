@@ -24,14 +24,11 @@ const listGenerator = (topicName, path, topic = "") => {
 
 const updateState = (callback) => {
   let result = allFolder();
-
-  console.log({ result });
-  console.log({ allFolders });
-
   callback(result);
 };
 
 let test = 0;
+let tested = 0;
 
 const Sidebar = ({ match, location }) => {
   const [sidebarState, updatesideBarState] = useState([]);
@@ -51,18 +48,21 @@ const Sidebar = ({ match, location }) => {
       return path.includes(element);
     });
 
-    console.log({ topic });
-
     switch (topic[0]) {
       case "Drawings":
         getImageDir(updatesideBarState);
         break;
-      case "Article":
+      case "Articles":
         if (test !== 0) {
-          window.location.reload();
+          if (tested < 1) {
+            window.location.reload();
+          }
+          tested += 1;
         }
         getList(updatesideBarState);
         break;
+      case "Reflections":
+        getReflectionList(updatesideBarState);
       default:
         empty(updatesideBarState);
     }
@@ -76,6 +76,17 @@ const Sidebar = ({ match, location }) => {
   return (
     <nav id="sidebarMenu" class="col-md-3 pt-3 col-lg-2 d-md-block bg-light bd-sidebar collapse">
       <div class="sidebar-sticky pt-3">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
         <ul class="nav flex-column list-unstyled components">
           {sidebarState ? (
             sidebarContext(location.pathname)
@@ -109,7 +120,14 @@ const getImageDir = (callback) => {
 };
 
 const getList = async (callback) => {
-  let result = await fetch("/api/getList").then((res) => res.json());
+  let result = await fetch("/api/getArticles").then((res) => res.json());
+  // .then((list) => updateListState(list));
+
+  callback(result);
+};
+
+const getReflectionList = async (callback) => {
+  let result = await fetch("/api/getReflectionList").then((res) => res.json());
   // .then((list) => updateListState(list));
 
   callback(result);

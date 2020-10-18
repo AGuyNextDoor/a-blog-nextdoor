@@ -1,20 +1,14 @@
 import React, { useState, useEffect, Component } from "react";
-import Highlight from "react-highlight.js";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import ReactHtmlParser from "react-html-parser";
+import MathJax from "@matejmazur/react-mathjax";
 
-// import Atom from "../articles/atom.js";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import marked from "marked";
-import ReactMarkdown from "react-markdown";
-
-const List = ({ match, location }) => {
+const Articles = ({ match, location }) => {
   const [listState, updateListState] = useState([]);
 
   // Retrieves the list of items from the Express app
   const getList = () => {
-    fetch("/api/getList")
+    fetch("/api/getArticles")
       .then((res) => res.json())
       .then((list) => updateListState(list));
   };
@@ -27,7 +21,6 @@ const List = ({ match, location }) => {
     <div className="App">
       {location.pathname.length < 10 ? (
         <div>
-          {/* Render the list of items */}
           <ul>
             <li>Choose your article on the sidebar</li>
           </ul>
@@ -53,7 +46,6 @@ const Article = ({ match }) => {
       })
       .then((data) => {
         title = match.params.articleId;
-        console.log(data[1]);
         updateArticleState(data[1]);
       });
   };
@@ -78,4 +70,4 @@ const Article = ({ match }) => {
   );
 };
 
-export default List;
+export default Articles;
