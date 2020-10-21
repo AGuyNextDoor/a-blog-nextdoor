@@ -42,13 +42,13 @@ function App() {
   return (
     <body>
       <header>
-        <Navbar />
+        <Route path={["/", "/Home"]} component={Navbar} />
       </header>
       <div class="container-fluid">
         <div class="row">
-          <Route path="/" component={Sidebar} />
+          <Route path={["/", "/Home"]} component={Sidebar} />
           <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-            <Route exact path="/" component={Home} />
+            <Route exact path={["/", "/Home"]} component={Home} />
             <Route path="/Articles" component={Articles} />
             <Route path="/Reflections" component={Reflections} />
             <Route exact path="/Drawings" component={Images} />
