@@ -14,8 +14,8 @@ const listGenerator = (topicName, path, topic = "") => {
 
   const linkUrl = "/" + topic + "/" + topicName;
   return (
-    <li>
-      <Link to={linkUrl} href={topicName}>
+    <li class="nav-item flex-fill p-2 sidebar-item">
+      <Link class="nav-link" to={linkUrl} href={topicName}>
         {topicName}
       </Link>
     </li>
@@ -32,6 +32,8 @@ let tested = 0;
 
 const Sidebar = ({ match, location }) => {
   const [sidebarState, updatesideBarState] = useState([]);
+
+  let flag = true;
 
   const sidebarContext = (path) => {
     let topic = allTopics.filter((element) => {
@@ -63,7 +65,9 @@ const Sidebar = ({ match, location }) => {
         break;
       case "Reflections":
         getReflectionList(updatesideBarState);
+        break;
       default:
+        flag = false;
         empty(updatesideBarState);
     }
   };
@@ -71,35 +75,28 @@ const Sidebar = ({ match, location }) => {
   useEffect(() => {
     stateUpdate(location.pathname);
     test += 1;
-  }, [location.pathname]);
+  }, [location.pathname, flag]);
 
   return (
-    <nav id="sidebarMenu" class="col-md-3 pt-3 col-lg-2 d-md-block bg-light bd-sidebar collapse">
-      <div class="sidebar-sticky pt-3">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <ul class="nav flex-column list-unstyled components">
-          {sidebarState ? (
-            sidebarContext(location.pathname)
-          ) : (
-            <div class="spinner-grow justify-content-center" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-          )}
-          {/* <li>location.pathname</li>
-          <li>Was useEffect : {test}</li> */}
-        </ul>
-      </div>
-    </nav>
+    <div class="bg-light">
+      {sidebarState[0] === true ? (
+        <div class="col-lg bg-light flex-wrap second_navbar">
+          <nav class="flex-md-nowrap navbar-expand">
+            <ul class="navbar-nav sidebar-nav">
+              {sidebarState ? (
+                sidebarContext(location.pathname)
+              ) : (
+                <div class="spinner-grow justify-content-center" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              )}
+            </ul>
+          </nav>
+        </div>
+      ) : (
+        <div></div>
+      )}
+    </div>
   );
 };
 
@@ -116,27 +113,23 @@ const getImageDir = (callback) => {
 
   const folders = allFolder(completeUrl);
 
-  return callback(folders);
+  return callback([true, ...folders]);
 };
 
 const getList = async (callback) => {
   let result = await fetch("/api/getArticles").then((res) => res.json());
   // .then((list) => updateListState(list));
 
-  callback(result);
+  callback([true, ...result]);
 };
 
 const getReflectionList = async (callback) => {
   let result = await fetch("/api/getReflectionList").then((res) => res.json());
   // .then((list) => updateListState(list));
 
-  callback(result);
+  callback([true, ...result]);
 };
 
 const empty = (callback) => {
-  callback([
-    <div>
-      <p>...No Items here...</p>
-    </div>,
-  ]);
+  callback([false]);
 };
