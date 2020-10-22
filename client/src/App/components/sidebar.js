@@ -78,7 +78,7 @@ const Sidebar = ({ match, location }) => {
   }, [location.pathname, flag]);
 
   return (
-    <div class="bg-light">
+    <div class="col-lg bg-light">
       {sidebarState[0] === true ? (
         <div class="col-lg bg-light flex-wrap second_navbar">
           <nav class="flex-md-nowrap navbar-expand">
