@@ -45,7 +45,6 @@ const Reflection = ({ match }) => {
       })
       .then((data) => {
         title = match.params.reflectionId;
-        console.log("Reflection : 49 : ", data[1]);
         updateReflectionState(data[1]);
       });
   };

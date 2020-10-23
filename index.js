@@ -42,7 +42,15 @@ app.get("/api/getArticle/:articleId", (req, res) => {
       console.log(err);
       res.json(["error", "404 - Article not found"]);
     } else {
-      res.json(["html", data]);
+      const patt1 = /\.([0-9a-z]+)(?:[\?#]|$)/i;
+      let fileArray = req.params.articleId.match(patt1);
+
+      if (fileArray[0].includes("html")) {
+        res.json(["html", data]);
+      } else {
+        const html = converter.makeHtml(data);
+        res.json(["html", html]);
+      }
     }
   });
 });

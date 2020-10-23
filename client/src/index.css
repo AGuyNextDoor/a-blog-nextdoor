@@ -245,6 +245,10 @@ body,html{
     width: 15%!important;
     min-width: 150px
   }
+
+  .navbar_expand {
+    max-width: 1% !important
+  }
 }
 
 .second_navbar {
@@ -256,6 +260,10 @@ body,html{
   .ml-sm-auto, .mx-sm-auto {
       padding-top: var(--navbar-height);
   }
+}
+
+.shadow_top_bot {
+  box-shadow: 0px 10px 5px #888, 0px -10px 5px #888;
 }
 
 body {

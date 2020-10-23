@@ -12,14 +12,58 @@ const listGenerator = (topicName, path, topic = "") => {
     topic = topic[0];
   }
 
+  console.log(path);
+
   const linkUrl = "/" + topic + "/" + topicName;
-  return (
-    <li class="nav-item flex-fill p-2 sidebar-item">
-      <Link class="nav-link" to={linkUrl} href={topicName}>
-        {topicName}
-      </Link>
-    </li>
-  );
+  if (linkUrl.includes(".") && typeof linkUrl === "string" && typeof topicName === "string") {
+    let topicTrimmed = topicName.split(".").slice(0, -1).join(".");
+    topicTrimmed = topicTrimmed.replace(/_/g, " ");
+    topicTrimmed = topicTrimmed.replace(/-/g, " ");
+
+    let pathTrimmed = decodeURI(path);
+    pathTrimmed = pathTrimmed.split(".").slice(0, -1).join(".");
+    pathTrimmed = pathTrimmed.replace(/_/g, " ");
+    pathTrimmed = pathTrimmed.replace(/-/g, " ");
+
+    if (pathTrimmed.includes(topicTrimmed)) {
+      console.log({ pathTrimmed }, "is included in", { topicTrimmed });
+      return (
+        <li class="nav-item flex-fill p-2 sidebar-item active">
+          <Link class="nav-link" to={linkUrl} href={topicName}>
+            {topicTrimmed}
+          </Link>
+        </li>
+      );
+    } else {
+      return (
+        <li class="nav-item flex-fill p-2 sidebar-item">
+          <Link class="nav-link" to={linkUrl} href={topicName}>
+            {topicTrimmed}
+          </Link>
+        </li>
+      );
+    }
+  } else {
+    if (path.includes(topicName)) {
+      console.log({ path }, "is included in", { topicName });
+
+      return (
+        <li class="nav-item flex-fill p-2 sidebar-item active">
+          <Link class="nav-link" to={linkUrl} href={topicName}>
+            {topicName}
+          </Link>
+        </li>
+      );
+    } else {
+      return (
+        <li class="nav-item flex-fill p-2 sidebar-item">
+          <Link class="nav-link" to={linkUrl} href={topicName}>
+            {topicName}
+          </Link>
+        </li>
+      );
+    }
+  }
 };
 
 const updateState = (callback) => {
@@ -78,7 +122,7 @@ const Sidebar = ({ match, location }) => {
   }, [location.pathname, flag]);
 
   return (
-    <div class="col-lg bg-light">
+    <div class="col-lg bg-light navbar_expand">
       {sidebarState[0] === true ? (
         <div class="col-lg bg-light flex-wrap second_navbar">
           <nav class="flex-md-nowrap navbar-expand">
