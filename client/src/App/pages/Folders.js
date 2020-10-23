@@ -13,9 +13,7 @@ const Folder = ({ match }) => {
   const getFolder = (reg) => {
     const uploadsDirectory = path.join(__dirname, "../../images/");
 
-    const completeUrl = importAll(
-      require.context("../../images/", false, /\.(png|jpe?g|svg)$/)
-    );
+    const completeUrl = importAll(require.context("../../images/", false, /\.(png|jpe?g|svg)$/));
     // const completeFolder = allFolder(require.context("../../images/", false, /\.(png|jpe?g|svg)$/)));
 
     // console.log("completeFolder", completeFolder);
@@ -29,7 +27,13 @@ const Folder = ({ match }) => {
 
     let reg = new RegExp(match.params.folderName, "gi");
     if (urlName.match(reg, "gi")) {
-      return <img src={urlName} class="img-thumbnail rounded" />;
+      return (
+        <div class="col-md-4">
+          <div class="card mb-4 box-shadow">
+            <img src={urlName} class="img-thumbnail rounded" />
+          </div>
+        </div>
+      );
     }
   };
 
@@ -39,14 +43,16 @@ const Folder = ({ match }) => {
   }, []);
 
   return (
-    <div>
-      {folderState.length ? (
-        <div id="main">
-          {folderState.map((folderName) => findImages(folderName))}
-        </div>
-      ) : (
-        <div>Loading...</div>
-      )}
+    <div class="album py-5">
+      <div class="container">
+        {folderState.length ? (
+          <div id="main" class="row">
+            {folderState.map((folderName) => findImages(folderName))}
+          </div>
+        ) : (
+          <div>Loading...</div>
+        )}
+      </div>
     </div>
   );
 };
