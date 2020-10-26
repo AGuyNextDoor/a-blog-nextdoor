@@ -12,7 +12,9 @@ const listGenerator = (topicName, path, topic = "") => {
     topic = topic[0];
   }
 
-  console.log(path);
+  if (topic.length > 1) {
+    topic = topic[0];
+  }
 
   const linkUrl = "/" + topic + "/" + topicName;
   if (linkUrl.includes(".") && typeof linkUrl === "string" && typeof topicName === "string") {
@@ -26,7 +28,6 @@ const listGenerator = (topicName, path, topic = "") => {
     pathTrimmed = pathTrimmed.replace(/-/g, " ");
 
     if (pathTrimmed.includes(topicTrimmed)) {
-      console.log({ pathTrimmed }, "is included in", { topicTrimmed });
       return (
         <li class="nav-item flex-fill p-2 sidebar-item active">
           <Link class="nav-link" to={linkUrl} href={topicName}>
@@ -45,8 +46,6 @@ const listGenerator = (topicName, path, topic = "") => {
     }
   } else {
     if (path.includes(topicName)) {
-      console.log({ path }, "is included in", { topicName });
-
       return (
         <li class="nav-item flex-fill p-2 sidebar-item active">
           <Link class="nav-link" to={linkUrl} href={topicName}>
@@ -153,7 +152,9 @@ function importAll(r) {
 const getImageDir = (callback) => {
   // const uploadsDirectory = path.join(__dirname, "../../images/");
 
-  const completeUrl = importAll(require.context("../../images/", false, /\.(png|jpe?g|svg)$/));
+  const completeUrl = importAll(require.context("../../images/full_img/", false, /\.(png|jpe?g|svg)$/));
+
+  console.log({ completeUrl });
 
   const folders = allFolder(completeUrl);
 

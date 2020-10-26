@@ -19,7 +19,7 @@ const converter = new showdown.Converter();
 // Serve the static files from the React app
 app.use(cors());
 app.use(express.static(path.join(__dirname, "client/build")));
-app.use(express.static(path.join(__dirname, "client/src/images/Drawings")));
+app.use("/images", express.static(path.join(__dirname, "public/images")));
 app.use(express.static(path.join(__dirname, "client/pop/_build")));
 // app.use(express.static(path.join(__dirname, "_build/html/_images")));
 // app.use(express.static(path.join(__dirname, "_build/html/_sources")));
@@ -83,27 +83,32 @@ app.get("/api/getBaseImages", (req, res) => {
 });
 
 app.get("/api/getImages", (req, res) => {
-  const uploadsDirectory = path.join(__dirname, "/public/images/");
+  const uploadsDirectory = path.join(__dirname, "/images/");
 
-  readdir(uploadsDirectory, (err, files) => {
-    if (err) {
-      return res.json({ msg: err });
-    }
+  console.log({ uploadsDirectory });
 
-    if (files.length === 0) {
-      return res.json({ msg: "No images Found!" });
-    }
+  console.log(path.join(__dirname, "/public/images/"));
 
-    res.setHeader("Content-Type", "images/png");
-    const newFiles = [];
-    files.forEach((url) => {
-      console.log(path.join(__dirname, "/images/", url));
-      // newFiles.push(path.join(__dirname, "/images/", url));
-      console.log("sent image :", path.join(__dirname, "/public/images/", url));
-
-      res.sendFile(path.join(__dirname, "/public/images/", url));
-    });
+  find_list("images").then((list) => {
+    res.json(list);
   });
+
+  // readdir(uploadsDirectory, (err, files) => {
+  //   if (err) {
+  //     return res.json({ msg: err });
+  //   }
+  //   if (files.length === 0) {
+  //     return res.json({ msg: "No images Found!" });
+  //   }
+
+  //   res.setHeader("Content-Type", "images/jpg");
+
+  //   const newFiles = [];
+
+  //   files.forEach((url) => {
+  //     res.sendFile(path.join(__dirname, "/public/images/", url));
+  //   });
+  // });
 });
 
 // Handles any requests that don't match the ones above
