@@ -3,54 +3,46 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import ReactDOM from "react-dom";
 import path from "path";
 
-function importAll(r) {
-  return r.keys().map(r);
-}
+const getImages = async (callback, location) => {
+  let result = await fetch("/api/getImages").then((res) => res.json());
 
-const Folder = ({ match }) => {
-  const [folderState, updateFolderState] = useState([]);
+  console.log({ result });
+  console.log({ location });
 
-  const getFolder = (reg) => {
-    const uploadsDirectory = path.join(__dirname, "../../images/");
+  let finalResult = result.filter((item) => location.pathname.includes(item[0]));
 
-    const completeUrl = importAll(require.context("../../images/", false, /\.(png|jpe?g|svg)$/));
-    // const completeFolder = allFolder(require.context("../../images/", false, /\.(png|jpe?g|svg)$/)));
+  console.log({ finalResult });
 
-    // console.log("completeFolder", completeFolder);
-    console.log("completeUrl", completeUrl);
+  callback([...finalResult]);
+};
 
-    updateFolderState(completeUrl);
-  };
+const Folder = ({ match, location }) => {
+  const [folderState, updateFolderState] = useState([""]);
 
   const findImages = (urlName) => {
-    // let result = correctFolder(folderState, match.params.folderName);
-
-    let reg = new RegExp(match.params.folderName, "gi");
-    if (urlName.match(reg, "gi")) {
-      return (
-        <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-            <img src={urlName} class="img-thumbnail rounded" />
-          </div>
+    return (
+      <div class="col-md-6">
+        <div class="mb-6 box-shadow">
+          <img src={"/drawings/" + folderState[0][0] + "/full_images/" + urlName} class="mx-auto rounded mt-3" />
         </div>
-      );
-    }
+      </div>
+    );
   };
 
   useEffect(() => {
-    const reg = "pop";
-    getFolder(reg);
-  }, []);
+    getImages(updateFolderState, location);
+  }, [location.pathname]);
 
   return (
-    <div class="album py-5">
+    <div class="album py-5 text-center">
       <div class="container">
-        {folderState.length ? (
+        {console.log(folderState[0])}
+        {folderState[0].length === 2 ? (
           <div id="main" class="row">
-            {folderState.map((folderName) => findImages(folderName))}
+            {folderState[0][1].map((imgUrl) => findImages(imgUrl))}
           </div>
         ) : (
-          <div>Loading...</div>
+          <div>Loading...!</div>
         )}
       </div>
     </div>

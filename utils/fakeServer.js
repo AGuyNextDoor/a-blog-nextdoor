@@ -8,7 +8,9 @@ const readdir = util.promisify(fs.readdir);
 const writeFile = util.promisify(fs.writeFile);
 
 async function mainReadFile(path) {
-  return await readdir(path);
+  let dirResult = await readdir(path);
+  // console.log({ dirResult });
+  return dirResult;
 }
 
 async function mainWriteFile(path) {
@@ -22,7 +24,8 @@ const readPath = (pathFolder) => {
 
 async function find_list(pathFolder) {
   let realPath = readPath(pathFolder);
-  return await mainReadFile(realPath);
+  let findListResult = await mainReadFile(realPath);
+  return findListResult;
 }
 
 module.exports = find_list;

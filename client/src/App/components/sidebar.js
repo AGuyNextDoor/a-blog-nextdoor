@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { allFolder, allFolders } from "../pages/Images";
 import allTopics from "../allTopics.js";
 
 const listGenerator = (topicName, path, topic = "") => {
@@ -65,11 +64,6 @@ const listGenerator = (topicName, path, topic = "") => {
   }
 };
 
-const updateState = (callback) => {
-  let result = allFolder();
-  callback(result);
-};
-
 let test = 0;
 let tested = 0;
 
@@ -93,9 +87,11 @@ const Sidebar = ({ match, location }) => {
       return path.includes(element);
     });
 
+    console.log({ topic });
+
     switch (topic[0]) {
       case "Drawings":
-        getImageDir(updatesideBarState);
+        getImagesDir(updatesideBarState);
         break;
       case "Articles":
         if (test !== 0) {
@@ -137,7 +133,7 @@ const Sidebar = ({ match, location }) => {
           </nav>
         </div>
       ) : (
-        <div></div>
+        <div>plop</div>
       )}
     </div>
   );
@@ -149,14 +145,8 @@ function importAll(r) {
   return r.keys().map(r);
 }
 
-const getImageDir = (callback) => {
-  // const uploadsDirectory = path.join(__dirname, "../../images/");
-
-  const completeUrl = importAll(require.context("../../images/full_img/", false, /\.(png|jpe?g|svg)$/));
-
-  console.log({ completeUrl });
-
-  const folders = allFolder(completeUrl);
+const getImagesDir = async (callback) => {
+  const folders = await fetch("/api/getImagesDir").then((res) => res.json());
 
   return callback([true, ...folders]);
 };

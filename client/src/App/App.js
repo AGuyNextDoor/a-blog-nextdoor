@@ -47,12 +47,12 @@ function App() {
       <div class="container-fluid">
         <div class="row">
           <Route path={["/", "/Home"]} component={Sidebar} />
-          <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+          <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 text-justify">
             <Route exact path={["/", "/Home"]} component={Home} />
             <Route path="/Articles" component={Articles} />
             <Route path="/Reflections" component={Reflections} />
-            <Route exact path="/Drawings" component={Images} />
-            <Route path="/Drawings/:folderName" component={Folder} />
+            <Route exact path={["/Drawings", "/Drawings/"]} component={Images} />
+            <Route path={["/Drawings/:folderName", "/Drawings/:folderName/"]} component={Folder} />
           </main>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import ReactHtmlParser from "react-html-parser";
+import ArticleHome from "./Articles_home.js";
 import MathJax from "@matejmazur/react-mathjax";
 
 const Articles = ({ match, location }) => {
@@ -22,7 +23,7 @@ const Articles = ({ match, location }) => {
       {location.pathname.length < 10 ? (
         <div>
           <ul>
-            <li>Choose your article on the sidebar</li>
+            <ArticleHome />
           </ul>
         </div>
       ) : (

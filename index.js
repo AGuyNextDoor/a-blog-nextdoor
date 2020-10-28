@@ -16,10 +16,18 @@ const readFile = util.promisify(fs.readFile);
 const readdir = util.promisify(fs.readdir);
 const converter = new showdown.Converter();
 
+const functionWithPromise = (item) => {
+  return find_list(item);
+};
+
+const asyncFunction = async (item) => {
+  return functionWithPromise(item);
+};
+
 // Serve the static files from the React app
 app.use(cors());
 app.use(express.static(path.join(__dirname, "client/build")));
-app.use("/images", express.static(path.join(__dirname, "public/images")));
+app.use("/drawings", express.static(path.join(__dirname, "public/drawings")));
 app.use(express.static(path.join(__dirname, "client/pop/_build")));
 // app.use(express.static(path.join(__dirname, "_build/html/_images")));
 // app.use(express.static(path.join(__dirname, "_build/html/_sources")));
@@ -28,6 +36,22 @@ app.use(express.static(path.join(__dirname, "client/pop/_build")));
 // app.use(express.static("images"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.get("/api/getTags", (req, res) => {
+  readFile("utils/tags.json").then((file) => {
+    res.send(file);
+  });
+});
+
+app.post("/api/getTags", (req, res) => {
+  const tags = readFile("utils/tags.json");
+
+  tags[req.body.tag].push(req.body.article);
+
+  console.log(tags);
+
+  fs.writeFile("utils/tags.json", tags);
+});
 
 app.get("/api/getArticles", (req, res) => {
   find_list("articles").then((articles) => {
@@ -74,41 +98,46 @@ app.get("/api/getReflection/:reflectionId", (req, res) => {
   });
 });
 
-app.get("/api/getBaseImages", (req, res) => {
-  let images = "./public/images";
-  res.setHeader("Content-Type", "application/json");
-  readdir(newFiles, (err, files) => {
-    res.send(newFiles);
+app.get("/api/getImagesDir", (req, res) => {
+  find_list("drawings/").then((files) => {
+    res.json(files);
   });
 });
 
-app.get("/api/getImages", (req, res) => {
-  const uploadsDirectory = path.join(__dirname, "/images/");
-
-  console.log({ uploadsDirectory });
-
-  console.log(path.join(__dirname, "/public/images/"));
-
-  find_list("images").then((list) => {
-    res.json(list);
+app.get("/api/getImages", async (req, res) => {
+  const result = await find_list("drawings/").then((list) => {
+    return list;
   });
 
-  // readdir(uploadsDirectory, (err, files) => {
-  //   if (err) {
-  //     return res.json({ msg: err });
-  //   }
-  //   if (files.length === 0) {
-  //     return res.json({ msg: "No images Found!" });
-  //   }
+  const getResult = async () => {
+    return Promise.all(result.map((item) => asyncFunction("drawings/" + item + "/full_images")));
+  };
 
-  //   res.setHeader("Content-Type", "images/jpg");
+  getResult().then((imgGroup) => {
+    let newResult = [];
+    imgGroup.forEach((item, index) => {
+      newResult.push([result[index], [...item]]);
+    });
+    res.json(newResult);
+  });
+});
 
-  //   const newFiles = [];
+app.get("/api/getThumbnails", async (req, res) => {
+  const result = await find_list("drawings/").then((list) => {
+    return list;
+  });
 
-  //   files.forEach((url) => {
-  //     res.sendFile(path.join(__dirname, "/public/images/", url));
-  //   });
-  // });
+  const getResult = async () => {
+    return Promise.all(result.map((item) => asyncFunction("drawings/" + item + "/thumbnails")));
+  };
+
+  getResult().then((imgGroup) => {
+    let newResult = [];
+    imgGroup.forEach((item, index) => {
+      newResult.push([result[index], [...item]]);
+    });
+    res.json(newResult);
+  });
 });
 
 // Handles any requests that don't match the ones above
