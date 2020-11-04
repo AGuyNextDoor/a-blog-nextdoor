@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import allTopics from "../allTopics.js";
+import allTopics from "../../../allTopics.js";
 
 const listGenerator = (topicName, path, topic = "") => {
   if (!topic) {

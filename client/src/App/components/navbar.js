@@ -1,7 +1,7 @@
 import { match } from "assert";
 import React from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import allTopics from "../allTopics.js";
+import allTopics from "../../../allTopics.js";
 
 const Navbar = ({ match, location }) => {
   const linkGenerator = (topicName, path) => {
