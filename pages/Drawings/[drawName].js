@@ -24,11 +24,7 @@ const Folder = () => {
     return (
       <div class="col-md-6">
         <div class="mb-6 box-shadow">
-          <Image
-            src={"\/api\/drawings\/" + location.query.drawName + "\/full_images\/" + urlName}
-            unsized
-            class="mx-auto rounded mt-3"
-          />
+          <Image src={"/api/drawings/" + location.query.drawName + "/full_images/" + urlName} layout="fill" />
         </div>
       </div>
     );

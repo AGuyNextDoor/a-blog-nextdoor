@@ -14,10 +14,10 @@
     "static/development/_ssgManifest.js"
   ],
   "pages": {
-    "/Articles": [
+    "/Drawings/[drawName]": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",
-      "static/chunks/pages/Articles.js"
+      "static/chunks/pages/Drawings/[drawName].js"
     ],
     "/_app": [
       "static/chunks/main.js",

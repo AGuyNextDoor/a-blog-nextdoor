@@ -4,9 +4,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
     "bootstrap": "^4.5.1",
     "cors": "^2.8.5",
     "fs": "^0.0.1-security",
@@ -27,8 +24,8 @@
   },
   "scripts": {
     "start": "next start",
-    "build": "next build",
-    "test": "next test",
+    "build": "next build --debug",
+    "test": "NODE_OPTIONS='--inspect' next dev",
     "eject": "next eject",
     "dev": "next",
     "path": "node generateURL.js"

@@ -543,9 +543,8 @@ const Folder = () => {
     }, __jsx("div", {
       class: "mb-6 box-shadow"
     }, __jsx(next_image__WEBPACK_IMPORTED_MODULE_4___default.a, {
-      src: "\/api\/drawings\/" + location.query.drawName + "\/full_images\/" + urlName,
-      unsized: true,
-      class: "mx-auto rounded mt-3"
+      src: "/api/drawings/" + location.query.drawName + "/full_images/" + urlName,
+      layout: "fill"
     })));
   };
 
