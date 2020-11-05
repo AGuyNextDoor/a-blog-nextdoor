@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 11);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -143,7 +143,7 @@ function withRouter(ComposedComponent) {
 
 /***/ }),
 
-/***/ 11:
+/***/ 10:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("1TCz");
@@ -437,7 +437,6 @@ function MyApp({
   Component,
   pageProps
 }) {
-  // const Layout = Component.Layout ? Component.Layout : React.Fragment;
   return _app_jsx("body", null, _app_jsx("header", null, _app_jsx(navbar, null)), _app_jsx("div", {
     class: "container-fluid"
   }, _app_jsx("div", {

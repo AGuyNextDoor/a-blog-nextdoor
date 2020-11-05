@@ -7,28 +7,29 @@ import { useRouter } from "next/router";
 const Article = () => {
   const [articleState, updateArticleState] = useState();
 
-  const match = {
-    params: {
-      articleId: 5,
-    },
-  };
+  const router = useRouter();
+  let { article_name } = router.query;
 
   // Retrieves the list of items from the Express app
   let title = "Loading...";
   const getArticle = () => {
-    fetch("/api/articles/" + match.params.articleId)
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        title = match.params.articleId;
-        updateArticleState(data[1]);
-      });
+    if(!(article_name)){
+      article_name = "introduction.md"
+    } else {
+      fetch("/api/articles/" + article_name)
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          title = article_name;
+          updateArticleState(data[1]);
+        });
+      }
   };
 
   useEffect(() => {
     getArticle();
-  }, [articleState, title, match.params.articleId]);
+  }, [articleState, title, article_name]);
 
   getArticle();
 

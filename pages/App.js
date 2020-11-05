@@ -1,35 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, withRouter } from "react-router-dom";
 
-// import "./index.css";
-
-
-// export function allFolder(r) {
-//   let folder = r.map((element) => {
-//     return element.match(/(?<=\.)(.*?)(?=\.)/g)[0];
-//   });
-
-//   folder = [...new Set(folder)];
-
-//   folder = folder.filter((r) => {
-//     if (r) {
-//       return r;
-//     }
-//   });
-
-//   return folder;
-// }
-
-// function importAll(r) {
-//   return r.keys().map(r);
-// }
-
-// const getFolder = () => {
-//   const completeUrl = importAll(require.context("../images/", false, /\.(png|jpe?g|svg)$/));
-//   // const completeFolder = allFolder(require.context("../../images/", false, /\.(png|jpe?g|svg)$/)));
-
-//   return completeUrl;
-// };
 
 function App() {
   return (
@@ -54,5 +25,5 @@ function App() {
   );
 }
 
-export default withRouter(App);
+export default App;
 // export default App;
