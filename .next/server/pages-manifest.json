@@ -1,0 +1,17 @@
+{
+  "/App": "pages/App.js",
+  "/Articles/Articles_cards": "pages/Articles/Articles_cards.js",
+  "/Articles/Articles_tags": "pages/Articles/Articles_tags.js",
+  "/Articles/[article_name]": "pages/Articles/[article_name].js",
+  "/Articles": "pages/Articles.js",
+  "/Drawings/Drawings": "pages/Drawings/Drawings.js",
+  "/Drawings/[drawName]": "pages/Drawings/[drawName].js",
+  "/Drawings": "pages/Drawings.js",
+  "/Home": "pages/Home.js",
+  "/Reflections/[reflection_name]": "pages/Reflections/[reflection_name].js",
+  "/Reflections": "pages/Reflections.js",
+  "/_app": "pages/_app.js",
+  "/": "pages/index.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js"
+}
