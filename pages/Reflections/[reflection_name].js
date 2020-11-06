@@ -8,6 +8,9 @@ import showdown from "showdown"
 
 const converter = new showdown.Converter();
 
+console.log("Reflections");
+
+
 // import path from "path";
 
 const Reflection = () => {

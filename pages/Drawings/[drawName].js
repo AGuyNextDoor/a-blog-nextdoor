@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import Image from "next/image"
 import ReactDOM from "react-dom";
 // import path from "path";
+console.log("Drawings");
 
 const getImages = async (callback, location) => {
   // let result = await fetch("/api/getImages").then((res) => res.json());
@@ -22,7 +23,7 @@ const Folder = () => {
 
   const findImages = (urlName) => {
     return (
-      <div class="col-md-3 col-lg-6 m-auto hoverable">
+      <div class="col-md-4 col-lg-6 m-auto hoverable">
         <img
           class="pt-3 rounded"
           src={"/api/drawings/" + location.query.drawName + "/full_images/" + urlName}

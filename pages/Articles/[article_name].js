@@ -4,6 +4,9 @@ import Link from "next/link";
 import ReactHtmlParser from "react-html-parser";
 import { useRouter } from "next/router";
 
+console.log("Articles");
+
+
 const Article = () => {
   const [articleState, updateArticleState] = useState();
 
