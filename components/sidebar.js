@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Link from "next/link"
 import allTopics from "../allTopics.js";
 
-const listGenerator = (topicName, path, topic = "") => {
+const listGenerator = (topicName, path, topic = "", location) => {
 
   if (!topic) {
     let topic = allTopics.filter((element) => {
@@ -18,26 +18,40 @@ const listGenerator = (topicName, path, topic = "") => {
     topic = topic[0];
   }
 
+  let query = location.query[Object.keys(location.query)[0]];
+
+  let topicTrimmed = topicName.split(".").slice(0, -1).join(".");
+  topicTrimmed = topicTrimmed.replace(/_/g, " ");
+  topicTrimmed = topicTrimmed.replace(/-/g, " ");
+
   const linkUrl = "/" + topic + "/" + topicName;
   if (linkUrl.includes(".") && typeof linkUrl === "string" && typeof topicName === "string") {
-    let topicTrimmed = topicName.split(".").slice(0, -1).join(".");
-    topicTrimmed = topicTrimmed.replace(/_/g, " ");
-    topicTrimmed = topicTrimmed.replace(/-/g, " ");
+    
 
     let pathTrimmed = decodeURI(path);
     pathTrimmed = pathTrimmed.split(".").slice(0, -1).join(".");
     pathTrimmed = pathTrimmed.replace(/_/g, " ");
     pathTrimmed = pathTrimmed.replace(/-/g, " ");
 
-    if (pathTrimmed.includes(topicTrimmed)) {
+    console.log({ path });
+    console.log({ query });
+    console.log({ topicName });
+    console.log({ topicTrimmed });
+    console.log({ pathTrimmed });
+
+
+    if (query === topicName) {
+      console.log(1);
       return (
-        <li class="nav-item flex-fill p-2 sidebar-item active">
-          <Link class="nav-link" key={topic+topicName} href={linkUrl}>
+        <li class="nav-item flex-fill p-2 sidebar-item active text-dark font-weight-bold bg-white shadow-sm">
+          <Link class="nav-link" key={topic + topicName} href={linkUrl}>
             {topicTrimmed}
           </Link>
         </li>
       );
     } else {
+      console.log(2);
+
       return (
         <li class="nav-item flex-fill p-2 sidebar-item">
           <Link class="nav-link" key={topic + topicName} href={linkUrl}>
@@ -47,19 +61,26 @@ const listGenerator = (topicName, path, topic = "") => {
       );
     }
   } else {
-    if (path.includes(topicName)) {
+    if(!(topicTrimmed)){
+      topicTrimmed = topicName;
+    }
+    if (query === topicName) {
+      console.log(3);
+
       return (
-        <li class="nav-item flex-fill p-2 sidebar-item active">
+        <li class="nav-item flex-fill p-2 sidebar-item active text-dark font-weight-bold bg-white shadow-sm">
           <Link class="nav-link" key={topic + topicName} href={linkUrl}>
-            {topicName}
+            {topicTrimmed}
           </Link>
         </li>
       );
     } else {
+      console.log(topicTrimmed);
+
       return (
         <li class="nav-item flex-fill p-2 sidebar-item">
           <Link class="nav-link" key={topic + topicName} href={linkUrl}>
-            {topicName}
+            {topicTrimmed}
           </Link>
         </li>
       );
@@ -82,7 +103,7 @@ const Sidebar = ({ match }) => {
     });
 
     return sidebarState.map((element) => {
-      return listGenerator(element, path, topic);
+      return listGenerator(element, path, topic, location);
     });
   };
 

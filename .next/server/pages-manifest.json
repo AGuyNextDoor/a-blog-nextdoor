@@ -1,17 +1,7 @@
 {
-  "/App": "pages/App.html",
-  "/Articles/Articles_tags": "pages/Articles/Articles_tags.html",
-  "/Articles/[article_name]": "pages/Articles/[article_name].html",
-  "/Articles": "pages/Articles.html",
-  "/Drawings/Drawings": "pages/Drawings/Drawings.html",
-  "/Drawings/[drawName]": "pages/Drawings/[drawName].html",
-  "/Drawings": "pages/Drawings.html",
-  "/Home": "pages/Home.html",
-  "/Reflections/[reflection_name]": "pages/Reflections/[reflection_name].html",
-  "/Reflections": "pages/Reflections.html",
   "/_app": "pages/_app.js",
-  "/": "pages/index.html",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/404": "pages/404.html"
+  "/Reflections": "pages/Reflections.js",
+  "/Drawings/[drawName]": "pages/Drawings/[drawName].js"
 }

@@ -22,10 +22,12 @@ const Folder = () => {
 
   const findImages = (urlName) => {
     return (
-      <div class="col-md-6">
-        <div class="mb-6 box-shadow">
-          <Image src={"/api/drawings/" + location.query.drawName + "/full_images/" + urlName} layout="fill" />
-        </div>
+      <div class="col-md-3 col-lg-6 m-auto hoverable">
+        <img
+          class="pt-3 rounded"
+          src={"/api/drawings/" + location.query.drawName + "/full_images/" + urlName}
+          unsized
+        />
       </div>
     );
   };

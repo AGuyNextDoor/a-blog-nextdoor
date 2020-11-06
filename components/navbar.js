@@ -7,16 +7,15 @@ import allTopics from "../allTopics.js";
 
 const Navbar = ({children}) => {
   const location = useRouter();
-  console.log({ location });
 
   const linkGenerator = (topicName, path) => {
-    let className = "nav-link";
+    let className = "nav-item nav-link";
 
     if (path.pathname.includes(topicName)) {
-      className = "nav-link nav-link-active active";
+      className = "nav-item nav-link shadow rounded";
     }
     return (
-      <li class="nav-item">
+      <li class={className}>
         <Link class={className} key={{ pathname: "/" + topicName, state: "plop" }} href={`/${topicName}`}>
           {topicName}
         </Link>

@@ -3,21 +3,17 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 // import ArticlesCards from "./Articles_cards.js";
 
 const getArticle = (url) => {
-  if (url === "images") {
-    return [null, null];
-  } else {
-    return fetch("/api/articles/" + url)
-      .then((res) => {
-        return res.text();
-      })
-      .then((res) => {
-        return [res, url];
-      })
-      .catch((err) => {
-        console.log(err);
-        return [null, null];
-      });
-  }
+  return fetch("/api/articles/" + url)
+    .then((res) => {
+      return res.text();
+    })
+    .then((res) => {
+      return [res, url];
+    })
+    .catch((err) => {
+      console.log(err);
+      return [null, null];
+    });
 };
 
 const articleCard = (articleText, activeTags, tagsState) => {
@@ -59,7 +55,13 @@ const ArticlesCards = ({ articleURL, activeTags }) => {
   useEffect(() => {
     Promise.all(articleURL.map(getArticle))
       .then((proRes) => {
-        updateArticleState(proRes);
+        const re = /(?:\.([^.]+))?$/;
+        let result = proRes.filter((folder) => {
+          console.log(folder[1]);
+          return re.exec(folder[1])[1]
+        })
+        console.log({ result });
+        updateArticleState(result);
       })
       .then(() => {
         fetch("tags.json")
