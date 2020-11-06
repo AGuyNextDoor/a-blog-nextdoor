@@ -14,6 +14,10 @@ export default function MyApp({ Component, pageProps }) {
         <link rel="manifest" href="/favicon/site.webmanifest" />
         <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5" />
         <meta name="theme-color" content="#ffffff" />
+        <script
+          async="async"
+          src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"
+        ></script>
       </Head>
       <body>
         <header>
@@ -27,6 +31,7 @@ export default function MyApp({ Component, pageProps }) {
             </main>
           </div>
         </div>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       </body>
     </>
   );

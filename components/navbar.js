@@ -12,7 +12,7 @@ const Navbar = ({children}) => {
     let className = "nav-item nav-link";
 
     if (path.pathname.includes(topicName)) {
-      className = "nav-item nav-link shadow rounded";
+      className = "nav-item nav-link text-dark font-weight-bold bg-light shadow rounded";
     }
     return (
       <li class={className}>

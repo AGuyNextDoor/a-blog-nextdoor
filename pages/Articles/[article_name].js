@@ -4,7 +4,6 @@ import Link from "next/link";
 import ReactHtmlParser from "react-html-parser";
 import { useRouter } from "next/router";
 import showdown from "showdown";
-import MathJax from "@matejmazur/react-mathjax";
 
 const converter = new showdown.Converter();
 
@@ -53,6 +52,7 @@ const Article = () => {
       {articleState ? (
         <div>
           {/* <div dangerouslySetInnerHTML={{ __html: articleState }} /> */}
+          <h1>{article_name}</h1>
           {ReactHtmlParser(articleState)}
         </div>
       ) : (

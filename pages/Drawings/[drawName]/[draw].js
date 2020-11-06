@@ -1,15 +1,15 @@
 import React, { useState, useEffect, Component } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import Link from "next/link"
+import Link from "next/link";
 import { useRouter } from "next/router";
-import Image from "next/image"
+import Image from "next/image";
 import ReactDOM from "react-dom";
 // import path from "path";
 console.log("Drawings");
 
 const getImages = async (callback, location) => {
   // let result = await fetch("/api/getImages").then((res) => res.json());
-  let result = await fetch("\/drawingsURL.json").then((res) => res.json());
+  let result = await fetch("/drawingsURL.json").then((res) => res.json());
 
   console.log(location.query.drawName);
   console.log(result[location.query.drawName]);
@@ -19,18 +19,20 @@ const getImages = async (callback, location) => {
 
 const Folder = () => {
   const [folderState, updateFolderState] = useState([]);
-  const location = useRouter()
+  const location = useRouter();
+
+  const {drawName, draw} = location.query
+
+  console.log({draw});
 
   const findImages = (urlName) => {
     return (
-      <div class="col-md-4 col-lg-6 m-auto hoverable">
-        <Link href={location.query.drawName + "/" + urlName}>
-          <img
-            class="pt-3 rounded"
-            src={"/api/drawings/" + location.query.drawName + "/full_images/" + urlName}
-            unsized
-          />
-        </Link>
+      <div class="col-12 m-auto hoverable">
+        <img
+          class="pt-3 rounded"
+          src={"/api/drawings/" + location.query.drawName + "/full_images/" + urlName}
+          unsized
+        />
       </div>
     );
   };
@@ -45,11 +47,11 @@ const Folder = () => {
         {folderState ? (
           <>
             <div id="main" class="row">
-              {folderState.map((imgUrl) => findImages(imgUrl))}
+              {findImages(draw)}
             </div>
           </>
         ) : (
-            <div>Loading...!</div>
+          <div>Loading...!</div>
         )}
       </div>
     </div>
@@ -57,5 +59,3 @@ const Folder = () => {
 };
 
 export default Folder;
-
-// "/static/media/(Coton).Portrait Noir et Blanc.1b5fcdb1.png";
