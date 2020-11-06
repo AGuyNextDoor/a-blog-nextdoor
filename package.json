@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@matejmazur/react-mathjax": "^0.1.10",
     "bootstrap": "^4.5.1",
     "cors": "^2.8.5",
     "fs": "^0.0.1-security",
@@ -16,6 +17,7 @@
     "react-dom": "^16.13.1",
     "react-html-parser": "^2.0.2",
     "react-markdown": "^4.3.1",
+    "react-mathjax2": "^0.0.2",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",

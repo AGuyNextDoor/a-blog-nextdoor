@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Component } from "react";
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 // import ReactHtmlParser from "react-html-parser";
-import ArticlesTags from "./Articles_tags.js";
+import ArticlesTags from "../../components/Articles_tags.js";
 import { useRouter } from "next/router";
 // import MathJax from "@matejmazur/react-mathjax";
 

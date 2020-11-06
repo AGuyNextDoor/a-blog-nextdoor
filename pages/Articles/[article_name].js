@@ -3,6 +3,10 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Link from "next/link";
 import ReactHtmlParser from "react-html-parser";
 import { useRouter } from "next/router";
+import showdown from "showdown";
+import MathJax from "@matejmazur/react-mathjax";
+
+const converter = new showdown.Converter();
 
 console.log("Articles");
 
@@ -20,12 +24,20 @@ const Article = () => {
       article_name = "introduction.md"
     } else {
       fetch("/api/articles/" + article_name)
+      .then(at => {
+        console.log(at);
+        return at
+      })
         .then((res) => {
-          return res.json();
+          return res.text();
         })
         .then((data) => {
           title = article_name;
-          updateArticleState(data[1]);
+          if(article_name.includes("md")){
+            updateArticleState(converter.makeHtml(data));
+          } else {
+            updateArticleState(data);
+          }
         });
       }
   };

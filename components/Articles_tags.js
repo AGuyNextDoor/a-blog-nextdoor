@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Link from "next/link"
 // import ArticlesCards from "./Articles_cards.js";
 
 const getArticle = (url) => {
@@ -22,11 +23,13 @@ const articleCard = (articleText, activeTags, tagsState) => {
 
   if (activeCategories.length === 0) {
     return (
-      <div class="card">
-        <div class="card-body">
-          <h7 class="card-title">{articleText[1]}</h7>
+      <Link href={"/Articles/"+articleText[1]}>
+        <div class="card">
+          <div class="card-body">
+            <h7 class="card-title">{articleText[1]}</h7>
+          </div>
         </div>
-      </div>
+      </Link>
     );
   } else {
     activeCategories.forEach((obj) => {
@@ -37,11 +40,13 @@ const articleCard = (articleText, activeTags, tagsState) => {
 
     if (flag) {
       return (
-        <div class="card">
-          <div class="card-body">
-            <h7 class="card-title">{articleText[1]}</h7>
+        <Link href={"/Articles/"+articleText[1]}>
+          <div class="card">
+            <div class="card-body">
+              <h7 class="card-title">{articleText[1]}</h7>
+            </div>
           </div>
-        </div>
+        </Link>
       );
     }
   }
