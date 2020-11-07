@@ -28,10 +28,10 @@
   },
   "scripts": {
     "start": "next start",
-    "build": "next build",
+    "build": "yarn path && next build",
     "test": "NODE_OPTIONS='--inspect' next dev",
     "eject": "next eject",
-    "dev": "next",
+    "dev": "yarn path && next",
     "path": "node generateURL.js"
   },
   "eslintConfig": {
