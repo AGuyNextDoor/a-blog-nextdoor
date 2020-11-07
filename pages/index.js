@@ -28,7 +28,7 @@ const HomePage = () => {
         <text class="font-weight-normal">Contact information:</text>
         <br />
         <li>
-          <a href="https://a-blog-nextdoor.vercel.app/Reflections/ChipsStick.md">Personal GitHub</a>
+          <a href="https://github.com/AGuyNextDoor">Personal GitHub</a>
         </li>
         <li>
           <a href="https://github.com/AGuyNextDoor/a-blog-nextdoor">Blog's GitHub</a>

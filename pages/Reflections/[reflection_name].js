@@ -43,7 +43,8 @@ const Reflection = () => {
   getReflection();
 
   return (
-    <div>
+    <div className="mt-5">
+      <div classname="mt-2"><hr/></div>
       {reflectionState ? (
         <div>
           {ReactHtmlParser(reflectionState)}
