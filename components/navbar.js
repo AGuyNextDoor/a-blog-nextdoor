@@ -15,7 +15,7 @@ const Navbar = ({children}) => {
       className = "nav-item nav-link text-dark font-weight-bold bg-light shadow rounded";
     }
     return (
-      <li class={className}>
+      <li class={className} data-toggle="collapse" data-target=".navbar-collapse.show">
         <Link class={className} key={{ pathname: "/" + topicName, state: "plop" }} href={`/${topicName}`}>
           {topicName}
         </Link>
