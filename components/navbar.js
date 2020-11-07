@@ -29,11 +29,11 @@ const Navbar = ({children}) => {
         class="navbar navbar-expand-md navbar-light flex-md-nowrap fixed-top"
         // style="position: fixed; top: 0;right: 0;left: 0;z-index: 1030;}"
       >
-        <Link class="" href="/">
-          <a class="navbar-brand" to="/" href="#">
+        <div class="navbar-brand" data-toggle="collapse" data-target=".navbar-collapse.show">
+          <Link to="/" href="/">
             A Blog Next Door
-          </a>
-        </Link>
+          </Link>
+        </div>
         <button
           class="navbar-toggler"
           type="button"
