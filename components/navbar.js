@@ -31,7 +31,9 @@ const Navbar = ({children}) => {
       >
         <div class="navbar-brand" data-toggle="collapse" data-target=".navbar-collapse.show">
           <Link to="/" href="/">
-            A Blog Next Door
+            <div class="navbar-brand" >
+              A Blog Next Door
+            </div>
           </Link>
         </div>
         <button
