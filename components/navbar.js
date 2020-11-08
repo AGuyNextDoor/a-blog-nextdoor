@@ -26,7 +26,7 @@ const Navbar = ({children}) => {
   return (
     <div>
       <nav
-        class="navbar navbar-expand-md navbar-light flex-md-nowrap fixed-top"
+        className="navbar navbar-expand-md navbar-light flex-md-nowrap fixed-top"
         // style="position: fixed; top: 0;right: 0;left: 0;z-index: 1030;}"
       >
         <div class="navbar-brand" data-toggle="collapse" data-target=".navbar-collapse.show">

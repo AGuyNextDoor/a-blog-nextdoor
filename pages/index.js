@@ -6,6 +6,55 @@ import { StaticRouter } from "react-router-dom";
 // import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+const FooterGen = () => {
+  return (
+    <>
+      <p>
+        <button
+          class="btn font-weight-normal"
+          type="button"
+          data-toggle="collapse"
+          data-target=".multi-collapse"
+          aria-expanded="false"
+          aria-controls="multiCollapseExample1 multiCollapseExample2"
+        >
+          Contact Information
+        </button>
+      </p>
+      <div class="d-flex justify-content-around">
+        <div class="">
+          <div class="collapse multi-collapse" id="multiCollapseExample2">
+            <a href="https://github.com/AGuyNextDoor">
+              <button class="bg-dark text-light rounded">GitHub</button>
+            </a>
+          </div>
+        </div>
+        <div class="">
+          <div class="collapse multi-collapse" id="multiCollapseExample2">
+            <a href="https://github.com/AGuyNextDoor/a-blog-nextdoor">
+              <button class="bg-dark text-light rounded">Blog's GitHub</button>
+            </a>
+          </div>
+        </div>
+        <div class="">
+          <div class="collapse multi-collapse" id="multiCollapseExample2">
+            <a href="https://www.linkedin.com/in/martinvielvoye/">
+              <button class="bg-primary text-light rounded">Linkedin</button>
+            </a>
+          </div>
+        </div>
+        <div class="">
+          <div class="collapse multi-collapse" id="multiCollapseExample2">
+            <a href="mailto:contact.aguynextdoor@gmail.com">
+              <button class="rounded">Mail</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
 const HomePage = () => {
 
   return (
@@ -24,21 +73,10 @@ const HomePage = () => {
       <text class="font-italic">Music of the moment</text>: Ball and Biscuit - The White Stripes
       <br />
       <br />
-      <footer class="font-weight-light bg-light">
-        <text class="font-weight-normal">Contact information:</text>
+      <footer class="card-footer footer font-weight-light bg-light">
+      <FooterGen/>
         <br />
-        <li>
-          <a href="https://github.com/AGuyNextDoor">Personal GitHub</a>
-        </li>
-        <li>
-          <a href="https://github.com/AGuyNextDoor/a-blog-nextdoor">Blog's GitHub</a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/martinvielvoye/">Linkedin</a>
-        </li>
-        <li>
-          <a href="mailto:contact.aguynextdoor@gmail.com">Mail</a>
-        </li>
+        
       </footer>
     </>
   );
