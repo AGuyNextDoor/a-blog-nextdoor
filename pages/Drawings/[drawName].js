@@ -27,7 +27,7 @@ const Folder = () => {
         <Link href={location.query.drawName + "/" + urlName}>
           <img
             class="pt-3 rounded"
-            src={"/api/drawings/" + location.query.drawName + "/full_images/" + urlName}
+            src={"/api/drawings/" + location.query.drawName + "/mid/" + urlName}
             unsized
           />
         </Link>
