@@ -5,38 +5,52 @@ import { useRouter } from "next/router";
 import Image from "next/image"
 import ReactDOM from "react-dom";
 // import path from "path";
+
 console.log("Drawings");
-
-const getImages = async (callback, location) => {
-  // let result = await fetch("/api/getImages").then((res) => res.json());
-  let result = await fetch("\/drawingsURL.json").then((res) => res.json());
-
-  console.log(location.query.drawName);
-  console.log(result[location.query.drawName]);
-
-  callback(result[location.query.drawName]);
-};
 
 const Folder = () => {
   const [folderState, updateFolderState] = useState([]);
   const location = useRouter()
 
   const findImages = (urlName) => {
-    return (
-        <Link href={location.query.drawName + "/" + urlName}>
-      <div class="col-md-4 pb-2 col-lg-6 m-auto hoverable">
-          <Image
-            class="pt-3 rounded"
-            src={"/api/drawings/" + location.query.drawName + "/mid/" + urlName}
-            unsized
-            layout="fill"
-          />
-      </div>
-        </Link>
-    );
+    if(urlName === "Loading..."){
+      return (
+        <p>Loading ...</p>
+      )
+    } else {
+      return (
+          <Link href={location.query.drawName + "/" + urlName}>
+        <div class="col-md-4 pb-2 col-lg-6 m-auto hoverable">
+            <Image
+              class="pt-3 rounded"
+              src={"/api/drawings/" + location.query.drawName + "/mid/" + urlName}
+              unsized
+              layout="fill"
+            />
+        </div>
+          </Link>
+      );
+    };
+    }
+
+  const getImages = async (callback, location, flag = false) => {
+    if (flag) {
+      callback(["Loading..."]);
+    } else {
+      // let result = await fetch("/api/getImages").then((res) => res.json());
+      let result = await fetch("/drawingsURL.json").then((res) => res.json());
+
+      console.log(location.query.drawName);
+      console.log(result[location.query.drawName]);
+
+      callback(result[location.query.drawName]);
+    }
   };
 
   useEffect(() => {
+
+    getImages(updateFolderState, location, true);
+    console.log("Set to zero");
     getImages(updateFolderState, location);
   }, [ location.pathname, location.query.drawName]);
 
