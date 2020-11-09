@@ -3,13 +3,22 @@ const fs = require("fs");
 
 const readFile = util.promisify(fs.readFile);
 const readdir = util.promisify(fs.readdir);
+const stat = util.promisify(fs.stat);
 
-console.log(__dirname)
+// console.log(__dirname)
 
+fs.stat(__dirname + "/public/api/articles/markdown copy.md", (err, stats) => {
+  console.log(stats);
+  console.log(stats.birthtime);
+});
 
 const categoriesFinder = async (topic) => {
   return await readdir(__dirname + "\/public\/api\/" + topic);
 };
+
+const dateFinder = async (topic, file) => {
+  return await stat(__dirname + "/public/api/" + topic + "/" + file);
+}
 
 const findFullImages = async (category) => {
   return await readdir(__dirname + "\/public\/api\/drawings\/" + category + "\/full_images\/");
@@ -26,6 +35,10 @@ const returnFiles = async (categories, flag = true) => {
     return Promise.all(categories.map(async (result) => await findThumbnails(result)));
   }
 }
+
+const returnDates = async (topic, files) => {
+  return Promise.all(files.map(async (file) => await dateFinder(topic, file)));
+};
 
 const constructObject = async (topic, topicOut) => {
   let obj = {};
@@ -46,9 +59,20 @@ const constructObject = async (topic, topicOut) => {
         [categories[index]]: file,
       };
     });
+  } else if (topic === "articles" || topic === "reflections"){
+
+    let dates = await returnDates(topic, categories)
+    let mods = dates.map(fi => fi.mtime)
+    dates = dates.map((fi) => fi.birthtime);
+
+    obj = {
+      [topic]: categories,
+      dates,
+      mods
+    }
   } else {
     obj = {
-      [topic]: categories
+      [topic]: categories,
     }
   }
     
@@ -56,7 +80,7 @@ const constructObject = async (topic, topicOut) => {
       if (err) {
         return console.log(err);
       }
-    console.log("File created");
+    console.log("File created:", "/public/" + topicOut);
   });
 };
 

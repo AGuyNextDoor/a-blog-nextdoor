@@ -7,9 +7,6 @@ import showdown from "showdown";
 
 const converter = new showdown.Converter();
 
-console.log("Articles");
-
-
 const Article = () => {
   const [articleState, updateArticleState] = useState();
 
@@ -24,7 +21,6 @@ const Article = () => {
     } else {
       fetch("/api/articles/" + article_name)
       .then(at => {
-        console.log(at);
         return at
       })
         .then((res) => {
@@ -51,8 +47,6 @@ const Article = () => {
     <div>
       {articleState ? (
         <div>
-          {/* <div dangerouslySetInnerHTML={{ __html: articleState }} /> */}
-          <h1>{article_name}</h1>
           {ReactHtmlParser(articleState)}
         </div>
       ) : (

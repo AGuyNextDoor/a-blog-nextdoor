@@ -19,6 +19,7 @@ export default function MyApp({ Component, pageProps }) {
           async="async"
           src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"
         ></script>
+        <title>A-Blog-Nextdoor</title>
       </Head>
       <header className="">
         <Navbar></Navbar>
@@ -27,7 +28,7 @@ export default function MyApp({ Component, pageProps }) {
         <div class="container-fluid content-area mt-sm" data-toggle="collapse" data-target=".navbar-collapse.show">
           <div class="row pt-3">
             <Sidebar></Sidebar>
-            <main role="main" class="inner-body col-md-9 ml-sm-auto col-lg-10 px-md-2 text-justify ">
+            <main role="main" class="inner-body col-md-9 ml-sm-auto col-lg-10 px-md-3 text-justify ">
               <Component {...pageProps}></Component>
             </main>
           </div>

@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 const Articles = () => {
   const location = useRouter()
 
-  const [listState, updateListState] = useState([]);
+  const [listState, updateListState] = useState([[""], [""], [""]]);
 
   // Retrieves the list of items from the Express app
   const getList = () => {
@@ -16,8 +16,7 @@ const Articles = () => {
     // .then()
     .then((res) => res.json())
     .then(result => {
-      console.log(result.articles);
-      updateListState(result.articles)
+      updateListState([result.articles, result.dates, result.mods])
     })
       // .then((list) => updateListState(list));
   };
@@ -30,7 +29,7 @@ const Articles = () => {
     <div className="App">
       {location.pathname.length < 10 ? (
         <div>
-          <ArticlesTags articleURL={listState} />
+          <ArticlesTags articleURL={listState[0]} articleDates={listState[1]} articleMods={listState[2]}/>
         </div>
       ) : (
         <div></div>

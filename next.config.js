@@ -8,6 +8,12 @@ module.exports = {
     }
     return config;
   },
+
+  images: {
+    domains: [],
+    path: "/_next/image",
+    loader: "default",
+  },
 };
 
 // const nextConfigs = {

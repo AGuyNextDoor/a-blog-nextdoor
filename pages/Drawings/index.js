@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Link from "next/link"
+import Image from "next/image"
 import ReactDOM from "react-dom";
 import path from "path";
 import { useRouter } from "next/router";
@@ -48,29 +49,35 @@ const Images = () => {
           <div id="photo-center">
             <div id="small_1">
               <Link href={"/Drawings/" + category}>
-                <img
+                <Image
                   id="copy"
                   src={"/api/drawings/" + category + "/thumbnails/" + urls[0]}
                   class="img-thumbnail rounded"
-                ></img>
+                  unsized
+                  layout="fill"
+                ></Image>
               </Link>
             </div>
             <div id="small_2">
               <Link href={"/Drawings/" + category}>
-                <img
+                <Image
                   id="copy"
                   src={"/api/drawings/" + category + "/thumbnails/" + urls[1]}
                   class=" img-thumbnail rounded"
-                ></img>
+                  unsized
+                  layout="fill"
+                ></Image>
               </Link>
             </div>
             <div id="small_3">
               <Link href={"/Drawings/" + category}>
-                <img
+                <Image
                   id="copy"
                   src={"/api/drawings/" + category + "/thumbnails/" + urls[2]}
                   class="img-thumbnail rounded"
-                ></img>
+                  unsized
+                  layout="fill"
+                ></Image>
               </Link>
             </div>
           </div>

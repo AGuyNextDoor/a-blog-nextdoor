@@ -23,21 +23,22 @@ const Folder = () => {
 
   const findImages = (urlName) => {
     return (
-      <div class="col-md-4 col-lg-6 m-auto hoverable">
         <Link href={location.query.drawName + "/" + urlName}>
-          <img
+      <div class="col-md-4 pb-2 col-lg-6 m-auto hoverable">
+          <Image
             class="pt-3 rounded"
             src={"/api/drawings/" + location.query.drawName + "/mid/" + urlName}
             unsized
+            layout="fill"
           />
-        </Link>
       </div>
+        </Link>
     );
   };
 
   useEffect(() => {
     getImages(updateFolderState, location);
-  }, [location.query.drawName]);
+  }, [ location.pathname, location.query.drawName]);
 
   return (
     <div class="album py-5 text-center">

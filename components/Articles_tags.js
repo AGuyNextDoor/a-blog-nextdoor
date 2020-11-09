@@ -1,6 +1,8 @@
 import React, { useState, useEffect, Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Link from "next/link"
+import moment from "moment";
+
 // import ArticlesCards from "./Articles_cards.js";
 
 const getArticle = (url) => {
@@ -17,19 +19,22 @@ const getArticle = (url) => {
     });
 };
 
-const articleCard = (articleText, activeTags, tagsState) => {
+const articleCard = (articleText, activeTags, tagsState, creationDate, modificationDate) => {
   let flag = true;
   const activeCategories = activeTags.filter((obj) => obj.active);
 
   if (activeCategories.length === 0) {
     return (
-      <Link href={"/Articles/"+articleText[1]}>
-        <div class="card">
-          <div class="card-body">
-            <h7 class="card-title">{articleText[1]}</h7>
-          </div>
+      <div class="card">
+        <div class="card-body">
+          <h7 class="card-title">{articleText[1]}</h7>
+          <p>Created date: {creationDate}</p>
+          <p>Modified date: {modificationDate}</p>
+          <Link href={"/Articles/" + articleText[1]}>
+            <div class="btn btn-primary"> {"->"} </div>
+          </Link>
         </div>
-      </Link>
+      </div>
     );
   } else {
     activeCategories.forEach((obj) => {
@@ -40,10 +45,12 @@ const articleCard = (articleText, activeTags, tagsState) => {
 
     if (flag) {
       return (
-        <Link href={"/Articles/"+articleText[1]}>
+        <Link href={"/Articles/" + articleText[1]}>
           <div class="card">
             <div class="card-body">
               <h7 class="card-title">{articleText[1]}</h7>
+              <p>Created date: {creationDate}</p>
+              <p>Modified date: {modificationDate}</p>
             </div>
           </div>
         </Link>
@@ -52,9 +59,10 @@ const articleCard = (articleText, activeTags, tagsState) => {
   }
 };
 
-const ArticlesCards = ({ articleURL, activeTags }) => {
+const ArticlesCards = ({ articleURL, articleDates, articleMods, activeTags }) => {
   const [articleState, updateArticleState] = useState(["articles loading..."]);
   const [tagsState, updateTags] = useState([]);
+  const [dates, setDates] = useState([[""],[""]])
 
   // Retrieves the list of items from the Express app
   useEffect(() => {
@@ -62,11 +70,10 @@ const ArticlesCards = ({ articleURL, activeTags }) => {
       .then((proRes) => {
         const re = /(?:\.([^.]+))?$/;
         let result = proRes.filter((folder) => {
-          console.log(folder[1]);
           return re.exec(folder[1])[1]
         })
-        console.log({ result });
         updateArticleState(result);
+
       })
       .then(() => {
         fetch("tags.json")
@@ -79,9 +86,21 @@ const ArticlesCards = ({ articleURL, activeTags }) => {
       });
   }, [articleURL, activeTags]);
 
+
+
   return (
     <div class="row">
-      <div class="col-10 rounded">{articleState.map((article) => articleCard(article, activeTags, tagsState))}</div>
+      <div class="col-10 rounded">
+        {articleState.map((article, index) => 
+          articleCard(
+            article,
+            activeTags,
+            tagsState,
+            moment(articleDates[index]).format("dddd Do MMMM YYYY"),
+            moment(articleMods[index]).format("dddd Do MMMM YYYY"),
+          )
+        )}
+      </div>
     </div>
   );
 };
@@ -108,7 +127,7 @@ const getTags = async (callback) => {
   );
 };
 
-const ArticleTags = ({ articleURL }) => {
+const ArticleTags = ({ articleURL, articleDates, articleMods }) => {
   const [activatedTags, setActivatedTags] = useState([{name : "tags loading...", active : false}]);
 
   const changeState = (tag, index) => {
@@ -126,7 +145,7 @@ const ArticleTags = ({ articleURL }) => {
         onClick={() => {
           changeState(tag, index);
         }}
-        class="active btn-primary rounded "
+        class="active btn-primary rounded mr-2"
       >
         {tag.name}
       </button>
@@ -137,7 +156,7 @@ const ArticleTags = ({ articleURL }) => {
         onClick={() => {
           changeState(tag, index);
         }}
-        class="rounded"
+        class="rounded mr-2"
       >
         {tag.name}
       </button>
@@ -151,18 +170,24 @@ const ArticleTags = ({ articleURL }) => {
 
   return (
     <>
-      <div class="row">
-        <div
-          class="col-12 mb-3 mt-2 rounded justify-content-around"
-          data-toggle="buttons-radio"
-          aria-label="Article Tags"
-        >
-          {activatedTags.map((tag, index) => {
-            return getButtons(tag, index)
-          })}
+      <div class="">
+        <div>
+          <div class="col-12 mb-3 mt-2" data-toggle="buttons-radio" aria-label="Article Tags">
+            <div class="col-8 d-flex justify-content-between">
+              <text class="align-self-start"> Tags : </text>
+              {activatedTags.map((tag, index) => {
+                return getButtons(tag, index);
+              })}
+            </div>
+          </div>
         </div>
       </div>
-      <ArticlesCards articleURL={articleURL} activeTags={activatedTags} />
+      <ArticlesCards
+        articleURL={articleURL}
+        articleDates={articleDates}
+        articleMods={articleMods}
+        activeTags={activatedTags}
+      />
     </>
   );
 };
