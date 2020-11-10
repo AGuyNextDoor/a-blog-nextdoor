@@ -56,7 +56,7 @@ const articleCard = (articleText, activeTags, tagsState, creationDate, modificat
     if (flag) {
       return (
         <>
-          <div className="col-sm-12 col-md-5 pb-2 col-lg-3 paper-top m-3 card_pile">
+          <div className="pb-2 col paper-top m-3 card_pile">
             <Link href={"/Articles/" + articleText[1]}>
               <>
                 <p className="card_title text-monospace font-weight-bold text-monospace text-capitalize">
