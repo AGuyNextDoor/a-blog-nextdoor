@@ -39,7 +39,9 @@ const articleCard = (articleText, activeTags, tagsState, creationDate, modificat
               <p>
                 Creation: <text className="text-monospace">{creationDate}</text>
               </p>
-              <p>Last Modification: {modificationDate}</p>
+              <p>
+                Last Modification: <text className="text-monospace">{modificationDate}</text>
+              </p>
             </>
           </Link>
         </div>
@@ -103,7 +105,7 @@ const ArticlesCards = ({ articleURL, articleDates, articleMods, activeTags }) =>
 
 
   return (
-    <div className="album py-5 text-center d-flex justify-content-center container-fluid article_flex">
+    <div className="album pt-4 pb-5 text-center d-flex justify-content-center container-fluid article_flex">
       <div className="justify-content-center row">
         {articleState.map((article, index) =>
           articleCard(
@@ -159,7 +161,7 @@ const ArticleTags = ({ articleURL, articleDates, articleMods }) => {
         onClick={() => {
           changeState(tag, index);
         }}
-        className="mx-2 active sidebar_background shadow rounded mr-2"
+        className="text-monospace mx-2 active tag_background rounded mr-2"
       >
         {tag.name}
       </button>
@@ -170,7 +172,7 @@ const ArticleTags = ({ articleURL, articleDates, articleMods }) => {
         onClick={() => {
           changeState(tag, index);
         }}
-        className="mx-2 rounded mr-2"
+        className="text-monospace mx-2 rounded mr-2"
       >
         {tag.name}
       </button>
@@ -186,9 +188,8 @@ const ArticleTags = ({ articleURL, articleDates, articleMods }) => {
     <>
       <div className="">
         <div>
-          <div className="col-10 mb-3 mt-2" data-toggle="buttons-radio" aria-label="Article Tags">
+          <div className="col-10 mt-5" data-toggle="buttons-radio" aria-label="Article Tags">
             <div className="d-flex justify-content-center my-3 mx-3">
-              <text className="align-self-start"> Tags : </text>
               {activatedTags.map((tag, index) => {
                 return getButtons(tag, index);
               })}
