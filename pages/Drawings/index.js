@@ -25,7 +25,6 @@ function topThreeImages(imgGroup) {
 
   let urls = ""
   imgGroup = shuffle(imgGroup)
-  console.log(imgGroup)
 
 
   return [imgGroup[0], imgGroup[1], imgGroup[2]];
@@ -38,10 +37,8 @@ const Images = () => {
   const imagePile = (category, imgGroup) => {
     const urls = topThreeImages(imgGroup);
 
-    console.log({ urls });
-
     return (
-      <div>
+      <div className="">
         <div id="photo">
           <Link href={"/Drawings/" + category}>
             <h2>{category}</h2>
@@ -88,19 +85,14 @@ const Images = () => {
 
   useEffect(() => {
     getImages(updateImageState);
-    console.log(imageState);
   }, []);
 
   return (
-    <div className="text-center">
+    <div className="margin_sidebar text-center col-12">
       {Object.keys(imageState).length ? (
         <div id="main">
-          {/* {imageState.map((imgGroup) => {
-            console.log({ imgGroup });
-            return imagePile(imgGroup);
-          })} */}
           {Object.keys(imageState).map((category) => {
-            return imagePile(category, imageState[category])
+            return imagePile(category, imageState[category]);
           })}
         </div>
       ) : (
@@ -114,7 +106,6 @@ const Images = () => {
 const getImages = async (callback) => {
   // let result = await fetch("/api/getThumbnails").then((res) => res.json());
   let result = await fetch("\/drawingsURLThumb.json").then((res) => res.json());
-  console.log({result})
 
   callback(result);
 };
@@ -123,12 +114,6 @@ const Folder = ({ match, props }) => {
   const [folderState, updateFolderState] = useState([]);
 
   const getFolder = () => {
-    console.log(props.urlList);
-    // const uploadsDirectory = path.join(__dirname, "../../images/");
-
-    // const completeUrl = importAll(require.context("../../images/", false, /\.(png|jpe?g|svg)$/));
-    // const completeFolder = allFolder(require.context("../../images/", false, /\.(png|jpe?g|svg)$/)));
-
     getImages(props.urlList);
   };
 

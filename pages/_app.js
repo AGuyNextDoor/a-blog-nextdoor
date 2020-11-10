@@ -25,10 +25,10 @@ export default function MyApp({ Component, pageProps }) {
         <Navbar></Navbar>
       </header>
       <body>
-        <div class="container-fluid content-area mt-sm" data-toggle="collapse" data-target=".navbar-collapse.show">
-          <div class="row pt-3">
+        <div className="container-fluid content-area mt-sm" data-toggle="collapse" data-target=".navbar-collapse.show">
+          <div className="row pt-3">
             <Sidebar></Sidebar>
-            <main role="main" class="inner-body col-md-9 ml-sm-auto col-lg-10 px-md-3 text-justify ">
+            <main role="main" className="inner-body pt-5 px-md-3 text-justify ">
               <Component {...pageProps}></Component>
             </main>
           </div>

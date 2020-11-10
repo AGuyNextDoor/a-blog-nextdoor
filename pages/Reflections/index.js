@@ -19,11 +19,7 @@ const Reflections = () => {
 
   return (
     <>
-        {location.pathname.length < 13 ? (
-              <div>{introduction}</div>
-        ) : (
-          <div></div>
-        )}
+      {location.pathname.length < 13 ? <div className="margin_sidebar">{introduction}</div> : <div></div>}
       {/* <Route path={`${process.env.URL + location.pathname}/:reflectionId`} component={Reflection} /> */}
     </>
   );

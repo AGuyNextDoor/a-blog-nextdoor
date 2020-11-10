@@ -6,8 +6,6 @@ import Image from "next/image"
 import ReactDOM from "react-dom";
 // import path from "path";
 
-console.log("Drawings");
-
 const Folder = () => {
   const [folderState, updateFolderState] = useState([]);
   const location = useRouter()
@@ -20,9 +18,9 @@ const Folder = () => {
     } else {
       return (
           <Link href={location.query.drawName + "/" + urlName}>
-        <div class="col-md-4 pb-2 col-lg-6 m-auto hoverable">
+        <div className="col-md-4 pb-2 col-lg-6 m-auto hoverable">
             <Image
-              class="pt-3 rounded"
+              className="pt-3 rounded"
               src={"/api/drawings/" + location.query.drawName + "/mid/" + urlName}
               unsized
               layout="fill"
@@ -40,9 +38,6 @@ const Folder = () => {
       // let result = await fetch("/api/getImages").then((res) => res.json());
       let result = await fetch("/drawingsURL.json").then((res) => res.json());
 
-      console.log(location.query.drawName);
-      console.log(result[location.query.drawName]);
-
       callback(result[location.query.drawName]);
     }
   };
@@ -50,21 +45,20 @@ const Folder = () => {
   useEffect(() => {
 
     getImages(updateFolderState, location, true);
-    console.log("Set to zero");
     getImages(updateFolderState, location);
   }, [ location.pathname, location.query.drawName]);
 
   return (
-    <div class="album py-5 text-center">
-      <div class="container">
+    <div className="album py-5 margin_sidebar text-center">
+      <div className="container">
         {folderState ? (
           <>
-            <div id="main" class="row">
+            <div id="main" className="row">
               {folderState.map((imgUrl) => findImages(imgUrl))}
             </div>
           </>
         ) : (
-            <div>Loading...!</div>
+          <div>Loading...!</div>
         )}
       </div>
     </div>

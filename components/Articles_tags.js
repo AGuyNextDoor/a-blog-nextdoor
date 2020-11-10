@@ -23,18 +23,28 @@ const articleCard = (articleText, activeTags, tagsState, creationDate, modificat
   let flag = true;
   const activeCategories = activeTags.filter((obj) => obj.active);
 
+  let topicTrimmed = articleText[1].split(".").slice(0, -1).join(".");
+  topicTrimmed = topicTrimmed.replace(/_/g, " ");
+  topicTrimmed = topicTrimmed.replace(/-/g, " ");
+
   if (activeCategories.length === 0) {
     return (
-      <div class="card">
-        <div class="card-body">
-          <h7 class="card-title">{articleText[1]}</h7>
-          <p>Created date: {creationDate}</p>
-          <p>Modified date: {modificationDate}</p>
+      <>
+        <div className="col-sm-12 col-md-5 pb-2 col-lg-3 paper-top m-3 card_pile">
           <Link href={"/Articles/" + articleText[1]}>
-            <div class="btn btn-primary"> {"->"} </div>
+            <>
+              <p className="card_title text-monospace font-weight-bold text-monospace text-capitalize">
+                {topicTrimmed}
+              </p>
+              <p>
+                Creation: <text className="text-monospace">{creationDate}</text>
+              </p>
+              <p>Last Modification: {modificationDate}</p>
+            </>
           </Link>
         </div>
-      </div>
+        <br />
+      </>
     );
   } else {
     activeCategories.forEach((obj) => {
@@ -45,15 +55,20 @@ const articleCard = (articleText, activeTags, tagsState, creationDate, modificat
 
     if (flag) {
       return (
-        <Link href={"/Articles/" + articleText[1]}>
-          <div class="card">
-            <div class="card-body">
-              <h7 class="card-title">{articleText[1]}</h7>
-              <p>Created date: {creationDate}</p>
-              <p>Modified date: {modificationDate}</p>
-            </div>
+        <>
+          <div className="col-sm-12 col-md-5 pb-2 col-lg-3 paper-top m-3 card_pile">
+            <Link href={"/Articles/" + articleText[1]}>
+              <>
+                <p className="card_title text-monospace font-weight-bold text-monospace text-capitalize">
+                  {topicTrimmed}
+                </p>
+                <p>Creation: <text className="text-monospace">{creationDate}</text></p>
+                <p>Last Modification: {modificationDate}</p>
+              </>
+            </Link>
           </div>
-        </Link>
+          <br />
+        </>
       );
     }
   }
@@ -62,7 +77,6 @@ const articleCard = (articleText, activeTags, tagsState, creationDate, modificat
 const ArticlesCards = ({ articleURL, articleDates, articleMods, activeTags }) => {
   const [articleState, updateArticleState] = useState(["articles loading..."]);
   const [tagsState, updateTags] = useState([]);
-  const [dates, setDates] = useState([[""],[""]])
 
   // Retrieves the list of items from the Express app
   useEffect(() => {
@@ -89,18 +103,16 @@ const ArticlesCards = ({ articleURL, articleDates, articleMods, activeTags }) =>
 
 
   return (
-    <div class="row">
-      <div class="col-10 rounded">
-        {articleState.map((article, index) => 
-          articleCard(
-            article,
-            activeTags,
-            tagsState,
-            moment(articleDates[index]).format("dddd Do MMMM YYYY"),
-            moment(articleMods[index]).format("dddd Do MMMM YYYY"),
-          )
-        )}
-      </div>
+    <div className="album py-5 text-center justify-content-center container article_flex row">
+      {articleState.map((article, index) =>
+        articleCard(
+          article,
+          activeTags,
+          tagsState,
+          moment(articleDates[index]).format("DD/MM/YYYY"),
+          moment(articleMods[index]).format("DD/MM/YYYY"),
+        ),
+      )}
     </div>
   );
 };
@@ -145,7 +157,7 @@ const ArticleTags = ({ articleURL, articleDates, articleMods }) => {
         onClick={() => {
           changeState(tag, index);
         }}
-        class="active btn-primary rounded mr-2"
+        className="mx-2 active sidebar_background shadow rounded mr-2"
       >
         {tag.name}
       </button>
@@ -156,7 +168,7 @@ const ArticleTags = ({ articleURL, articleDates, articleMods }) => {
         onClick={() => {
           changeState(tag, index);
         }}
-        class="rounded mr-2"
+        className="mx-2 rounded mr-2"
       >
         {tag.name}
       </button>
@@ -170,11 +182,11 @@ const ArticleTags = ({ articleURL, articleDates, articleMods }) => {
 
   return (
     <>
-      <div class="">
+      <div className="">
         <div>
-          <div class="col-12 mb-3 mt-2" data-toggle="buttons-radio" aria-label="Article Tags">
-            <div class="col-8 d-flex justify-content-between">
-              <text class="align-self-start"> Tags : </text>
+          <div className="col-10 mb-3 mt-2" data-toggle="buttons-radio" aria-label="Article Tags">
+            <div className="d-flex justify-content-center my-3 mx-3">
+              <text className="align-self-start"> Tags : </text>
               {activatedTags.map((tag, index) => {
                 return getButtons(tag, index);
               })}

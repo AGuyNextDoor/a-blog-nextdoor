@@ -26,7 +26,7 @@ const Articles = () => {
   }, []);
 
   return (
-    <div className="App">
+    <div id="article_body" className="App col-10 justif-content-center">
       {location.pathname.length < 10 ? (
         <div>
           <ArticlesTags articleURL={listState[0]} articleDates={listState[1]} articleMods={listState[2]}/>

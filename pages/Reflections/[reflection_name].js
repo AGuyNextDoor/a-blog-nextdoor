@@ -8,11 +8,6 @@ import showdown from "showdown"
 
 const converter = new showdown.Converter();
 
-console.log("Reflections");
-
-
-// import path from "path";
-
 const Reflection = () => {
   const [reflectionState, updateReflectionState] = useState();
   const router = useRouter()
@@ -43,15 +38,11 @@ const Reflection = () => {
   getReflection();
 
   return (
-    <div className="mt-5">
-      <div classname="mt-2"><hr/></div>
-      {reflectionState ? (
-        <div>
-          {ReactHtmlParser(reflectionState)}
-        </div>
-      ) : (
-        <div></div>
-      )}
+    <div className="mt-5 margin_sidebar">
+      <div classname="mt-2">
+        <hr />
+      </div>
+      {reflectionState ? <div>{ReactHtmlParser(reflectionState)}</div> : <div></div>}
     </div>
   );
 };

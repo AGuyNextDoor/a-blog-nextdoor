@@ -5,7 +5,6 @@ import path from "path";
 
 function allFolder(r) {
   let folder = r.map((element) => {
-    console.log({ element });
     return element.match(/(?<=\.)(.*?)(?=\.)/g)[0];
   });
 
@@ -17,8 +16,6 @@ function allFolder(r) {
     }
   });
 
-  console.log("Here is the folder:", { folder });
-
   return folder;
 }
 
@@ -28,8 +25,8 @@ function importAll(r) {
 
 const catName = (categoryName) => {
   return (
-    <a class="nav-item">
-      <Link class="nav-link" to={`/${categoryName}`}>
+    <a className="nav-item">
+      <Link className="nav-link" to={`/${categoryName}`}>
         {categoryName}
       </Link>
     </a>
@@ -43,8 +40,8 @@ const Drawings = ({ match }) => {
   }, []);
 
   return (
-    <div class="nav-scroller py-1 mb-2">
-      <nav class="nav d-flex justify-content-between">
+    <div className="nav-scroller py-1 mb-2">
+      <nav className="nav d-flex justify-content-between">
         {allFolder(folderState).map((folderName) => catName(folderName))}
       </nav>
     </div>

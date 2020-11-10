@@ -5,14 +5,10 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import ReactDOM from "react-dom";
 // import path from "path";
-console.log("Drawings");
 
 const getImages = async (callback, location) => {
   // let result = await fetch("/api/getImages").then((res) => res.json());
   let result = await fetch("/drawingsURL.json").then((res) => res.json());
-
-  console.log(location.query.drawName);
-  console.log(result[location.query.drawName]);
 
   callback(result[location.query.drawName]);
 };
@@ -22,8 +18,6 @@ const Folder = () => {
   const location = useRouter();
 
   const {drawName, draw} = location.query
-
-  console.log({draw});
 
   const findImages = (urlName) => {
     return (
@@ -44,7 +38,7 @@ const Folder = () => {
   }, [location.query.drawName]);
 
   return (
-    <div class="album py-5 text-center">
+    <div class="margin_sidebar album py-5 text-center">
       <div class="container">
         {folderState ? (
           <>

@@ -5,13 +5,6 @@ const readFile = util.promisify(fs.readFile);
 const readdir = util.promisify(fs.readdir);
 const stat = util.promisify(fs.stat);
 
-// console.log(__dirname)
-
-fs.stat(__dirname + "/public/api/articles/markdown copy.md", (err, stats) => {
-  console.log(stats);
-  console.log(stats.birthtime);
-});
-
 const categoriesFinder = async (topic) => {
   return await readdir(__dirname + "\/public\/api\/" + topic);
 };
@@ -88,6 +81,3 @@ constructObject("drawings", "drawingsURL");
 constructObject("drawings", "drawingsURLThumb");
 constructObject("articles", "articlesURL");
 constructObject("reflections", "reflectionsURL");
-
-
-// console.log({categories})

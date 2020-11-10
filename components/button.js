@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 
 function PropButton(props) {
   return (
-    <div class="list-group">
+    <div className="list-group">
       <button
         type="button"
-        class="btn btn-primary list-group-item list-group-item-action"
+        className="btn btn-primary list-group-item list-group-item-action"
         onClick={() => props.function(props.value)}
       >
         {props.text}

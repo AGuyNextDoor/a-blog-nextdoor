@@ -9,15 +9,15 @@ const Navbar = ({children}) => {
   const location = useRouter();
 
   const linkGenerator = (topicName, path) => {
-    let className = "nav-item nav-link";
+    let className = "nav-item nav-link card_pile";
 
     if (path.pathname.includes(topicName)) {
-      className = "nav-item nav-link text-dark font-weight-bold bg-light shadow rounded";
+      className = "nav-item nav-link card_pile text-dark font-weight-bold navbar_background navbar_shadow";
     }
     return (
-      <li class={className} data-toggle="collapse" data-target=".navbar-collapse.show">
-        <Link class={className} key={{ pathname: "/" + topicName, state: "plop" }} href={`/${topicName}`}>
-          {topicName}
+      <li className={className} data-toggle="collapse" data-target=".navbar-collapse.show">
+        <Link className={className} key={{ pathname: "/" + topicName, state: "plop" }} href={`/${topicName}`}>
+          <text className="mx-2">{topicName}</text>
         </Link>
       </li>
     );
@@ -26,18 +26,16 @@ const Navbar = ({children}) => {
   return (
     <div>
       <nav
-        className="navbar navbar-expand-md navbar-light flex-md-nowrap fixed-top"
+        className="navbar navbar-expand-md navbar_background flex-md-nowrap fixed-top"
         // style="position: fixed; top: 0;right: 0;left: 0;z-index: 1030;}"
       >
-        <div class="navbar-brand" data-toggle="collapse" data-target=".navbar-collapse.show">
+        <div className="navbar-brand second_color" data-toggle="collapse" data-target=".navbar-collapse.show">
           <Link to="/" href="/">
-            <div class="navbar-brand" >
-              A Blog Next Door
-            </div>
+            <div className="navbar-brand card_pile font-weight-bold ">A Blog Next Door</div>
           </Link>
         </div>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler navbar_shadow"
           type="button"
           data-toggle="collapse"
           data-target=".navbar-collapse"
@@ -45,10 +43,10 @@ const Navbar = ({children}) => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">{allTopics.map((topicName) => linkGenerator(topicName, location))}</ul>
+        <div className="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul className="navbar-nav">{allTopics.map((topicName) => linkGenerator(topicName, location))}</ul>
         </div>
       </nav>
     </div>

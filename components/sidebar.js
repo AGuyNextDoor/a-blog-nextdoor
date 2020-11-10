@@ -33,28 +33,18 @@ const listGenerator = (topicName, path, topic = "", location) => {
     pathTrimmed = pathTrimmed.replace(/_/g, " ");
     pathTrimmed = pathTrimmed.replace(/-/g, " ");
 
-    console.log({ path });
-    console.log({ query });
-    console.log({ topicName });
-    console.log({ topicTrimmed });
-    console.log({ pathTrimmed });
-
-
     if (query === topicName) {
-      console.log(1);
       return (
-        <li class="nav-item flex-fill p-2 sidebar-item active text-dark font-weight-bold bg-white shadow-sm">
-          <Link class="nav-link" key={topic + topicName} href={linkUrl}>
+        <li className="nav-item flex-fill p-2 sidebar-item active text-dark font-weight-bold bg-white shadow-sm">
+          <Link className="nav-link" key={topic + topicName} href={linkUrl}>
             {topicTrimmed}
           </Link>
         </li>
       );
     } else {
-      console.log(2);
-
       return (
-        <li class="nav-item flex-fill p-2 sidebar-item">
-          <Link class="nav-link" key={topic + topicName} href={linkUrl}>
+        <li className="nav-item flex-fill p-2 sidebar-item">
+          <Link className="nav-link" key={topic + topicName} href={linkUrl}>
             {topicTrimmed}
           </Link>
         </li>
@@ -65,21 +55,17 @@ const listGenerator = (topicName, path, topic = "", location) => {
       topicTrimmed = topicName;
     }
     if (query === topicName) {
-      console.log(3);
-
       return (
-        <li class="nav-item flex-fill p-2 sidebar-item active text-dark font-weight-bold bg-white shadow-sm">
-          <Link class="nav-link" key={topic + topicName} href={linkUrl}>
+        <li className="nav-item flex-fill p-2 sidebar-item active text-dark font-weight-bold bg-white shadow-sm">
+          <Link className="nav-link" key={topic + topicName} href={linkUrl}>
             {topicTrimmed}
           </Link>
         </li>
       );
     } else {
-      console.log(topicTrimmed);
-
       return (
-        <li class="nav-item flex-fill p-2 sidebar-item">
-          <Link class="nav-link" key={topic + topicName} href={linkUrl}>
+        <li className="nav-item flex-fill p-2 sidebar-item">
+          <Link className="nav-link" key={topic + topicName} href={linkUrl}>
             {topicTrimmed}
           </Link>
         </li>
@@ -112,8 +98,6 @@ const Sidebar = ({ match }) => {
       return path.includes(element);
     });
 
-    console.log({ topic });
-
     switch (topic[0]) {
       case "Drawings":
         getImagesDir(updatesideBarState);
@@ -142,16 +126,16 @@ const Sidebar = ({ match }) => {
   }, [location.pathname, flag]);
 
   return (
-    <div class="col-lg bg-light navbar_expand">
+    <div className="col-lg navbar_expand">
       {sidebarState.length !== 0 ? (
-        <div class="col-lg bg-light flex-wrap second_navbar">
-          <nav class="flex-md-nowrap navbar-expand">
-            <ul class="navbar-nav sidebar-nav">
+        <div className="col-lg sidebar_background flex-wrap second_navbar">
+          <nav className="flex-md-nowrap navbar-expand">
+            <ul className="navbar-nav sidebar-nav">
               {sidebarState ? (
                 sidebarContext(location.pathname)
               ) : (
-                <div class="spinner-grow justify-content-center" role="status">
-                  <span class="sr-only">Loading...</span>
+                <div className="spinner-grow justify-content-center" role="status">
+                  <span className="sr-only">Loading...</span>
                 </div>
               )}
             </ul>
