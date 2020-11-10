@@ -49,7 +49,7 @@ const Folder = () => {
   }, [ location.pathname, location.query.drawName]);
 
   return (
-    <div id="drawing_body" className="album py-5 margin_sidebar text-center">
+    <div className="album py-5 margin_sidebar text-center">
       <div className="container">
         {folderState ? (
           <>

@@ -38,7 +38,7 @@ const Folder = () => {
   }, [location.query.drawName]);
 
   return (
-    <div id="drawing_body" class="margin_sidebar album py-5 text-center">
+    <div class="margin_sidebar album py-5 text-center">
       <div class="container">
         {folderState ? (
           <>

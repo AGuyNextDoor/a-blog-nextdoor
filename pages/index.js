@@ -2,50 +2,45 @@ import React, {Component} from "react";
 
 const FooterGen = () => {
   return (
-    <>
+    <div className="container">
       <p>
-        <button
-          className="btn font-weight-normal"
-          type="button"
-          data-toggle="collapse"
-          data-target=".multi-collapse"
-          aria-expanded="false"
-          aria-controls="multiCollapseExample1 multiCollapseExample2"
+        <text
+          className="btn font-weight-normal drawing_title"
         >
           Contact Information
-        </button>
+        </text>
       </p>
       <div className="d-flex justify-content-around">
         <div className="">
-          <div className="collapse multi-collapse" id="multiCollapseExample2">
+          <div>
             <a href="https://github.com/AGuyNextDoor">
-              <button className="bg-dark text-light rounded">GitHub</button>
+              <button className="bg-dark text-light rounded drawing_title">GitHub</button>
             </a>
           </div>
         </div>
         <div className="">
-          <div className="collapse multi-collapse" id="multiCollapseExample2">
+          <div>
             <a href="https://github.com/AGuyNextDoor/a-blog-nextdoor">
-              <button className="bg-dark text-light rounded">Blog's GitHub</button>
+              <button className="bg-dark text-light rounded drawing_title">Blog's GitHub</button>
             </a>
           </div>
         </div>
         <div className="">
-          <div className="collapse multi-collapse" id="multiCollapseExample2">
+          <div>
             <a href="https://www.linkedin.com/in/martinvielvoye/">
-              <button className="bg-primary text-light rounded">Linkedin</button>
+              <button className="bg-primary text-light rounded drawing_title">Linkedin</button>
             </a>
           </div>
         </div>
         <div className="">
-          <div className="collapse multi-collapse" id="multiCollapseExample2">
+          <div>
             <a href="mailto:contact.aguynextdoor@gmail.com">
-              <button className="rounded">Mail</button>
+              <button className="rounded drawing_title">Mail</button>
             </a>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
@@ -60,23 +55,21 @@ const HomePage = () => {
       <div className="">
         <text className="font-weight-light" name="homepage" id="homepage">
           <p>
-            This blog is a journal of somebody having fun with too many topics at the same time.This blog is a journal of
-            somebody having fun with too many topics at the same time. This blog is a journal of somebody having fun with
-            too many topics at the same time.
+            This blog is a journal of somebody having fun with too many topics at the same time.This blog is a journal
+            of somebody having fun with too many topics at the same time. This blog is a journal of somebody having fun
+            with too many topics at the same time.
           </p>
           <p>Enjoy your stay! Don't hesitate to contact me for any information.</p>
         </text>
-        <br />
-        <br />
-        <hr />
-        <text className="font-italic">Music of the moment</text>: Ball and Biscuit - The White Stripes
-        <br />
-        <br />
       </div>
-      <div className="card-footer font-weight-light">
-        <FooterGen />
-        <br />
-      </div>
+
+        <footer className="footer mt-auto font-weight-light">
+          <div className="container">
+
+          <text className="font-italic">Music of the moment</text>: Ball and Biscuit - The White Stripes
+          <FooterGen /> 
+          </div>
+      </footer>
     </div>
   );
 }

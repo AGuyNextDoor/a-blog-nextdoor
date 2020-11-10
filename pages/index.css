@@ -672,3 +672,21 @@ body {
 .drawing_title{
   font-family: Roboto, sans-serif;
 }
+
+.homepage_body {
+  height: 70vh;
+}
+
+#wrap {
+   min-height: 100%;
+   height: auto !important;
+   height: 100%;
+   margin: 0 auto -60px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 90%;
+    height: 145px;
+}
