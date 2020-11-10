@@ -585,6 +585,8 @@ body {
 }
 
 .paper-top {
+  min-width:250px;
+  max-width:300px;
   background:url('/old-paper-texture-background.jpg');
   box-shadow:
     /* The top layer shadow */
@@ -602,6 +604,7 @@ body {
 }
 
 .paper-bot {
+  width: 100%;
   background: #fff;
   box-shadow:
     /* The top layer shadow */

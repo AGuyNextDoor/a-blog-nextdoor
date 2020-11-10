@@ -30,7 +30,7 @@ const articleCard = (articleText, activeTags, tagsState, creationDate, modificat
   if (activeCategories.length === 0) {
     return (
       <>
-        <div className="col-sm-12 col-md-5 pb-2 col-lg-3 paper-top m-3 card_pile">
+        <div className="pb-2 col paper-top m-3 card_pile">
           <Link href={"/Articles/" + articleText[1]}>
             <>
               <p className="card_title text-monospace font-weight-bold text-monospace text-capitalize">
@@ -103,16 +103,18 @@ const ArticlesCards = ({ articleURL, articleDates, articleMods, activeTags }) =>
 
 
   return (
-    <div className="album py-5 text-center justify-content-center container article_flex row">
-      {articleState.map((article, index) =>
-        articleCard(
-          article,
-          activeTags,
-          tagsState,
-          moment(articleDates[index]).format("DD/MM/YYYY"),
-          moment(articleMods[index]).format("DD/MM/YYYY"),
-        ),
-      )}
+    <div className="album py-5 text-center d-flex justify-content-center container-fluid article_flex">
+      <div className="justify-content-center row">
+        {articleState.map((article, index) =>
+          articleCard(
+            article,
+            activeTags,
+            tagsState,
+            moment(articleDates[index]).format("DD/MM/YYYY"),
+            moment(articleMods[index]).format("DD/MM/YYYY"),
+          ),
+        )}
+      </div>
     </div>
   );
 };
