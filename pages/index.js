@@ -1,10 +1,4 @@
 import React, {Component} from "react";
-import ReactDOM from "react-dom";
-// import "./index.css";
-import App from "./App";
-import { StaticRouter } from "react-router-dom";
-// import * as serviceWorker from "./serviceWorker";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 const FooterGen = () => {
   return (
@@ -58,27 +52,32 @@ const FooterGen = () => {
 const HomePage = () => {
 
   return (
-    <>
+    <div className="col-12 pt-3">
       <h1>
         Welcome to <text className="font-weight-bold">a-blog-nextdoor</text>
       </h1>
       <br />
-      <text className="font-weight-light" name="homepage" id="homepage">
-        <p>This blog is a journal of somebody having fun with too many topics at the same time.</p>
-        <p>Enjoy your stay! Don't hesitate to contact me for any information.</p>
-      </text>
-      <br />
-      <br />
-      <hr />
-      <text className="font-italic">Music of the moment</text>: Ball and Biscuit - The White Stripes
-      <br />
-      <br />
-      <footer className="card-footer footer font-weight-light bg-light">
-      <FooterGen/>
+      <div className="">
+        <text className="font-weight-light" name="homepage" id="homepage">
+          <p>
+            This blog is a journal of somebody having fun with too many topics at the same time.This blog is a journal of
+            somebody having fun with too many topics at the same time. This blog is a journal of somebody having fun with
+            too many topics at the same time.
+          </p>
+          <p>Enjoy your stay! Don't hesitate to contact me for any information.</p>
+        </text>
         <br />
-        
-      </footer>
-    </>
+        <br />
+        <hr />
+        <text className="font-italic">Music of the moment</text>: Ball and Biscuit - The White Stripes
+        <br />
+        <br />
+      </div>
+      <div className="card-footer font-weight-light">
+        <FooterGen />
+        <br />
+      </div>
+    </div>
   );
 }
 
