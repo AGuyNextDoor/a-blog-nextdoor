@@ -26,9 +26,9 @@ export default function MyApp({ Component, pageProps }) {
       </header>
       <body>
         <div className="container-fluid content-area mt-sm" data-toggle="collapse" data-target=".navbar-collapse.show">
-          <div className="row pt-3">
+          <div id="drawing_body" className="row pt-3 small_center">
             <Sidebar></Sidebar>
-            <main role="main" className="inner-body pt-5 px-md-3 text-justify ">
+            <main role="main" id="drawing_body"  className="inner-body pt-5 px-md-3 text-justify ">
               <Component {...pageProps}></Component>
             </main>
           </div>

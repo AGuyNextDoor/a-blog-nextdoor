@@ -17,7 +17,7 @@ const Navbar = ({children}) => {
     return (
       <li className={className} data-toggle="collapse" data-target=".navbar-collapse.show">
         <Link className={className} key={{ pathname: "/" + topicName, state: "plop" }} href={`/${topicName}`}>
-          <text className="mx-2">{topicName}</text>
+          <div className="mx-2 cursor">{topicName}</div>
         </Link>
       </li>
     );

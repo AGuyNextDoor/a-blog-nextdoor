@@ -5,9 +5,7 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 
 const introduction = (
   <>
-    <div classname="mt-2">
-      <hr />
-    </div>
+
     <h2>Reflections</h2>
     <p>Welcome to the reflection's pages!</p>
   </>

@@ -37,7 +37,7 @@ const listGenerator = (topicName, path, topic = "", location) => {
       return (
         <li className="nav-item flex-fill p-2 sidebar-item active text-dark font-weight-bold bg-white shadow-sm">
           <Link className="nav-link" key={topic + topicName} href={linkUrl}>
-            {topicTrimmed}
+            <text className="mx-2 cursor">{topicTrimmed}</text>
           </Link>
         </li>
       );
@@ -45,7 +45,7 @@ const listGenerator = (topicName, path, topic = "", location) => {
       return (
         <li className="nav-item flex-fill p-2 sidebar-item">
           <Link className="nav-link" key={topic + topicName} href={linkUrl}>
-            {topicTrimmed}
+            <text className="mx-2 cursor">{topicTrimmed}</text>
           </Link>
         </li>
       );
@@ -58,7 +58,7 @@ const listGenerator = (topicName, path, topic = "", location) => {
       return (
         <li className="nav-item flex-fill p-2 sidebar-item active text-dark font-weight-bold bg-white shadow-sm">
           <Link className="nav-link" key={topic + topicName} href={linkUrl}>
-            {topicTrimmed}
+            <text className="mx-2 cursor">{topicTrimmed}</text>
           </Link>
         </li>
       );
@@ -66,7 +66,7 @@ const listGenerator = (topicName, path, topic = "", location) => {
       return (
         <li className="nav-item flex-fill p-2 sidebar-item">
           <Link className="nav-link" key={topic + topicName} href={linkUrl}>
-            {topicTrimmed}
+            <text className="mx-2 cursor">{topicTrimmed}</text>
           </Link>
         </li>
       );
@@ -126,7 +126,7 @@ const Sidebar = ({ match }) => {
   }, [location.pathname, flag]);
 
   return (
-    <div className="col-lg navbar_expand">
+    <div className="navbar_expand">
       {sidebarState.length !== 0 ? (
         <div className="col-lg sidebar_background flex-wrap second_navbar">
           <nav className="flex-md-nowrap navbar-expand">

@@ -38,11 +38,13 @@ const Images = () => {
     const urls = topThreeImages(imgGroup);
 
     return (
-      <div className="">
+      <div className="col-4 p-2 m-3">
         <div id="photo">
+          <div>
           <Link href={"/Drawings/" + category}>
-            <h2>{category}</h2>
+            <text className="card_title font-weight-bold text-capitalize drawing_title">{category}</text>
           </Link>
+          </div>
           <div id="photo-center">
             <div id="small_1">
               <Link href={"/Drawings/" + category}>
@@ -88,14 +90,14 @@ const Images = () => {
   }, []);
 
   return (
-    <div className="margin_sidebar text-center col-12">
+    <div id="drawing_body" className="album margin_sidebar text-center container">
       {Object.keys(imageState).length ? (
-        <div id="main">
+      <div id="main" className="row justify-content-center">
           {Object.keys(imageState).map((category) => {
             return imagePile(category, imageState[category]);
           })}
-        </div>
-      ) : (
+          </div>
+          ) : (
         <div>Loading...</div>
       )}
       {/* <Route path={`${process.env.URL + location.pathname}/:groupName`} urlList={imageState} component={Folder} /> */}
