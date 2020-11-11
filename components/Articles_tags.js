@@ -30,8 +30,8 @@ const articleCard = (articleText, activeTags, tagsState, creationDate, modificat
   if (activeCategories.length === 0) {
     return (
       <>
-        <div className="pb-2 col paper-top m-3 card_pile">
           <Link href={"/Articles/" + articleText[1]}>
+        <div className="pb-2 col paper-top m-3 card_pile">
             <>
               <p className="card_title text-monospace font-weight-bold text-monospace text-capitalize">
                 {topicTrimmed}
@@ -43,8 +43,8 @@ const articleCard = (articleText, activeTags, tagsState, creationDate, modificat
                 Last Modification: <text className="text-monospace">{modificationDate}</text>
               </p>
             </>
-          </Link>
         </div>
+          </Link>
         <br />
       </>
     );

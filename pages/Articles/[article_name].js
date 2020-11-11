@@ -46,9 +46,7 @@ const Article = () => {
   return (
     <div>
       {articleState ? (
-        <div>
-          {ReactHtmlParser(articleState)}
-        </div>
+        <div className="mt-5 container margin_sidebar">{ReactHtmlParser(articleState)}</div>
       ) : (
         <div></div>
       )}

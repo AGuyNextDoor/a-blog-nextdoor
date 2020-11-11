@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import Image from "next/image"
 
 const FooterGen = () => {
   return (
@@ -47,29 +48,38 @@ const FooterGen = () => {
 const HomePage = () => {
 
   return (
-    <div className="col-12 pt-3">
-      <h1>
-        Welcome to <text className="font-weight-bold">a-blog-nextdoor</text>
-      </h1>
-      <br />
-      <div className="">
-        <text className="font-weight-light" name="homepage" id="homepage">
-          <p>
-            This blog is a journal of somebody having fun with too many topics at the same time.This blog is a journal
-            of somebody having fun with too many topics at the same time. This blog is a journal of somebody having fun
-            with too many topics at the same time.
-          </p>
-          <p>Enjoy your stay! Don't hesitate to contact me for any information.</p>
-        </text>
+    <div className="pt-3">
+      <div className="container d-flex px-4 mr-5">
+        <div className="row">
+          <div className="skull">
+            <img src="/half.png" height="650" width="410"></img>
+          </div>
+          <div>
+            <h1>
+              Welcome to <text className="font-weight-bold">a-blog-nextdoor</text>
+            </h1>
+            <br />
+            <div className="">
+              <text className="font-weight-light" name="homepage" id="homepage">
+                <p>
+                  This blog is a journal of somebody having fun with too many topics at the same time. This blog is a
+                  journal of somebody having fun with too many topics at the same time. This blog is a journal of
+                  somebody having fun with too many topics at the same time.
+                </p>
+                <p>Enjoy your stay! Don't hesitate to contact me for any information.</p>
+              </text>
+            </div>
+          </div>
+        </div>
       </div>
-
+      <div>
         <footer className="footer mt-auto font-weight-light">
           <div className="container">
-
-          <text className="font-italic">Music of the moment</text>: Ball and Biscuit - The White Stripes
-          <FooterGen /> 
+            <text className="font-italic">Music of the moment</text>: Ball and Biscuit - The White Stripes
+            <FooterGen />
           </div>
-      </footer>
+        </footer>
+      </div>
     </div>
   );
 }
