@@ -49,8 +49,8 @@ const HomePage = () => {
 
   return (
     <div className="pt-3">
-      <div className="container d-flex px-4 mr-5">
-        <div className="row">
+      <div className="container d-flex px-4 mr-5 ">
+        <div className="row margin_large">
           <div className="skull">
             <img src="/half.png" height="650" width="410"></img>
           </div>
@@ -61,12 +61,26 @@ const HomePage = () => {
             <br />
             <div className="">
               <text className="font-weight-light" name="homepage" id="homepage">
+                <p>This blog is a journal of somebody having fun with too many topics at the same time.</p>
+                <p>I'm an independant learner and researcher since 2020. I mostly study 3 core topics :</p>
+                <ul>
+                  <li>Machine Learning and Artificial Intelligence</li>
+                  <li>Quantum Computing</li>
+                  <li>Neuroscience</li>
+                </ul>
+                Other topics may vary from Philosophy, Psychology, Psychotherapy, Physics, Electronics, ...
                 <p>
-                  This blog is a journal of somebody having fun with too many topics at the same time. This blog is a
-                  journal of somebody having fun with too many topics at the same time. This blog is a journal of
-                  somebody having fun with too many topics at the same time.
+                  Without a specific goal, I wonder around diverse fields for the pleasure of connecting dots across
+                  knowledge.
                 </p>
-                <p>Enjoy your stay! Don't hesitate to contact me for any information.</p>
+                <p>I have different hobbies on the side such as martial arts, drawing, music, etc ...</p>
+                <p>
+                  This websites serves mostly as a host for written articles and reflections, but also as a portfolio
+                  for various productions.
+                </p>
+                <br />
+                <br />
+                <p>Enjoy your stay and don't hesitate to contact me for any information at any of the links below.</p>
               </text>
             </div>
           </div>
