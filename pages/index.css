@@ -727,5 +727,6 @@ body {
   right: -164px;
   top: 15vh;
   opacity: 0.9;
-  z-index:2
+  z-index:2;
+  pointer-events: none
 }
