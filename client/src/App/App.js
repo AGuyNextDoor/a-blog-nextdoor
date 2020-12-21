@@ -1,31 +1,63 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch, withRouter } from "react-router-dom";
 import IterButton from "./components/button";
 import Navbar from "./components/navbar";
-import { Reflections } from "./pages/article";
+import Reflections from "./pages/Reflections";
 import Home from "./pages/home";
-import List from "./pages/List";
+import Articles from "./pages/Articles";
 import Images from "./pages/Images";
 import Folder from "./pages/Folders";
 import Drawings from "./pages/Drawings";
 import marked from "marked";
+import Sidebar from "./components/sidebar";
+
+export function allFolder(r) {
+  let folder = r.map((element) => {
+    return element.match(/(?<=\.)(.*?)(?=\.)/g)[0];
+  });
+
+  folder = [...new Set(folder)];
+
+  folder = folder.filter((r) => {
+    if (r) {
+      return r;
+    }
+  });
+
+  return folder;
+}
+
+function importAll(r) {
+  return r.keys().map(r);
+}
+
+const getFolder = () => {
+  const completeUrl = importAll(require.context("../images/", false, /\.(png|jpe?g|svg)$/));
+  // const completeFolder = allFolder(require.context("../../images/", false, /\.(png|jpe?g|svg)$/)));
+
+  return completeUrl;
+};
 
 function App() {
   return (
-    <p>
-      <div className="Body">
-        <Navbar />
-      </div>
+    <body>
+      <header>
+        <Route path={["/", "/Home"]} component={Navbar} />
+      </header>
       <div class="container-fluid">
-        <Route exact path="/" component={Home} />
-        <Route path="/Reflections" component={Reflections} />
-        <Route path="/article" component={List} />
-        <Route path="/Drawings" component={Drawings} />
-        <Route exact path="/Drawings" component={Images} />
-        <Route path="/Drawings/:folderName" component={Folder} />
+        <div class="row">
+          <Route path={["/", "/Home"]} component={Sidebar} />
+          <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <Route exact path={["/", "/Home"]} component={Home} />
+            <Route path="/Articles" component={Articles} />
+            <Route path="/Reflections" component={Reflections} />
+            <Route exact path="/Drawings" component={Images} />
+            <Route path="/Drawings/:folderName" component={Folder} />
+          </main>
+        </div>
       </div>
-    </p>
+    </body>
   );
 }
 
-export default App;
+export default withRouter(App);

@@ -5,6 +5,7 @@ import path from "path";
 
 function allFolder(r) {
   let folder = r.map((element) => {
+    console.log({ element });
     return element.match(/(?<=\.)(.*?)(?=\.)/g)[0];
   });
 
@@ -41,9 +42,7 @@ const Drawings = ({ match }) => {
   const getImageDir = () => {
     const uploadsDirectory = path.join(__dirname, "../../images/");
 
-    const completeUrl = importAll(
-      require.context("../../images/", false, /\.(png|jpe?g|svg)$/)
-    );
+    const completeUrl = importAll(require.context("../../images/", false, /\.(png|jpe?g|svg)$/));
 
     updateFolderState(completeUrl);
   };

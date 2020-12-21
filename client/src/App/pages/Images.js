@@ -3,7 +3,11 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import ReactDOM from "react-dom";
 import path from "path";
 
-function allFolder(r) {
+export function allFolder(r = []) {
+  if (r.length !== 0) {
+    r = getImageDir(getAllImages);
+  }
+
   let folder = r.map((element) => {
     return element.match(/(?<=\.)(.*?)(?=\.)/g)[0];
   });
@@ -18,6 +22,8 @@ function allFolder(r) {
 
   return folder;
 }
+
+export const allFolders = allFolder();
 
 function importAll(r) {
   return r.keys().map(r);
@@ -41,18 +47,20 @@ function topThreeImages(folderName, completeUrl) {
   return result;
 }
 
-const Images = ({ match }) => {
+const getAllImages = (element) => {
+  return element;
+};
+
+const getImageDir = (callback) => {
+  const uploadsDirectory = path.join(__dirname, "../../images/");
+
+  const completeUrl = importAll(require.context("../../images/", false, /\.(png|jpe?g|svg)$/));
+
+  return callback(completeUrl);
+};
+
+const Images = ({ match } = "") => {
   const [imageState, updateImageState] = useState([]);
-
-  const getImageDir = () => {
-    const uploadsDirectory = path.join(__dirname, "../../images/");
-
-    const completeUrl = importAll(
-      require.context("../../images/", false, /\.(png|jpe?g|svg)$/)
-    );
-
-    updateImageState(completeUrl);
-  };
 
   const imagePile = (folderName) => {
     const urls = topThreeImages(folderName, imageState);
@@ -96,15 +104,13 @@ const Images = ({ match }) => {
   };
 
   useEffect(() => {
-    getImageDir();
+    getImageDir(updateImageState);
   }, []);
 
   return (
     <div className="App">
       {imageState.length ? (
-        <div id="main">
-          {allFolder(imageState).map((folderName) => imagePile(folderName))}
-        </div>
+        <div id="main">{allFolder(imageState).map((folderName) => imagePile(folderName))}</div>
       ) : (
         <div>Loading...</div>
       )}
@@ -120,9 +126,7 @@ const Folder = ({ match }) => {
   const getFolder = () => {
     const uploadsDirectory = path.join(__dirname, "../../images/");
 
-    const completeUrl = importAll(
-      require.context("../../images/", false, /\.(png|jpe?g|svg)$/)
-    );
+    const completeUrl = importAll(require.context("../../images/", false, /\.(png|jpe?g|svg)$/));
     // const completeFolder = allFolder(require.context("../../images/", false, /\.(png|jpe?g|svg)$/)));
 
     updateFolderState(completeUrl);
@@ -146,9 +150,7 @@ const Drawings = ({ match }) => {
   const getFolder = () => {
     const uploadsDirectory = path.join(__dirname, "../../images/");
 
-    const completeUrl = importAll(
-      require.context("../../images/", false, /\.(png|jpe?g|svg)$/)
-    );
+    const completeUrl = importAll(require.context("../../images/", false, /\.(png|jpe?g|svg)$/));
     // const completeFolder = allFolder(require.context("../../images/", false, /\.(png|jpe?g|svg)$/)));
 
     updateFolderState(completeUrl);
@@ -161,7 +163,7 @@ const Drawings = ({ match }) => {
   return (
     <div>
       <Route exact path={`/Drawings`} component={Images} />
-      Plop
+
       {/* <Route
         path={`${match.url}/:groupName`}
         render={(folderState) => (
