@@ -61,7 +61,7 @@ const HomePage = () => {
                 <p className="font-italic">This blog is a journal of somebody having fun with too many topics at the same time.</p>
                 <p>
                   I'm an independant learner and researcher since 2020. I mostly study 3 core topics :
-                  <text className="text-monospace"> Machine Learning & Artificial Intelligence, Quantum Computing, Neuroscience.</text>
+                  <text className="text-monospace"> Machine Learning / Artificial Intelligence, Quantum Computing, and Neurosciences.</text>
                 </p>
                 Other topics may vary from Philosophy, Psychology, Psychotherapy, Physics, Electronics, ...
                 <p>

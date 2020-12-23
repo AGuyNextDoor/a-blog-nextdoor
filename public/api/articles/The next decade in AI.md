@@ -79,7 +79,7 @@ Maybe make a set of problems that are heavily dependent on *implementational con
   - Do they need to be hardcoded or can they be learnt?
   - Should an AI that build knowledge need to start from the bottom up, by first understading the axiom rules and after only learn about cats and wikipedia?
   - Are there any research made on human brains about the large and necessary presence of axioms in the brain, needed and essential to the build up of semi complex knowledge
-![knowledge framework](./images/knowledge_framework.jpeg)
+![knowledge framework](/api/articles/images/knowledge_framework.jpeg)
 
 If the comparison is made between human and AIs, the basis of the framework can be "colored" by how the human access this knowledge and how AI lack the "degrees of learning".
     - Make a large comparison between AI and humans? (with the angle of the degrees of learning?)
