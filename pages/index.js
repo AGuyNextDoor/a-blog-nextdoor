@@ -50,7 +50,7 @@ const HomePage = () => {
       <div className="container d-flex px-4 mr-5 ">
         <div className="row margin_large">
           <div className="skull">
-            <Image src="/half.png" height="750" width="410"></Image>
+            <Image src="/half.png" height="700" width="277"></Image>
           </div>
           <div>
             <h1>

@@ -94,3 +94,5 @@ If the comparison is made between human and AIs, the basis of the framework can 
 
 p. 36
     Discuss the final claim of this part about fundamental bricks of innate knowdege (space/time) and the fight that we shouldn't learn everything from scratch everytime.
+
+## 2.3 Reasoning
