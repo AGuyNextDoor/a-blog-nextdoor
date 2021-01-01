@@ -14,6 +14,8 @@ NS-CL : Neuro-Symbolic Concept Learner
 *knowledge representation*: Field that aims to accumulate and represent abstract knowledge.
 
 *Nativism*: The idea that some "knowledge" is innate. (not learned but there at the beginning)
+
+*cognitive models*: "Knowledge that accumulates over time about particular states of affaism such as what we might learn about a friend in the course of a conversation, etc."
 ## Thoughts
 
 ### 1
@@ -62,7 +64,7 @@ Maybe make a set of problems that are heavily dependent on *implementational con
 - "What it lacks is a satisfactory framework for learning."
   - Right about what would be needed, recommanded or unknown to develop this framework.
 
-## 2.2 Large-scale knowledge, some which is abstract and causal
+### 2.2 Large-scale knowledge, some which is abstract and causal
 
 - Comments on GPT-2 are valid. Can it still be compared to how a small child would use words?
   - "**If you paint an airplane so that it looks like a dragon, it will be** *a dragon*."
@@ -95,4 +97,66 @@ If the comparison is made between human and AIs, the basis of the framework can 
 p. 36
     Discuss the final claim of this part about fundamental bricks of innate knowdege (space/time) and the fight that we shouldn't learn everything from scratch everytime.
 
-## 2.3 Reasoning
+### 2.3 Reasoning
+
+p. 36
+"Reasoning instead of memorizing by drawing inferences"
+
+- A good comment p.38 about the level of hand to hand work made to turn Romeo and Juliet into formal logic. "A system that could generate representations of this sort automatically and reason at comparable levels would represent a major breakthrough."
+
+p.39
+"Reasoning per se is not necessarily the bottleneck towards robust AI; the real bottlenexk may lie in having the right information accessible in the context of real-world inference."
+
+- Make a comment on this point.
+
+### 2.4 cognitive models
+
+p.41
+"Model-free solutions generalize poorly outside the exact environments in which they were induced"
+"lacking cognitive models they have no reliable foundation with which to reacon over."
+
+- Discuss the necessary looking dependence of a cognitive model for robust AI.
+
+Combining reasoning and cognitive models. 
+
+## 3 Discussion
+
+### 3.1 Towards an intelligence framed around enduring, abstract knowledge
+
+- If not written already, search or write about the combination of symbolic and NN. 
+
+Four building prerequisites for building robust artificial intelligence:
+
+1. Hybrid architectures that combine large-scale learning with the representational and computational powers of symbol-manipulation.
+2. Large-scale knowledge bases (likely leveraging innate frameworks) that incorporate symbolic knowlede along with others forms of knowledge
+3. Reasoning mechanisms capable of leveraging those knowledge bases in tactable ways
+4. Righ cognitive models that work together with those mechanism and knowledge bases.
+
+"Robust AI necessarily will reside in the intersection depicted in Figure 4."
+
+![Models and Architectures](/api/articles/images/models_and_architecture.jpeg)
+
+![Reasoning Vein Diagram](/api/articles/images/reasoning_vein_diagram.jpeg)
+
+- "There is, by and large, not enough discussion about what the pirmitives for synthetic cognition need to be."
+
+
+### 3.2 Is there anything else we can do?
+
+#### 3.2.1 Engineering practice
+
+- Maybe read the book "Rebooting AI"
+
+- AAAI Presidential Adress (Dietterich, 2017)
+  - Eight suggestions about some techniques that should be emphasized.
+
+#### 3.2.2 Culture
+
+Histon :
+"Max Planck said, 'Science progresses one funeral at a time.' The future depends on some graduate student who is deeply suspicious of everything I have said."
+
+### 3.3 Seeing the whole elephant,m a little bit at a time
+
+### Conclusions, prospects, and implications
+
+Solving the current paradigm - Long on data, nut short on knowledge, reasoning and cognitive models.

@@ -58,8 +58,8 @@ const articleCard = (articleText, activeTags, tagsState, creationDate, modificat
     if (flag) {
       return (
         <>
-          <div className="pb-2 col paper-top m-3 card_pile">
             <Link href={"/Articles/" + articleText[1]}>
+          <div className="pb-2 col paper-top m-3 card_pile">
               <>
                 <p className="card_title text-monospace font-weight-bold text-monospace text-capitalize">
                   {topicTrimmed}
@@ -67,8 +67,8 @@ const articleCard = (articleText, activeTags, tagsState, creationDate, modificat
                 <p>Creation: <text className="text-monospace">{creationDate}</text></p>
                 <p>Last Modification: {modificationDate}</p>
               </>
-            </Link>
           </div>
+            </Link>
           <br />
         </>
       );
