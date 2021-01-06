@@ -9,7 +9,7 @@
 
 *Idiosyncrasy*: Systems that lack solid ways of generalizing beyond a space of training examples cannot be trustted in open-ended domains. If you think of each individual systems as a function approximator, currently popular systems tend to be great at memorized examples, and good at many (though not all) examples near the training exeamples - which makes them useful for many applications revolving around classfication. But they are poor when pushed beyond training distribution.
 
-NS-CL : Neuro-Symbolic Concept Learner
+*NS-CL* : Neuro-Symbolic Concept Learner
 
 *knowledge representation*: Field that aims to accumulate and represent abstract knowledge.
 
@@ -18,36 +18,106 @@ NS-CL : Neuro-Symbolic Concept Learner
 *cognitive models*: "Knowledge that accumulates over time about particular states of affaism such as what we might learn about a friend in the course of a conversation, etc."
 ## Thoughts
 
-### 1
+### 1 Towards a robust artificial intelligence
 
-- what are the real differences between a **robust** and **AGI**
-- is robust AI necessarly a stepway to AGI
-- "If we cannot count on our AIto behave reliably, we should no trust it"
-  - To what extent is that true?
-  - compare this statemtn to the definition of a robust AI
+#### What are the real differences between a **robust** and **AGI**?
 
-- AI are often compared to human when talking about robustness but there are many limits on this reflection: 
-  - in terms of tools at our disposal to explore with have 3d vision, memory, the ability to ask questions to focus our understanding, etc 
-    - Make an analogy of the limits of degrees of learning a modern AI has compared to a human.
+*Robust AI*: Intelligence that, while not necessarily superhuman or self-improving (AGI), can be counted on to apply what it knows to a wide range of problems in a **systematic** and **reliable** way, synthesizing knowledge from a variety of sources such that it can reason **flexibly** and **dynamically** about the world, **transferring** what it learns in one context to another, in a way that we would expect of an ordinary adult.
 
-    - It is like putting a child with no sense of depth in a dark room where the only thing he sees is a screen with images of dogs and not dogs, and then expecting him to be robust.
-    - It is like teaching a child by only trying to transmit electric signal directly to the brain as an only way of degrees of learnings
+The main differences between an AGI and a Robust AI, are in its resulting behaviors. While the Robust Ai is expected to have a confidence level in its behavior of an ordinary adult, the AGI is theoretically self-improving with little limits in its performance and memory. Even if a Robust AI has impressive capacities, the AGI's features and capacities largely surpass those capacities the same way the amount of natural numbers between 0 and 1 million, is surpassed by the amount of natural numbers between 0 and positive infinity.
 
-- Pythagorus or the curse of intelligence (being too intelligent to see simple relationships) (Do a little comic a of genius in front of a reflection that creates a whole theory about that it must be aclone from another universe with a power shield in front of it etc etc)
-    - Make an AI that learns rules of a system
-    - Break down the minimal requirements nodes necessary for breaking a system, via it's logic
-        - If it is not enough, he adds another logic node, and tries to find the rule behind the scheme 
-        - For example, have an AI that start with one logic node and it tries values to see if it is enough to satisfy the rule
-        - repeat until enough logic nodes are added to be able to find a combination that solves the identity
+AGI's expectations are on another level. It will show us an understanding and intelligence that will be unreachable by humans just like a new color would be out of our reach to imagine. If the conditions are met, AGI is a potential candidate to succeed in the Turing test, as well as maybe showing us emotions and all the final pieces that we could think are unreachable to carbon and silicium. While a robust AI might fool us and get really close to a successful Turing test, it doesn't require or necessarily demonstrate a "superhuman" intellect.
 
+#### Is robust AI necessarily a step-way to AGI?
 
-Thoughs on Idiocrary and Excessive dependncy on exact details of training regime
-- Models suffer the curse of conspiracy, too smart to see simple relationships or identities
+It is hard to say clearly what are the missing pieces, but a Robust AI is simply not enough to be called an AGI.
+Robust AI possesses all the necessary requirements for an AGI especially the **flexible reasoning** and the **transferability of knowledge across domains**. 
 
+While it might not be a "necessity" to go through a complete Robust AI before starting building an AGI, it surely is a good direction to work towards for researchers and companies.
+Being so far off from knowing what an AGI would look like, our poor (but growing) understanding of the human brain and human intelligence, the machine learning technologies swiftly changing, it is very hard to have a clear picture of the necessary puzzle pieces of the AGI.
+
+#### "If we cannot count on our AI to behave reliably, we should no trust it"
+
+The keyword here is *reliability* and its comprehension.
+Oxford dictionary's definition of reliability is :
+
+- *"The quality of being able to be trusted to do what somebody wants or needs."*
+
+It is all about the ability/capacity to being trusted. In this scenario, we talk more about the trust in the functionalities rather than a more emotional or optimistic trust. 
+Following the definition, it seems trivial that if something is not reliable, and therefore without the ability to be trusted, we should not trust it.
+
+Today's most performant AIs are for the most case, single task-specific. Our trust in them can be directly attached to this functionality and therefore be relatively straight forward. As the number of tasks, a single AI can do increases, the more our trust is an average of our trust in every single task. They might not be equal as an AI may perform very well in certain tasks and yet not be reliable in functionalities they might propose. 
+
+[ Add here a funny drawing of someone telling that he trusts his friend with almost anything but not the cooking ]
+
+Reliability is only one part of the definition of *Robust AI*. It is reinforced but the word **systematic** that is here to complete the needed requirement for a trusted AI. The good performance and results of a program need to be consistent and unquestioned by its users. Otherwise, trust cannot be built, results have to be questioned or thrown away sometimes and the program becomes unusable by other clients.
+
+----------------------------------------------------------------------------
+
+#### AI vs. Humans
+
+AIs are often compared to Humans when talking about performance, robustness, skills, and so on.
+In this paper's first section, an emphasis is made that the most performant modern ML programs that have been built still lack some basic human concepts that break most of the needed requirements of a robust system.
+This allows the author to show that the models are mainly statistical and lack the abstract comprehension of what they are resulting. It is well illustrated with the GPT-2 examples 
+
+	• **Yesterday I dropped my clothes off at the dry cleaners and have yet to pick them up. Where are my clothes?** *at my mom's house.*
+	• **There are six frogs on a log. Two leave, but three joins. The number of frogs on the log is now** *seventeen.*
+
+Human comparison is inevitable. It is very hard to know where we're going with AIs and the direction is not always clear as is often the case in research. ("*If I knew what I was doing, it wouldn't be called research*")
+Human performance is a qualitative error detection process that allows us to know what a model lacks. It is very similar to how an artist would draw a portrait from a model. A representation is made in the artist's mind, but after every piece of carbon that is left on the paper, he needs to peek a look at the model to know what is left, what is out of proportion, how the light is reflected, and so on. 
+
+[Make a drawing of an artist drawing a brain that is a model]
+
+Although, the reader must not interpret that models like GPT-2 are bad or worthless because they are not robust. A context must be understood to what those types of AIs "are" and "how" they learn. 
+
+What **are** complex neural networks like GPT-2?
+ 
+More than a simple network of neuronal connections leveraged by weights and impulses, modern architectures have been boosted with specific types of network models that allow them much more powerful types of performance. This is probably best illustrated by the usage of convolution networks for images. They can still be reduced down to a "complex" network of perceptrons, but its overall architecture allows them to achieve line, shapes, and element recognition in pictures. This wouldn't be possible in a "trivial" straight forward deep neural network. 
+The same comparison can be made with brains' neural architecture. It's the architecture and the difference of neural types and their order that allows the general and robust intelligence that we experience. 
+
+This is precisely the aim of this illustration. GPT-2 and Convolution networks are advanced neural network architectures similar to those in certain layers of our brain, and they are performant ones. But yet they are alone. They're not connected to the rest of the brain, genes, prior knowledge, and experiences. If we isolated the brain's neural network responsible for human vision and asked it to "understand" what it sees, we might have poor results. But that doesn't take away the impressive abilities of this network. 
+
+Note: *This does raise an interesting question: if we only had the full brain network responsible for vision, how would we test it?*
+
+	2. How do they learn?
+
+Humans take a long time to adapt and learn. The capacity to transverse knowledge from one discipline to another allows us to build upon previous knowledge and gain momentum as we go along. 
+This building is important and goes a long way back. It might be challenging to learn Shakespeare's theatre if we don't have any comprehension of time and space, no logic or mathematical tools, or no cultural appreciation. If we are very smart we might be able to see repetitions, patterns in the construction of sentences, associate them with other words but we would accept that the comprehension of the piece is shallow. 
+Humans can ask questions, confront their comprehension with others, view the world in 3D, touch, smells, associate emotions to memories, fall upon different truths and lies, etc... All those **degrees of learning** contribute to our comprehension of the world. 
+
+What about AIs? How could we compare the images we give Convolutional Neural Networks (**CNN**) to a learning method given to humans with the same degrees of learning? 
+Neural networks are given large batches of images decomposed in pixels. Human eyes decompose electromagnetic radiations (*aka* light) through the photoreceptors at the back of the eye. Those signals are processed by the retinal ganglion cells (Visual cortex) acting as a feature detector (shapes, colors, directions of movement, ...). The signal is then distributed across the brain where visual signals take an important quantity of space in the brain. 
+CNN's learning can be compared to a person in a dark room, with one eye and a brain with visual pathways and an adaptive system capable of learning to classify the images and their labels. He is fed the first images he has ever seen in his life with labels and that is it. He never had communication with anyone, doesn't know the existence of language, and cannot appreciate time and space. It is hard to see where the robustness could come from...
+
+[illustrate it]
+
+This example was compared with CNNs but it is also true for other types of modern Machine Learning models where the input is similar to transmitting an electrical signal directly into brains with limited degrees of learning.
+To complete the general direction of Gary Marcus in his paper, research needs to look at how we could increase the number of degrees of learning AI possesses to move towards robustness.
+
+## 2. A Hybrid, knowledge-driven, cognitive-model-based approach
+
+#### The curse of conspiracy
+
+*The same network that is able to predict complex mathematical schemes, cannot be trained to predict simple additions or even the identity rule.*
+
+What is going on there? We have the right to be surprised here. It is hard to qualify this network as adaptive. Modern networks have a hard time being able to be specialized in predicting both complex models and simple ones. 
+
+The syndrome of those NN is **the curse of conspiracy**. The higher the number of connections, the harder a network can adapt to simple mathematical models. 
+Even if the network is trained a long time, it will overfit in the training set but and won't be able to "generalize *outside* the training distribution" (See warm-up exercise page 10).
+
+[Illustration of the Doc and Dopey in front of the mirror]
+
+We might be tempted to say that modern machine learning models tend to adapt to the training data and that we should focus on finding the "logic rules" behind problems. But, ML models were not here to solve simple problems like the identity rule. Finding a code that solves both simple and hard problems is another job that we need to solve for robust AI.
+
+*Idiosyncrasy*: Systems that lack solid ways of generalizing beyond a space of training examples cannot be trusted in open-ended domains. If you think of each individual system as a function approximator, currently popular systems tend to be great at memorized examples, and good at many (though not all) examples near the training examples - which makes them useful for many applications revolving around classification. But they are poor when pushed beyond training distribution.
+
+Note: Over complex NN is a known problem in the community. Having too many nodes and variables makes training a real problem. Recent papers like the **[Lottery Ticket Hypothesis](https://arxiv.org/abs/1803.03635)** (Jonathan Frankle, Michael Carbin) try to solve this problem by removing useless nodes while still achieving similar performances.
+We might want to think about the *minimal* amount of nodes/variables necessary to *solve* a problem.
+Should NN be able to grow progressively? Start with simple connexions and grow their own nodes?
 
 ### 2.1 Hybrid Architecture
 
-- "In particular, four basic ideads undergrid virtually every compute program: 
+- "In particular, four basic ideads undergrid virtually every compute program:
           - Variables (x and y)
           - Instances (specific numbers)
           - Bindings that tie variables to instances (connecting a variable to an instance)
