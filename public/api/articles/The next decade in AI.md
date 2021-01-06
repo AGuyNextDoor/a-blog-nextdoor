@@ -1,21 +1,23 @@
-# The next decade in AI
-## Defintions
+# The Next Decade in AI
 
-*Robust AI* : Intelligence that, while no necessarly superhuman or self-improving (AGI), can be counted on to apply what it knows to a wide range of problems in a **systematic** and **reliable** way, synthezising knowledge fro; a variety of sources such that it can reason **flexibly** and **dynamically** about the world, **transferring** what it learns in one context to another, in a way that we would expect of an ordinary adult.
+## Definitions
 
-*Narrow AI*: Systems that perform a single narrow goal extremelly well but often in ways that are extremely centered aruond a single task and not robust and **transferable** to even modestly different circumstances without extensive retraining. 
+*Robust AI*: Intelligence that, while not necessarily superhuman or self-improving (AGI), can be counted on to apply what it knows to a wide range of problems in a **systematic** and **reliable** way, synthesizing knowledge fro; a variety of sources such that it can reason **flexibly** and **dynamically** about the world, **transferring** what it learns in one context to another, in a way that we would expect of an ordinary adult.
+
+*Narrow AI*: Systems that perform a single narrow goal extremely well but often in ways that are extremely centered around a single task and not robust and **transferable** to even modestly different circumstances without extensive retraining. 
 
 *Degrees of Learning*: The different tools available to a system to input/infuse/induce knowledge (aka learn)
 
-*Idiosyncrasy*: Systems that lack solid ways of generalizing beyond a space of training examples cannot be trustted in open-ended domains. If you think of each individual systems as a function approximator, currently popular systems tend to be great at memorized examples, and good at many (though not all) examples near the training exeamples - which makes them useful for many applications revolving around classfication. But they are poor when pushed beyond training distribution.
+*Idiosyncrasy*: Systems that lack solid ways of generalizing beyond a space of training examples cannot be trusted in open-ended domains. If you think of each system as a function approximator, currently popular systems tend to be great at memorized examples, and good at many (though not all) examples near the training examples - which makes them useful for many applications revolving around classification. But they are poor when pushed beyond training distribution.
 
-*NS-CL* : Neuro-Symbolic Concept Learner
+*NS-CL*: Neuro-Symbolic Concept Learner
 
 *knowledge representation*: Field that aims to accumulate and represent abstract knowledge.
 
 *Nativism*: The idea that some "knowledge" is innate. (not learned but there at the beginning)
 
-*cognitive models*: "Knowledge that accumulates over time about particular states of affaism such as what we might learn about a friend in the course of a conversation, etc."
+*cognitive models*: "Knowledge that accumulates over time about particular states of affairs such as what we might learn about a friend in the course of a conversation, etc."
+
 ## Thoughts
 
 ### 1 Towards a robust artificial intelligence
@@ -60,11 +62,11 @@ AIs are often compared to Humans when talking about performance, robustness, ski
 In this paper's first section, an emphasis is made that the most performant modern ML programs that have been built still lack some basic human concepts that break most of the needed requirements of a robust system.
 This allows the author to show that the models are mainly statistical and lack the abstract comprehension of what they are resulting. It is well illustrated with the GPT-2 examples 
 
-	• **Yesterday I dropped my clothes off at the dry cleaners and have yet to pick them up. Where are my clothes?** *at my mom's house.*
-	• **There are six frogs on a log. Two leave, but three joins. The number of frogs on the log is now** *seventeen.*
+**Yesterday I dropped my clothes off at the dry cleaners and have yet to pick them up. Where are my clothes?** *at my mom's house.*
+**There are six frogs on a log. Two leave, but three joins. The number of frogs on the log is now** *seventeen.*
 
-Human comparison is inevitable. It is very hard to know where we're going with AIs and the direction is not always clear as is often the case in research. ("*If I knew what I was doing, it wouldn't be called research*")
-Human performance is a qualitative error detection process that allows us to know what a model lacks. It is very similar to how an artist would draw a portrait from a model. A representation is made in the artist's mind, but after every piece of carbon that is left on the paper, he needs to peek a look at the model to know what is left, what is out of proportion, how the light is reflected, and so on. 
+Human comparison is inevitable. The direction of AI is not always clear as it is often the case in research. ("*If I knew what I was doing, it wouldn't be called research* " Einstein)
+Human performance is a qualitative error detection process that allows us to know what a model lacks. It is very similar to how an artist would draw a portrait from a model. A representation is made in the artist's mind, but after every piece of carbon that is left on the paper, he needs to peek a look at the model to know what is left, what is out of proportion, how the light is reflected, and so on.
 
 [Make a drawing of an artist drawing a brain that is a model]
 
@@ -79,7 +81,7 @@ This is precisely the aim of this illustration. GPT-2 and Convolution networks a
 
 Note: *This does raise an interesting question: if we only had the full brain network responsible for vision, how would we test it?*
 
-	2. How do they learn?
+	1. How do they learn?
 
 Humans take a long time to adapt and learn. The capacity to transverse knowledge from one discipline to another allows us to build upon previous knowledge and gain momentum as we go along. 
 This building is important and goes a long way back. It might be challenging to learn Shakespeare's theatre if we don't have any comprehension of time and space, no logic or mathematical tools, or no cultural appreciation. If we are very smart we might be able to see repetitions, patterns in the construction of sentences, associate them with other words but we would accept that the comprehension of the piece is shallow. 
