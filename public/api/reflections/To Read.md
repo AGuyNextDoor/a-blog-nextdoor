@@ -1,4 +1,4 @@
-## To Read (about)
+# To Read (about)
 
 - [X] Google Knowledge Graph
     - https://fr.wikipedia.org/wiki/Knowledge_Graph
@@ -9,3 +9,11 @@
 - [ ] Rebooting Ai book
 - [ ] Read about NS-CL (Mao et al., 2019) which mixes symbol manipulation and deep learning.
 - [ ] Read more about CYC 
+
+- [ ] Total Turing Test & Loebner Prize
+- [ ] Jose Hernandez-Orallo *The measure of All Minds: Evaluating Natural and Artificial Intelligence.*
+
+## Quantum NN 
+
+- [ ] [The power of quantum neural networks paper](https://arxiv.org/abs/2011.00027)
+    - [ ] Youtube video explaining - https://www.youtube.com/watch?v=aU8XBjG5tAw&feature=youtu.be&ab_channel=MarkJackson

@@ -206,9 +206,9 @@ Four building prerequisites for building robust artificial intelligence:
 
 "Robust AI necessarily will reside in the intersection depicted in Figure 4."
 
-![Models and Architectures](/api/articles/images/next-decade_in_ai/models_and_architecture.jpeg)
+![Models and Architectures](/api/articles/images/next_decade_in_ai/models_and_architecture.jpeg)
 
-![Reasoning Vein Diagram](/api/articles/images/next-decade_in_ai/reasoning_vein_diagram.jpeg)
+![Reasoning Vein Diagram](/api/articles/images/next_decade_in_ai/reasoning_vein_diagram.jpeg)
 
 - "There is, by and large, not enough discussion about what the pirmitives for synthetic cognition need to be."
 
