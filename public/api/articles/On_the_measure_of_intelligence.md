@@ -1,4 +1,4 @@
-# On the Measure of Intelligence
+# On the Measure of Intelligence (Ongoing Work)
 
 ## Definitions
 
