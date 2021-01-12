@@ -1,4 +1,4 @@
-# The next decade in AI
+# The Next Decade in AI
 
 ## Introduction
 
@@ -179,7 +179,7 @@ Coding too much information might make it hard for models to explore, generalize
 A clear metric or evaluation method for how code or abilities is yet unknown to my knowledge.
 
 **Illustration**:
-I once tried to build a reinforcement-learning model that learned how to play the game in 2048. While it was a fun project, the model had a hard time stabilizing in the late stages of the game where a single wrong input could easily cost you the game.
+I once tried to build a reinforcement-learning model that learned how to play the game of "*2048*". While it was a fun project, the model had a hard time stabilizing in the late stages of the game where a single wrong input could easily cost you the game.
 I decided to help it and changed some weights in its training so that it would learn a certain strategy more easily. While I had the feeling of being a teacher, I had influenced the model's learning into mastering a certain strategy, and its ability to generalize on this game was greatly reduced.
 Trying this model on another game would be a great failure as the encoding strategy would certainly result in a great flop.
 
@@ -192,7 +192,7 @@ Trying this model on another game would be a great failure as the encoding strat
 Should the model focus on having the right information/model given a certain context?
 Could this be trained? Could we classify the most important information that a model should be "conscious" of and train the algorithm to achieve its goal in a real-world inference?
 
-We could think of a model that is only allowed to use information in its conscious (I have no idea if the word **conscious** is appropriate here but I'll use it for now). The conscious would be limited to maybe 5 to 10 pieces of information at max. Although it might seem small and a limitation, the conscious would be allowed to change rapidly and the model would be forced to adapt quickly. It would also benefit from not being distracted by too much information and would not need to filter all the time. The filter would be done by the conscious cognitive model itself being responsible for a part of the conscious set of information changes.
+We could think of a model that is only allowed to use information in its conscious (I have no idea if the word *conscious* is appropriate here but I'll use it for now). The conscious would be limited to maybe 5 to 10 pieces of information at max. Although it might seem small and a limitation, the conscious would be allowed to change rapidly and the model would be forced to adapt quickly. It would also benefit from not being distracted by too much information and would not need to filter all the time. The filter would be done by the conscious cognitive model itself being responsible for a part of the conscious set of information changes.
 
 **Note**: 
 Is this too "human inspired"?
@@ -201,7 +201,7 @@ I've always had a little stress in my head that our models might be too much "hu
 ### 2.4 cognitive models
 
 #### "Model-free solutions generalize poorly outside the exact environments in which they were induced"
-"lacking cognitive models they have no reliable foundation with which to reason over."
+"(...) lacking cognitive models they have no reliable foundation with which to reason over."
 ( p.41 )
 
 On the quest of Robust AI, the ability to generalize rules and properties outside of the training set is going to be obligatory. It is emphasized in the definition of robustness but also in a large group of definitions of general intelligence. 
@@ -246,8 +246,8 @@ Four building prerequisites for building robust artificial intelligence:
 
 - "Robust AI necessarily will reside in the intersection depicted in Figure 4."
 
-![Models and Architectures](/api/articles/images/next-decade_in_ai/models_and_architecture.jpeg)
+![Models and Architectures](/api/articles/images/next_decade_in_ai/models_and_architecture.jpeg)
 
-![Reasoning Vein Diagram](/api/articles/images/next-decade_in_ai/reasoning_vein_diagram.jpeg)
+![Reasoning Vein Diagram](/api/articles/images/next_decade_in_ai/reasoning_vein_diagram.jpeg)
 
 V1 Date : 11/01/2021
