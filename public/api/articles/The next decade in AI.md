@@ -53,7 +53,7 @@ Following the definition, it seems trivial that if something is not reliable, an
 
 Today's most performant AIs are for the most case, single task-specific. Our trust in them can be directly attached to this functionality and therefore be relatively straight forward. As the number of tasks, a single AI can do increases, the more our trust is an average of our trust in every single task. They might not be equal as an AI may perform very well in certain tasks and yet not be reliable in functionalities they might propose.
 
-[ Add here a funny drawing of someone telling that he trusts his friend with almost anything but not the cooking ]
+![Trust](/api/articles/images/next_decade_in_ai/Trust20%Issues.png)
 
 Reliability is only one part of the definition of *Robust AI*. It is reinforced by the word **systematic** that is here to complete the needed requirement for a trusted AI. The good performance and results of a program need to be consistent and unquestioned by its users. Otherwise, trust cannot be built, results have to be questioned or thrown away sometimes and the program becomes unusable by other clients.
 
@@ -71,7 +71,7 @@ This allows the author to show that the models are mainly statistical and lack t
 Human comparison is inevitable. It is very hard to know where we're going with AIs and the direction is not always clear as is often the case in research. ("*If I knew what I was doing, it wouldn't be called research*")
 Human performance is a qualitative and quantitative error detection process that allows us to know what a model lacks. It is very similar to how an artist would draw a portrait from a model. A representation is made in the artist's mind of the model, but after every few scratch, he needs to peek a look at the model to know what is left, what is out of proportion, how the light is reflected, and so on... Building his drawing closer and closer to a realistic one-to-one copy of the model.
 
-[Make a drawing of an artist drawing a brain that is a model]
+![AI Model](/api/articles/images/next_decade_in_ai/AI%20Model.png)
 
 Although, the reader must not interpret that models like GPT-2 are bad or worthless because they are not robust. A context must be understood to what those types of AIs "are" and "how" they learn.
 
@@ -95,7 +95,7 @@ Neural networks are given large batches of images decomposed in pixels. Human ey
 CNN's learning can be compared to a person in a dark room, with one eye and a brain with only the visual pathways and an adaptive system capable of learning to classify the images and their labels. He is fed the first images he has ever seen in his life with labels and that is it. He never had communication with anyone, doesn't know the existence of language, and cannot appreciate time and space.
 It is hard to see where the robustness could come from...
 
-[illustrate it]
+![Robustness](/api/articles/images/next_decade_in_ai/Robustness.png)
 
 This comparison was opposed with CNNs but it is also true for other types of modern Machine Learning models where the input is similar to transmitting an electrical signal directly into brains with limited degrees of learning.
 To complete the general direction of Gary Marcus in his paper, research needs to look at how we could **increase the number of degrees of learning**, AI possesses, to move towards robustness.
@@ -111,7 +111,7 @@ What is going on there? We have the right to be surprised here. It is hard to qu
 The syndrome of those NNs is **the curse of conspiracy**. The higher the number of connections, the harder a network can adapt to simple mathematical models. 
 Even if the network is trained a long time, it will overfit in the training set but and won't be able to "generalize *outside* the training distribution" (See warm-up exercise page 10).
 
-[Illustration of the Doc and Dopey in front of the mirror]
+![Curse of conspiracy](/api/articles/images/next_decade_in_ai/Curse%20of%20conspiracy.png)
 
 We might be tempted to say that modern machine learning models tend to adapt to the training data and that we should focus on finding the "logic rules" behind problems. But, ML models were not here to solve simple problems like the identity rule. Finding a code that solves both simple and hard problems is another job that we need to solve for robust AI.
 
