@@ -48,3 +48,21 @@ Two types of generalization:
 - **Developer-aware generalization**: The ability of a system, either learning or static, to handle situations that neither the system not the developer of the system have encountered before.
 
 ![cognitive_abilities_map](/api/articles/images/on_the_measure_of_intelligence/cognitive_abilities_map.jpeg)
+
+## 2 A new Perspective
+
+### 2.1 Critical Assessment
+
+p.22
+- Make a comment on the comparison with sports
+
+p.22
+- Can evolution be said to be the "training data set" of humans? 
+  - "evolution optimizes for adaptability, wether cognitive adaptability or sensorimotor adaptability.
+
+p.23
+Humans are able to easily solve problems that overlap with evolutionnary familiar task
+Comment if it is really "evolutionnary" or education?
+
+p.24
+Mini conclusion : Don't try to find a measure of general and universal intelligence but keep it to human intelligence

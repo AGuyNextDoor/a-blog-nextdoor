@@ -1,7 +1,7 @@
 {
-  "Quantum Computing": ["atoms-computation.html", "atoms-computation copy.html", "markdown.md"],
-  "AI": ["markdown.md", "The next decade in AI.md"],
+  "Quantum Computing": [],
+  "AI": ["The next decade in AI.md", "On the measure of intelligence.md"],
   "Neuroscience": [],
   "Philosophy": [],
-  "Article Summary": ["The next decade in AI.md"]
+  "Article Summary": ["The next decade in AI.md", "On the measure of intelligence.md"]
 }

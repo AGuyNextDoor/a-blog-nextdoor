@@ -36,12 +36,6 @@ const articleCard = (articleText, activeTags, tagsState, creationDate, modificat
               <p className="card_title text-monospace font-weight-bold text-monospace text-capitalize">
                 {topicTrimmed}
               </p>
-              <p>
-                Creation: <text className="text-monospace">{creationDate}</text>
-              </p>
-              <p>
-                Last Modification: <text className="text-monospace">{modificationDate}</text>
-              </p>
             </>
         </div>
           </Link>
