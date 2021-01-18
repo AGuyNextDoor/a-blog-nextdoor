@@ -43,7 +43,7 @@ Being so far off from knowing what an AGI would look like, our poor (but growing
 
 #### "If we cannot count on our AI to behave reliably, we should no trust it"
 
-The keyword here is *reliability* and its comprehension. 
+The keyword here is *reliability* and its comprehension.
 Oxford dictionary's definition of reliability is :
 
 *"The quality of being able to be trusted to do what somebody wants or needs."*
