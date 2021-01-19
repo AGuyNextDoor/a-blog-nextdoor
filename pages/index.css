@@ -730,3 +730,7 @@ body {
   z-index:2;
   pointer-events: none
 }
+
+.definition_font {
+  font-family:Roboto, sans-serif
+}
