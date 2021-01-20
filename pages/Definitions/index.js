@@ -52,7 +52,7 @@ const Definitions = () => {
 
   // Retrieves the list of items from the Express app
   const getList = () => {
-    fetch("\/definitions.csv")
+    fetch("\/Definitions.csv")
     .then(res => {
       return res.text()
     })
