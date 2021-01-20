@@ -734,3 +734,7 @@ body {
 .definition_font {
   font-family:Roboto, sans-serif
 }
+
+.disabled {
+  opacity: 0.27
+}

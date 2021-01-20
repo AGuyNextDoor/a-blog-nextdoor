@@ -6,36 +6,72 @@ import { useRouter } from "next/router";
 import showdown from "showdown";
 
 const converter = new showdown.Converter();
+// const data = import("../../public/definitions.csv")
+// console.log({data});
+const csvJSON = (csv) => {
+
+  console.log(csv);
+
+  let lines=csv.split("\n");
+  console.log({lines});
+
+  let result = [];
+
+  // NOTE: If your columns contain commas in their values, you'll need
+  // to deal with those before doing the next step 
+  // (you might convert them to &&& or something, then covert them back later)
+  // jsfiddle showing the issue https://jsfiddle.net/
+  let headers=lines[0].split(";");
+  console.log({headers});
+
+  for(let i=1;i<lines.length;i++){
+
+      let obj = {};
+      let currentline=lines[i].split(";");
+
+      
+      for(let j=0;j<headers.length;j++){
+          if(headers[j]){
+            obj[headers[j]] = currentline[j];
+          }
+      }
+
+      result.push(obj);
+
+  }
+
+  console.log(result);
+
+  return result; //JavaScript object
+}
 
 const Definitions = () => {
   const location = useRouter()
 
-  const [listState, updateListState] = useState([[[]], [[]], [[]]]);
+  const [listState, updateListState] = useState([[[]], [[]]]);
 
   // Retrieves the list of items from the Express app
   const getList = () => {
-    fetch("\/definitions.json")
-    // .then()
-    .then((res) => res.json())
+    fetch("\/definitions.csv")
+    .then(res => {
+      return res.text()
+    })
+    .then((res) => {
+      return csvJSON(res)
+    })
     // .then(result => {
     //   updateListState([result.articles, result.dates, result.mods])
     // })
       .then((list) => {
-        const tags = Object.keys(list)
-        let words = []
-        tags.forEach(tag => {
-          words = [...words, Object.keys(list[tag])]
-        })
+        const items = Object.keys(list[0])
+        console.log(items.splice(items.indexOf("Definition"), 1));
+        console.log(items.splice(items.indexOf("Words"), 1));
+        console.log(items.splice(items.indexOf(""), 1));
+        console.log(list);
 
-        let wordsAndDefinitions = []
-        words.forEach((listWords, indexWords) => {
-          wordsAndDefinitions = [...wordsAndDefinitions, listWords.map( word => {
-            return [word, converter.makeHtml(list[tags[indexWords]][word])]
-          })];
-        })
+        const tags = items;
 
-        console.log({wordsAndDefinitions});
-        updateListState([tags, wordsAndDefinitions, list])
+        updateListState([list, tags])
       });
   };
 
@@ -47,7 +83,7 @@ const Definitions = () => {
     <div id="article_body" className="App justif-content-center">
       {location.pathname.length < 15 ? (
         <div>
-          <DefinitionsTags tags={listState[0]} words={listState[1]} list={listState[2]} />
+          <DefinitionsTags words={listState[0]} tags={listState[1]}  />
         </div>
       ) : (
         <div></div>

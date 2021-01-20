@@ -12,7 +12,30 @@ const createState = (callback, state) => {
   callback(array)
 }
 
-const DefinitionsTags = ({ tags, words, list }) => {
+const isTagActive = (activeTags, word) => {
+  let flag = false;
+  activeTags.forEach(tag => {
+    if((word[tag.name] === "1") && !tag.active){
+      flag = true;
+    }
+  })
+
+  return flag;
+}
+
+const numberOfTags = (tag, words) => {
+  let frequency = 0;
+  words.forEach( word => {
+    // console.log(tag, word, parseInt(word[tag.name]));
+    if(parseInt(word[tag.name])){
+      frequency += parseInt(word[tag.name])
+    }
+  })
+
+  return frequency;
+}
+
+const DefinitionsTags = ({ words, tags }) => {
   const [activatedTags, setActivatedTags] = useState([{name : "tags loading...", active : false}]);
 
   const changeState = (tag, index) => {
@@ -23,35 +46,37 @@ const DefinitionsTags = ({ tags, words, list }) => {
   };
 
   const getButtons = (tag, index) => {
-    return tag.active ? (
-      <button
+    const frequency = numberOfTags(tag, words)
+    if(frequency){
+
+      return (tag.active) ? (
+        <button
         type="button"
         name={"button:" + tag.name}
         onClick={() => {
           changeState(tag, index);
         }}
-        className="text-monospace mx-2 active tag_background rounded mr-2"
-      >
-        {tag.name}
+        className="text-monospace mx-2 active disabled rounded mr-2"
+        >
+        {tag.name} ({frequency})
       </button>
     ) : (
       <button
-        type="button"
-        name={"button:" + tag.name}
-        onClick={() => {
-          changeState(tag, index);
-        }}
-        className="text-monospace mx-2 rounded mr-2"
+      type="button"
+      name={"button:" + tag.name}
+      onClick={() => {
+        changeState(tag, index);
+      }}
+      className="text-monospace mx-2 rounded mr-2"
       >
-        {tag.name}
+        {tag.name} ({frequency})
       </button>
     );
+  }
   };
 
   // Retrieves the list of items from the Express app
   useEffect(() => {
-    console.log({words})
-
     createState(setActivatedTags, tags)
   }, [tags]);
 
@@ -68,10 +93,17 @@ const DefinitionsTags = ({ tags, words, list }) => {
             </div>
           </div>
         </div>
-          {words.map( word => {
-            return word.map( line => {
-              return  <><div className="mt-5 container">{line[0]}</div><div className="mt-5 container definition_font margin_sidebar">{ReactHtmlParser(line[1])}</div></>
-            })
+          {words.map( (word, wordIndex) => {
+            // if(activatedTags[wordIndex]){
+            //   if(!activatedTags[wordIndex].active){
+            //     return word.map( line => {
+            //       return  <><div className="mt-5 container">{line[0]}</div><div className="mt-5 container definition_font margin_sidebar">{ReactHtmlParser(line[1])}</div></>
+            //     })
+            //   }
+            // }
+            if(isTagActive(activatedTags, word)){
+              return <><div className="mt-5 container">{word.Words}</div><div className="mt-5 container definition_font margin_sidebar">{ReactHtmlParser(word.Definition)}</div></>
+            }
           })}
       </div>
     </>
