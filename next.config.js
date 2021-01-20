@@ -1,5 +1,14 @@
 module.exports = {
   webpack: (config, { isServer }) => {
+    // config.module.rules.push({
+    //     test: /\.csv$/,
+    //     loader: 'csv-loader',
+    //     options: {
+    //       dynamicTyping: true,
+    //       header: true,
+    //       skipEmptyLines: true
+    //     }
+    //   })
     // Fixes npm packages that depend on `fs` module
     if (!isServer) {
       config.node = {
@@ -13,7 +22,7 @@ module.exports = {
     domains: [],
     path: "/_next/image",
     loader: "default",
-  },
+  }
 };
 
 // const nextConfigs = {

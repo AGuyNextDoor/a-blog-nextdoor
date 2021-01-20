@@ -1,26 +1,34 @@
 {
   "Quantum Computing": {},
   "AI": {
-    "Robust AI": "Intelligence that, while not necessarily superhuman or self-improving (AGI), can be counted on to apply what it knows to a wide range of problems in a **systematic** and **reliable** way, synthesizing knowledge from a variety of sources such that it can reason **flexibly** and **dynamically** about the world, **transferring** what it learns in one context to another, in a way that we would expect of an ordinary adult.",
-    "Narrow AI": "Systems that perform a single narrow goal extremely well but often in ways that are extremely centered around a single task and not robust and **transferable** to even modestly different circumstances without extensive retraining.",
-    "Degrees of Learning": "The different tools available to a system to input/infuse/induce knowledge (aka learn)",
-    "Idiosyncrasy": "Systems that lack solid ways of generalizing beyond a space of training examples cannot be trusted in open-ended domains. If you think of each system as a function approximator, currently popular systems tend to be great at memorized examples, and good at many (though not all) examples near the training examples - which makes them useful for many applications revolving around classification. But they are poor when pushed beyond training distribution.",
-    "NS-CL": "Neuro-Symbolic Concept Learner",
-    "Knowledge Representation": "Field that aims to accumulate and represent abstract knowledge.",
-    "Nativism": "The idea that some 'knowledge' is innate. (not learned but there at the beginning)",
-    "Cognitive Models": "Knowledge that accumulates over time about particular states of affairs such as what we might learn about a friend in the course of a conversation, etc.",
+    "Ability": "Abstract construct (based on theory and statistical phenomena) as to a directly measurable, objectve property of an individual mind (such as a score on a specific test).",]
     "Absence of generalization": "Ai systems in which there is no uncertainty.",
-    "Local generalization": "(robustness): Adaptation to know *n* unknowns within a single task or well defined set of tasks. (Typical ML models)",
-    "Broad Generalization": "(flexibility): Adaptation to unknown unknowns across a broad category of related tasks. (self-driving vehicules)",
-    "Extreme generalization": "Adaptation to unknown unknowns across an unknown range of tasks and domains. (Humans and some species)",
+    "Algorithmic information theory": "(AIT): Computer science's extension of Information Theory. AIT concerns itself with formalizing useful computer science intuitions regarding complexity, randomness, information, and computation.",
+    "Algorithmic complexity": "A measure of the *information content* of mathematical objects. We can use Algorithmic Complexity to define the information content that a string *s2* possesses about a string *s1* (called 'Relative Algorithmic Complexity' and noted H(s1|s2)), as the length of the shortest program that, taking s2 as input, produces s1.",
     "Broad abilities": "Cognitive abilities that lead to broad or extreme generaliation. Often meant in opposition to 'local generalization'.",
-    "Psychometrics": "the field of study concerned with the theory and technique of psychological measurement, which includes the measurement of knowledge, abilities, attitudes, and personality traits. The field is primarily concerned with the study of differences between individuals.",
-    "g factor": "A hypothetic single factor of general intelligence.",
-    "ability": "Abstract construct (based on theory and statistical phenomena) as to a directly measurable, objectve property of an individual mind (such as a score on a specific test).",
-    "Algorithmic Information Theory": "(AIT): Computer science's extension of Information Theory. AIT concerns itself with formalizing useful computer science intuitions regarding complexity, randomness, information, and computation.",
-    "Algorithmic Complexity": "A measure of the *information content* of mathematical objects. We can use Algorithmic Complexity to define the information content that a string *s2* possesses about a string *s1* (called 'Relative Algorithmic Complexity' and noted H(s1|s2)), as the length of the shortest program that, taking s2 as input, produces s1.",
+    "Cognitive models": "Knowledge that accumulates over time about particular states of affairs such as what we might learn about a friend in the course of a conversation, etc.",
+    "Degrees of learning": "The different tools available to a system to input/infuse/induce knowledge (aka learn)",
+    "Generalization (Local)": "(robustness): Adaptation to know *n* unknowns within a single task or well defined set of tasks. (Typical ML models)",
+    "Generalization (Broad)": "(flexibility): Adaptation to unknown unknowns across a broad category of related tasks. (self-driving vehicules)",
+    "Generalization (Extreme)": "Adaptation to unknown unknowns across an unknown range of tasks and domains. (Humans and some species)",
+    "G factor": "A hypothetic single factor of general intelligence.",
+    "Idiosyncrasy": "Systems that lack solid ways of generalizing beyond a space of training examples cannot be trusted in open-ended domains. If you think of each system as a function approximator, currently popular systems tend to be great at memorized examples, and good at many (though not all) examples near the training examples - which makes them useful for many applications revolving around classification. But they are poor when pushed beyond training distribution.",
+    "Knowledge representation": "Field that aims to accumulate and represent abstract knowledge.",
+    "Narrow AI": "Systems that perform a single narrow goal extremely well but often in ways that are extremely centered around a single task and not robust and **transferable** to even modestly different circumstances without extensive retraining.",
+    "Nativism": "The idea that some 'knowledge' is innate. (not learned but there at the beginning)",
+    "NS-CL": "Neuro-Symbolic Concept Learner",
+    "Robust AI": "Intelligence that, while not necessarily superhuman or self-improving (AGI), can be counted on to apply what it knows to a wide range of problems in a **systematic** and **reliable** way, synthesizing knowledge from a variety of sources such that it can reason **flexibly** and **dynamically** about the world, **transferring** what it learns in one context to another, in a way that we would expect of an ordinary adult."
   },
-  "Neuroscience": {},
-  "Philosophy": {},
-  "Article Summary": {}
+  "Neuroscience": {
+    "DCN": "The interface between developmental neuroscience and developmental psychology.",
+    "EEG": "Electroencephalography; signals collected from electrodes placed over the scalprelfecting ongoing electrical activity in the brain.",
+    "Epigenisis (Probabilistic)": "Interactions between genes, structural brain changes, and psychological function are viewed as bidirectional, dynamic, and emergent.",
+    "Epigenisis (Deterministic)": "There is a unidirectional causal path from genes to structural brain changes and then to psychological function.",
+    "ERP": "Event Related Potentials; Signals occuring in response to a specific stimulus and are most used as a neural assessment for a range of cognitive processes.",
+    "Nativism": "The idea that some 'knowledge' is innate. (not learned but there at the beginning)",
+    "Ontogenetic": "Concerns individual development during live span.",
+    "Phylogenetic": "Evolutionary, concerns the origin of the characteristics of species.",
+    "Psychometrics": "the field of study concerned with the theory and technique of psychological measurement, which includes the measurement of knowledge, abilities, attitudes, and personality traits. The field is primarily concerned with the study of differences between individuals."
+  },
+  "Philosophy": {}
 }

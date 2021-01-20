@@ -730,3 +730,11 @@ body {
   z-index:2;
   pointer-events: none
 }
+
+.definition_font {
+  font-family:Roboto, sans-serif
+}
+
+.disabled {
+  opacity: 0.27
+}
