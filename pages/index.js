@@ -60,10 +60,10 @@ const HomePage = () => {
               <text className="font-weight-bold" name="homepage" id="homepage">
                 <p className="font-italic">This blog is a journal of somebody having fun with too many topics at the same time.</p>
                 <p>
-                  I'm an independant learner and researcher since 2020. I mostly study 3 core topics :
-                  <text className="text-monospace"> Machine Learning / Artificial Intelligence, Quantum Computing, and Neurosciences.</text>
+                  I'm an independant learner and researcher since 2020. I mostly study parallels between core topics :
+                  <text className="text-monospace"> Machine Learning / Artificial Intelligence and Neurosciences.</text>
                 </p>
-                Other topics may vary from Philosophy, Psychology, Psychotherapy, Physics, Electronics, ...
+                Other topics may vary from Quantum Computing, Philosophy, Psychology, Psychotherapy, Physics, Electronics, ...
                 <p>
                   Without a specific goal, I wonder around diverse fields for the pleasure of connecting dots across
                   knowledge.

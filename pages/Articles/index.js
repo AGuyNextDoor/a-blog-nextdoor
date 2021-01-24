@@ -3,6 +3,8 @@ import React, { useState, useEffect, Component } from "react";
 // import ReactHtmlParser from "react-html-parser";
 import ArticlesTags from "../../components/Articles_tags.js";
 import { useRouter } from "next/router";
+import Image from "next/image"
+
 // import MathJax from "@matejmazur/react-mathjax";
 
 const Articles = () => {
@@ -34,8 +36,10 @@ const Articles = () => {
       ) : (
         <div></div>
       )}
-
-      {/* <Route path={`${process.env.URL + location.pathname}/:articleId`} component={Article} /> */}
+      <div className="text-center">
+        <Image className="rounded mx-auto d-block" width="520" height="268" src="/api/articles/images/wcArticles.png" alt=""/>
+        <div>This word cloud is generated from all of the articles published filtered by the <a href="https://amueller.github.io/word_cloud/">wordcloud package</a>.</div>
+      </div>
     </div>
   );
 };
