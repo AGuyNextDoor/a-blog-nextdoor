@@ -58,6 +58,10 @@ const constructObject = async (topic, topicOut) => {
     let mods = dates.map(fi => fi.mtime)
     dates = dates.map((fi) => fi.birthtime);
 
+    categories =  categories.filter( (value) => value !== 'images');
+    categories =  categories.filter( (value) => value !== '.DS_Store');
+
+
     obj = {
       [topic]: categories,
       dates,
@@ -68,7 +72,7 @@ const constructObject = async (topic, topicOut) => {
       [topic]: categories,
     }
   }
-    
+  
     fs.writeFile(__dirname + "\/public/" + topicOut + ".json", JSON.stringify(obj), (err) => {
       if (err) {
         return console.log(err);
