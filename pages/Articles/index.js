@@ -37,7 +37,7 @@ const Articles = () => {
         <div></div>
       )}
       <div className="text-center">
-        <Image className="rounded mx-auto d-block" width="520" height="268" src="/api/articles/images/wcArticles.png" alt=""/>
+        <Image className="rounded mx-auto d-block" width="990" height="500" src="/api/articles/images/wcArticles.png" alt=""/>
         <div>This word cloud is generated from all of the articles published filtered by the <a href="https://amueller.github.io/word_cloud/">wordcloud package</a>.</div>
       </div>
     </div>

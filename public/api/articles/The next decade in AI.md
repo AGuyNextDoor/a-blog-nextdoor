@@ -1,8 +1,8 @@
 # The Next Decade in AI
-
+[Arxiv: Gary Marcus. (2020)](https://arxiv.org/abs/2002.06177)
 ## Introduction
 
-This article is a commentary and analysis on the following research paper form **Gary Marcus (2020)** : [The Next Decade in AI: Four Steps Towards Robust Artificial Intelligence](https://arxiv.org/abs/2002.06177).
+This article is a commentary and analysis on the following research paper form **Gary Marcus (2020)** : [[The Next Decade in AI: Four Steps Towards Robust Artificial Intelligence]](https://arxiv.org/abs/2002.06177).
 ## Definitions
 
 *Robust AI*: Intelligence that, while not necessarily superhuman or self-improving (AGI), can be counted on to apply what it knows to a wide range of problems in a **systematic** and **reliable** way, synthesizing knowledge from a variety of sources such that it can reason **flexibly** and **dynamically** about the world, **transferring** what it learns in one context to another, in a way that we would expect of an ordinary adult.

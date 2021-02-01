@@ -19,7 +19,7 @@ for file in os.listdir("./public/api/articles"):
 #     path.join(d, './public/api/articles/On the measure of intelligence.md')).read()
 
 # Generate a word cloud image
-wordcloud = WordCloud().generate(text)
+wordcloud = WordCloud(width=1200, height=600).generate(text)
 
 # Display the generated image:
 # the matplotlib way:
@@ -27,7 +27,7 @@ plt.imshow(wordcloud, interpolation='bilinear')
 plt.axis("off")
 
 # lower max_font_size
-wordcloud = WordCloud(max_font_size=40).generate(text)
+wordcloud = WordCloud(max_font_size=30).generate(text)
 plt.figure()
 plt.imshow(wordcloud, interpolation="bilinear")
 plt.axis("off")
