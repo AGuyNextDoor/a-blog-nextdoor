@@ -6,7 +6,11 @@ import moment from "moment";
 // import ArticlesCards from "./Articles_cards.js";
 
 const getArticle = (url) => {
-  return fetch("/api/articles/" + url)
+  if(url === ""){
+    return [null, null]
+  } else {
+
+    return fetch("/api/articles/" + url)
     .then((res) => {
       return res.text();
     })
@@ -17,6 +21,7 @@ const getArticle = (url) => {
       console.log(err);
       return [null, null];
     });
+  }
 };
 
 const articleCard = (articleText, activeTags, tagsState, creationDate, modificationDate) => {
