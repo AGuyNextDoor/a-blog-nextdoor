@@ -15,7 +15,7 @@ For the following experiments and model tested, experimenters, have represented 
 - Each spring has its force constant *k*. This means that they are unique in how they deal with stretching. Essentially, two springs with the same added weight might not stretch the same length.
 - Weights are independent of the string. Weights of different sources and magnitudes can be added. We can note that the synchronicity of signals is not well represented by this analogy. We assume here that they are simultaneous.
 
-![Figure 1](/api/neuron_functions_as_multiple_independent_threshold_units/figure1.png)
+![Figure 1](/api/articles/images/neuron_functions_as_multiple_independent_threshold_units/figure1.png)
 
 This "direct" behavior is represented in model 1 (figure **C1**) where the neuron threshold holds in the soma of the neuron, stretched by the weights of each dendrite's signal. The associated equation describes how the sum of the weights needs to be greater than *Th* for the transmission to apply.
 
@@ -34,7 +34,7 @@ Model 3 (figure **C3**) takes away the central spring and leaves only the indepe
 
 The first experiment consisted of two extracellular electrodes, stimulating alternatively a neuron. The stimulation had a slow rate (0.5 Hz) to ensure that the cell had a resting time long enough to not accumulate any effects (depression, facilitation, resting, etc).
 
-![Figure 3](/api/neuron_functions_as_multiple_independent_threshold_units/figure3.png)
+![Figure 3](/api/articles/images/neuron_functions_as_multiple_independent_threshold_units/figure3.png)
 
 Results:
 "The shape of the spikes originated from stimulations from either the 
@@ -52,7 +52,7 @@ The set of graphs in the section **3D** shows for different neurons under the sa
 
 This second experiment is meant to test if the summation is computed isotropically or anisotropically inside the neuron. The setup is similar to experiment one, with two extracellular electrodes stimulating a neuron. The waveforms each electrode stimulates are different and are said to reliably generate spikes intracellularly.
 
-![Figure 4](/api/neuron_functions_as_multiple_independent_threshold_units/figure4.png)
+![Figure 4](/api/articles/images/neuron_functions_as_multiple_independent_threshold_units/figure4.png)
 
 By studying and calibrating the NRL between each electrode and the neuron, the experimenters played on the stimulation scheduling (see section **4E**) to see the intracellular response in the three different cases:
 
@@ -68,7 +68,7 @@ For any of those cases, they were unable to observe an intracellular response. T
 Where the second experiment focuses on extracellular stimulation and their summation, this experiment looks at the behavior of different scheduling of extra and intra stimulation. We now have two thresholds for each stimulation but their arithmetic sum is still above, exceeding 75%, of each threshold.
 For all relative timing and stimulations, no evoked spikes were observed as shown in figure **5C**, indicating a lack of summation. In rare cases (1 out of 10) a spike was observed when a time-lag of several *ms* was orchestrated (see figure **5D** and **5E**). Note that the lack of summation between the intracellular and the extracellular stimulation (Fig. 5 and Statistical analysis in Methods), hints that a subtraction between the stimulations is also ineffective (as shown in figure 6). 
 
-![Figure 5](/api/neuron_functions_as_multiple_independent_threshold_units/figure5.png)
+![Figure 5](/api/articles/images/neuron_functions_as_multiple_independent_threshold_units/figure5.png)
 
 ## Conclusion
 
