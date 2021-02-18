@@ -1,7 +1,7 @@
 {
   "Quantum Computing": [],
   "AI": ["The next decade in AI.md", "On the measure of intelligence.md"],
-  "Neuroscience": [],
+  "Neuroscience": ["Neuron functions as multiple independent threshold units.md"],
   "Philosophy": [],
-  "Article Summary": ["The next decade in AI.md", "On the measure of intelligence.md"]
+  "Article Summary": ["The next decade in AI.md", "On the measure of intelligence.md", "Neuron functions as multiple independent threshold units.md"]
 }
