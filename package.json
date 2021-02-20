@@ -6,6 +6,8 @@
   "dependencies": {
     "@matejmazur/react-mathjax": "^0.1.10",
     "bootstrap": "^4.5.1",
+    "chart.js": "^2.9.4",
+    "chartjs": "^0.3.24",
     "cors": "^2.8.5",
     "fs": "^0.0.1-security",
     "marked": "^1.1.1",
@@ -15,6 +17,7 @@
     "next": "^10.0.3",
     "react": "^16.13.1",
     "react-bootstrap": "^1.3.0",
+    "react-chartjs-2": "^2.11.1",
     "react-dev-utils": "^10.2.1",
     "react-dom": "^16.13.1",
     "react-html-parser": "^2.0.2",
