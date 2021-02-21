@@ -9,22 +9,23 @@ if(process.env.ENV === "local"){
 } else {
   databaseUrl = process.env.MONGODB_URI_DEV;
 }
-console.log(process.env.ENV);
-console.log(databaseUrl);
+
+let cachedDb = null;
+
 
 const options = { useNewUrlParser: true, useUnifiedTopology: true };
 
 
 export function initDatabase(){
-  return new Promise((resolve, reject) => {
-    mongo.MongoClient.connect(databaseUrl, options, (error, client) => {
-      if (error) {
-        reject(error);
-      } else {
-        resolve(client);
-      }
+  if (cachedDb) {
+    return Promise.resolve(cachedDb);
+  }
+
+  return MongoClient.connect(MONGODB_URI)
+    .then(db => {
+      cachedDb = db;
+      return cachedDb;
     });
-  });
 }
 
 export async function allVotes(){

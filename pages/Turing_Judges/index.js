@@ -45,15 +45,11 @@ export async function getServerSideProps(context){
   // let db = await client.db()
   
   let votes = await allVotes()
-  
-  // let results = await db.collection("votes").find({id: "1"}).toArray()
-  // let discussions = await db.collection("votes").find({discussion_id: results[0].discussion_id}).toArray()
-  
-  // let listResult = results.map(val => val.toString())
-  // console.log({discussions});
 
   let discuss = await voteOfDiscussion(votes[0].discussion_id)
   let data = await extractData(discuss)
+
+  console.log({data});
 
   
   return {
