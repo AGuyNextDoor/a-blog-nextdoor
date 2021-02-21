@@ -1,6 +1,6 @@
 import React from "react";
-import { Radar} from "react-chartjs-2"
-import { initDatabase, allVotes, voteOfDiscussion } from "../../controller/data-utils.js";
+import { allVotes, voteOfDiscussion } from "../../controller/data-utils.js";
+import {ViewCard} from "../../view/viewCard.js"
 import {extractData} from "../../controller/data-calc.js"
 
 // console.log(process.env.ENV)
@@ -18,29 +18,24 @@ import {extractData} from "../../controller/data-calc.js"
 
 const Home = ({ results }) => {
 
-  console.log({results});
+  const means = results.sections_final_mean.map(val => val.toFixed(3))
 
-  console.log(results.section1_final_mean, results.section2_final_mean, results.section3_final_mean, results.section4_final_mean, results.section5_final_mean, results.section6_final_mean);
+  console.log(means);
 
-  const data = {
-    labels:['section 1', 'section 2', 'section 3', 'section 4', "section 5", "section 6"],
-    datasets: [results.section1_final_mean, results.section2_final_mean, results.section3_final_mean, results.section4_final_mean, results.section5_final_mean, results.section6_final_mean]
-  }
+  
+  
   
   return (
     <div>
       <h2>Home</h2>
       <div id="target"></div>
-      <Radar
-        data={data}
-      />
-      {console.log(typeof result)}
-      {console.log(results[0])}
+      <ViewCard results={results} means={means} mean={results.global_all_final_mean} name="test 01"/>
+      
       {/* <h2>{result.map(val => <li>{val}</li>)}</h2> */}
-      <ul>{results.map(result => {
+      {/* <ul>{results.map(result => {
         return <p>{Object.keys(result).map(val => <li>{val}: {result[val]}</li>)}</p>
       })}
-      </ul>
+      </ul> */}
     </div>
   );
 }
@@ -58,7 +53,7 @@ export async function getServerSideProps(context){
   // console.log({discussions});
 
   let discuss = await voteOfDiscussion(votes[0].discussion_id)
-  let data = extractData(discuss)
+  let data = await extractData(discuss)
 
   
   return {
