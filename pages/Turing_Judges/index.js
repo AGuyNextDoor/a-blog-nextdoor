@@ -46,6 +46,8 @@ export async function getServerSideProps(context){
   
   let votes = await allVotes()
 
+  console.log({votes});
+
   let discuss = await voteOfDiscussion(votes[0].discussion_id)
   let data = await extractData(discuss)
 

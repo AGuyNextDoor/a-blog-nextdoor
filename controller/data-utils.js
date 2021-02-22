@@ -3,34 +3,37 @@ import mongo from "mongodb";
 
 let databaseUrl = ""
 
-
 if(process.env.ENV === "local"){
   databaseUrl = process.env.MONGODB_URI_LOCAL;
 } else {
   databaseUrl = process.env.MONGODB_URI_DEV;
 }
 
-let cachedDb = null;
-
-
 const options = { useNewUrlParser: true, useUnifiedTopology: true };
 
 
 export function initDatabase(){
-  if (cachedDb) {
-    return Promise.resolve(cachedDb);
-  }
-
-  return MongoClient.connect(MONGODB_URI)
-    .then(db => {
-      cachedDb = db;
-      return cachedDb;
+  return new Promise((resolve, reject) => {
+    mongo.MongoClient.connect(databaseUrl, options, (error, client) => {
+      if (error) {
+        console.log("ERROR OUPS");
+        reject(error);
+      } else {
+        resolve(client);
+      }
     });
+  });
 }
 
 export async function allVotes(){
   let client = await initDatabase()
   let db = await client.db()
+
+  console.log({db});
+
+  let result = await db.collection("votes").find().toArray()
+
+  console.log(result);
 
   return db.collection("votes").find().toArray()
 }
