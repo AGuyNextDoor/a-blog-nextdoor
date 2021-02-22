@@ -51,9 +51,8 @@ const Images = () => {
                 <Image
                   id="copy"
                   src={"/api/drawings/" + category + "/thumbnails/" + urls[0]}
-                  class="img-thumbnail rounded"
-                  unsized
-                  layout="fill"
+                  layout='fill'
+
                 ></Image>
               </Link>
             </div>
@@ -63,8 +62,7 @@ const Images = () => {
                   id="copy"
                   src={"/api/drawings/" + category + "/thumbnails/" + urls[1]}
                   class=" img-thumbnail rounded"
-                  unsized
-                  layout="fill"
+                  layout='fill'
                 ></Image>
               </Link>
             </div>
@@ -74,7 +72,6 @@ const Images = () => {
                   id="copy"
                   src={"/api/drawings/" + category + "/thumbnails/" + urls[2]}
                   class="img-thumbnail rounded"
-                  unsized
                   layout="fill"
                 ></Image>
               </Link>

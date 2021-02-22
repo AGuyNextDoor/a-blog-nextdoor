@@ -38,7 +38,7 @@ export const TuringLine = ({mean, name}) => {
       },
       {
         label: 'AI',
-        backgroundColor: 'rgba(0,255,0,0.1)',
+        backgroundColor: 'rgba(0,255,0,0.23)',
         pointRadius : 0,
         borderColor: 'rgba(0,255,0,0.4)',
         borderJoinStyle: 'null',
@@ -68,11 +68,11 @@ export const TuringLine = ({mean, name}) => {
       {
         label: String(roundMean),
         pointRadius : 5,
-        backgroundColor: 'rgba(179,0,0,1)',
-        pointBackgroundColor: 'rgba(179,0,0,1)',
+        backgroundColor: 'rgba(255, 120, 110,0.8)',
+        pointBackgroundColor: 'rgba(255, 120, 110,1)',
         pointBorderColor: '#fff',
         pointHoverBackgroundColor: '#fff',
-        pointHoverBorderColor: 'rgba(179,181,198,1)',
+        pointHoverBorderColor: 'rgba(255, 120, 110,1)',
         data: [{
           x:mean,
           y:0,
@@ -91,8 +91,8 @@ export const TuringLine = ({mean, name}) => {
       }],
       xAxes: [{
         ticks: {
-          suggestedMin: -4,
-          suggestedMax: 4,
+          suggestedMin: -3,
+          suggestedMax: 3,
           stepSize:0.5,
         },
         type: 'linear',
@@ -110,7 +110,7 @@ export const TuringLine = ({mean, name}) => {
       data={data}
       options={options}
       width={300}
-      height={300}
+      height={150}
     />
   )
 }

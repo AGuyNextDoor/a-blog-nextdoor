@@ -8,7 +8,7 @@ export const TuringRadar = ({means, name}) => {
     datasets: [
       {
         label: 'Human',
-        backgroundColor: 'rgba(0,0,255,0.1)',
+        backgroundColor: 'rgba(0,0,255,0.23)',
         borderColor: 'rgba(0,0,255,0.2)',
         borderJoinStyle: 'null',
         pointBackgroundColor: 'rgba(0,0,255,0)',
@@ -30,12 +30,12 @@ export const TuringRadar = ({means, name}) => {
       },
       {
         label: name,
-        backgroundColor: 'rgba(255,0,0,0.2)',
-        borderColor: 'rgba(255,0,0,1)',
-        pointBackgroundColor: 'rgba(255,0,0,1)',
+        backgroundColor: 'rgba(255, 120, 110,0.6)',
+        borderColor: 'rgba(255, 120, 110,1)',
+        pointBackgroundColor: 'rgba(255, 120, 110,1)',
         pointBorderColor: '#fff',
         pointHoverBackgroundColor: '#fff',
-        pointHoverBorderColor: 'rgba(255,0,0,1)',
+        pointHoverBorderColor: 'rgba(255, 120, 110,1)',
         data: means
       }
     ]  
