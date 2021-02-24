@@ -31,11 +31,7 @@ const Home = ({ results }) => {
       <div id="target"></div>
       <ViewCard results={results} means={means} mean={results.global_all_final_mean} name="test 01"/>
       
-      {/* <h2>{result.map(val => <li>{val}</li>)}</h2> */}
-      {/* <ul>{results.map(result => {
-        return <p>{Object.keys(result).map(val => <li>{val}: {result[val]}</li>)}</p>
-      })}
-      </ul> */}
+      
     </div>
   );
 }

@@ -21,6 +21,7 @@
     "react-chartjs-2": "^2.11.1",
     "react-dev-utils": "^10.2.1",
     "react-dom": "^16.13.1",
+    "react-hook-form": "^6.15.4",
     "react-html-parser": "^2.0.2",
     "react-markdown": "^4.3.1",
     "react-mathjax": "^1.0.1",
@@ -30,7 +31,8 @@
     "react-scripts": "^3.4.3",
     "redux": "^4.0.5",
     "remark-math": "^4.0.0",
-    "showdown": "^1.9.1"
+    "showdown": "^1.9.1",
+    "slugify": "^1.4.7"
   },
   "scripts": {
     "start": "next start",

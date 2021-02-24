@@ -48,12 +48,12 @@ export const ViewCard = ({results, mean, means, name}) => {
               </div>
               <div class="col">
                 <ul>
-                  <li class="list-group-item text-justify">1 - Intro : <text class={textColorPicker(results.section1_final_mean)}>{results.section1_final_mean.toFixed(3)}</text></li>
-                  <li class="list-group-item">2 - Objects and Physics : <text class={textColorPicker(results.section2_final_mean)}>{results.section2_final_mean.toFixed(3)}</text></li>
-                  <li class="list-group-item">3 - Agent and Goal : <text class={textColorPicker(results.section3_final_mean)}>{results.section3_final_mean.toFixed(3)}</text></li>
-                  <li class="list-group-item">4 - Natural Number : <text class={textColorPicker(results.section4_final_mean)}>{results.section4_final_mean.toFixed(3)}</text></li>
-                  <li class="list-group-item">5 - Geometry/Topology : <text class={textColorPicker(results.section5_final_mean)}>{results.section5_final_mean.toFixed(3)}</text></li>
-                  <li class="list-group-item">6 - ShortTermMemory : <text class={textColorPicker(results.section6_final_mean)}>{results.section6_final_mean.toFixed(3)}</text></li>
+                  <li class="list-group-item">S1 - Intro : <text class={textColorPicker(results.section1_final_mean)}>{results.section1_final_mean.toFixed(3)}</text></li>
+                  <li class="list-group-item">S2 - Objects and Physics : <text class={textColorPicker(results.section2_final_mean)}>{results.section2_final_mean.toFixed(3)}</text></li>
+                  <li class="list-group-item">S3 - Agent and Goal : <text class={textColorPicker(results.section3_final_mean)}>{results.section3_final_mean.toFixed(3)}</text></li>
+                  <li class="list-group-item">S4 - Natural Number : <text class={textColorPicker(results.section4_final_mean)}>{results.section4_final_mean.toFixed(3)}</text></li>
+                  <li class="list-group-item">S5 - Geometry : <text class={textColorPicker(results.section5_final_mean)}>{results.section5_final_mean.toFixed(3)}</text></li>
+                  <li class="list-group-item">S6 - ShortTermMemory : <text class={textColorPicker(results.section6_final_mean)}>{results.section6_final_mean.toFixed(3)}</text></li>
                 </ul>
               </div>
             </div>
