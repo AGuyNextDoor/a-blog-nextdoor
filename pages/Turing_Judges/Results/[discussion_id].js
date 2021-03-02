@@ -1,6 +1,6 @@
 import React, { useEffect }  from "react";
 import Router from "next/router"
-import { votesOfDiscussion, discussionStatus, discussionName } from "../../../controller/data-utils.js";
+import { votesOfDiscussion, discussionStatus, discussionName, discussionIdentity } from "../../../controller/data-utils.js";
 import {ViewCard} from "../../../view/viewCard.js"
 import {extractData} from "../../../controller/data-calc.js"
 
@@ -17,7 +17,7 @@ import {extractData} from "../../../controller/data-calc.js"
 //     client.close();
 //   });
 
-const Home = ({ results, status, name }) => {
+const Home = ({ results, status, name, identity }) => {
 
   useEffect(() => {
     if(status){
@@ -30,7 +30,7 @@ const Home = ({ results, status, name }) => {
   
   return (
     <div className="margin_sidebar">
-    <ViewCard results={results} means={means} mean={results.global_all_final_mean} name={name}/>
+    <ViewCard identity={identity} results={results} means={means} mean={results.global_all_final_mean} name={name}/>
     </div>
   );
 }
@@ -41,6 +41,7 @@ export async function getServerSideProps(context){
 
   let status = await discussionStatus(dis_id)
   let name = await discussionName(dis_id)
+  let identity = await discussionIdentity(dis_id)
   let discuss = await votesOfDiscussion(dis_id)
   let data = await extractData(discuss)
   
@@ -48,7 +49,8 @@ export async function getServerSideProps(context){
     props: {
       results: data,
       status: status,
-      name
+      name,
+      identity
     }
   }
 }

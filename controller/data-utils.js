@@ -43,6 +43,15 @@ export async function discussionName(discussion_id){
   return discussion[0].name
 }
 
+export async function discussionIdentity(discussion_id){
+  let client = await initDatabase()
+  let db = await client.db()
+  
+  let discussion = await db.collection("discussions").find({id: discussion_id}).toArray()
+
+  return discussion[0].AI
+}
+
 
 export async function allVotes(){
   let client = await initDatabase()

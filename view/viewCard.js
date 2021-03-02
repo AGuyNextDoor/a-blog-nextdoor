@@ -34,15 +34,19 @@ const backgroundColorPicker = (val) => {
 }
 
 
-export const ViewCard = ({results, mean, means, name}) => {
+export const ViewCard = ({results, mean, means, name, identity}) => {
 
   console.log({mean});
+  let iden = "Identity: Human"
+  if(identity){
+    iden = "Identity: AI"
+  }
 
   return (
     <>
       {/* <div class="card"> */}
         <div class="card-body">
-          <h5 class="card-title">{name}</h5>
+          <h5 class="card-title">{name} - {iden}</h5>
           <div class="container">
             <div class="row">
               <div class="col">
