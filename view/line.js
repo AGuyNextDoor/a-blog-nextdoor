@@ -8,7 +8,7 @@ export const TuringLine = ({mean, name}) => {
     // labels:['-3', '-2', '-1', '0', '1', '2', '3'],
     datasets: [
       {
-        label: 'Human',
+        label: 'AI',
         backgroundColor: 'rgba(0,0,255,0.1)',
         pointRadius : 0,
         borderColor: 'rgba(0,0,255,0.4)',
@@ -37,7 +37,7 @@ export const TuringLine = ({mean, name}) => {
         ]
       },
       {
-        label: 'AI',
+        label: 'Human',
         backgroundColor: 'rgba(0,255,0,0.23)',
         pointRadius : 0,
         borderColor: 'rgba(0,255,0,0.4)',

@@ -7,7 +7,7 @@ export const TuringRadar = ({means, name}) => {
     labels:['section 1', 'section 2', 'section 3', 'section 4', "section 5", "section 6"],
     datasets: [
       {
-        label: 'Human',
+        label: 'AI',
         backgroundColor: 'rgba(0,0,255,0.23)',
         borderColor: 'rgba(0,0,255,0.2)',
         borderJoinStyle: 'null',
@@ -18,7 +18,7 @@ export const TuringRadar = ({means, name}) => {
         data: [0,0,0,0,0,0]
       },
       {
-        label: 'AI',
+        label: 'Human',
         backgroundColor: 'rgba(0,255,0,0.1)',
         borderColor: 'rgba(0,255,0,0.2)',
         borderJoinStyle: 'null',

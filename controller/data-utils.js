@@ -25,6 +25,23 @@ export function initDatabase(){
   });
 }
 
+export async function discussionStatus(discussion_id){
+  let client = await initDatabase()
+  let db = await client.db()
+  
+  let discussion = await db.collection("discussions").find({id: discussion_id}).toArray()
+
+  return discussion[0].vote_status
+}
+
+export async function discussionName(discussion_id){
+  let client = await initDatabase()
+  let db = await client.db()
+  
+  let discussion = await db.collection("discussions").find({id: discussion_id}).toArray()
+
+  return discussion[0].name
+}
 
 
 export async function allVotes(){
@@ -34,7 +51,7 @@ export async function allVotes(){
   return db.collection("votes").find().toArray()
 }
 
-export async function voteOfDiscussion(discussion_id){
+export async function votesOfDiscussion(discussion_id){
   let client = await initDatabase()
   let db = await client.db()
 
@@ -42,37 +59,114 @@ export async function voteOfDiscussion(discussion_id){
 }
 
 export async function addVotes(data){
+  let flag = true;
   let client = await initDatabase()
   let db = await client.db()
 
-  console.log({data});
-  let keysList = Object.keys(data);
-  keysList.shift()
-
-  console.log({keysList});
+  let keysList = ['1','2', '3', '4', '5', '6']
 
   let updateList = []
 
-  for(let i = 0; i < keysList.length; i++){
+  for(let i = 1; i < keysList.length; i++){
     let objKey = {}
     objKey[data[keysList[i]]] = 1
     updateList.push(objKey)
   }
 
-  let results = []
+  console.log({updateList});
 
-  for(let i = 0; i < updateList.length; i++){
-    let j = String(i+1)
-    console.log("fitler", data.discussion_id, j);
-    console.log("update",updateList[i] );
+  let results = "Votes Disabled"
+  let idd = data.discussion_id
 
-    let idd = "e36866f4-b477-4116-94cd-9216c0b5185c"
+  
+  if(flag){
+    results = []
 
-    results.push(await db.collection("votes").update(
-      {discussion_id: idd, section:j},
-      { $inc: updateList[i]}
-    ))
-  }
+    
+    for(let i = 0; i < updateList.length; i++){
+      let j = String(i+1)
+      
+     
+      
+      results.push(await db.collection("votes").update(
+        {discussion_id: idd, section:j},
+        { $inc: updateList[i]}
+        ))
+      }
+    }
 
   return results
+};
+
+export async function getAllDiscussions(){
+  let client = await initDatabase()
+  let db = await client.db()
+
+  // let result = await db.collection("discussions").aggregate({ $project : { id : 1, name : 1 } }).findOne({"id": dis_id}).toArray()
+  let result = await db.collection("discussions").find().toArray()
+
+  let resultName = result.map(discussion => {return {name: discussion.name, id: discussion.id, status:discussion.vote_status}})
+
+  return resultName
+
+}
+
+export async function getDiscussionsName(dis_id){
+  let client = await initDatabase()
+  let db = await client.db()
+
+  // let result = await db.collection("discussions").aggregate({ $project : { id : 1, name : 1 } }).findOne({"id": dis_id}).toArray()
+  let result = await db.collection("discussions").find({"id": dis_id}).toArray()
+  if(result.length){
+
+    console.log({result});
+    
+    let name = result[0].name
+    
+    
+    return name
+  } else {
+
+    return ["error"]
+  }
+
+}
+
+export async function getDiscussionsText(dis_id){
+  let client = await initDatabase()
+  let db = await client.db()
+
+  let result = await db.collection("discussions").find({"id": dis_id}).toArray()
+
+  console.log({result});
+  
+  if(result.length){
+ 
+    let catList = ["intro", "objElemPhy", "agentGoalDir", "natuNum", "elemGeomTopo", "abilLearnSTM"]
+    let allDiscussion = []
+    for(let category in catList){
+      let ind = category + 1
+      
+      let finalDiscussion = result[0][catList[category]].map( obj => {
+        let returnVal;
+        if(Object.keys(obj)[0] === "Judge"){
+          returnVal = {message: obj.Judge, direction:"right"}
+        } else {
+          returnVal = {message: obj.Candidate, direction:"left"}
+        }
+        
+        return returnVal
+      })
+      
+      
+      allDiscussion.push({section: ind[0], discussion: finalDiscussion})
+      
+    }
+    
+    
+    return allDiscussion
+  } else {
+    return ["error"]
+  }
+
 }

@@ -18,15 +18,15 @@ const textColorPicker = (val) => {
 }
 
 const backgroundColorPicker = (val) => {
-  let result = "text-white "
+  let result = ""
 
   if(val < 0){
     if(val < -0.5) {
-      result += "bg-primary"
+      result += "text-white bg-primary"
     }
   } else {
     if(val > 0.5){
-      result += "bg-success"
+      result += "text-white bg-success"
     }
   }
 
@@ -35,6 +35,8 @@ const backgroundColorPicker = (val) => {
 
 
 export const ViewCard = ({results, mean, means, name}) => {
+
+  console.log({mean});
 
   return (
     <>
@@ -65,13 +67,12 @@ export const ViewCard = ({results, mean, means, name}) => {
                 <ul>
                   <li class="list-group-item">Number of Votes : {results.global_number_of_votes}</li>
                   <li class="list-group-item">Average vote per section : {parseFloat(results.global_number_of_votes/6).toFixed(3)}</li>
-                  <li class={"list-group-item " + backgroundColorPicker(mean)}>Global Mean : {mean.toFixed(3)}</li>
+                  <li class={"list-group-item " + backgroundColorPicker(mean)}>Global Mean : <text className={"font-weight-bold"}>{mean.toFixed(3)}</text></li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
-      {/* </div> */}
     </>
   )
 }

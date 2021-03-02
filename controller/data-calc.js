@@ -42,11 +42,11 @@ function extractValues(discussion){
       let section_mean = `section${i}_final_mean`
       let section_count = `section${i}_number_of_votes`
       if(vote.section === String(i)){
-        finalValues[section_all] = [...finalValues[section_all], vote.def_hum*(-3)]
-        finalValues[section_all] = [...finalValues[section_all], vote.may_hum*(-1)]
+        finalValues[section_all] = [...finalValues[section_all], vote.def_hum*(3)]
+        finalValues[section_all] = [...finalValues[section_all], vote.may_hum*(1)]
         finalValues[section_all] = [...finalValues[section_all], vote.cant_tell*(0)]
-        finalValues[section_all] = [...finalValues[section_all], vote.may_ai*(1)]
-        finalValues[section_all] = [...finalValues[section_all], vote.def_ai*(3)]
+        finalValues[section_all] = [...finalValues[section_all], vote.may_ai*(-1)]
+        finalValues[section_all] = [...finalValues[section_all], vote.def_ai*(-3)]
         
         finalValues[section_count] += vote.def_hum + vote.may_hum + vote.cant_tell + vote.may_ai + vote.def_ai
         totalVotes = totalVotes + finalValues[section_count]

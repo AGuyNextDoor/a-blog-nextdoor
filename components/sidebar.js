@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Link from "next/link"
 import allTopics from "../allTopics.js";
+import slugify from "slugify"
 
 const listGenerator = (topicName, path, topic = "", location) => {
 
@@ -114,6 +115,9 @@ const Sidebar = ({ match }) => {
       case "Reflections":
         getReflectionList(updatesideBarState);
         break;
+      case "Turing_Judges":
+        getTuringJudgesList(updatesideBarState);
+        break;
       default:
         flag = false;
         empty(updatesideBarState);
@@ -187,6 +191,10 @@ const getReflectionList = async (callback) => {
 
   
 };
+
+const getTuringJudgesList = (callback) => {
+  callback(["Forms","Results"])
+}
 
 const empty = (callback) => {
   callback([]);
