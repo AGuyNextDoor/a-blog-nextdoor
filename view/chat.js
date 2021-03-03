@@ -1,5 +1,6 @@
 import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import { withTheme } from "@material-ui/core";
 
 
 
@@ -16,6 +17,7 @@ const useStyles = makeStyles(theme => ({
     //check style.css for left and right classnaeme based on your data
   },
   bubble: {
+    ["background-color"]: "white",
     border: "0.5px solid black",
     borderRadius: "10px",
     margin: "5px",
@@ -47,7 +49,7 @@ const ChatLayout = ({ results , sectionDis}) => {
 
   console.log("57 chat", chatBubbles[0][0]);
 
-  return <div className={`d-flex flex-column border-right rounded-bottom ${classes.container}`}>{chatBubbles}</div>;
+  return <div className={`bg-light d-flex flex-column border-right rounded-bottom ${classes.container}`}>{chatBubbles}</div>;
 };
 
 // export async function getServerSideProps(context){
