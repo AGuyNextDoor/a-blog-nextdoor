@@ -1,7 +1,8 @@
 import {addVotes} from "../../controller/data-utils.js"
 
 export default async function handler(req, res) {
-  console.log(req.body);
+  console.log({req});
+  console.log(req.params);
   if (req.method === 'POST') {
     let result = await addVotes(req.body)
 

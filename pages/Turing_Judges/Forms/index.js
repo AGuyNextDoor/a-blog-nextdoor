@@ -20,16 +20,15 @@ const Form = ({discussionNameList}) => {
             <Link className="nav-link button" key={discussion.id} href={"Forms/"+discussion.id}>
               <a className="d-flex justify-content-between list-group-item list-group-item-action lead">
                 {discussion.name}
-                <button className="btn btn-success" disabled>Votes are open</button>
+                <div className="btn btn-success" disabled>Votes are open</div>
               </a>
             </Link>:
             <Link className="nav-link button" key={discussion.id} href={"Results/"+discussion.id}>
               <a className="d-flex justify-content-between list-group-item list-group-item-action lead">
                 {discussion.name} (Results)
-                <button className="btn btn-danger" disabled>Votes are closed</button>
+                <div className="btn btn-danger" disabled>Votes are closed</div>
               </a>
             </Link>
-            
           }
           </>
         )

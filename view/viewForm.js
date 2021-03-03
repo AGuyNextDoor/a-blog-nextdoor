@@ -1,9 +1,21 @@
 import Section from "./radio.js"
 import ChatLayout from "./chat.js"
+import Link from "next/link"
 
 export const ViewForm = ({discussion_id, finalDiscuss, name}) => {
   return (
     <>
+    <h3>Welcome to the Turing Judges</h3>
+        Read the following conversations between me and a "Turing Candidate".
+        <p><h4>Rules:</h4>
+          <ul>
+            <li>The candidate has 50% chance of being a human or an AI.</li>
+            <li>For each section, vote how much you are convinced about the identity of the candidate.</li>
+            <li>Candidates message are in white on the left of the screen. </li>
+            <li>All the messages are part of the same conversation.</li>
+          </ul>
+        </p>
+        If you want more information about the Turing Judge experiment: <Link href="/Turing_Judges">click here</Link>
     <h2>{name}</h2>
           <form method="POST" action="/api/submitForm">
             {/* <label class="form-check-label" for="discussion_id">{discussion_id}</label> */}
