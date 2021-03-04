@@ -64,7 +64,9 @@ const Form = ({results, finalDiscuss, name, error, discussion_id}) => {
   return(
     <>
       {loading ? (
-        <h1>Loading...</h1>
+        <div className="margin_sidebar">
+          <h1>Loading...</h1>
+        </div>
       ) : (
         <div className="margin_sidebar">
         {
