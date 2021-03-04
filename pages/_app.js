@@ -4,14 +4,17 @@ import Sidebar from "../components/sidebar";
 import Head from "next/head";
 import NProgress from 'nprogress';
 import Router from 'next/router';
+import getConfig from 'next/config'
 import "nprogress/nprogress.css";
 import './index.css'
+
+const { serverRuntimeConfig, publicRuntimeConfig } = getConfig()
 
 NProgress.configure({
   minimum: 0.3,
   easing: 'ease',
   speed: 800,
-  showSpinner: false,
+  showSpinner: publicRuntimeConfig.NProgressShowSpinner,
 });
 
 Router.events.on('routeChangeStart', () => NProgress.start());
@@ -22,6 +25,7 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
+        <link rel="stylesheet" type="text/css" href="/static/css/nprogress.css" />
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />

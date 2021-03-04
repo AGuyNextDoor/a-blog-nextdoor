@@ -1,28 +1,37 @@
 module.exports = {
-  webpack: (config, { isServer }) => {
-    // config.module.rules.push({
-    //     test: /\.csv$/,
-    //     loader: 'csv-loader',
-    //     options: {
-    //       dynamicTyping: true,
-    //       header: true,
-    //       skipEmptyLines: true
-    //     }
-    //   })
-    // Fixes npm packages that depend on `fs` module
-    if (!isServer) {
-      config.node = {
-        fs: "empty",
-      };
-    }
-    return config;
+  serverRuntimeConfig: {
+    // Will only be available on the server side
+    mySecret: 'secret',
+    secondSecret: process.env.SECOND_SECRET, // Pass through env variables
   },
+  publicRuntimeConfig: {
+    // Will be available on both server and client
+    staticFolder: '/static',
+  },
+  // webpack: (config, { isServer }) => {
+  //   // config.module.rules.push({
+  //   //     test: /\.csv$/,
+  //   //     loader: 'csv-loader',
+  //   //     options: {
+  //   //       dynamicTyping: true,
+  //   //       header: true,
+  //   //       skipEmptyLines: true
+  //   //     }
+  //   //   })
+  //   // Fixes npm packages that depend on `fs` module
+  //   if (!isServer) {
+  //     config.node = {
+  //       fs: "empty",
+  //     };
+  //   }
+  //   return config;
+  // },
 
-  images: {
-    domains: [],
-    path: "/_next/image",
-    loader: "default",
-  }
+  // images: {
+  //   domains: [],
+  //   path: "/_next/image",
+  //   loader: "default",
+  // }
 };
 
 // const nextConfigs = {
