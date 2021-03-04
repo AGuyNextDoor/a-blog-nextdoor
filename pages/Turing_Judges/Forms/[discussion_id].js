@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { allVotes, getDiscussionsText, getDiscussionsName } from "../../../controller/data-utils"
 import { ViewForm } from "../../../view/viewForm"
 import { useRouter } from 'next/router'
@@ -16,7 +16,14 @@ function shuffleArray(array) {
 
 const Form = ({results, finalDiscuss, name, error, discussion_id}) => {
   const router = useRouter()
+  const [data, setData] = useState({results: "", finalDiscuss:[], name:"", error:"", discussion_id:""})
 
+
+  useEffect(() => {
+
+    setData({results, finalDiscuss, name, error, discussion_id})
+
+  }, [results, finalDiscuss, name])
   let type = null
   let message = null
   if(router.query.m){
@@ -48,7 +55,7 @@ const Form = ({results, finalDiscuss, name, error, discussion_id}) => {
       {
         error?
         <></>:
-        <ViewForm discussion_id={results} finalDiscuss={finalDiscuss} name={name}/>
+        <ViewForm discussion_id={data.results} finalDiscuss={data.finalDiscuss} name={data.name}/>
         
       }
       </div>
