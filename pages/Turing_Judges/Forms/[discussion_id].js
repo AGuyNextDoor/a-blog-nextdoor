@@ -16,7 +16,7 @@ function shuffleArray(array) {
 
 const Form = ({results, finalDiscuss, name, error, discussion_id}) => {
   const router = useRouter()
-  const [loading, setLoading] = React.useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const start = () => {
@@ -62,21 +62,28 @@ const Form = ({results, finalDiscuss, name, error, discussion_id}) => {
   } 
 
   return(
-    <div className="margin_sidebar">
-      {
-        message?
-        <ModalMessage mess={message} type={type}/>:
-        <></>
-      }
-      <div className="pb-2">
-      {
-        error?
-        <></>:
-        <ViewForm discussion_id={results} finalDiscuss={finalDiscuss} name={name}/>
-        
-      }
+    <>
+      {loading ? (
+        <h1>Loading...</h1>
+      ) : (
+        <div className="margin_sidebar">
+        {
+          message?
+          <ModalMessage mess={message} type={type}/>:
+          <></>
+        }
+        <div className="pb-2">
+        {
+          error?
+          <></>:
+          <ViewForm discussion_id={results} finalDiscuss={finalDiscuss} name={name}/>
+          
+        }
+        </div>
       </div>
-    </div>
+      )}
+    </>
+    
   )
 }
 
