@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { allVotes, getDiscussionsText, getDiscussionsName } from "../../../controller/data-utils"
 import { ViewForm } from "../../../view/viewForm"
-import { useRouter } from 'next/router'
+import Router, { useRouter } from 'next/router'
 import { ModalMessage } from "../../../components/ModalMessage"
 
 function shuffleArray(array) {
@@ -16,16 +16,33 @@ function shuffleArray(array) {
 
 const Form = ({results, finalDiscuss, name, error, discussion_id}) => {
   const router = useRouter()
-  const [data, setData] = useState({results: "", finalDiscuss:[], name:"", error:"", discussion_id:""})
-
+  const [loading, setLoading] = React.useState(false);
 
   useEffect(() => {
+    const start = () => {
+      console.log("start");
+      setLoading(true);
+    };
 
-    setData({results, finalDiscuss, name, error, discussion_id})
+    const end = () => {
+      console.log("finished");
+      setLoading(false);
+    };
 
-  }, [results, finalDiscuss, name])
+    Router.events.on("routeChangeStart", start);
+    Router.events.on("routeChangeComplete", end);
+    Router.events.on("routeChangeError", end);
+    return () => {
+      Router.events.off("routeChangeStart", start);
+      Router.events.off("routeChangeComplete", end);
+      Router.events.off("routeChangeError", end);
+    };
+
+  }, [])
+
   let type = null
   let message = null
+
   if(router.query.m){
     type = "info"
     message = router.query.m
@@ -55,7 +72,7 @@ const Form = ({results, finalDiscuss, name, error, discussion_id}) => {
       {
         error?
         <></>:
-        <ViewForm discussion_id={data.results} finalDiscuss={data.finalDiscuss} name={data.name}/>
+        <ViewForm discussion_id={results} finalDiscuss={finalDiscuss} name={name}/>
         
       }
       </div>
