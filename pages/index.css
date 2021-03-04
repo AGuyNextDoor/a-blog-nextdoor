@@ -237,7 +237,7 @@ body,html{
     flex-direction: column!important
   }
   
-  .second_navbar {
+  /* .second_navbar {
     margin-top: 20px;
     position: fixed;
     top: 0;
@@ -247,11 +247,11 @@ body,html{
     padding: 48px 0 0;
     width: 15%!important;
     min-width: 150px;
-  }
+  } */
 
-  .navbar_expand {
+  /* .navbar_expand {
     max-width: 1% !important
-  }
+  } */
 }
 
 .second_navbar {
@@ -485,7 +485,7 @@ body,html{
       height: 130px;
       justify-content: between;
       align-items: center;
-      width: 100vw;
+      width: 100vw !important;
       overflow-y: scroll !important;
     }
 
@@ -512,6 +512,21 @@ body,html{
   }
 }
 
+@media (min-width: 769px){
+  .second_navbar {
+    margin-top: 20px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 48px 0 0;
+    width: 15%!important;
+    min-width: 150px;
+    max-width:160px;
+  }
+}
+
 
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {
@@ -532,22 +547,10 @@ body,html{
     flex-direction: column!important
   }
   
-  .second_navbar {
-    margin-top: 20px;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 100;
-    padding: 48px 0 0;
-    width: 15%!important;
-    min-width: 150px;
-    max-width:160px;
-  }
 
-  .navbar_expand {
+  /* .navbar_expand {
     max-width: 1% !important
-  }
+  } */
 }
 
 .second_navbar {

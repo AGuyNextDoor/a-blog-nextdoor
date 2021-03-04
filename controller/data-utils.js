@@ -82,8 +82,6 @@ export async function addVotes(data){
     updateList.push(objKey)
   }
 
-  console.log({updateList});
-
   let results = "Votes Disabled"
   let idd = data.discussion_id
 
@@ -127,8 +125,6 @@ export async function getDiscussionsName(dis_id){
   // let result = await db.collection("discussions").aggregate({ $project : { id : 1, name : 1 } }).findOne({"id": dis_id}).toArray()
   let result = await db.collection("discussions").find({"id": dis_id}).toArray()
   if(result.length){
-
-    console.log({result});
     
     let name = result[0].name
     
@@ -146,8 +142,6 @@ export async function getDiscussionsText(dis_id){
   let db = await client.db()
 
   let result = await db.collection("discussions").find({"id": dis_id}).toArray()
-
-  console.log({result});
   
   if(result.length){
  

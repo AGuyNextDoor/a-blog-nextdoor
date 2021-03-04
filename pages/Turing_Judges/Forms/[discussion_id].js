@@ -74,10 +74,6 @@ export async function getServerSideProps(context){
     
     let finalDiscuss = [firstEl, ...discuss, lastEl]
     
-    console.log({finalDiscuss});
-    
-    
-    
     return {
       props: {
         // results: JSON.parse(JSON.stringify(discussions))

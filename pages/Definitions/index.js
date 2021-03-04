@@ -10,10 +10,7 @@ const converter = new showdown.Converter();
 // console.log({data});
 const csvJSON = (csv) => {
 
-  console.log(csv);
-
   let lines=csv.split("\n");
-  console.log({lines});
 
   let result = [];
 
@@ -22,7 +19,6 @@ const csvJSON = (csv) => {
   // (you might convert them to &&& or something, then covert them back later)
   // jsfiddle showing the issue https://jsfiddle.net/
   let headers=lines[0].split(";");
-  console.log({headers});
 
   for(let i=1;i<lines.length;i++){
 

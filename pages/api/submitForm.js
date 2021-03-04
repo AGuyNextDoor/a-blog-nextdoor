@@ -1,15 +1,11 @@
 import {addVotes} from "../../controller/data-utils.js"
 
 export default async function handler(req, res) {
-  console.log({req});
-  console.log(req.params);
+
   if (req.method === 'POST') {
     let result = await addVotes(req.body)
 
     const urlDiscussionID = String("/Turing_Judges/Forms/"+encodeURIComponent(req.body.discussion_id))
-    console.log({urlDiscussionID});
-    console.log({result});
-
     let flag = 0
 
     if(result === "Votes Disabled"){

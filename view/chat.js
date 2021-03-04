@@ -47,8 +47,6 @@ const ChatLayout = ({ results , sectionDis}) => {
           ) 
         );
 
-  console.log("57 chat", chatBubbles[0][0]);
-
   return <div className={`bg-light d-flex flex-column border-right rounded-bottom ${classes.container}`}>{chatBubbles}</div>;
 };
 
