@@ -1,0 +1,60 @@
+{
+   "id":"65333638-3636-6634-2d62-3437372d3431",
+   "candidate":"Bastien Luneteau",
+   "judge":"Martin",
+   "date":"2021-02-02",
+   "AI":"false",
+   "AI details":"NULL",
+   "intro":[
+      
+         "Judge-Hello, my name is Martin"
+      ,
+      
+         "Candidate-Hi Martin ! How are you ?"
+      ,
+      
+         "Judge-I'm good thanks! And you?"
+      ,
+      
+         "Candidate-Fine ! Where do you come from ?"
+      ,
+      
+         "Judge-From France. And you ?"
+      ,
+      
+         "Candidate-France too! From which region?"
+      ,
+      
+         "Judge-North.\nCould you tell me a joke?"
+      ,
+      
+         "Candidate-North is a very beautiful region, I went near Lille last year for a Tennis competition, the Davis Cup !\nIt's complicated for me to tell a joke in command ! I prefer to joke in a certain context 🙂\nYou know a lot of jokes ?"
+      ,
+      
+         "Judge-Not much either I'm not really good either..\nCan you tell me your best memory?"
+      ,
+      
+         "Candidate-It's a really intimate question, we don't know each other very well yet ^^ Memory about what ?"
+      ,
+      
+         "Judge-Any memory that makes you smile!"
+      ,
+      
+         "Candidate-I think that this is the time when the Tour de France passed in my town on my birthday ! I was 6"
+      ,
+      
+         "Candidate-Do you like the Tour de France ?"
+      ,
+      
+         "Judge-Sounds nice. I haven't watched it much but my grandpa is fond of it!\nDid you know I have blue hair?"
+      ,
+      
+         "Candidate-You're saying it's a sport for old people ? 😮\nNo I didn't know ! For a long time?\nLong or short hair ?"
+      ,
+      
+         "Judge-Haha not at all. Long blue hair since this summer!\nBy the way do you know who is the king of france?"
+      ,
+     
+         "Candidate-Haha nice ! Why this change about your hair ?\nIt's Emmanuel Macron the First"
+   ]
+}

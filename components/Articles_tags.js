@@ -24,7 +24,7 @@ const getArticle = (url) => {
   }
 };
 
-const articleCard = (articleText, activeTags, tagsState, creationDate, modificationDate) => {
+const articleCard = (articleText, activeTags, tagsState) => {
   let flag = true;
   const activeCategories = activeTags.filter((obj) => obj.active);
 

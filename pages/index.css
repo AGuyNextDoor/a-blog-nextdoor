@@ -598,7 +598,7 @@ body {
 }
 
 .content-area, .article-tree{
-    overflow:auto;
+    /* overflow:auto; */
     height: 100%;
 }
 
@@ -737,4 +737,23 @@ body {
 
 .disabled {
   opacity: 0.27
+}
+
+.right {
+  justify-content: flex-end !important;
+  color:#ea907a;
+}
+.left {
+  justify-content: flex-start !important;
+  color: #6495ED;
+}
+
+.form-container {
+  position:relative;
+}
+
+.form-position {
+  position: absolute;
+  bottom:0;
+  left: 0;
 }
