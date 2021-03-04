@@ -9,13 +9,13 @@ export const ViewForm = ({discussion_id, finalDiscuss, name}) => {
         Read the following conversations between me and a "Turing Candidate".
         <p><h4>Rules:</h4>
           <ul>
-            <li>The candidate has 50% chance of being a human or an AI.</li>
-            <li>For each section, vote how much you are convinced about the identity of the candidate.</li>
-            <li>Candidates message are in white on the left of the screen. </li>
-            <li>All the messages are part of the same conversation.</li>
+            <li>The candidate has 50% chance of being a <text className="font-italic">HUMAN</text> or an <text className="font-italic">AI</text>.</li>
+            <li>For each section, judge the possible identity of the AI.</li>
+            <li>Candidates' messages are in blue on the left of the screen. Orange for the judge's messages. </li>
+            <li>All the following messages are part of the same conversation.</li>
           </ul>
         </p>
-        If you want more information about the Turing Judge experiment: <Link href="/Turing_Judges">click here</Link>
+        <div className="font-italic">If you want more information about the Turing Judge experiment: <Link href="/Turing_Judges">click here</Link></div>
     <h2>{name}</h2>
           <form method="POST" action="/api/submitForm">
             {/* <label class="form-check-label" for="discussion_id">{discussion_id}</label> */}
