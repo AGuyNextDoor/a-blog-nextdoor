@@ -17,18 +17,18 @@ const Form = ({discussionNameList}) => {
           <>
           {
             discussion.status?
-            <Link className="nav-link button" key={discussion.id} href={"Forms/"+discussion.id}>
+            <a className="nav-link button" key={discussion.id} href={"Forms/"+discussion.id}>
               <a className="d-flex justify-content-between list-group-item list-group-item-action lead">
                 {discussion.name}
                 <div className="btn btn-success" disabled>Votes are open</div>
               </a>
-            </Link>:
-            <Link className="nav-link button" key={discussion.id} href={"Results/"+discussion.id}>
+            </a>:
+            <a className="nav-link button" key={discussion.id} href={"Results/"+discussion.id}>
               <a className="d-flex justify-content-between list-group-item list-group-item-action lead">
                 {discussion.name} (Results)
                 <div className="btn btn-danger" disabled>Votes are closed</div>
               </a>
-            </Link>
+            </a>
           }
           </>
         )

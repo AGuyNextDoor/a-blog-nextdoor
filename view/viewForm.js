@@ -44,7 +44,12 @@ export const ViewForm = ({discussion_id, finalDiscuss, name}) => {
               })
             }
             <input class="form-check-input" name="discussion_id" type="radio" value={discussion_id} checked required/>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div className="row justify-content-md-center">
+              <div className="col-md-auto m-4">
+                <button type="submit" class="btn btn-light btn-lg navbar_background">Submit your judgement</button>
+              </div>
+            </div>
+            
           </form>
     </>
   )
