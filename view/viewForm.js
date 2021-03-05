@@ -25,7 +25,7 @@ export const ViewForm = ({discussion_id, finalDiscuss, name}) => {
                   <>
                   <div className="row">
                     <div className="col-1"></div>
-                    <div className="col-7 border-right border-bottom rounded-right">
+                    <div className="col-7 shadow border-left border-bottom-dark border-right border-bottom rounded-right">
                       <ChatLayout discussion_id={discussion_id} sectionDis={sectionDis}/>
                     </div>
                     <div className="col-3 form-container">
