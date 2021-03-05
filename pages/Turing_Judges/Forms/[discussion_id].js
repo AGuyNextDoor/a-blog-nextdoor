@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { allVotes, getDiscussionsText, getDiscussionsName } from "../../../controller/data-utils"
 import { ViewForm } from "../../../view/viewForm"
-import { useRouter } from 'next/router'
+import Router, { useRouter } from 'next/router'
 import { ModalMessage } from "../../../components/ModalMessage"
 
 function shuffleArray(array) {
@@ -16,9 +16,33 @@ function shuffleArray(array) {
 
 const Form = ({results, finalDiscuss, name, error, discussion_id}) => {
   const router = useRouter()
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const start = () => {
+      console.log("start");
+      setLoading(true);
+    };
+
+    const end = () => {
+      console.log("finished");
+      setLoading(false);
+    };
+
+    Router.events.on("routeChangeStart", start);
+    Router.events.on("routeChangeComplete", end);
+    Router.events.on("routeChangeError", end);
+    return () => {
+      Router.events.off("routeChangeStart", start);
+      Router.events.off("routeChangeComplete", end);
+      Router.events.off("routeChangeError", end);
+    };
+
+  }, [])
 
   let type = null
   let message = null
+
   if(router.query.m){
     type = "info"
     message = router.query.m
@@ -38,21 +62,30 @@ const Form = ({results, finalDiscuss, name, error, discussion_id}) => {
   } 
 
   return(
-    <div className="margin_sidebar">
-      {
-        message?
-        <ModalMessage mess={message} type={type}/>:
-        <></>
-      }
-      <div className="pb-2">
-      {
-        error?
-        <></>:
-        <ViewForm discussion_id={results} finalDiscuss={finalDiscuss} name={name}/>
-        
-      }
+    <>
+      {loading ? (
+        <div className="margin_sidebar">
+          <h1>Loading...</h1>
+        </div>
+      ) : (
+        <div className="margin_sidebar">
+        {
+          message?
+          <ModalMessage mess={message} type={type}/>:
+          <></>
+        }
+        <div className="pb-2">
+        {
+          error?
+          <></>:
+          <ViewForm discussion_id={results} finalDiscuss={finalDiscuss} name={name}/>
+          
+        }
+        </div>
       </div>
-    </div>
+      )}
+    </>
+    
   )
 }
 
