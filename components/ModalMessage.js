@@ -7,7 +7,7 @@ export const ModalMessage = ({mess, type}) => {
   if(mess === "Votes are disabled"){
     color="bg-warning"
   } else if (mess === "Thank you!"){
-    color="bg-success"
+    color="bg-success text-white"
   }
 
   return (
