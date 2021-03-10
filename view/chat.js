@@ -16,10 +16,19 @@ const useStyles = makeStyles(theme => ({
     display: "flex" //new added flex so we can put div at left and right side
     //check style.css for left and right classnaeme based on your data
   },
-  bubble: {
+  bubbleLeft: {
     ["background-color"]: "white",
     border: "0.5px solid black",
-    borderRadius: "10px",
+    borderRadius: "10px 10px 10px 0px",
+    margin: "5px",
+    padding: "10px",
+    display: "inline-block",
+    // ["max-width"]: "40em"
+  },
+  bubbleRight: {
+    ["background-color"]: "#ea907a",
+    border: "0.5px solid black",
+    borderRadius: "10px 10px 0px 10px",
     margin: "5px",
     padding: "10px",
     display: "inline-block",
@@ -33,21 +42,40 @@ const ChatLayout = ({ results , sectionDis}) => {
 
   const chatBubbles = sectionDis.discussion.map((obj, i = 0) => (
         <div className={`p-2 ${classes.bubbleContainer} ${obj.direction}`} key={i}>
-            <div key={i++} className={classes.bubble}>
+          {
+            String(obj.direction) === "left"?
+            <div key={i++} className={classes.bubbleLeft}>
               <div className={classes.button}>
-                {
-                  String(obj.direction) === "left"?
-                  <p className="font-weight-bold">{"???:"}</p>:
-                  <p className="font-italic">{"Investigator:"}</p>
-                }
+                <p className="font-weight-bold">{"??? 🥸 :"}</p>
+                {obj.message}
+              </div>
+            </div>:
+            <div key={i++} className={classes.bubbleRight}>
+              <div className={"text-white "+classes.button}>
+                <p className="font-italic">{"Investigator 🔍 :"}</p>
                 {obj.message}
               </div>
             </div>
+          }
           </div>
           ) 
         );
 
-  return <div className={`bg-light d-flex flex-column border-right rounded-bottom ${classes.container}`}>{chatBubbles}</div>;
+  return (
+    <div className={`bg-light d-flex flex-column border-right rounded-bottom ${classes.container}`}>
+      {
+        parseInt(sectionDis.section) === 0?
+        <text className="text-center font-italic font-weight-light">Beginning of discussion</text>:
+        <></>
+      }
+      {chatBubbles}
+      {
+        parseInt(sectionDis.section) === 5?
+        <text className="text-center font-italic font-weight-light">End of discussion</text>:
+        <></>
+      }
+    </div>
+  )
 };
 
 // export async function getServerSideProps(context){

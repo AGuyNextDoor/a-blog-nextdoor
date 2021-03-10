@@ -41,7 +41,7 @@ export const ViewForm = ({discussion_id, finalDiscuss, name}) => {
         <div class="container">
           
           <button class="btn btn-outline-danger visible-xs" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-            Rules
+            📜 Rules
           </button>
           
           <div class="collapse dont-collapse-sm" id="collapseExample">
