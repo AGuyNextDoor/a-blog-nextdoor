@@ -4,7 +4,7 @@ const Section = ({section}) => {
   return (
     <div className="card p-2 shadow border-secondary">
       <div className="card-header sidebar_background">
-        <h4 class="card-title text-dark">Up until now, what's your judgement?</h4>
+        <h4 class="card-title text-dark">Up until now, what's your hypothesis? 🕵️</h4>
       </div>
       <div className="card-body">
 
@@ -14,7 +14,7 @@ const Section = ({section}) => {
         <div class="form-check">
           <input class="form-check-input cursor" type="radio" name={slugify(section)} id="def_ai" value="def_ai" required/>
           <label class="form-check-label" for="definitelyAI">
-            Definitely AI
+            ??? is definitely an AI
           </label>
         </div>
         </li>
@@ -23,7 +23,7 @@ const Section = ({section}) => {
         <div class="form-check">
           <input class="form-check-input cursor" type="radio" name={slugify(section)} id="may_ai" value="may_ai" required/>
           <label class="form-check-label" for="maybeAI">
-            Maybe AI
+            ??? is maybe an AI
           </label>
         </div>
         </li>
@@ -31,7 +31,7 @@ const Section = ({section}) => {
         <div class="form-check">
           <input class="form-check-input cursor" type="radio" name={slugify(section)} id="cant_tell" value="cant_tell" required/>
           <label class="form-check-label" for="cantTell">
-            Can't tell
+            I can't tell
           </label>
         </div>
         </li>
@@ -40,7 +40,7 @@ const Section = ({section}) => {
         <div class="form-check">
           <input class="form-check-input cursor" type="radio" name={slugify(section)} id="may_hum" value="may_hum" required/>
             <label class="form-check-label" for="maybeHuman">
-              Maybe Human
+              ??? is maybe a Human
             </label>
         </div>
           </li>
@@ -49,7 +49,7 @@ const Section = ({section}) => {
         <div class="form-check">
           <input class="form-check-input cursor" type="radio" name={slugify(section)} id="def_hum" value="def_hum" required/>
           <label class="form-check-label" for="definitelyHuman">
-            Definitely Human
+            ??? is definitely a Human
           </label>
         </div>
           </li>

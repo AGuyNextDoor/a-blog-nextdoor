@@ -37,8 +37,8 @@ const ChatLayout = ({ results , sectionDis}) => {
               <div className={classes.button}>
                 {
                   String(obj.direction) === "left"?
-                  <p className="font-weight-bold">{"Candidate:"}</p>:
-                  <p className="font-weight-bold">{"Judge:"}</p>
+                  <p className="font-weight-bold">{"???:"}</p>:
+                  <p className="font-italic">{"Investigator:"}</p>
                 }
                 {obj.message}
               </div>
