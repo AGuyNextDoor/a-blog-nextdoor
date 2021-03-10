@@ -11,7 +11,7 @@ export const ViewForm = ({discussion_id, finalDiscuss, name}) => {
         <div className="col-8">
 
 
-        <h1><span>THE TURING GAME</span></h1>
+        <h1 className="h1_turing_game">THE TURING GAME</h1>
             <text className="text-center">Can you guess if the mystery candidate is Human or a Robot?</text>
             <p><h4>RULES:</h4>
               <ul>
