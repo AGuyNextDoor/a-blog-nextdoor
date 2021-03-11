@@ -126,10 +126,8 @@ export const ViewForm = ({discussion_id, finalDiscuss, name}) => {
                 </button>
                 <p></p>
                 <p className="font-italic">Be sure to have answered all 6 forms!</p>
-                <text className="font-italic">Otherwise the button won't work.</text>
               </div>
             </div>
-            
           </form>
     </>
   )

@@ -25,13 +25,22 @@ export function initDatabase(){
   });
 }
 
-export async function discussionStatus(discussion_id){
+export async function discussionVoteStatus(discussion_id){
   let client = await initDatabase()
   let db = await client.db()
   
   let discussion = await db.collection("discussions").find({id: discussion_id}).toArray()
 
   return discussion[0].vote_status
+}
+
+export async function discussionResultStatus(discussion_id){
+  let client = await initDatabase()
+  let db = await client.db()
+  
+  let discussion = await db.collection("discussions").find({id: discussion_id}).toArray()
+
+  return discussion[0].result_status
 }
 
 export async function discussionName(discussion_id){
@@ -112,7 +121,9 @@ export async function getAllDiscussions(){
   // let result = await db.collection("discussions").aggregate({ $project : { id : 1, name : 1 } }).findOne({"id": dis_id}).toArray()
   let result = await db.collection("discussions").find().toArray()
 
-  let resultName = result.map(discussion => {return {name: discussion.name, id: discussion.id, status:discussion.vote_status}})
+  console.log({result});
+
+  let resultName = result.map(discussion => {return {name: discussion.name, id: discussion.id, vote_status:discussion.vote_status, result_status:discussion.result_status}})
 
   return resultName
 

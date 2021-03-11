@@ -1,6 +1,6 @@
 import React, { useEffect }  from "react";
 import Router from "next/router"
-import { votesOfDiscussion, discussionStatus, discussionName, discussionIdentity } from "../../../controller/data-utils.js";
+import { votesOfDiscussion, discussionResultStatus, discussionName, discussionIdentity } from "../../../controller/data-utils.js";
 import {ViewCard} from "../../../view/viewCard.js"
 import {extractData} from "../../../controller/data-calc.js"
 
@@ -20,7 +20,7 @@ import {extractData} from "../../../controller/data-calc.js"
 const Home = ({ results, status, name, identity }) => {
 
   useEffect(() => {
-    if(status){
+    if(!status){
       Router.push('/Turing_Judges/Forms?e='+encodeURIComponent("Results not yet available"))
     }
   })
@@ -39,7 +39,7 @@ export async function getServerSideProps(context){
 
   const dis_id = context.params.discussion_id
 
-  let status = await discussionStatus(dis_id)
+  let status = await discussionResultStatus(dis_id)
   let name = await discussionName(dis_id)
   let identity = await discussionIdentity(dis_id)
   let discuss = await votesOfDiscussion(dis_id)

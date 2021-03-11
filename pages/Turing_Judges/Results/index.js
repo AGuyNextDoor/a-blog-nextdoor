@@ -15,19 +15,19 @@ const Home = ({ discussionNameList }) => {
         return (
           <>
             {
-              !discussion.status?
-              <Link className="nav-link button" key={discussion.id} href={"Results/"+discussion.id}>
-                <a className="mx-2 d-flex justify-content-between list-group-item list-group-item-action lead">
-                  {discussion.name}
-                  <div className="btn btn-success" disabled>Results are open</div>
-                </a>
-              </Link>:
+              !discussion.result_status?
               <Link className="nav-link button" key={discussion.id} href={"Forms/"+discussion.id}>
                 <a className="mx-2 d-flex justify-content-between list-group-item list-group-item-action lead">
                   {discussion.name} (Results)
                   <div className="btn btn-danger" disabled>Votes are not finished</div>
                 </a>
-              </Link>
+              </Link>:
+              <Link className="nav-link button" key={discussion.id} href={"Results/"+discussion.id}>
+              <a className="mx-2 d-flex justify-content-between list-group-item list-group-item-action lead">
+                {discussion.name}
+                <div className="btn btn-success" disabled>Results are open</div>
+              </a>
+            </Link>
               
             }
           </>

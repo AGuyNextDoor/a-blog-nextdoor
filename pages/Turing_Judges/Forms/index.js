@@ -16,7 +16,7 @@ const Form = ({discussionNameList}) => {
         return (
           <>
           {
-            discussion.status?
+            discussion.vote_status?
             <a className="nav-link button" key={discussion.id} href={"Forms/"+discussion.id}>
               <a className="d-flex justify-content-between list-group-item list-group-item-action lead">
                 {discussion.name}
@@ -41,6 +41,8 @@ const Form = ({discussionNameList}) => {
 export async function getServerSideProps(context){
 
   let result = await getAllDiscussions()
+
+  console.log({result});
 
   return {
     props: {
