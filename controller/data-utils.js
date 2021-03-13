@@ -62,57 +62,21 @@ export async function discussionIdentity(discussion_id){
 }
 
 
-export async function allVotes(){
-  let client = await initDatabase()
-  let db = await client.db()
+// export async function allVotes(){
+//   let client = await initDatabase()
+//   let db = await client.db()
   
-  return db.collection("votes").find().toArray()
-}
+//   return db.collection("votes").find().toArray()
+// }
 
 export async function votesOfDiscussion(discussion_id){
   let client = await initDatabase()
   let db = await client.db()
 
-  return db.collection("votes").find({discussion_id: discussion_id}).toArray()
+  return db.collection("single_votes").find({discussion_id: discussion_id}).toArray()
 }
 
-export async function addVotes(data){
-  let flag = true;
-  let client = await initDatabase()
-  let db = await client.db()
 
-  let keysList = ['1','2', '3', '4', '5', '6']
-
-  let updateList = []
-
-  for(let i = 1; i < keysList.length; i++){
-    let objKey = {}
-    objKey[data[keysList[i]]] = 1
-    updateList.push(objKey)
-  }
-
-  let results = "Votes Disabled"
-  let idd = data.discussion_id
-
-  
-  if(flag){
-    results = []
-
-    
-    for(let i = 0; i < updateList.length; i++){
-      let j = String(i+1)
-      
-     
-      
-      results.push(await db.collection("votes").update(
-        {discussion_id: idd, section:j},
-        { $inc: updateList[i]}
-        ))
-      }
-    }
-
-  return results
-};
 
 export async function getAllDiscussions(){
   let client = await initDatabase()

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { allVotes, getDiscussionsText, getDiscussionsName } from "../../../controller/data-utils"
+import { getDiscussionsText, getDiscussionsName } from "../../../controller/data-utils"
 import { ViewForm } from "../../../view/viewForm"
 import Router, { useRouter } from 'next/router'
 import { ModalMessage } from "../../../components/ModalMessage"
@@ -14,7 +14,7 @@ function shuffleArray(array) {
     return array
 }
 
-const Form = ({results, finalDiscuss, name, error, discussion_id}) => {
+const Form = ({finalDiscuss, name, error, discussion_id}) => {
   const router = useRouter()
   const [loading, setLoading] = useState(false);
 
@@ -78,7 +78,7 @@ const Form = ({results, finalDiscuss, name, error, discussion_id}) => {
         {
           error?
           <></>:
-          <ViewForm discussion_id={results} finalDiscuss={finalDiscuss} name={name}/>
+          <ViewForm discussion_id={discussion_id} finalDiscuss={finalDiscuss} name={name}/>
           
         }
         </div>
@@ -92,8 +92,6 @@ const Form = ({results, finalDiscuss, name, error, discussion_id}) => {
 export async function getServerSideProps(context){
 
   const dis_id = context.params.discussion_id
-    
-  let votes = await allVotes()
   
   let discuss = await getDiscussionsText(dis_id)
   let discussion_name = await getDiscussionsName(dis_id)
@@ -106,11 +104,11 @@ export async function getServerSideProps(context){
     discuss = shuffleArray(discuss)
     
     let finalDiscuss = [firstEl, ...discuss, lastEl]
+    console.log(dis_id);
     
     return {
       props: {
         // results: JSON.parse(JSON.stringify(discussions))
-        results: JSON.parse(JSON.stringify(votes[0].discussion_id)),
         finalDiscuss: finalDiscuss,
         name: discussion_name,
         discussion_id: dis_id,

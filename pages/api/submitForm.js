@@ -1,24 +1,27 @@
-import {addVotes} from "../../controller/data-utils.js"
+import {addVotes} from "../../controller/data-upload.js"
 
 export default async function handler(req, res) {
+
+  console.log(req.body);
 
   if (req.method === 'POST') {
     let result = await addVotes(req.body)
 
+    console.log({result});
+
     const urlDiscussionID = String("/Turing_Judges/Forms/"+encodeURIComponent(req.body.discussion_id))
-    let flag = 0
+    
+    let flag = false
 
     if(result === "Votes Disabled"){
       res.redirect(urlDiscussionID +"?e="+encodeURIComponent("Votes are disabled"))
     } else {
 
-      for(const val in result){
-        if(result[val].result.nModified === 0){
-          flag += 1
-        }
+      if(result.result.n === 1){
+        flag = true;
       }
       
-      if(flag === 6){
+      if(flag){
         res.redirect(urlDiscussionID+"?e="+encodeURIComponent("Error no answer submitted contact host"))
       } else {
         res.redirect(urlDiscussionID+"?m="+encodeURIComponent("Thank you!"))

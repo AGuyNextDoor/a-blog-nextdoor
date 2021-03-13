@@ -1,5 +1,6 @@
 import {TuringRadar} from "./radar.js"
 import {TuringLine} from "./line.js"
+import Image from "next/image"
 
 const textColorPicker = (val) => {
   let result = "font-weight-bold text-right "
@@ -34,7 +35,9 @@ const backgroundColorPicker = (val) => {
 }
 
 
-export const ViewCard = ({results, mean, means, name, identity}) => {
+export const ViewCard = ({results, name, identity}) => {
+
+  console.log({results});
 
   let iden = "Identity: Human"
   if(identity){
@@ -45,33 +48,45 @@ export const ViewCard = ({results, mean, means, name, identity}) => {
     <>
       {/* <div class="card"> */}
         <div class="card-body">
-          <h5 class="card-title">{name} - {iden}</h5>
+          <h5 class="card-title h2_turing_game">{name} - {iden}</h5>
+          <hr/>
           <div class="container">
             <div class="row">
-              <div class="col">
-                <TuringRadar means={means} name={name}/>
-              </div>
-              <div class="col">
-                <ul>
-                  <li class="list-group-item">S1 - Intro : <text class={textColorPicker(results.section1_final_mean)}>{results.section1_final_mean.toFixed(3)}</text></li>
-                  <li class="list-group-item">S2 - Objects and Physics : <text class={textColorPicker(results.section2_final_mean)}>{results.section2_final_mean.toFixed(3)}</text></li>
-                  <li class="list-group-item">S3 - Agent and Goal : <text class={textColorPicker(results.section3_final_mean)}>{results.section3_final_mean.toFixed(3)}</text></li>
-                  <li class="list-group-item">S4 - Natural Number : <text class={textColorPicker(results.section4_final_mean)}>{results.section4_final_mean.toFixed(3)}</text></li>
-                  <li class="list-group-item">S5 - Geometry : <text class={textColorPicker(results.section5_final_mean)}>{results.section5_final_mean.toFixed(3)}</text></li>
-                  <li class="list-group-item">S6 - ShortTermMemory : <text class={textColorPicker(results.section6_final_mean)}>{results.section6_final_mean.toFixed(3)}</text></li>
-                </ul>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <TuringLine mean={mean} name={name}/> 
-              </div>
-              <div class="col">
-                <ul>
-                  <li class="list-group-item">Number of Votes : {results.global_number_of_votes}</li>
-                  <li class="list-group-item">Average vote per section : {parseFloat(results.global_number_of_votes/6).toFixed(3)}</li>
-                  <li class={"list-group-item " + backgroundColorPicker(mean)}>Global Mean : <text className={"font-weight-bold"}>{mean.toFixed(3)}</text></li>
-                </ul>
+              <div class="col-8">
+                <div class="row">
+                  <div class="col-6">
+                    <TuringRadar means={results} name={name}/>
+                  </div>
+                   <div class="col-6">
+                      <ul>
+                        <li class="list-group-item">S1 - Intro : <text class={textColorPicker(results.section1Sum)}>{results.section1Sum.toFixed(3)}</text></li>
+                        <li class="list-group-item">S2 - Objects and Physics : <text class={textColorPicker(results.section2Sum)}>{results.section2Sum.toFixed(3)}</text></li>
+                        <li class="list-group-item">S3 - Agent and Goal : <text class={textColorPicker(results.section3Sum)}>{results.section3Sum.toFixed(3)}</text></li>
+                        <li class="list-group-item">S4 - Natural Number : <text class={textColorPicker(results.section4Sum)}>{results.section4Sum.toFixed(3)}</text></li>
+                        <li class="list-group-item">S5 - Geometry : <text class={textColorPicker(results.section5Sum)}>{results.section5Sum.toFixed(3)}</text></li>
+                        <li class="list-group-item">S6 - ShortTermMemory : <text class={textColorPicker(results.section6Sum)}>{results.section6Sum.toFixed(3)}</text></li>
+                      </ul>
+                    </div>
+                  </div>
+                <div class="row">
+                <div class="col-6">
+                  <TuringLine mean={results.totalAverage} name={name}/> 
+                </div>
+                <div class="col-6">
+                  <ul>
+                    <li class="list-group-item">Number of Votes : {results.totalVotes}</li>
+                    <li class="list-group-item">Average vote per section : {parseFloat(results.totalVotes/6).toFixed(3)}</li>
+                    <li class={"list-group-item " + backgroundColorPicker(results.totalAverage)}>Global Mean : <text className={"font-weight-bold"}>{results.totalAverage.toFixed(3)}</text></li>
+                  </ul>
+                </div>
+                </div>
+                </div>
+              <div class="col-4">
+                {
+                  identity? 
+                  <Image src="/AILogo.png" width="500" height="500"></Image>:
+                  <Image src="/humanLogo.jpg" width="500" height="500"></Image>
+                }
               </div>
             </div>
           </div>

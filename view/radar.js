@@ -3,6 +3,8 @@ import { Radar} from "react-chartjs-2"
 
 export const TuringRadar = ({means, name}) => {
 
+  const meansList = [means.section1Sum, means.section2Sum, means.section3Sum, means.section4Sum, means.section5Sum, means.section6Sum,]
+
   const data = {
     labels:['section 1', 'section 2', 'section 3', 'section 4', "section 5", "section 6"],
     datasets: [
@@ -36,7 +38,7 @@ export const TuringRadar = ({means, name}) => {
         pointBorderColor: '#fff',
         pointHoverBackgroundColor: '#fff',
         pointHoverBorderColor: 'rgba(255, 120, 110,1)',
-        data: means
+        data: meansList
       }
     ]  
   };
