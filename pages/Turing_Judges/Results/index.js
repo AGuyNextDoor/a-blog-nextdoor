@@ -6,7 +6,7 @@ const Home = ({ discussionNameList }) => {
 
   return (
     <div className="margin_sidebar">
-      <h2 className="ml-3 h1_turing_game">List of results</h2>
+      <h2 className="ml-3 h1_turing_game">List of results for Candidates</h2>
 
 
       <div class="list-group ">
