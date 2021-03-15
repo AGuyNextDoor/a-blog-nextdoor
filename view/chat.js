@@ -46,7 +46,7 @@ const ChatLayout = ({ results , sectionDis}) => {
             String(obj.direction) === "left"?
             <div key={i++} className={classes.bubbleLeft}>
               <div className={classes.button}>
-                <p className="font-weight-bold">{"??? 🥸 :"}</p>
+                <p className="font-weight-bold">{"??? :"}</p>
                 {obj.message}
               </div>
             </div>:
