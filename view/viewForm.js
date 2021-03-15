@@ -60,7 +60,7 @@ export const ViewForm = ({discussion_id, finalDiscuss, name}) => {
         </div>
     </div>
        
-    <h2>{name}</h2>
+    <h2 className="ml-2">{name}</h2>
           <form className="needs-validation" method="POST" action="/api/submitForm" novalidate>
             {/* <label class="form-check-label" for="discussion_id">{discussion_id}</label> */}
             {/* <div class="container"> */}
