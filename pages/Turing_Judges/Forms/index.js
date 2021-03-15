@@ -19,13 +19,13 @@ const Form = ({discussionNameList}) => {
             discussion.vote_status?
             <Link className="nav-link button" key={discussion.id} href={"Forms/"+discussion.id}>
               <a className="d-flex justify-content-between list-group-item list-group-item-action lead">
-                {discussion.name}
+                {discussion.name} - {discussion.date}
                 <button className="btn btn-success" disabled>Voting is open</button>
               </a>
             </Link>:
             <Link className="nav-link button" key={discussion.id} href={"Results/"+discussion.id}>
               <a className="d-flex justify-content-between list-group-item list-group-item-action lead">
-                {discussion.name} (Results)
+                {discussion.name} (Click to see results)
                 <button className="btn btn-danger" disabled>Votes are closed</button>
               </a>
             </Link>

@@ -87,7 +87,7 @@ export async function getAllDiscussions(){
 
   console.log({result});
 
-  let resultName = result.map(discussion => {return {name: discussion.name, id: discussion.id, vote_status:discussion.vote_status, result_status:discussion.result_status}})
+  let resultName = result.map(discussion => {return {name: discussion.name, date: discussion.date.toDateString(), id: discussion.id, vote_status:discussion.vote_status, result_status:discussion.result_status}})
 
   return resultName
 
