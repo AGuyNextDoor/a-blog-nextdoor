@@ -20,12 +20,10 @@ const Form = ({finalDiscuss, name, error, discussion_id}) => {
 
   useEffect(() => {
     const start = () => {
-      console.log("start");
       setLoading(true);
     };
 
     const end = () => {
-      console.log("finished");
       setLoading(false);
     };
 

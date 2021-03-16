@@ -36,8 +36,6 @@ const csvJSON = (csv) => {
 
   }
 
-  console.log(result);
-
   return result; //JavaScript object
 }
 
@@ -60,10 +58,6 @@ const Definitions = () => {
     // })
       .then((list) => {
         const items = Object.keys(list[0])
-        console.log(items.splice(items.indexOf("Definition"), 1));
-        console.log(items.splice(items.indexOf("Words"), 1));
-        console.log(items.splice(items.indexOf(""), 1));
-        console.log(list);
 
         const tags = items;
 

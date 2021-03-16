@@ -47,8 +47,6 @@ export async function queryAllResults(){
     ]
   ).toArray()
 
-  console.log({allResult});
-
   return allResult
 }
 
@@ -104,8 +102,6 @@ export async function queryResults(discussion_id){
       }
     ]
   ).toArray()
-
-  console.log(result.filter(val => val._id === discussion_id));
 
   return result[0]
 

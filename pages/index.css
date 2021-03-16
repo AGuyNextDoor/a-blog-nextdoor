@@ -902,3 +902,7 @@ section div {
                0 10px 10px rgba(0,0,0,.1),
                0 20px 20px rgba(0,0,0,.15);
 }
+
+.custom_button {
+  border-radius: 15px;
+}

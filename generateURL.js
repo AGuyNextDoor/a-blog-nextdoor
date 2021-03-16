@@ -75,7 +75,7 @@ const constructObject = async (topic, topicOut) => {
   
     fs.writeFile(__dirname + "\/public/" + topicOut + ".json", JSON.stringify(obj), (err) => {
       if (err) {
-        return console.log(err);
+        return err;
       }
     console.log("File created:", "/public/" + topicOut);
   });

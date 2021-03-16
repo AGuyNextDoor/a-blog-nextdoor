@@ -37,8 +37,6 @@ const backgroundColorPicker = (val) => {
 
 export const ViewCard = ({results, name, identity}) => {
 
-  console.log({results});
-
   let iden = "Identity: Human"
   if(identity){
     iden = "Identity: AI"

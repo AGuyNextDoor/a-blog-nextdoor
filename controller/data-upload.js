@@ -8,9 +8,7 @@ export async function addVotes(data){
 
   let vote_status = discussionVoteStatus(data.discussion_id)
 
-  console.log({data});
   let isoDateString = new Date();
-  console.log({isoDateString});
 
   const upData = {
     "discussion_id": data.discussion_id,

@@ -78,6 +78,8 @@ export async function votesOfDiscussion(discussion_id){
 
 
 
+
+
 export async function getAllDiscussions(){
   let client = await initDatabase()
   let db = await client.db()
@@ -85,9 +87,34 @@ export async function getAllDiscussions(){
   // let result = await db.collection("discussions").aggregate({ $project : { id : 1, name : 1 } }).findOne({"id": dis_id}).toArray()
   let result = await db.collection("discussions").find().toArray()
 
-  console.log({result});
+  let total = await db.collection("single_votes").aggregate(
+    [
+      {
+        '$group': {
+          '_id': '$discussion_id', 
+          'total': {
+            '$sum': 1
+          }
+        }
+      }
+    ]
+  ).toArray()
 
-  let resultName = result.map(discussion => {return {name: discussion.name, date: discussion.date.toDateString(), id: discussion.id, vote_status:discussion.vote_status, result_status:discussion.result_status}})
+  function createResult(discussion){
+    let coutnResult = total.filter((countObject) => countObject._id === discussion.id )
+
+    console.log({coutnResult});
+
+    if(coutnResult[0]){
+      return {name: discussion.name, date: discussion.date.toDateString(), id: discussion.id, vote_status:discussion.vote_status, result_status:discussion.result_status, total: coutnResult[0].total}
+    } else {
+      return {name: discussion.name, date: discussion.date.toDateString(), id: discussion.id, vote_status:discussion.vote_status, result_status:discussion.result_status, total: 0}
+    }
+  }
+
+  console.log({total});
+
+  let resultName = result.map(createResult)
 
   return resultName
 
