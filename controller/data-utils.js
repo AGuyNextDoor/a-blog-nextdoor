@@ -103,16 +103,12 @@ export async function getAllDiscussions(){
   function createResult(discussion){
     let coutnResult = total.filter((countObject) => countObject._id === discussion.id )
 
-    console.log({coutnResult});
-
     if(coutnResult[0]){
       return {name: discussion.name, date: discussion.date.toDateString(), id: discussion.id, vote_status:discussion.vote_status, result_status:discussion.result_status, total: coutnResult[0].total}
     } else {
       return {name: discussion.name, date: discussion.date.toDateString(), id: discussion.id, vote_status:discussion.vote_status, result_status:discussion.result_status, total: 0}
     }
   }
-
-  console.log({total});
 
   let resultName = result.map(createResult)
 
