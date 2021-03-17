@@ -21,7 +21,7 @@ const Home = ({ results, status, name, identity }) => {
 
   useEffect(() => {
     if(!status){
-      Router.push('/Turing_Judges/Forms?e='+encodeURIComponent("Results not yet available"))
+      Router.push('/Turing_Judges/Game?e='+encodeURIComponent("Results not yet available"))
     }
   })
   // const means = results.sections_final_mean.map(val => val.toFixed(3))

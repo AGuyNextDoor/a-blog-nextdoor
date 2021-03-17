@@ -193,7 +193,7 @@ const getReflectionList = async (callback) => {
 };
 
 const getTuringJudgesList = (callback) => {
-  callback(["Forms","Results"])
+  callback(["Game","Results"])
 }
 
 const empty = (callback) => {

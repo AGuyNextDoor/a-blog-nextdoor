@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link"
 import {ViewCard} from "../../view/viewCard.js"
 
 // console.log(process.env.ENV)
@@ -21,6 +22,21 @@ const Home = () => {
       <h2 className="mx-2">WELCOME TO THE TURING JUDGES EXPERIMENT</h2>
       <div className="mx-4 my-2">
         <p className="font">The Turing Judge is an experiment trying to apply a social dimension to the Imitation Game (aka. Turing Test).</p>
+
+        <div className="container">
+          <div className="row"> 
+            <Link href="Turing_Judges/Result" className="nav-link button">
+              <div className="cursor col mx-2 text-center navbar_background custom_button button-form-font text-dark navbar_shadow"> 
+                PLAY THE GAME
+              </div>
+            </Link>
+            <Link href="Turing_Judges/Result" className="nav-link button">
+              <div className="cursor col mx-2 text-center navbar_background custom_button button-form-font text-dark navbar_shadow"> 
+                SEE RESULTS
+              </div>
+            </Link>
+          </div>
+        </div>
 
         <h3>The Turing Test</h3>
 

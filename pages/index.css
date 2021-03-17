@@ -681,6 +681,10 @@ body {
   background-color: #fbc687 ;
 }
 
+.redirect_background {
+  background-color: #c7c593 ;
+}
+
 .tag_background {
   background:rgba(230, 230, 200, 1);
   background-size: cover;
@@ -726,6 +730,13 @@ body {
     position: fixed;
     bottom: 0;
     width: 100%;
+    height: 120px;
+}
+
+.footer-Turing {
+    position: fixed;
+    bottom: 0;
+    width: 80%;
     height: 120px;
 }
 
@@ -905,4 +916,9 @@ section div {
 
 .custom_button {
   border-radius: 15px;
+}
+
+.custom_button:hover {
+  background-color: white;
+  color: red;
 }

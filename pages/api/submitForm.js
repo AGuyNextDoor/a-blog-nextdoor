@@ -5,7 +5,7 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     let result = await addVotes(req.body)
 
-    const urlDiscussionID = String("/Turing_Judges/Forms/"+encodeURIComponent(req.body.discussion_id))
+    const urlDiscussionID = String("/Turing_Judges/Game/"+encodeURIComponent(req.body.discussion_id))
 
     if(result === "Votes Disabled"){
       res.redirect(urlDiscussionID +"?e="+encodeURIComponent("Votes are disabled"))

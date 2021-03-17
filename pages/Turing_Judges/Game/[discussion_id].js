@@ -102,7 +102,6 @@ export async function getServerSideProps(context){
     discuss = shuffleArray(discuss)
     
     let finalDiscuss = [firstEl, ...discuss, lastEl]
-    console.log(dis_id);
     
     return {
       props: {
