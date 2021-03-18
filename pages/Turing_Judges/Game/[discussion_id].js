@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getDiscussionsText, getDiscussionsName } from "../../../controller/data-utils"
+import { getDiscussionsText, getDiscussionsName, getOrderDiscussion } from "../../../controller/data-utils"
 import { ViewForm } from "../../../view/viewForm"
 import Router, { useRouter } from 'next/router'
 import { ModalMessage } from "../../../components/ModalMessage"
@@ -15,11 +15,33 @@ function shuffleArray(array) {
     return array
 }
 
-const Form = ({finalDiscuss, name, error, discussion_id}) => {
+const navigationButton = (value, text) => {
+  if(value !== "error"){
+    return (
+      <Link  href={value}>
+      <button className="btn btn-secondary col text-center border cursor"> 
+        {text}
+      </button>
+    </Link>
+   )
+  } else {
+    return (
+      <Link  href="">
+        <button className="btn btn-secondary col text-center border" disabled> 
+          {text}
+        </button>
+      </Link>
+    )
+  }
+}
+
+const Form = ({finalDiscuss, name, error, discussion_id, order}) => {
   const router = useRouter()
 
   let type = null
   let message = null
+
+  console.log({order});
 
   if(router.query.m){
     type = "info"
@@ -44,21 +66,11 @@ const Form = ({finalDiscuss, name, error, discussion_id}) => {
         <div className="margin_sidebar">
           <div className="container border">
             <div className="row my-3">
-              <Link  href="">
-                <div className="col text-center border cursor"> 
-                  before
+              {navigationButton(order[0], "before")}
+                <div className="col-8 text-center border cursor"> 
+                  {name}
                 </div>
-              </Link>
-              <Link  href="">
-              <div className="col-8 text-center border">
-                {name}
-              </div>
-              </Link>
-              <Link  href="">
-              <div className="col text-center border cursor">
-                after
-              </div>
-              </Link>
+              {navigationButton(order[2], "after")}
             </div>
           </div>
         {
@@ -86,6 +98,8 @@ export async function getServerSideProps(context){
   
   let discuss = await getDiscussionsText(dis_id)
   let discussion_name = await getDiscussionsName(dis_id)
+  let order = await getOrderDiscussion(dis_id)
+  
   
   if(discuss[0] !== "error"){
     
@@ -102,7 +116,8 @@ export async function getServerSideProps(context){
         finalDiscuss: finalDiscuss,
         name: discussion_name,
         discussion_id: dis_id,
-        error: false
+        error: false,
+        order: order
       }
     }
   } else {

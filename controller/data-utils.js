@@ -115,28 +115,31 @@ export async function getAllDiscussions(){
   return resultName
 }
 
+function orderId(discussionList, diss_id){
+
+  let beforeId = "error"
+  let currentId = "error"
+  let afterId = "error"
+
+  for(let i = 0; i < discussionList.length; i++){
+    if(discussionList[i].id === diss_id){
+      console.log("here");
+      beforeId = discussionList[i-1]? discussionList[i-1].id: "error"
+      currentId = discussionList[i].id
+      afterId = discussionList[i+1]? discussionList[i+1].id: "error"
+    }
+  }
+  //finish this function 
+  return [beforeId, currentId, afterId]
+}
+
 export async function getOrderDiscussion(dis_id){
   let client = await initDatabase()
   let db = await client.db()
 
-  function orderId(discussionList, diss_id){
 
-    let beforeId = "error"
-    let currentId = "error"
-    let afterId = "error"
 
-    for(let i = 0; i < discussionList.length; i++){
-      if(discussionList[i].discussion_id === diss_id){
-        beforeId = discussionList[i-1]? discussionList[i-1].discussion_id: "error"
-        currentId = discussionList[i].discussion_id
-        afterId = discussionList[i+1]? discussionList[i+1].discussion_id: "error"
-      }
-    }
-    //finish this function 
-    return 
-  }
-
-  let result = db.collection("discussions").aggregate([
+  let result = await db.collection("discussions").aggregate([
     {
       '$sort': {
         '_id': 1, 
@@ -146,6 +149,8 @@ export async function getOrderDiscussion(dis_id){
   ]).toArray()
 
   let finalResult = orderId(result, dis_id)
+
+  console.log({finalResult});
 
   return finalResult
 
