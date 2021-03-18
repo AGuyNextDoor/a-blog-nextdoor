@@ -19,16 +19,16 @@ const navigationButton = (value, text) => {
   if(value !== "error"){
     return (
       <Link  href={value}>
-      <button className="btn btn-secondary col text-center border cursor"> 
-        {text}
+      <button className="btn btn-secondary button-form-font col text-center border cursor"> 
+        {text === "before"? "⬅️" : "➡️"}
       </button>
     </Link>
    )
   } else {
     return (
       <Link  href="">
-        <button className="btn btn-secondary col text-center border" disabled> 
-          {text}
+        <button className="btn btn-outline-secondary col button-form-font text-center border uncursor" disabled> 
+          {text === "before"? "⬅️" : "➡️"}
         </button>
       </Link>
     )
@@ -64,10 +64,10 @@ const Form = ({finalDiscuss, name, error, discussion_id, order}) => {
   return(
     <>
         <div className="margin_sidebar">
-          <div className="container border">
+          <div className="container">
             <div className="row my-3">
               {navigationButton(order[0], "before")}
-                <div className="col-8 text-center border cursor"> 
+                <div className="btn col-8 test-align text-center button-form-font uncursor border" disabled> 
                   {name}
                 </div>
               {navigationButton(order[2], "after")}

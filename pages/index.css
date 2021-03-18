@@ -654,6 +654,10 @@ body {
   cursor: pointer;
 }
 
+.uncursor{
+  cursor: unset;
+}
+
 .cursor{
   cursor: pointer;
 }
