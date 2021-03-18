@@ -113,8 +113,44 @@ export async function getAllDiscussions(){
   let resultName = result.map(createResult)
 
   return resultName
+}
+
+export async function getOrderDiscussion(dis_id){
+  let client = await initDatabase()
+  let db = await client.db()
+
+  function orderId(discussionList, diss_id){
+
+    let beforeId = "error"
+    let currentId = "error"
+    let afterId = "error"
+
+    for(let i = 0; i < discussionList.length; i++){
+      if(discussionList[i].discussion_id === diss_id){
+        beforeId = discussionList[i-1]? discussionList[i-1].discussion_id: "error"
+        currentId = discussionList[i].discussion_id
+        afterId = discussionList[i+1]? discussionList[i+1].discussion_id: "error"
+      }
+    }
+    //finish this function 
+    return 
+  }
+
+  let result = db.collection("discussions").aggregate([
+    {
+      '$sort': {
+        '_id': 1, 
+        'date': 1
+      }
+    }
+  ]).toArray()
+
+  let finalResult = orderId(result, dis_id)
+
+  return finalResult
 
 }
+
 
 export async function getDiscussionsName(dis_id){
   let client = await initDatabase()

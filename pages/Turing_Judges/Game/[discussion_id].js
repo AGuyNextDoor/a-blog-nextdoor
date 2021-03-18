@@ -3,6 +3,7 @@ import { getDiscussionsText, getDiscussionsName } from "../../../controller/data
 import { ViewForm } from "../../../view/viewForm"
 import Router, { useRouter } from 'next/router'
 import { ModalMessage } from "../../../components/ModalMessage"
+import Link from "next/link"
 
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
@@ -16,27 +17,6 @@ function shuffleArray(array) {
 
 const Form = ({finalDiscuss, name, error, discussion_id}) => {
   const router = useRouter()
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    const start = () => {
-      setLoading(true);
-    };
-
-    const end = () => {
-      setLoading(false);
-    };
-
-    Router.events.on("routeChangeStart", start);
-    Router.events.on("routeChangeComplete", end);
-    Router.events.on("routeChangeError", end);
-    return () => {
-      Router.events.off("routeChangeStart", start);
-      Router.events.off("routeChangeComplete", end);
-      Router.events.off("routeChangeError", end);
-    };
-
-  }, [])
 
   let type = null
   let message = null
@@ -61,12 +41,26 @@ const Form = ({finalDiscuss, name, error, discussion_id}) => {
 
   return(
     <>
-      {loading ? (
         <div className="margin_sidebar">
-          <h1>Loading...</h1>
-        </div>
-      ) : (
-        <div className="margin_sidebar">
+          <div className="container border">
+            <div className="row my-3">
+              <Link  href="">
+                <div className="col text-center border cursor"> 
+                  before
+                </div>
+              </Link>
+              <Link  href="">
+              <div className="col-8 text-center border">
+                {name}
+              </div>
+              </Link>
+              <Link  href="">
+              <div className="col text-center border cursor">
+                after
+              </div>
+              </Link>
+            </div>
+          </div>
         {
           message?
           <ModalMessage mess={message} type={type}/>:
@@ -81,7 +75,6 @@ const Form = ({finalDiscuss, name, error, discussion_id}) => {
         }
         </div>
       </div>
-      )}
     </>
     
   )

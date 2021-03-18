@@ -7,7 +7,7 @@ const Form = ({discussionNameList}) => {
  
   return (
     <div className="margin_sidebar">
-      <h2 className="ml-2 h1_turing_game">Which discussions do you want to vote on?</h2>
+      <h2 className="ml-2 h1_turing_game">Which discussions do you want to investigate on?</h2>
 
 
       <div class="ml-2 list-group">
@@ -72,3 +72,4 @@ export async function getServerSideProps(context){
 }
 
 export default Form;
+
