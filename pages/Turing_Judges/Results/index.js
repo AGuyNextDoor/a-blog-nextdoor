@@ -9,7 +9,7 @@ const Home = ({ discussionNameList }) => {
       <h2 className="ml-3 h1_turing_game">List of results for Investigations</h2>
 
 
-      <div class="list-group ">
+      <div class="ml-2 list-group ">
         <div className="container">
 
           {discussionNameList.map( discussion => {

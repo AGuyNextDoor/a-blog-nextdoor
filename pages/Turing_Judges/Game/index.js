@@ -44,19 +44,14 @@ const Form = ({discussionNameList}) => {
         )
       })}
       </div>
-      <div className="relative fixed-bottom ">
-
+        <hr/>
         <Link href="Results" className="nav-link button">
           <div className="my-5 cursor mx-2 text-center navbar_background custom_button button-form-font text-dark navbar_shadow"> 
               <h2 className="ml-2 ">See results of investigation 🔗</h2>
           </div>
         </Link>
       </div>
-        <hr/>
-      <div>
     </div>
-      </div>
-      </div>
   )
 }
 
