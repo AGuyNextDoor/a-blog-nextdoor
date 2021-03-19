@@ -902,9 +902,9 @@ section div {
   color:white;
   text-align: center;
   font-size: 4em;
-  margin-top: 5%;
+  /* margin-top: 5%; */
   font-family: tahoma;
-  color: #fbc687;
+  color: #e9c46a;
   text-shadow: 0 1px 0 rgb(0, 0, 0),
                0 2px 0 #c9c9c9,
                0 3px 0 rgb(131, 131, 131),
@@ -917,13 +917,13 @@ section div {
                0 10px 10px rgba(0,0,0,.1),
                0 20px 20px rgba(0,0,0,.15);
 }
-.h2_turing_game_b{
+.h2_turing_game_human{
   color:white;
   text-align: center;
   font-size: 4em;
-  margin-top: 10%;
+  /* margin-top: 5%; */
   font-family: tahoma;
-  color: #000000;
+  color: #2a9d8f;
   text-shadow: 0 1px 0 rgb(0, 0, 0),
                0 2px 0 #c9c9c9,
                0 3px 0 rgb(131, 131, 131),
@@ -936,6 +936,27 @@ section div {
                0 10px 10px rgba(0,0,0,.1),
                0 20px 20px rgba(0,0,0,.15);
 }
+
+.h2_turing_game_ai{
+  color:white;
+  text-align: center;
+  font-size: 4em;
+  /* margin-top: 5%; */
+  font-family: tahoma;
+  color: #264653;
+  text-shadow: 0 1px 0 rgb(0, 0, 0),
+               0 2px 0 #c9c9c9,
+               0 3px 0 rgb(131, 131, 131),
+               0 4px 0 #8f8f8f,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.15),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.15),
+               0 10px 10px rgba(0,0,0,.1),
+               0 20px 20px rgba(0,0,0,.15);
+}
+
 
 .custom_button {
   border-radius: 15px;

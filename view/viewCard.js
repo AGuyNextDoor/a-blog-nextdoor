@@ -37,9 +37,9 @@ const backgroundColorPicker = (val) => {
 
 export const ViewCard = ({results, name, identity}) => {
 
-  let iden = "Human"
+  let iden = " Human"
   if(identity){
-    iden = "AI"
+    iden = " AI"
   }
 
   return (
@@ -47,19 +47,32 @@ export const ViewCard = ({results, name, identity}) => {
       {/* <div class="card"> */}
         <div class="card-body">
           <div class="container">
-            <div className="row justify-content-center">
-              <text class="card-title h2_turing_game">{name} - {iden}</text>
-            </div>
-          <hr/>
-            <div class="row">
-              <div class="col-8">
-                <div class="row">
-                  <div class="col-6">
+            
+                {
+                  identity? 
+                  <div className="row justify-content-center align-items-center">
+                    <text class="card-title h2_turing_game">{name} : </text><text className="card-title h2_turing_game_ai"> {iden}</text>
+                    <div class="col-4 justifiy-content-center">
+                      <Image src="/AILogo.png" width="500" height="500"></Image>
+                    </div>
+                  </div>:
+                  <div className="row justify-content-center align-items-center">
+                    <text class="card-title h2_turing_game">{name} : </text><text className="card-title h2_turing_game_human"> {iden}</text>
+                    <div class="col-4 justifiy-content-center">
+                      <Image src="/humanLogo.jpg" width="500" height="500"></Image>
+                    </div>
+                  </div>
+                  
+                }
+            <div class="row border rounded">
+              <div class="col-xl-8">
+                <div class="row justify-content-center">
+                  <div class="col-l-6 my-5 mx-3">
                     <TuringRadar means={results} name={name}/>
                   </div>
-                   <div class="col-6">
+                   <div class="col-l-6 my-5 mx-3">
                       <ul>
-                        <li class="list-group-item">S1 - Intro : <text class={textColorPicker(results.section1Sum)}>{results.section1Sum.toFixed(3)}</text></li>
+                        <li class="list-group-item">S1 - Introduction : <text class={textColorPicker(results.section1Sum)}>{results.section1Sum.toFixed(3)}</text></li>
                         <li class="list-group-item">S2 - Objects and Physics : <text class={textColorPicker(results.section2Sum)}>{results.section2Sum.toFixed(3)}</text></li>
                         <li class="list-group-item">S3 - Agent and Goal : <text class={textColorPicker(results.section3Sum)}>{results.section3Sum.toFixed(3)}</text></li>
                         <li class="list-group-item">S4 - Natural Number : <text class={textColorPicker(results.section4Sum)}>{results.section4Sum.toFixed(3)}</text></li>
@@ -68,11 +81,11 @@ export const ViewCard = ({results, name, identity}) => {
                       </ul>
                     </div>
                   </div>
-                <div class="row">
-                <div class="col-6">
+                <div class="row justify-content-center">
+                <div class="col-l-6 my-5">
                   <TuringLine mean={results.totalAverage} name={name}/> 
                 </div>
-                <div class="col-6">
+                <div class="col-l-6 my-5">
                   <ul>
                     <li class="list-group-item">Number of Votes : {results.totalVotes}</li>
                     <li class="list-group-item">Average vote per section : {parseFloat(results.totalVotes/6).toFixed(3)}</li>
@@ -81,13 +94,6 @@ export const ViewCard = ({results, name, identity}) => {
                 </div>
                 </div>
                 </div>
-              <div class="col-4">
-                {
-                  identity? 
-                  <Image src="/AILogo.png" width="500" height="500"></Image>:
-                  <Image src="/humanLogo.jpg" width="500" height="500"></Image>
-                }
-              </div>
             </div>
           </div>
         </div>

@@ -72,7 +72,7 @@ export const TuringLine = ({mean, name}) => {
         pointBackgroundColor: 'rgba(255, 120, 110,1)',
         pointBorderColor: '#fff',
         pointHoverBackgroundColor: '#fff',
-        pointHoverBorderColor: 'rgba(255, 120, 110,1)',
+        pointHoverBorderColor: 'rgba(255, 120, 110,0)',
         data: [{
           x:mean,
           y:0,
