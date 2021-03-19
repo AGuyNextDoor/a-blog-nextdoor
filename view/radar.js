@@ -32,7 +32,7 @@ export const TuringRadar = ({means, name}) => {
       },
       {
         label: name,
-        backgroundColor: 'rgba(255, 120, 110,0.6)',
+        backgroundColor: 'rgba(255, 120, 110,0)',
         borderColor: 'rgba(255, 120, 110,1)',
         pointBackgroundColor: 'rgba(255, 120, 110,1)',
         pointBorderColor: '#fff',
