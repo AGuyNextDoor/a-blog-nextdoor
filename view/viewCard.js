@@ -65,7 +65,7 @@ export const ViewCard = ({results, name, identity}) => {
                   
                 }
             <div class="row border rounded">
-              <div class="col-xl-8">
+              <div class="col-xl">
                 <div class="row justify-content-center">
                   <div class="col-l-6 my-5 mx-3">
                     <TuringRadar means={results} name={name}/>
@@ -88,7 +88,6 @@ export const ViewCard = ({results, name, identity}) => {
                 <div class="col-l-6 my-5">
                   <ul>
                     <li class="list-group-item">Number of Votes : {results.totalVotes}</li>
-                    <li class="list-group-item">Average vote per section : {parseFloat(results.totalVotes/6).toFixed(3)}</li>
                     <li class={"list-group-item " + backgroundColorPicker(results.totalAverage)}>Global Mean : <text className={"font-weight-bold"}>{results.totalAverage.toFixed(3)}</text></li>
                   </ul>
                 </div>
