@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getDiscussionsText, getDiscussionsName, getOrderDiscussion } from "../../../controller/data-utils"
+import { getDiscussionsText, getDiscussionsName, getOrderDiscussionGame } from "../../../controller/data-utils"
 import { ViewForm } from "../../../view/viewForm"
 import Router, { useRouter } from 'next/router'
 import { ModalMessage } from "../../../components/ModalMessage"
@@ -98,7 +98,7 @@ export async function getServerSideProps(context){
   
   let discuss = await getDiscussionsText(dis_id)
   let discussion_name = await getDiscussionsName(dis_id)
-  let order = await getOrderDiscussion(dis_id)
+  let order = await getOrderDiscussionGame(dis_id)
   
   
   if(discuss[0] !== "error"){

@@ -1,6 +1,6 @@
 import React, { useEffect }  from "react";
 import Router from "next/router"
-import  {discussionResultStatus, discussionName, discussionIdentity, getOrderDiscussion} from "../../../controller/data-utils.js";
+import  {discussionResultStatus, discussionName, discussionIdentity, getOrderDiscussionResult} from "../../../controller/data-utils.js";
 import {ViewCard} from "../../../view/viewCard.js"
 import {queryResults} from "../../../controller/data-viz.js"
 import Link from "next/link"
@@ -76,7 +76,7 @@ export async function getServerSideProps(context){
   let status = await discussionResultStatus(dis_id)
   let name = await discussionName(dis_id)
   let identity = await discussionIdentity(dis_id)
-  let order = await getOrderDiscussion(dis_id)
+  let order = await getOrderDiscussionResult(dis_id)
 
   
   return {
