@@ -45,7 +45,7 @@ const Home = ({ discussionNameList }) => {
       </  div>
         <hr/>
             <Link href="Game" className="nav-link button">
-              <div className="footer-Turing my-5 cursor mx-2 text-center navbar_background custom_button button-form-font text-dark navbar_shadow"> 
+              <div className="my-5 cursor mx-2 text-center navbar_background custom_button button-form-font text-dark navbar_shadow"> 
                   <h2 className="ml-2">See all available games 🔗</h2>
               </div>
             </Link>
