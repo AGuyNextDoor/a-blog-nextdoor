@@ -113,6 +113,85 @@ export async function getAllDiscussions(){
   let resultName = result.map(createResult)
 
   return resultName
+}
+
+function orderIdResult(discussionList, diss_id){
+
+  let beforeId = "error"
+  let currentId = "error"
+  let afterId = "error"
+
+  for(let i = 0; i < discussionList.length; i++){
+    if(discussionList[i].id === diss_id){
+      beforeId = (discussionList[i-1] && discussionList[i-1].result_status)? discussionList[i-1].id: "error"
+      currentId = discussionList[i].id
+      afterId = (discussionList[i+1] && discussionList[i+1].result_status)? discussionList[i+1].id: "error"
+    }
+  }
+  //finish this function 
+  return [beforeId, currentId, afterId]
+}
+
+function orderIdGame(discussionList, diss_id){
+
+  let beforeId = "error"
+  let currentId = "error"
+  let afterId = "error"
+
+  for(let i = 0; i < discussionList.length; i++){
+    if(discussionList[i].id === diss_id){
+      beforeId = (discussionList[i-1] && discussionList[i-1].vote_status)? discussionList[i-1].id: "error"
+      currentId = discussionList[i].id
+      afterId = (discussionList[i+1] && discussionList[i+1].vote_status)? discussionList[i+1].id: "error"
+    }
+  }
+  //finish this function 
+  return [beforeId, currentId, afterId]
+}
+
+export async function getOrderDiscussionGame(dis_id){
+  let client = await initDatabase()
+  let db = await client.db()
+
+
+
+  let result = await db.collection("discussions").aggregate([
+    {
+      '$sort': {
+        '_id': 1, 
+        'date': 1
+      }
+    }
+  ]).toArray()
+
+  let finalResult = orderIdGame(result, dis_id)
+
+  console.log({finalResult});
+
+  return finalResult
+
+}
+
+export async function getOrderDiscussionResult(dis_id){
+  let client = await initDatabase()
+  let db = await client.db()
+
+
+
+  let result = await db.collection("discussions").aggregate([
+    {
+      '$sort': {
+        '_id': 1, 
+        'date': 1
+      }
+    }
+  ]).toArray()
+
+  let finalResult = orderIdResult(result, dis_id)
+
+  console.log({finalResult});
+
+  return finalResult
 
 }
 

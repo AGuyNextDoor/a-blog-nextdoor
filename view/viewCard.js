@@ -37,18 +37,20 @@ const backgroundColorPicker = (val) => {
 
 export const ViewCard = ({results, name, identity}) => {
 
-  let iden = "Identity: Human"
+  let iden = "Human"
   if(identity){
-    iden = "Identity: AI"
+    iden = "AI"
   }
 
   return (
     <>
       {/* <div class="card"> */}
         <div class="card-body">
-          <h5 class="card-title h2_turing_game">{name} - {iden}</h5>
-          <hr/>
           <div class="container">
+            <div className="row justify-content-center">
+              <text class="card-title h2_turing_game">{name} - {iden}</text>
+            </div>
+          <hr/>
             <div class="row">
               <div class="col-8">
                 <div class="row">

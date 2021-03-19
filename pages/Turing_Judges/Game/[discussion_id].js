@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { getDiscussionsText, getDiscussionsName } from "../../../controller/data-utils"
+import { getDiscussionsText, getDiscussionsName, getOrderDiscussionGame } from "../../../controller/data-utils"
 import { ViewForm } from "../../../view/viewForm"
 import Router, { useRouter } from 'next/router'
 import { ModalMessage } from "../../../components/ModalMessage"
+import Link from "next/link"
 
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
@@ -14,32 +15,33 @@ function shuffleArray(array) {
     return array
 }
 
-const Form = ({finalDiscuss, name, error, discussion_id}) => {
+const navigationButton = (value, text) => {
+  if(value !== "error"){
+    return (
+      <Link  href={value}>
+      <button className="btn btn-secondary button-form-font col text-center border cursor"> 
+        {text === "before"? "⬅️" : "➡️"}
+      </button>
+    </Link>
+   )
+  } else {
+    return (
+      <Link  href="">
+        <button className="btn btn-outline-secondary col button-form-font text-center border uncursor" disabled> 
+          {text === "before"? "⬅️" : "➡️"}
+        </button>
+      </Link>
+    )
+  }
+}
+
+const Form = ({finalDiscuss, name, error, discussion_id, order}) => {
   const router = useRouter()
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    const start = () => {
-      setLoading(true);
-    };
-
-    const end = () => {
-      setLoading(false);
-    };
-
-    Router.events.on("routeChangeStart", start);
-    Router.events.on("routeChangeComplete", end);
-    Router.events.on("routeChangeError", end);
-    return () => {
-      Router.events.off("routeChangeStart", start);
-      Router.events.off("routeChangeComplete", end);
-      Router.events.off("routeChangeError", end);
-    };
-
-  }, [])
 
   let type = null
   let message = null
+
+  console.log({order});
 
   if(router.query.m){
     type = "info"
@@ -61,12 +63,16 @@ const Form = ({finalDiscuss, name, error, discussion_id}) => {
 
   return(
     <>
-      {loading ? (
         <div className="margin_sidebar">
-          <h1>Loading...</h1>
-        </div>
-      ) : (
-        <div className="margin_sidebar">
+          <div className="container">
+            <div className="row my-3">
+              {navigationButton(order[0], "before")}
+                <div className="btn col-8 test-align text-center button-form-font uncursor border" disabled> 
+                  {name}
+                </div>
+              {navigationButton(order[2], "after")}
+            </div>
+          </div>
         {
           message?
           <ModalMessage mess={message} type={type}/>:
@@ -81,7 +87,6 @@ const Form = ({finalDiscuss, name, error, discussion_id}) => {
         }
         </div>
       </div>
-      )}
     </>
     
   )
@@ -93,6 +98,8 @@ export async function getServerSideProps(context){
   
   let discuss = await getDiscussionsText(dis_id)
   let discussion_name = await getDiscussionsName(dis_id)
+  let order = await getOrderDiscussionGame(dis_id)
+  
   
   if(discuss[0] !== "error"){
     
@@ -109,7 +116,8 @@ export async function getServerSideProps(context){
         finalDiscuss: finalDiscuss,
         name: discussion_name,
         discussion_id: dis_id,
-        error: false
+        error: false,
+        order: order
       }
     }
   } else {

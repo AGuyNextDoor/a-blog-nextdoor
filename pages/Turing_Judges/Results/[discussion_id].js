@@ -1,8 +1,9 @@
 import React, { useEffect }  from "react";
 import Router from "next/router"
-import { discussionResultStatus, discussionName, discussionIdentity } from "../../../controller/data-utils.js";
+import  {discussionResultStatus, discussionName, discussionIdentity, getOrderDiscussionResult} from "../../../controller/data-utils.js";
 import {ViewCard} from "../../../view/viewCard.js"
 import {queryResults} from "../../../controller/data-viz.js"
+import Link from "next/link"
 
 // console.log(process.env.ENV)
 
@@ -17,7 +18,27 @@ import {queryResults} from "../../../controller/data-viz.js"
 //     client.close();
 //   });
 
-const Home = ({ results, status, name, identity }) => {
+const navigationButton = (value, text) => {
+  if(value !== "error"){
+    return (
+      <Link  href={value}>
+      <button className="btn btn-secondary button-form-font col text-center border cursor"> 
+        {text === "before"? "⬅️" : "➡️"}
+      </button>
+    </Link>
+   )
+  } else {
+    return (
+      <Link  href="">
+        <button className="btn btn-outline-secondary col button-form-font text-center border uncursor" disabled> 
+          {text === "before"? "⬅️" : "➡️"}
+        </button>
+      </Link>
+    )
+  }
+}
+
+const Home = ({ results, status, name, identity, order }) => {
 
   useEffect(() => {
     if(!status){
@@ -29,9 +50,20 @@ const Home = ({ results, status, name, identity }) => {
   // console.log(means);
   
   return (
+    <>
     <div className="margin_sidebar">
+       <div className="container">
+            <div className="row my-3">
+              {navigationButton(order[0], "before")}
+              <div className="btn col-8 test-align text-center button-form-font uncursor border" disabled> 
+                {name}
+              </div>
+              {navigationButton(order[2], "after")}
+            </div>
+          </div>
       <ViewCard identity={identity} results={results} name={name}/>
     </div>
+    </>
   );
 }
 
@@ -44,6 +76,7 @@ export async function getServerSideProps(context){
   let status = await discussionResultStatus(dis_id)
   let name = await discussionName(dis_id)
   let identity = await discussionIdentity(dis_id)
+  let order = await getOrderDiscussionResult(dis_id)
 
   
   return {
@@ -51,7 +84,8 @@ export async function getServerSideProps(context){
       results: allResult,
       status: status,
       name,
-      identity
+      identity,
+      order
     }
   }
 }
