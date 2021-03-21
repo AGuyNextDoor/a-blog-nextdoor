@@ -22,7 +22,7 @@ const Home = ({ discussionNameList }) => {
                     <Link className="nav-link button" key={discussion.id} href={"Game/"+discussion.id}>
                       <a className="mx-2 d-flex justify-content-between list-group-item list-group-item-action lead">
                         {discussion.name} (Go to Form)
-                        <button className="btn btn-outline-danger button-form-font custom_button">Votes are not finished <span className="badge badge-light">{discussion.total} votes</span></button>
+                        <button className="btn btn-outline-danger button-form-font custom_button acc_text">Votes are not finished <span className="badge badge-light">{discussion.total} votes</span></button>
                       </a>
                     </Link>
                   </div>
@@ -32,7 +32,7 @@ const Home = ({ discussionNameList }) => {
                     <Link className="nav-link button" key={discussion.id} href={"Results/"+discussion.id}>
                       <a className="mx-2 d-flex justify-content-between hover list-group-item list-group-item-action lead">
                         {discussion.name}
-                        <button className=" btn redirect_background custom_button button-form-font text-dark">Results are open <span className="badge badge-light">{discussion.total} votes</span></button>
+                        <button className=" btn acc_button custom_button button-form-font text-white acc_text">Results are open <span className="badge badge-light">{discussion.total} votes</span></button>
                       </a>
                     </Link>
                   </div>

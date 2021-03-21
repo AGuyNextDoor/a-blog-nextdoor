@@ -3,6 +3,7 @@ import { getDiscussionsText, getDiscussionsName, getOrderDiscussionGame } from "
 import { ViewForm } from "../../../view/viewForm"
 import Router, { useRouter } from 'next/router'
 import { ModalMessage } from "../../../components/ModalMessage"
+import { navigationButton } from "../../../components/navigationButton"
 import Link from "next/link"
 
 function shuffleArray(array) {
@@ -13,26 +14,6 @@ function shuffleArray(array) {
         array[j] = temp;
     }
     return array
-}
-
-const navigationButton = (value, text) => {
-  if(value !== "error"){
-    return (
-      <Link  href={value}>
-      <button className="btn btn-secondary button-form-font col text-center border cursor"> 
-        {text === "before"? "⬅️" : "➡️"}
-      </button>
-    </Link>
-   )
-  } else {
-    return (
-      <Link  href="">
-        <button className="btn btn-outline-secondary col button-form-font text-center border uncursor" disabled> 
-          {text === "before"? "⬅️" : "➡️"}
-        </button>
-      </Link>
-    )
-  }
 }
 
 const Form = ({finalDiscuss, name, error, discussion_id, order}) => {

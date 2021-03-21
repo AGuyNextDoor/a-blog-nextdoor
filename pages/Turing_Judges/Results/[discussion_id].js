@@ -3,6 +3,7 @@ import Router from "next/router"
 import  {discussionResultStatus, discussionName, discussionIdentity, getOrderDiscussionResult} from "../../../controller/data-utils.js";
 import {ViewCard} from "../../../view/viewCard.js"
 import {queryResults} from "../../../controller/data-viz.js"
+import { navigationButton } from "../../../components/navigationButton"
 import Link from "next/link"
 
 // console.log(process.env.ENV)
@@ -17,26 +18,6 @@ import Link from "next/link"
 //     console.log(doc);
 //     client.close();
 //   });
-
-const navigationButton = (value, text) => {
-  if(value !== "error"){
-    return (
-      <Link  href={value}>
-      <button className="btn btn-secondary button-form-font col text-center border cursor"> 
-        {text === "before"? "⬅️" : "➡️"}
-      </button>
-    </Link>
-   )
-  } else {
-    return (
-      <Link  href="">
-        <button className="btn btn-outline-secondary col button-form-font text-center border uncursor" disabled> 
-          {text === "before"? "⬅️" : "➡️"}
-        </button>
-      </Link>
-    )
-  }
-}
 
 const Home = ({ results, status, name, identity, order }) => {
 

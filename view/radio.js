@@ -3,8 +3,8 @@ import slugify from "slugify"
 const Section = ({section}) => {
   return (
     <div className="card p-2 shadow border-secondary">
-      <div className="card-header sidebar_background">
-        <h4 class="card-title text-dark">Up until now, what's your hypothesis? 🕵️</h4>
+      <div className="card-header acc_button">
+        <h4 class="card-title text-white">Until now, what do you think? 🕵️</h4>
       </div>
       <div className="card-body">
 

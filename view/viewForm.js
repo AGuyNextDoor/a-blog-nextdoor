@@ -40,7 +40,7 @@ export const ViewForm = ({discussion_id, finalDiscuss, name}) => {
         </div>
         <div class="container">
           
-          <button class="btn btn-outline-danger visible-xs" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          <button class="btn acc_button acc_text text-white visible-xs" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
             📜 Rules
           </button>
           
@@ -119,10 +119,8 @@ export const ViewForm = ({discussion_id, finalDiscuss, name}) => {
                 <input class="form-check-input cursor" type="radio" name="4" required/>
                 <input class="form-check-input cursor" type="radio" name="5" required/>
                 <input class="form-check-input cursor" type="radio" name="6" required/> */}
-                <button onClick={() => setShowFlag(changeAll())} type="submit" class="btn rounded-pill button-form-font border-5 btn-warning btn-lg navbar_shadow sidebar_background">
-                  <text className="">
+                <button onClick={() => setShowFlag(changeAll())} type="submit" class="btn rounded-pill button-form-font border-5 btn-lg acc_text text-white acc_button">
                     Submit your investigation 🔍
-                  </text>
                 </button>
                 <p></p>
                 <p className="font-italic">Be sure to have answered all 6 forms!</p>
