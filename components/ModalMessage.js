@@ -64,8 +64,8 @@ const MessageModal = ({mess, color}) => {
             </button>
           </div>
           <div class="modal-body">
-            <p>Thank you for voting. Stay tuned on the <a href="">Twitter page</a> or the <a href="">Reddit page</a> for futur tests!</p>
-            <p>Visit the <Link href="/Turing_Judges">Turing Test</Link> page to see results from previous tests.</p>
+            <p>Thank you for voting. Stay tuned on the <a href="https://twitter.com/JudgesTuring">Twitter page</a> or the <a href="https://www.reddit.com/user/TuringJudges">Reddit page</a> for the results or futur tests!</p>
+            <p>Visit the <a href="/Turing_Judges/Results">RESULTS</a> page to see results from previous tests.</p>
           </div>
           <div class="modal-footer  bg-success">
             <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>

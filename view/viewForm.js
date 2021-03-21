@@ -76,10 +76,10 @@ export const ViewForm = ({discussion_id, finalDiscuss, name}) => {
                       <ChatLayout discussion_id={discussion_id} sectionDis={sectionDis}/>
                       <div className="bg-light p-2 d-flex justify-content-center ">
 
-                        <button onClick={() => setShowFlag(changeBinary(parseInt(sectionDis.section)))} className="shadow border-dark border sidebar_background button-form btn border-3 hidden visible-xs" type="button" data-toggle="collapse" data-target={"#collapse-"+sectionDis.section} aria-expanded="false" aria-controls={"collapse-"+sectionDis.section}>
+                        <button onClick={() => setShowFlag(changeBinary(parseInt(sectionDis.section)))} className="shadow border-dark border acc_button button-form btn border-3 hidden visible-xs" type="button" data-toggle="collapse" data-target={"#collapse-"+sectionDis.section} aria-expanded="false" aria-controls={"collapse-"+sectionDis.section}>
                             {showFlag[parseInt(sectionDis.section)]?
-                              <text className="button-form-font text-dak">⬆️ Close vote ⬆️</text>:
-                              <text className="second_color button-form-font text-dark">↘️ Up until now, what's your hypothesis? 🕵️ ↙️</text>
+                              <text className="button-form-font text-white acc_text">Close vote ✅</text>:
+                              <text className="second_color button-form-font text-white acc_text">  👉 Until now, what do you think?</text>
                             
                             }
                         </button>

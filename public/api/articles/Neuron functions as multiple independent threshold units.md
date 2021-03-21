@@ -4,8 +4,6 @@
 
 ## Intro 
 
-*Sum up what they are studying, compare the 3 models they are talking about and what they are testing*
-
 In this paper, the experimenters present three experiments that come questioning assumptions about "**neuronal functionalities** beyond the traditional framework, and the advanced computational capabilities and dynamical properties of such complex systems".
 
 Neurons have long been assumed to compute by summing incoming electrical signals via their dendrites. If this summation reaches a certain threshold, the neuron can fire its spike onto the axon and transmit the signal along.

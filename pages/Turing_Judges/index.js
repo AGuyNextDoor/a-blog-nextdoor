@@ -25,12 +25,12 @@ const Home = () => {
 
         <div className="container">
           <div className="row"> 
-            <Link href="Turing_Judges/Result" className="nav-link button">
+            <Link href="Turing_Judges/Game" className="nav-link button">
               <div className="cursor col mx-2 text-center navbar_background custom_button button-form-font text-dark navbar_shadow"> 
                 PLAY THE GAME
               </div>
             </Link>
-            <Link href="Turing_Judges/Result" className="nav-link button">
+            <Link href="Turing_Judges/Results" className="nav-link button">
               <div className="cursor col mx-2 text-center navbar_background custom_button button-form-font text-dark navbar_shadow"> 
                 SEE RESULTS
               </div>
