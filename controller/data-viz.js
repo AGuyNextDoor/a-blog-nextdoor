@@ -103,6 +103,10 @@ export async function queryResults(discussion_id){
     ]
   ).toArray()
 
+  result = result.filter(val => val._id === discussion_id)
+
+  console.log({result});
+
   return result[0]
 
 

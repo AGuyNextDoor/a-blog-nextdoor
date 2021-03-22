@@ -51,13 +51,13 @@ export const ViewCard = ({results, name, identity}) => {
                 {
                   identity? 
                   <div className="row justify-content-center align-items-center">
-                    <text class="card-title h2_turing_game">{name} : </text><text className="card-title h2_turing_game_ai"> {iden}</text>
+                    <text class="card-title h2_turing_game">{`Discussion: ${name} 🔎  `}</text><text className="card-title h2_turing_game_ai"> {iden}</text>
                     <div class="col-4 justifiy-content-center">
                       <Image src="/AILogo.png" width="500" height="500"></Image>
                     </div>
                   </div>:
                   <div className="row justify-content-center align-items-center">
-                    <text class="card-title h2_turing_game">{name} : </text><text className="card-title h2_turing_game_human"> {iden}</text>
+                    <text class="card-title h2_turing_game">{`Discussion: ${name} 🔎  `}</text><text className="card-title h2_turing_game_human"> {iden}</text>
                     <div class="col-4 justifiy-content-center">
                       <Image src="/humanLogo.jpg" width="500" height="500"></Image>
                     </div>

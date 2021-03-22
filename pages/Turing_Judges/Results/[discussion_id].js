@@ -53,7 +53,6 @@ export async function getServerSideProps(context){
   const dis_id = context.params.discussion_id
 
   let allResult = await queryResults(dis_id)
-
   let status = await discussionResultStatus(dis_id)
   let name = await discussionName(dis_id)
   let identity = await discussionIdentity(dis_id)

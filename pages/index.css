@@ -697,10 +697,12 @@ body {
 
 .acc_button{
   background:rgb(59, 148, 189);
+  color: white;
 }
 
 .acc_text{
   font-size: large;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .navbar-toggler-icon {

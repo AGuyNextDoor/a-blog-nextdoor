@@ -24,7 +24,7 @@ const Form = ({discussionNameList}) => {
             <Link className="nav-link button" key={discussion.id} href={"Game/"+discussion.id}>
               <a className="d-flex justify-content-between list-group-item list-group-item-action lead">
                 {discussion.name} <text className="font-weight-light text-left">({discussion.date})</text>
-                <button className="btn redirect_background custom_button button-form-font text-dark" disabled>Voting is OPEN</button>
+                <button className="btn custom_button button-form-font text-white acc_button acc_text">Voting is OPEN</button>
               </a>
             </Link>
             </div>
@@ -34,7 +34,7 @@ const Form = ({discussionNameList}) => {
                 <Link className="nav-link button" key={discussion.id} href={"Results/"+discussion.id}>
                   <a className="d-flex justify-content-between list-group-item list-group-item-action lead">
                     {discussion.name} (Click to see results)
-                    <button className="btn btn-outline-danger button-form-font custom_button" disabled>Votes are closed</button>
+                    <button className="btn btn-outline-danger button-form-font custom_button acc_text" disabled>Votes are closed</button>
                   </a>
                 </Link>
               </div>
