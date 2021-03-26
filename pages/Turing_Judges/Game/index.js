@@ -7,7 +7,7 @@ const Form = ({discussionNameList}) => {
  
   return (
     <div className="margin_sidebar">
-      <h2 className="ml-2 h1_turing_game">Which discussions do you want to investigate on?</h2>
+      <h2 className="ml-2 mb-5 h1_turing_game col-12 large_size">Choose an investigation</h2>
 
 
       <div class="ml-2 list-group">
@@ -22,9 +22,9 @@ const Form = ({discussionNameList}) => {
           <div className="row">
           <div className="col-11">
             <Link className="nav-link button" key={discussion.id} href={"Game/"+discussion.id}>
-              <a className="d-flex justify-content-between list-group-item list-group-item-action lead">
-                {discussion.name} <text className="font-weight-light text-left">({discussion.date})</text>
-                <button className="btn custom_button button-form-font text-white acc_button acc_text">Voting is OPEN</button>
+              <a className="text-uppercase d-flex justify-content-between list-group-item list-group-item-action lead">
+                {discussion.name}
+                <button className="align-items-center cursor mx-2 text-center custom_button button-form-font acc_button acc_text">Voting is OPEN</button>
               </a>
             </Link>
             </div>
@@ -32,9 +32,9 @@ const Form = ({discussionNameList}) => {
             <div className="row">
               <div className="col-11">
                 <Link className="nav-link button" key={discussion.id} href={"Results/"+discussion.id}>
-                  <a className="d-flex justify-content-between list-group-item list-group-item-action lead">
+                  <a className="text-uppercase d-flex justify-content-between list-group-item list-group-item-action lead">
                     {discussion.name} (Click to see results)
-                    <button className="btn btn-outline-danger button-form-font custom_button acc_text" disabled>Votes are closed</button>
+                    <button className="align-items-center cursor  mx-2 text-center custom_button button-form-font acc_button acc_text" disabled>Votes are closed</button>
                   </a>
                 </Link>
               </div>
@@ -46,8 +46,8 @@ const Form = ({discussionNameList}) => {
       </div>
         <hr/>
         <Link href="Results" className="nav-link button">
-          <div className="my-5 cursor mx-2 text-center navbar_background custom_button button-form-font text-dark navbar_shadow"> 
-              <h2 className="ml-2 ">See results of investigation 🔗</h2>
+          <div className="btn border acc_button custom_button button-form-font acc_text"> 
+              <text className="ml-2 acc_text">See results 🔗</text>
           </div>
         </Link>
       </div>

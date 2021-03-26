@@ -38,7 +38,7 @@ const Reflection = () => {
   getReflection();
 
   return (
-    <div className="mt-5 margin_sidebar">
+    <div className="mt-5 margin_sidebar text-wrap">
  
       {reflectionState ? <div>{ReactHtmlParser(reflectionState)}</div> : <div></div>}
     </div>

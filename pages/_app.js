@@ -34,7 +34,7 @@ export default function MyApp({ Component, pageProps }) {
         <div className="container-fluid content-area mt-sm" data-toggle="collapse" data-target=".navbar-collapse.show">
           <div id="" className="row pt-3 small_center">
             <Sidebar></Sidebar>
-            <main role="main" id=""  className="inner-body pt-5 px-md-3 ">
+            <main role="main max-body" id=""  className="inner-body pt-5 px-md-3 ">
               <Component {...pageProps}></Component>
             </main>
           </div>

@@ -26,6 +26,10 @@ const listGenerator = (topicName, path, topic = "", location) => {
   topicTrimmed = topicTrimmed.replace(/-/g, " ");
 
   const linkUrl = "/" + topic + "/" + topicName;
+
+  console.log(location);
+  console.log(topicName);
+  console.log({topicTrimmed});
   if (linkUrl.includes(".") && typeof linkUrl === "string" && typeof topicName === "string") {
     
 
@@ -33,6 +37,7 @@ const listGenerator = (topicName, path, topic = "", location) => {
     pathTrimmed = pathTrimmed.split(".").slice(0, -1).join(".");
     pathTrimmed = pathTrimmed.replace(/_/g, " ");
     pathTrimmed = pathTrimmed.replace(/-/g, " ");
+
 
     if (query === topicName) {
       return (
@@ -56,6 +61,14 @@ const listGenerator = (topicName, path, topic = "", location) => {
       topicTrimmed = topicName;
     }
     if (query === topicName) {
+      return (
+        <li className="nav-item flex-fill p-2 sidebar-item active text-dark font-weight-bold bg-white shadow-sm">
+          <Link className="nav-link" key={topic + topicName} href={linkUrl}>
+            <text className="mx-2 cursor">{topicTrimmed}</text>
+          </Link>
+        </li>
+      );
+    } else if (location.pathname.includes(topicName)) {
       return (
         <li className="nav-item flex-fill p-2 sidebar-item active text-dark font-weight-bold bg-white shadow-sm">
           <Link className="nav-link" key={topic + topicName} href={linkUrl}>
@@ -133,7 +146,7 @@ const Sidebar = ({ match }) => {
     <div className="navbar_expand">
       {sidebarState.length !== 0 ? (
         <div className="col-lg sidebar_background flex-wrap second_navbar">
-          <nav className="flex-md-nowrap navbar-expand">
+          <nav className=" ml-2 flex-md-nowrap navbar-expand">
             <ul className="navbar-nav sidebar-nav">
               {sidebarState ? (
                 sidebarContext(location.pathname)

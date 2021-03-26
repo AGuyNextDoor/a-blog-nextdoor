@@ -16,4 +16,4 @@
 ## Quantum NN 
 
 - [ ] [The power of quantum neural networks paper](https://arxiv.org/abs/2011.00027)
-    - [ ] Youtube video explaining - https://www.youtube.com/watch?v=aU8XBjG5tAw&feature=youtu.be&ab_channel=MarkJackson
+    - [ ] [Youtube video explaining](https://www.youtube.com/watch?v=aU8XBjG5tAw&feature=youtu.be&ab_channel=MarkJackson)

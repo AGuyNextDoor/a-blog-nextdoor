@@ -143,6 +143,7 @@ body,html{
   right: 0;
   left: 0;
   z-index: 1030;
+  min-width: 800px
 }
 
 
@@ -199,7 +200,7 @@ body,html{
       height: 130px;
       justify-content: between;
       align-items: center;
-      width: 100%;
+      width: 110vw !important;
       overflow-y: scroll !important;
     }
 
@@ -470,7 +471,7 @@ body,html{
 
   .margin_sidebar {
     margin-left: 4%!important;
-    margin-right: 4%!important;
+    /* margin-right: 4%!important; */
   }
 
   .small_center {
@@ -485,7 +486,7 @@ body,html{
       height: 130px;
       justify-content: between;
       align-items: center;
-      width: 100vw !important;
+      width: 110vw !important;
       overflow-y: scroll !important;
     }
 
@@ -889,10 +890,9 @@ section div {
 }
 
 .h1_turing_game{
-  color:white;
   text-align: center;
-  font-size: 4em;
-  margin-top: 10%;
+  font-size: 3em;
+  /* margin-top: 10%; */
   font-family: tahoma;
   color: #f1a390;
   text-shadow: 0 1px 0 rgb(0, 0, 0),
@@ -974,5 +974,13 @@ section div {
 
 .custom_button:hover {
   background-color: white;
-  color: red;
+  color: rgb(59, 148, 189);
+}
+
+.max-body{
+  max-width: 1em !important;
+}
+
+.large_size{
+  min-width: 80%;
 }

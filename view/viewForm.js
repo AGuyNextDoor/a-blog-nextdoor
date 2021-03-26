@@ -17,7 +17,7 @@ export const ViewForm = ({discussion_id, finalDiscuss, name}) => {
   }
 
 
-  const [showFlag, setShowFlag] = useState([false, false, false, false, false, true])
+  const [showFlag, setShowFlag] = useState([false, false, false, false, false, false])
 
 
   useEffect(() => {
@@ -32,7 +32,6 @@ export const ViewForm = ({discussion_id, finalDiscuss, name}) => {
         <div className="col-8">
 
 
-          <h1 className="h1_turing_game">THE TURING GAME</h1>
           <h3 className="font-weight-bold text-center">Can you guess if the mystery candidate is Human or an AI?</h3>
           </div>
          <div className="col-4 align-self-end">
@@ -40,11 +39,11 @@ export const ViewForm = ({discussion_id, finalDiscuss, name}) => {
         </div>
         <div class="container">
           
-          <button class="btn acc_button acc_text text-white visible-xs" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          <button class="btn acc_button acc_text text-white visible-xs" type="button" data-toggle="collapse" data-target="#collapseRule" aria-expanded="false" aria-controls="collapseRule">
             📜 Rules
           </button>
           
-          <div class="collapse dont-collapse-sm" id="collapseExample">
+          <div class="collapse dont-collase-sm" id="collapseRule">
             <p>
               <ul>
                 <li>The candidate has 50% chance of being a <text className="font-italic">HUMAN</text> or an <text className="font-italic">AI</text>.</li>
@@ -60,7 +59,7 @@ export const ViewForm = ({discussion_id, finalDiscuss, name}) => {
         </div>
     </div>
        
-    <h2 className="ml-2">{name}</h2>
+    <h2 className="ml-2 ">{name}</h2>
           <form className="needs-validation" method="POST" action="/api/submitForm" novalidate>
             {/* <label class="form-check-label" for="discussion_id">{discussion_id}</label> */}
             {/* <div class="container"> */}
@@ -79,8 +78,7 @@ export const ViewForm = ({discussion_id, finalDiscuss, name}) => {
                         <button onClick={() => setShowFlag(changeBinary(parseInt(sectionDis.section)))} className="shadow border-dark border acc_button button-form btn border-3 hidden visible-xs" type="button" data-toggle="collapse" data-target={"#collapse-"+sectionDis.section} aria-expanded="false" aria-controls={"collapse-"+sectionDis.section}>
                             {showFlag[parseInt(sectionDis.section)]?
                               <text className="button-form-font text-white acc_text">Close vote ✅</text>:
-                              <text className="second_color button-form-font text-white acc_text">  👉 Until now, what do you think?</text>
-                            
+                              <text className="shadow-lg second_color button-form-font text-white acc_text">  👉 Until now, what do you think?</text>
                             }
                         </button>
                       </div>
