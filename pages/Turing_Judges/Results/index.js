@@ -6,7 +6,7 @@ const Home = ({ discussionNameList }) => {
 
   return (
     <div className="margin_sidebar">
-      <h2 className="ml-3 h1_turing_game text-wrap">Results of games</h2>
+      <h2 className="ml-3 mb-5 h1_turing_game large_size">Results of investigations</h2>
 
 
       <div class="ml-2 list-group ">
@@ -22,7 +22,7 @@ const Home = ({ discussionNameList }) => {
                     <Link className="nav-link button" key={discussion.id} href={"Game/"+discussion.id}>
                       <a className="mx-2 d-flex justify-content-between list-group-item list-group-item-action lead">
                         {discussion.name} (Go to Form)
-                        <button className="btn btn-outline-danger button-form-font custom_button acc_text ">Votes are not finished <span className="badge badge-light">{discussion.total} votes</span></button>
+                        <button className="btn btn-outline-danger button-form-font custom_button acc_text ">Close <span className="badge badge-light">{discussion.total} votes</span></button>
                       </a>
                     </Link>
                   </div>

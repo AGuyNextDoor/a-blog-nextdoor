@@ -7,7 +7,7 @@ const Form = ({discussionNameList}) => {
  
   return (
     <div className="margin_sidebar">
-      <h2 className="ml-2 mb-5 h1_turing_game col-12 large_size">Choose an investigation</h2>
+      <h2 className="ml-3 mb-5 h1_turing_game col-12 large_size">Choose an investigation</h2>
 
 
       <div class="ml-2 list-group">
@@ -24,7 +24,7 @@ const Form = ({discussionNameList}) => {
             <Link className="nav-link button" key={discussion.id} href={"Game/"+discussion.id}>
               <a className="text-uppercase d-flex justify-content-between list-group-item list-group-item-action lead">
                 {discussion.name}
-                <button className="align-items-center cursor mx-2 text-center custom_button button-form-font acc_button acc_text">Voting is OPEN</button>
+                <button className="btn acc_button custom_button button-form-font acc_text">Open</button>
               </a>
             </Link>
             </div>
@@ -33,8 +33,8 @@ const Form = ({discussionNameList}) => {
               <div className="col-11">
                 <Link className="nav-link button" key={discussion.id} href={"Results/"+discussion.id}>
                   <a className="text-uppercase d-flex justify-content-between list-group-item list-group-item-action lead">
-                    {discussion.name} (Click to see results)
-                    <button className="align-items-center cursor  mx-2 text-center custom_button button-form-font acc_button acc_text" disabled>Votes are closed</button>
+                    {discussion.name} (Results)
+                    <button className="align-items-center cursor  mx-2 text-center custom_button button-form-font acc_button acc_text" disabled>Closed</button>
                   </a>
                 </Link>
               </div>

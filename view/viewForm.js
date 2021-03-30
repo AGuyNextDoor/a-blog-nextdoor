@@ -108,7 +108,20 @@ export const ViewForm = ({discussion_id, finalDiscuss, name}) => {
               })
             }
             {/* </div> */}
-            <input class="form-check-input" name="discussion_id" type="radio" value={discussion_id} checked required/>
+            {/* <input class="mb-5" name="discussion_id" type="radio" value={discussion_id} required/> */}
+            <hr/>
+            <li class="list-group-item">
+
+            <input class="cursor" type="radio" name="discussion_id" id="cant_tell" value={discussion_id} required/>
+            <label class="ml-5 form-check-label" for="cantTell">
+              I hereby certify that this results are mine, that this submissions is UNIQUE for this discussion and that I have not gotten any previous knowledge of the answer of this discussion.
+            </label>
+            </li>
+
+            {/* <input class="form-check-input cursor" type="radio" name="Certification" id="cant_tell" value="0" required/>
+          <label class="form-check-label" for="cantTell">
+            I hereby certify that this results are mine, that this submissions is unique and I have not gotten any previous knowledge of the answer of this game.
+          </label> */}
             <div className="row justify-content-md-center">
               <div className="col-md-auto m-4">
                 {/* <input class="form-check-input cursor" type="radio" name="1" required/>
