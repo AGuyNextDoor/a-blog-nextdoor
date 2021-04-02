@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Component } from "react";
 import { useRouter } from "next/router";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+// import { BrowserRouter as Router, Link } from "react-router-dom";
 import Image from "next/image"
 
 
