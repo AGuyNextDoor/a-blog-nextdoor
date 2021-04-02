@@ -52,7 +52,7 @@ const HomePage = () => {
           <div className="skull">
             <Image src="/half.png" height="700" width="277"></Image>
           </div>
-          <div>
+          <div className="mt-4">
             <h1>
               Welcome to <text className="font-weight-bold">a-blog-nextdoor</text>
             </h1>

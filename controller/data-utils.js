@@ -14,6 +14,7 @@ const options = { useNewUrlParser: true, useUnifiedTopology: true };
 
 export function initDatabase(){
   return new Promise((resolve, reject) => {
+  console.warn(databaseUrl)
     mongo.MongoClient.connect(databaseUrl, options, (error, client) => {
       if (error) {
         console.log("ERROR OUPS");
@@ -23,6 +24,24 @@ export function initDatabase(){
       }
     });
   });
+}
+
+export async function addUser(name, email, image){
+  const client = await initDatabase();
+  const usersCollection = await client.db().collection("users");
+
+  try {
+    let user = await usersCollection.findOne({ email });
+
+    if (user) {
+      console.log("user already exist");
+    } else {
+      await usersCollection.insertOne({ name, email, image });
+    }
+  } catch (err) {
+    console.log("Server error");
+    console.log(err);
+  }
 }
 
 export async function discussionVoteStatus(discussion_id){
