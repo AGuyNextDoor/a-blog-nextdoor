@@ -1,5 +1,4 @@
 import { useSession } from 'next-auth/client';
-import Layout from '../components/layout';
 
 const Profile = () => {
   const [session, loading] = useSession();
@@ -8,7 +7,7 @@ const Profile = () => {
   if (!session) return <div>no session</div>;
 
   return (
-    <Layout>
+    <>
       {session && (
         <>
           <img src={session.user.image} className="avatar" />
@@ -22,7 +21,7 @@ const Profile = () => {
           border-radius: 10px;
         }
       `}</style>
-    </Layout>
+    </>
   );
 };
 
