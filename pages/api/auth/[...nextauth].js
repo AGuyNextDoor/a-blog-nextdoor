@@ -5,7 +5,6 @@ import Providers from 'next-auth/providers';
 import {addUser} from "../../../controller/data-utils"
 let databaseURL = process.env.MONGODB_URI_LOCAL_LOGIN
 if (process.env.NODE_ENV === "production") {
-  app.set("trust proxy", 1);
   databaseURL = process.env.MONGODB_URI_DEV
 }
 
