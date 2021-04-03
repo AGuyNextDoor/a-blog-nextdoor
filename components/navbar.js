@@ -1,9 +1,10 @@
 import { match } from "assert";
 import React from "react";
 import { useRouter } from "next/router"
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Link from "next/link";
 import allTopics from "../allTopics.js";
+import Header from "./header.js"
 
 const Navbar = ({children}) => {
   const location = useRouter();
@@ -48,6 +49,7 @@ const Navbar = ({children}) => {
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">{allTopics.map((topicName) => linkGenerator(topicName, location))}</ul>
         </div>
+        <Header></Header>
       </nav>
     </div>
   );

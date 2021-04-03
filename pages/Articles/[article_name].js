@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+// import { BrowserRouter as Router, Route } from "react-router-dom";
 import Link from "next/link";
 import ReactHtmlParser from "react-html-parser";
 import { useRouter } from "next/router";
