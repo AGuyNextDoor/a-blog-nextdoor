@@ -192,6 +192,31 @@ body,html{
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
   }
 
+  .dropdown-menu {
+          position: absolute;
+          top: 100%;
+          left: 40%;
+          z-index: 1000;
+          display: none;
+          float: left;
+          min-width: 10rem;
+          padding: .5rem 0;
+          margin: .125rem 0 0;
+          font-size: 1rem;
+          color: #212529;
+          text-align: left;
+          list-style: none;
+          background-color: #fff;
+          background-clip: padding-box;
+          border: 1px solid rgba(0,0,0,.15);
+          -moz-border-radius: .25rem;
+          border-radius: .25rem;
+        }
+
+  .flex-row-reverse-large{
+    flex-direction: row-reverse!important;
+  }
+
   .custom-sidebar{
       border-right:1px solid rgba(0,0,0,.1)
     }
@@ -532,6 +557,10 @@ body,html{
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {
     font-size: 3.5rem;
+  }
+
+  .flex-row-reverse-small{
+    flex-direction: row-reverse!important
   }
 
   
@@ -895,9 +924,9 @@ section div {
   /* margin-top: 10%; */
   font-family: tahoma;
   color: #f1a390;
-  text-shadow: 0 1px 0 rgb(0, 0, 0),
+  text-shadow: -1px 3px 0 rgb(59, 148, 189),
                0 2px 0 #c9c9c9,
-               0 3px 0 rgb(131, 131, 131),
+               -1px 0px 0 #fbc687,
                0 4px 0 #8f8f8f,
                0 6px 1px rgba(0,0,0,.1),
                0 0 5px rgba(0,0,0,.1),
@@ -984,3 +1013,4 @@ section div {
 .large_size{
   min-width: 80%;
 }
+
