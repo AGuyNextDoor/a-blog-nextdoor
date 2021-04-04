@@ -6,9 +6,8 @@ const Header = () => {
 
   return (
     <header>
-      <nav>
 
-        <p>
+        <>
           {!session && (
             <a
               href="/api/auth/signin"
@@ -17,37 +16,47 @@ const Header = () => {
                 signin();
               }}
             >
-              <button className="signInButton">Sign in</button>
+              <div className="acc_button acc_text cursor custom_button button-form-font navbar_shadow mx-2 p-2">Sign in</div>
             </a>
           )}
           {session && (
-            <>
-              <Link href="/profile">
-                <a>
-                  <span
-                    style={{ backgroundImage: `url(${session.user.image})` }}
-                    className="avatar"
-                  />
+            <><div className="dropdown">
+                <a 
+                    className="" 
+                    type="button" 
+                    id="dropdownMenuButton" 
+                    data-toggle="dropdown" 
+                    aria-haspopup="true"
+                    aria-expanded="false">
+                    <img
+                      style={{ backgroundImage: `url(${session.user.image})` }}
+                      className="avatar"
+                      />
                 </a>
-              </Link>
-              <span className="email">{session.user.email}</span>
-              <a
-                href="/api/auth/signout"
-                onClick={(e) => {
-                  e.preventDefault();
-                  signout();
-                }}
-              >
-                <button className="signOutButton">Sign out</button>
-              </a>
+                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <div className="dropdown-item">
+                    <Link href="/Profile">👉 Profile</Link>
+                  </div>
+                  <div className="dropdown-item">
+                      <Link
+                        href="/api/auth/signout"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          signout();
+                        }}
+                        >
+                        🚪 Sign out
+                      </Link>
+                        </div>
+                </div>
+            </div>
             </>
           )}
-        </p>
-      </nav>
+        </>
 
       <style jsx>{`
         header {
-          border-bottom: 1px solid #ccc;
+          margin-bottom: 0px;
         }
         nav {
           display: flex;
@@ -63,18 +72,13 @@ const Header = () => {
           font-weight: 600;
         }
         .avatar {
-          border-radius: 2rem;
+          border-radius: 1rem;
           float: left;
-          height: 2.2rem;
-          width: 2.2rem;
+          height: 4rem;
+          width: 6.67rem;
           background-color: white;
           background-size: cover;
           border: 2px solid #ddd;
-        }
-        .email {
-          margin-right: 1rem;
-          margin-left: 0.25rem;
-          font-weight: 600;
         }
         .signInButton,
         .signOutButton {
@@ -96,6 +100,51 @@ const Header = () => {
         }
         .signOutButton:hover {
           background-color: #555;
+        }
+        .dropdown-menu {
+          position: absolute;
+          top: 100%;
+          left: -70%;
+          z-index: 1000;
+          display: none;
+          float: left;
+          min-width: 10rem;
+          padding: .5rem 0;
+          margin: .125rem 0 0;
+          font-size: 1rem;
+          color: #212529;
+          text-align: left;
+          list-style: none;
+          background-color: #fff;
+          background-clip: padding-box;
+          border: 1px solid rgba(0,0,0,.15);
+          -moz-border-radius: .25rem;
+          border-radius: .25rem;
+        }
+        .show>.dropdown-menu {
+          display: block;
+          position: absolute;
+        }
+        @media (max-width: 768px) {
+          .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: -15%;
+            z-index: 1000;
+            display: none;
+            float: left;
+            min-width: 10rem;
+            padding: .5rem 0;
+            margin: .125rem 0 0;
+            font-size: 1rem;
+            color: #212529;
+            text-align: left;
+            list-style: none;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid rgba(0,0,0,.15);
+            -moz-border-radius: .25rem;
+            border-radius: .25rem;
         }
       `}</style>
     </header>

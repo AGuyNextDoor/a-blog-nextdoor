@@ -46,7 +46,7 @@ const Form = ({finalDiscuss, name, error, discussion_id, order}) => {
     <>
         <div className="margin_sidebar">
           <div className="container">
-          <h1 className="h1_turing_game">THE TURING GAME</h1>
+          <h1 className="h1_turing_game mt-5">THE TURING GAME</h1>
 
             <div className="row my-3">
               {navigationButton(order[0], "before")}
