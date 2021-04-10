@@ -1,14 +1,18 @@
 import {addVotes} from "../../controller/data-upload.js"
-import {  getSession } from 'next-auth/client';
+import { getSession } from 'next-auth/client';
 
 export default async function handler(req, res) {
 
   const session= await getSession({req})
 
-  if (req.method === 'POST' && session) {
+  if (req.method === 'POST') {
 
     let submitResult = req.body
-    submitResult["user"] = session.user.email
+    if(session){
+      submitResult["user"] = session.user.email
+    } else {
+      submitResult["user"] = null
+    }
     console.log(submitResult);
     let result = await addVotes(submitResult)
 
