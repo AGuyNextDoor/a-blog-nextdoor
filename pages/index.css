@@ -940,7 +940,7 @@ section div {
 .h2_turing_game{
   color:white;
   text-align: center;
-  font-size: 4em;
+  font-size: 3em;
   /* margin-top: 5%; */
   font-family: tahoma;
   color: #e9c46a;
@@ -1014,3 +1014,60 @@ section div {
   min-width: 80%;
 }
 
+
+.h1_report_card {
+  text-align: center;
+  font-size: 3em;
+  /* margin-top: 10%; */
+  font-family: Withney;
+  color: #e9c46a;
+  text-shadow: -1px 3px 0 rgb(37, 94, 121),
+               0 2px 0 #818181,
+               -1px 0px 0 #fbc687,
+               0 4px 0 #868686,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.15),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.15),
+               0 10px 10px rgba(0,0,0,.1),
+               0 20px 20px rgba(0,0,0,.15);
+}
+
+.h2_report_card{
+  color:white;
+  text-align: justify;
+  font-size: 2em;
+  max-height: 4em;
+  /* margin-top: 5%; */
+  font-family: Fira;
+  font-weight: bold;
+  color: #264653;
+  text-shadow: 0 1px 0 rgb(0, 0, 0),
+               0 2px 0 #c9c9c9,
+               0 3px 0 rgb(131, 131, 131),
+               0 4px 0 #8f8f8f,
+
+}
+
+.report-card{
+  background: url('/card_background.jpeg');
+}
+
+
+.report-card-section{
+  max-width: 100vh;
+  min-height: 15vh;
+  min-width: 15vh;
+}
+
+
+.report-card-section-color{
+  color: black;
+  background-color: white;
+}
+
+.report-card-body{
+  font-weight: italic;
+  font-family: serif;
+}

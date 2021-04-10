@@ -35,7 +35,7 @@ const Header = () => {
                 </a>
                 <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <div className="dropdown-item">
-                    <Link href="/Profile">👉 Profile</Link>
+                    <Link href="/Turing_Judges/Profile">👉 Profile</Link>
                   </div>
                   <div className="dropdown-item">
                       <Link
