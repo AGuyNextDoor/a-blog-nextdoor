@@ -46,8 +46,8 @@ const FooterGen = () => {
 const HomePage = () => {
 
   return (
-    <div className="pt-3">
-      <div className="container d-flex px-4 mr-5 ">
+    <div id="container" className="pt-3">
+      <div id="body" className="container d-flex px-4 mr-5 ">
         <div className="row margin_large">
           <div className="skull">
             <Image src="/half.png" height="700" width="277"></Image>
@@ -78,13 +78,11 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <div>
-        <footer className="footer font-weight-light">
-          <div className="container">
-            <FooterGen />
-          </div>
-        </footer>
-      </div>
+      <footer id="footer" className="font-weight-light border-top mb-2">
+        <div className="container">
+          <FooterGen />
+        </div>
+      </footer>
     </div>
   );
 }
