@@ -22,7 +22,7 @@ const Home = () => {
     <div className="margin_sidebar" >
       <h2 className="mx-2 h1_turing_game">WELCOME TO THE TURING JUDGES EXPERIMENT</h2>
       <hr/>
-      <div className="mx-4 my-2">
+      <div className="mx-1 my-2">
         <div className="container">
         <div className="row">
         <h5 className="col ont text-center">Can you guess if the mystery candidate is Human or an AI?</h5>

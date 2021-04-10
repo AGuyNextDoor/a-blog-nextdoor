@@ -34,7 +34,7 @@ const Home = ({ results, status, name, identity, order }) => {
     <>
     <div className="margin_sidebar">
        <div className="container">
-            <div className="row my-3">
+            <div className="row my-3 pt-3">
               {navigationButton(order[0], "before")}
               <div className="btn col-8 test-align text-center button-form-font uncursor border" disabled> 
                 {name}
