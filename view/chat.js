@@ -7,7 +7,7 @@ import { withTheme } from "@material-ui/core";
 const useStyles = makeStyles(theme => ({
   container: {
     bottom: 0,
-    ["min-width"]: "30em",
+    // ["min-width"]: "30em",
     // ["max-width"]: "70%"
     // position: "fixed" // remove this so we can apply flex design
   },

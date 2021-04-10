@@ -775,6 +775,10 @@ body {
    /* padding-bottom:60px;   Height of the footer */
 }
 
+#weird_border{
+  min-width: 105vw;
+}
+
 #container {
   /* height: 100vh; */
   min-height:calc(100vh - 150px);
