@@ -19,6 +19,7 @@ export async function addVotes(data){
     "section_4": parseInt(data["4"]),
     "section_5": parseInt(data["5"]),
     "section_6": parseInt(data["6"]),
+    "user": data.user
   }
 
   let results = "Votes Disabled"
