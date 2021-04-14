@@ -36,10 +36,10 @@ export default function MyApp({ Component, pageProps }) {
         <Navbar></Navbar>
       </header>
       <body>
-        <div className="container-fluid content-area mt-sm" data-toggle="collapse" data-target=".navbar-collapse.show">
-          <div id="" className="row pt-3 small_center">
+        <div className="content-area mt-sm" data-toggle="collapse" data-target=".navbar-collapse.show">
+          <div className="pt-3 small_center">
             <Sidebar></Sidebar>
-            <main role="main max-body" id=""  className="inner-body pt-5 px-md-3 ">
+            <main role="main" id="weird_border"  className="inner-body pt-5 px-md-3">
               <Component {...pageProps}></Component>
             </main>
           </div>

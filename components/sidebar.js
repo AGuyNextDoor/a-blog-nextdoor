@@ -146,8 +146,8 @@ const Sidebar = ({ match }) => {
     <div className="navbar_expand">
       {sidebarState.length !== 0 ? (
         <div className="col-lg sidebar_background flex-wrap second_navbar">
-          <nav className=" ml-2 flex-md-nowrap navbar-expand">
-            <ul className="navbar-nav sidebar-nav">
+          <nav className="mt-4 ml-2 flex-md-nowrap navbar-expand">
+            <ul className="navbar-nav align-items-center sidebar-nav">
               {sidebarState ? (
                 sidebarContext(location.pathname)
               ) : (

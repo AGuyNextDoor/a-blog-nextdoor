@@ -85,7 +85,7 @@ const DefinitionsTags = ({ words, tags }) => {
     <>
       <div>
         <div>
-          <div className="col-10 mt-5" data-toggle="buttons-radio" aria-label="Definition Tags">
+          <div className="col-12 mt-5" data-toggle="buttons-radio" aria-label="Definition Tags">
             <div className="d-flex justify-content-center my-3 mx-3">
               {activatedTags.map((tag, index) => {
                 return getButtons(tag, index);
