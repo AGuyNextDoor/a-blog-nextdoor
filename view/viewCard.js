@@ -1,5 +1,5 @@
 import {TuringRadar} from "./radar.js"
-import {TuringLine} from "./line.js"
+import {InvestigationRecap} from "./investigationRecap.js"
 import Image from "next/image"
 
 const textColorPicker = (val) => {
@@ -64,14 +64,25 @@ export const ViewCard = ({results, name, identity}) => {
                   </div>
                   
                 }
-            <div class="row border rounded">
-              <div class="col-xl">
+            <div class="border rounded">
+                <div class="row justify-content-center">
+                  <div class="col-l-6 col-6 my-5">
+        <InvestigationRecap scoreOne={results.totalAverage.toFixed(3)}/>
+                    {/* <TuringLine mean={results.totalAverage} name={name}/>  */}
+                  </div>
+                  <div class="col-l-6 my-5">
+                    <ul className="list-group">
+                      <li class="list-group-item">Number of Votes : {results.totalVotes}</li>
+                      <li class={"list-group-item " + backgroundColorPicker(results.totalAverage)}>Global Mean : <text className={"font-weight-bold"}>{results.totalAverage.toFixed(3)}</text></li>
+                    </ul>
+                  </div>
+                </div>
                 <div class="row justify-content-center">
                   <div class="col-l-6 my-5 mx-3">
                     <TuringRadar means={results} name={name}/>
                   </div>
                    <div class="col-l-6 my-5 mx-3">
-                      <ul>
+                      <ul className="list-group">
                         <li class="list-group-item">S1 - Introduction : <text class={textColorPicker(results.section1Sum)}>{results.section1Sum.toFixed(3)}</text></li>
                         <li class="list-group-item">S2 - Objects and Physics : <text class={textColorPicker(results.section2Sum)}>{results.section2Sum.toFixed(3)}</text></li>
                         <li class="list-group-item">S3 - Agent and Goal : <text class={textColorPicker(results.section3Sum)}>{results.section3Sum.toFixed(3)}</text></li>
@@ -81,18 +92,6 @@ export const ViewCard = ({results, name, identity}) => {
                       </ul>
                     </div>
                   </div>
-                <div class="row justify-content-center">
-                <div class="col-l-6 my-5">
-                  <TuringLine mean={results.totalAverage} name={name}/> 
-                </div>
-                <div class="col-l-6 my-5">
-                  <ul>
-                    <li class="list-group-item">Number of Votes : {results.totalVotes}</li>
-                    <li class={"list-group-item " + backgroundColorPicker(results.totalAverage)}>Global Mean : <text className={"font-weight-bold"}>{results.totalAverage.toFixed(3)}</text></li>
-                  </ul>
-                </div>
-                </div>
-                </div>
             </div>
           </div>
         </div>

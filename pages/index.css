@@ -1020,8 +1020,8 @@ section div {
   font-size: 3em;
   /* margin-top: 10%; */
   font-family: Withney;
-  color: #e9c46a;
-  text-shadow: -1px 3px 0 rgb(37, 94, 121),
+  color: #ea907a;
+  /* text-shadow: -1px 3px 0 rgb(37, 94, 121),
                0 2px 0 #818181,
                -1px 0px 0 #fbc687,
                0 4px 0 #868686,
@@ -1031,7 +1031,7 @@ section div {
                0 3px 5px rgba(0,0,0,.2),
                0 5px 10px rgba(0,0,0,.15),
                0 10px 10px rgba(0,0,0,.1),
-               0 20px 20px rgba(0,0,0,.15);
+               0 20px 20px rgba(0,0,0,.15); */
 }
 
 .h2_report_card{
@@ -1051,7 +1051,7 @@ section div {
 }
 
 .report-card{
-  background: url('/card_background.jpeg');
+
 }
 
 
@@ -1070,4 +1070,48 @@ section div {
 .report-card-body{
   font-weight: italic;
   font-family: serif;
+}
+
+.limit_size{
+  max-height: 20vh;
+  max-width: 30em;
+}
+
+#doughnut {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+}
+
+#doughnut_number{
+  margin-top: 1.5em;
+  font-weight: bolder;
+  font-size: middle;
+  position:absolute;
+  text-align: center;
+}
+
+#doughnut_number_you{
+  color: #db9d52
+}
+
+#doughnut_number_average{
+  color: rgba(54, 162, 235, 1)
+}
+
+#deck {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#card {
+  max-height: 80em;
+}
+
+#card-item{
+  max-width: 30%;
 }
