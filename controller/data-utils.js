@@ -1,5 +1,6 @@
 // mongodb+srv://alanTuring:<password>@clusterturing.qxwd3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 import mongo from "mongodb";
+import {calcUserScore, calcAllScore} from "./data-calc"
 
 let databaseUrl = ""
 
@@ -43,6 +44,8 @@ export async function addUser(name, email, image){
     console.log(err);
   }
 }
+
+
 
 export async function discussionVoteStatus(discussion_id){
   let client = await initDatabase()
@@ -185,8 +188,6 @@ export async function getOrderDiscussionGame(dis_id){
 
   let finalResult = orderIdGame(result, dis_id)
 
-  console.log({finalResult});
-
   return finalResult
 
 }
@@ -269,3 +270,33 @@ export async function getDiscussionsText(dis_id){
   }
 
 }
+
+
+
+export async function getUserResult(email){                         
+  let client = await initDatabase();
+  const db = await client.db();
+
+  let allVotes = await db.collection("single_votes").find({}).toArray()
+  let allUserVotes = allVotes.filter(val => val.user === email)
+
+  let discussions_ids_all = allUserVotes.map(val => val.discussion_id)
+  let identities_all = await Promise.all(discussions_ids_all.map(async (val) => {
+    return await db.collection("discussions").find({id: val}).toArray()
+  }))
+  identities_all = identities_all.filter(val => val[0])
+  identities_all = identities_all.map((val) => [val[0].AI, val[0].id, val[0].name])
+
+  let discussions_ids_user = allUserVotes.map(val => val.discussion_id)
+  let identities_user = await Promise.all(discussions_ids_user.map(async (val) => {
+    return await db.collection("discussions").find({id: val}).toArray()
+  }))
+
+  identities_user = identities_user.filter(val => val[0])
+  identities_user = identities_user.map((val) => [val[0].AI, val[0].id, val[0].name])
+
+  let result_user = calcUserScore(allUserVotes, identities_user)
+  let result_all = calcAllScore(allVotes, identities_all)
+
+  return [result_user, result_all];
+}0

@@ -1,6 +1,5 @@
 import { Radar} from "react-chartjs-2"
 
-
 export const TuringRadar = ({means, name}) => {
 
   const meansList = [means.section1Sum, means.section2Sum, means.section3Sum, means.section4Sum, means.section5Sum, means.section6Sum,]

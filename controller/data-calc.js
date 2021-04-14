@@ -93,3 +93,147 @@ export async function extractData(data){
 }
 
 
+export function calcUserScore(votes, results){
+  let filteredVotes = []
+  for(const result of results){
+    filteredVotes = [...filteredVotes, [votes.filter(val => val.discussion_id === result[1])[0], result[0], result[2]]]
+  }
+
+  let substract_value = 3
+  let worst_result = 36
+  // if()
+  
+  filteredVotes = filteredVotes.map(val => {
+    let result = {}
+    let total_value = 0
+    if(val[1]){
+      substract_value = -3
+      worst_result = -36
+    }
+    total_value += val[0]["section_1"] - substract_value
+    total_value += val[0]["section_2"] - substract_value
+    total_value += val[0]["section_3"] - substract_value
+    total_value += val[0]["section_4"] - substract_value
+    total_value += val[0]["section_5"] - substract_value
+    total_value += val[0]["section_6"] - substract_value
+
+    result.vote = val[0]
+    result.ai = val[1]
+    result.total_value = Math.abs(total_value)
+    result.name = val[2]
+
+    return result
+  })
+  return filteredVotes  
+}
+
+export function calcAllScore(votes, results){
+
+  let discussionsSummary = results.map(result => {
+
+    let final_result = {
+      AI: result[0],
+      discussion_id: result[1],
+      name: result[2],
+      vote_list: []
+    }
+
+    
+    votes.forEach(vote => {
+      if(final_result.discussion_id === vote.discussion_id){
+        console.log(vote);
+        final_result.vote_list.push(vote)
+      }
+    })
+
+    final_result["number_of_votes"] = final_result.vote_list.length
+
+    final_result["score_list"] = final_result.vote_list.map((vote) => {
+      let result = {}
+      let total_value = 0
+      let substract_value = 3
+      let worst_result = 36
+
+      if(final_result.AI){
+        substract_value = -3
+        worst_result = -36
+      }
+      total_value += vote["section_1"] - substract_value
+      total_value += vote["section_2"] - substract_value
+      total_value += vote["section_3"] - substract_value
+      total_value += vote["section_4"] - substract_value
+      total_value += vote["section_5"] - substract_value
+      total_value += vote["section_6"] - substract_value
+
+      total_value = Math.abs(total_value)
+
+      return total_value
+    })
+
+    final_result["average_score"] = final_result["score_list"].reduce( ( p, c ) => p + c, 0 ) / final_result["score_list"].length
+
+    return final_result
+  })
+
+  const userList = [... new Set(votes.map(vote => vote.user))]
+
+  let filteredVotes = votes.filter(vote => {
+    let flag = false;
+
+    results.forEach(result => {
+      if(vote.discussion_id === result[1]){
+        flag = true
+      }
+    })
+
+    return flag;
+  })
+
+  let userSummary = userList.map(user => {
+
+    let final_result = {
+      user: user,
+      vote_list: []
+    }
+
+    
+    filteredVotes.forEach(vote => {
+      if(final_result.user === vote.user){
+        final_result.vote_list.push(vote)
+      }
+    })
+0
+    final_result["number_of_votes"] = final_result.vote_list.length
+
+    final_result["score_list"] = final_result.vote_list.map((vote) => {
+      let result = {}
+      let total_value = 0
+      let substract_value = 3
+      let worst_result = 36
+
+      if(final_result.AI){
+        substract_value = -3
+        worst_result = -36
+      }
+      total_value += vote["section_1"] - substract_value
+      total_value += vote["section_2"] - substract_value
+      total_value += vote["section_3"] - substract_value
+      total_value += vote["section_4"] - substract_value
+      total_value += vote["section_5"] - substract_value
+      total_value += vote["section_6"] - substract_value
+
+      total_value = Math.abs(total_value)
+
+      return total_value
+    })
+
+    final_result["average_score"] = final_result["score_list"].reduce( ( p, c ) => p + c, 0 ) / final_result["score_list"].length
+
+    return final_result
+  })
+
+  console.log({userSummary});
+  console.log({discussionsSummary});
+
+  return {discussionsSummary, userSummary}  
+}

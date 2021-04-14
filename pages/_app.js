@@ -16,7 +16,7 @@ export default function MyApp({ Component, pageProps }) {
   const { session } = pageProps;
   return (
     <>
-     {/* <Provider options={{ site: process.env.SITE }} session={session}> */}
+     <Provider options={{ site: process.env.SITE }} session={session}>
 
       <Head>
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
@@ -61,7 +61,7 @@ export default function MyApp({ Component, pageProps }) {
           ></script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       </body>
-    {/* </Provider> */}
+    </Provider>
   </>
   );
 }

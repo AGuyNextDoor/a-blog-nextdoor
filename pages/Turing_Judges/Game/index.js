@@ -20,17 +20,17 @@ const Form = ({discussionNameList}) => {
           {
             discussion.vote_status?
           <div className="row">
-          <div className="col-11">
+          <div className="col-12">
             <Link className="nav-link button" key={discussion.id} href={"Game/"+discussion.id}>
               <a className="text-uppercase d-flex justify-content-between list-group-item list-group-item-action lead">
                 {discussion.name}
-                <button className="btn acc_button custom_button button-form-font acc_text">Open</button>
+                <button className="btn acc_button custom_button button-form-font acc_text">Play</button>
               </a>
             </Link>
             </div>
             </div>:
             <div className="row">
-              <div className="col-11">
+              <div className="col-12">
                 <Link className="nav-link button" key={discussion.id} href={"Results/"+discussion.id}>
                   <a className="text-uppercase d-flex justify-content-between list-group-item list-group-item-action lead">
                     {discussion.name} (Results)
@@ -40,6 +40,7 @@ const Form = ({discussionNameList}) => {
               </div>
             </div>
           }
+          
           </>
         )
       })}
