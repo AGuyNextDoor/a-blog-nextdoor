@@ -23,7 +23,7 @@ export const InvestigationRecap = ({scoreOne}) => {
       {
         data: [1],
         backgroundColor: [
-        'rgba(0,0,255,0.4)',
+        'rgba(0,0,220,1)',
         ],
         borderWidth: 1,
         label: ["Definitively AI"],
@@ -33,7 +33,7 @@ export const InvestigationRecap = ({scoreOne}) => {
       {
         data: [2.5],
         backgroundColor: [
-        'rgba(0,0,215,0.2)',
+        'rgba(80,80,255,1)',
         ],
         borderWidth: 1,
         label: ["Maybe AI"],
@@ -53,7 +53,7 @@ export const InvestigationRecap = ({scoreOne}) => {
       {
         data: [5],
         backgroundColor: [
-        'rgba(255,255,255,0.7)',
+        'rgba(40,255,40,1)',
         ],
         borderWidth: 1,
         label: ["Maybe Human"],
@@ -63,7 +63,7 @@ export const InvestigationRecap = ({scoreOne}) => {
       {
         data: [6],
         backgroundColor: [
-        'rgba(0,255,0,0.8)',
+        'rgba(0,200,0,1)',
         ],
         borderWidth: 1,
         label: ["Definitively Human"],
@@ -120,7 +120,7 @@ export const InvestigationRecap = ({scoreOne}) => {
           max: 3
         },
         id:"voteDataX",
-        display: false,
+        display: true,
       }]
     },
   }

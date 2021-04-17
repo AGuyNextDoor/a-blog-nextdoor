@@ -45,38 +45,49 @@ export const ViewCard = ({results, name, identity}) => {
   return (
     <>
       {/* <div class="card"> */}
-        <div class="card-body">
-          <div class="container">
-            
+        {/* <div class="card-body"> */}
+          <div class="container Lato">
                 {
                   identity? 
                   <div className="row justify-content-center align-items-center">
-                    <text class="card-title h2_turing_game">{`Discussion: ${name} 🔎  `}</text><text className="card-title h2_turing_game_ai"> {iden}</text>
+                    <div className="col-6">
+                      <div class="Lato h3_turing_game">{`IDENTITY OF ${name.toUpperCase()} `}</div>
+                      <div className="text-center"> <text  className="Lato h3_turing_game">{"is ... "}</text><text className="h2_turing_game_ai">{iden.toUpperCase()}</text></div>
+                    </div>
                     <div class="col-4 justifiy-content-center">
                       <Image src="/AILogo.png" width="500" height="500"></Image>
                     </div>
                   </div>:
                   <div className="row justify-content-center align-items-center">
-                    <text class="card-title h2_turing_game">{`Discussion: ${name} 🔎  `}</text><text className="card-title h2_turing_game_human"> {iden}</text>
-                    <div class="col-4 justifiy-content-center">
-                      <Image src="/humanLogo.jpg" width="500" height="500"></Image>
+                    <div className="col-6">
+                      <div class="Lato h3_turing_game">{`IDENTITY OF ${name.toUpperCase()} `}</div>
+                      <div className="text-center"> 
+                        <text class="Lato h3_turing_game">{` is ... `}</text><text className="h2_turing_game_human"> {iden.toUpperCase()}</text>
+                      </div>
                     </div>
+                      <div class="col-4 justifiy-content-center">
+                        <Image src="/humanLogo.jpg" width="500" height="500"></Image>
+                      </div>
                   </div>
                   
                 }
             <div class="border rounded">
+              <div class="Lato h3_turing_game">Global Score</div>
                 <div class="row justify-content-center">
-                  <div class="col-l-6 col-6 my-5">
-        <InvestigationRecap scoreOne={results.totalAverage.toFixed(3)}/>
+                  <div id="turingLine" class="col-md-6 col-10 my-5">
+                    <InvestigationRecap scoreOne={results.totalAverage.toFixed(3)}/>
                     {/* <TuringLine mean={results.totalAverage} name={name}/>  */}
                   </div>
-                  <div class="col-l-6 my-5">
+                  <div class="col-md-3 col-6 my-5">
                     <ul className="list-group">
                       <li class="list-group-item">Number of Votes : {results.totalVotes}</li>
                       <li class={"list-group-item " + backgroundColorPicker(results.totalAverage)}>Global Mean : <text className={"font-weight-bold"}>{results.totalAverage.toFixed(3)}</text></li>
                     </ul>
                   </div>
                 </div>
+                <hr/>
+                <div class="Lato h3_turing_game">Score per Ability</div>
+
                 <div class="row justify-content-center">
                   <div class="col-l-6 my-5 mx-3">
                     <TuringRadar means={results} name={name}/>
@@ -94,7 +105,7 @@ export const ViewCard = ({results, name, identity}) => {
                   </div>
             </div>
           </div>
-        </div>
+        {/* </div> */}
     </>
   )
 }

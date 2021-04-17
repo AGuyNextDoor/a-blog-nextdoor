@@ -3,7 +3,7 @@ import Router from "next/router"
 import  {discussionResultStatus, discussionName, discussionIdentity, getOrderDiscussionResult} from "../../../controller/data-utils.js";
 import {ViewCard} from "../../../view/viewCard.js"
 import {queryResults} from "../../../controller/data-viz.js"
-import { navigationButton } from "../../../components/navigationButton"
+import { NavigationBar } from "../../../components/navigationBar"
 import Link from "next/link"
 
 // console.log(process.env.ENV)
@@ -34,14 +34,10 @@ const Home = ({ results, status, name, identity, order }) => {
     <>
     <div className="margin_sidebar">
        <div className="container">
-            <div className="row my-3 pt-3">
-              {navigationButton(order[0], "before")}
-              <div className="btn col-8 test-align text-center button-form-font uncursor border" disabled> 
-                {name}
-              </div>
-              {navigationButton(order[2], "after")}
-            </div>
-          </div>
+         <div className="mt-5">
+          <NavigationBar name={name} valueLeft={order[0]} valueRight={order[2]}/>
+         </div>
+        </div>
       <ViewCard identity={identity} results={results} name={name}/>
     </div>
     </>

@@ -3,7 +3,7 @@ import { getDiscussionsText, getDiscussionsName, getOrderDiscussionGame } from "
 import { ViewForm } from "../../../view/viewForm"
 import Router, { useRouter } from 'next/router'
 import { ModalMessage } from "../../../components/ModalMessage"
-import { navigationButton } from "../../../components/navigationButton"
+import { NavigationBar } from "../../../components/navigationBar"
 import Link from "next/link"
 
 function shuffleArray(array) {
@@ -47,14 +47,7 @@ const Form = ({finalDiscuss, name, error, discussion_id, order}) => {
         <div className="margin_sidebar">
           <div className="container">
           <h1 className="h1_turing_game mt-5">THE TURING GAME</h1>
-
-            <div className="row my-3">
-              {navigationButton(order[0], "before")}
-                <div className="btn col-8 test-align text-center button-form-font uncursor border" disabled> 
-                  {name}
-                </div>
-              {navigationButton(order[2], "after")}
-            </div>
+            <NavigationBar name={name} valueLeft={order[0]} valueRight={order[2]}/>
           </div>
         {
           message?

@@ -22,6 +22,8 @@ export const DoughnutChart = ({userScore, averageScore}) => {
   }
   
   const options = {
+        tooltips: {enabled: false},
+    hover: {mode: null},
     legend: {
         display: false
     },

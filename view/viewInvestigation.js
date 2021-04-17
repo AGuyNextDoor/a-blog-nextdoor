@@ -10,29 +10,38 @@ export const ViewInvestigation = ({user_result, all_result_discussion, all_resul
     
   return(
 
-    <div id="card" className="container border border-dark rounded p-4 report-card">
+    <div id="card" className="container border border-dark rounded p-4 report-card Lato">
           <hr/>
-        <div className="row">
-          <h1 className="ml-3 mb-3 h1_report_card">
-            {"< Investigator Card >"}
+        <div className="row justify-content-between">
+          <h1 className="col-5 ml-3 mb-3 h1_report_card Lato-bold">
+            {"Investigator Card"}
           </h1>
+          <ul class="list-group col-5 mr-3">
+            <li class=" list-group-item personal_color my-1 text-white">{user.name}</li>
+            <li class=" list-group-item average_color my-1 text-white">Community</li>
+          </ul>
+
         </div>
-        <div className="row justifiy-content-md-center p-2 w-100">
-          <div id="card-item" className='col-xlg-4 col-4 my-5'>
+        <hr/>
+        <div className="row justify-content-center py-5">
+          <div id="card-item-3" className='col-md-4 col-8 my-3 card-body'>
+            <div className="Lato-bold h2_report_card mx-2 text-center">Investigations done</div>
             <BarInvestigation label={"Investigations"} scoreOne={user_result.length} scoreTwo={(all_result_user.reduce(( p, c ) => p + c.number_of_votes, 0 ) / all_result_user.length).toFixed(2)} />
           </div>
-          <div id="card-item" className='col-xlg-3  col-4 my-5'>
-            <DoughnutChart userScore={averageScore(user_result)} averageScore={((all_result_discussion.reduce(( p, c ) => p + c.average_score, 0 ) / all_result_discussion.length)/3.6).toFixed(2)}></DoughnutChart>
+          <div id="card-item-3" className='col-md-4 col-8 my-3 card-body'>
+            <div className="Lato-bold h2_report_card mx-2 text-center">Score</div>
+            <div className="text-center my-3 py-5">
+              <DoughnutChart userScore={averageScore(user_result)} averageScore={((all_result_discussion.reduce(( p, c ) => p + c.average_score, 0 ) / all_result_discussion.length)/3.6).toFixed(2)}></DoughnutChart>
+            </div>
           </div>
-          <div id="card-item" className="col-xlg-1 col my-5">
+          <div id="card-item-3" className="col-md-3 col-11 my-3 card-body">
             <div className="report-card-section-color report-card-section">
-              <div className="h2_report_card mx-2">Ranking:</div>
-                <h4 className="card-title ml-4 report-card-body">
+              <div className="Lato-bold h2_report_card mx-2 text-center">Ranking</div>
+                <h4 className="card-title ml-4 report-card-body text-center">
                   {rankingTitle(averageScore(user_result))}
                 </h4>
               </div>
           </div>
-          {/* <div className="col-lg-2"></div> */}
         </div>
         <div className="row my-2">
           {/* {cardGenerator("Average Investigations", (all_result_user.reduce(( p, c ) => p + c.number_of_votes, 0 ) / all_result_user.length).toFixed(2))}
