@@ -5,50 +5,47 @@ import { getAllDiscussions } from "../../../controller/data-utils.js";
 const Home = ({ discussionNameList }) => {
 
   return (
-    <div className="margin_sidebar">
-      <h2 className="ml-3 mb-5 h1_turing_game large_size">Results of investigations</h2>
+    <div id="max_body" className="container margin_sidebar">
+      <div className=" my-5 h1_turing_game large_size">Results of investigations</div>
 
 
-      <div class="ml-2 list-group ">
-        <div className="container">
-
+      <div className="row">
           {discussionNameList.map( discussion => {
             return (
               <>
               {
-                !discussion.result_status?
-                <div className="row">
-                  <div className="col-11">
-                    <Link className="nav-link button" key={discussion.id} href={"Game/"+discussion.id}>
-                      <a className="mx-2 d-flex justify-content-between list-group-item list-group-item-action lead">
-                        {discussion.name} (Go to Form)
-                        <button className="btn btn-outline-danger button-form-font custom_button acc_text ">Close <span className="badge badge-light">{discussion.total} votes</span></button>
-                      </a>
-                    </Link>
-                  </div>
-                </div>:
-                <div className="row">
-                  <div className="col-11 ">
+                discussion.result_status?
+                  <div className="col-12 ">
                     <Link className="nav-link button" key={discussion.id} href={"Results/"+discussion.id}>
-                      <a className="mx-2 d-flex justify-content-between hover list-group-item list-group-item-action lead">
+                      <a className="my-2 d-flex Lato-bold align-items-center justify-content-between hover list-group-item list-group-item-action acc_button lead">
                         {discussion.name}
-                        <button className=" btn acc_button custom_button button-form-font acc_text">Open <span className="badge badge-light">{discussion.total} votes</span></button>
+                        <span className="badge badge-light">{discussion.total} votes</span>
                       </a>
                     </Link>
-                  </div>
+                  </div>:
+                  <div className="col-12">
+                    <Link className="nav-link button" key={discussion.id} href={"Game/"+discussion.id}>
+                      <a className="my-2 d-flex Lato-bold align-items-center justify-content-between list-group-item list-group-item lead">
+                        {discussion.name} (Go to Form 🔗)
+                          <button className="btn btn-ouline-danger disabled button-form-font custom_button acc_text ">Close</button>
+                      </a>
+                    </Link>
                 </div>
+                  
                 
               } 
             </>
           )
         })}
-      </  div>
-        <hr/>
+        <div className="col-12">
+                <a className="d-flex justify-content-center lead">
             <Link href="Game" className="nav-link button">
-              <div className="btn border acc_button custom_button button-form-font acc_text"> 
-                  <text className="ml-2 acc_text">See all available games 🔗</text>
+              <div className="mx-5 btn border acc_button custom_button button-form-font acc_text my-3"> 
+                <text className="mx-3 acc_text">See Games 🔗</text>
               </div>
             </Link>
+              </a>
+        </div>
       </div>
     </div>
   )

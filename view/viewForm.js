@@ -32,7 +32,7 @@ export const ViewForm = ({discussion_id, finalDiscuss, name}) => {
         <div className="col-8">
 
 
-          <h3 className="font-weight-bold text-center">Can you guess if the mystery candidate is Human or an AI?</h3>
+          <div className="font-weight-bold Lato-thin h3_turing_game align-items-center text-center">Can you guess if the mystery candidate is Human or an AI?</div>
           </div>
          <div className="col-4 align-self-end">
           <Image src="/logoTuringJudges.jpg" width="800" height="800"/>

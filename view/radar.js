@@ -43,6 +43,8 @@ export const TuringRadar = ({means, name}) => {
   };
 
   let options = {
+        tooltips: {enabled: false},
+    hover: {mode: null},
     scale: {
       legend: {
           display: false

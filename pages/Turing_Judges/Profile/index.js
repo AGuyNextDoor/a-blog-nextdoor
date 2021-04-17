@@ -10,9 +10,9 @@ import { DoughnutChart } from "../../../view/doughnut"
 const ProfilePage = ({user_result, all_result_discussion, all_result_user, user}) => {
 
   return (
-    <div className="margin_sidebar col-12 mt-5 justify-content-center">
+    <div id="max_body" className="container margin_sidebar">
 
-      <div id="card" className="col-12">
+      <div id="card" className="my-5 col-12">
         <ViewInvestigation user_result={user_result}  all_result_discussion={all_result_discussion} all_result_user={all_result_user} user={user}/>
       </div>
     <h2>
@@ -40,11 +40,11 @@ const ProfilePage = ({user_result, all_result_discussion, all_result_user, user}
               </div>
       
             <div className="collapse" id={`collapse${index}`}>
-              <div className="container">
-                <div className="row justify-content-center">
-                  <div id="card-item" className='col-lg-3 p-5'>
-                    <div className="">
-                      <h3>{val.name} is ... <div className="justify-text-bold">{val.ai?"AI":"HUMAN"}</div></h3>
+              <div className="container Lato">
+                <div className="row justify-content-center align-items-center">
+                  <div id="card-item" className='col-lg-5 col-8 m-3'>
+                    <div className="text-center">
+                      <text className="Lato h3_turing_game">{val.name} is ... {val.ai?<text className="">AI</text>:<text className="">HUMAN</text>}</text>
                       {
                         val.ai?
                         <div className="row justify-content-center align-items-center">
@@ -60,17 +60,17 @@ const ProfilePage = ({user_result, all_result_discussion, all_result_user, user}
                       }
                       </div>
                   </div>
-                  <div className='col-lg-3  p-5'>
-                    <h3 id="doughnut_number_you">Score</h3>
+                  <div id="card-item" className='col-lg-5 col-8 m-3 justify-content-center'>
+                    <h3 id="h3_turing_game doughnut_number_you">Score</h3>
                     <DoughnutChart userScore={(val.total_value/3.6).toFixed(2)} averageScore={(all_disc[0].average_score/3.6).toFixed(2)}></DoughnutChart>
                   </div>
 
                   </div>
 
                   <div className="row justify-content-md-center">
-                    <div id="card" className="col-8">
+                    <div id="turingLine" className="col-md-11 col-11 my-5">
                       <h3>Your investigation : {averageScore(val.vote).toFixed(2)}</h3>
-                      <div>
+                      <div id="">
                         <InvestigationRecap scoreOne={averageScore(val.vote)}/>
                       </div>
                     </div>

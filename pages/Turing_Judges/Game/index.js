@@ -6,51 +6,46 @@ import { getAllDiscussions } from "../../../controller/data-utils"
 const Form = ({discussionNameList}) => {
  
   return (
-    <div className="margin_sidebar">
-      <h2 className="ml-3 mb-5 h1_turing_game col-12 large_size">Choose an investigation</h2>
+    <div id="max_body" className="container margin_sidebar">
+      <h2 className="my-5 h1_turing_game large_size">Choose an investigation</h2>
 
 
-      <div class="ml-2 list-group">
-        <div className="container">
-
-
+      <div className="row">
       {discussionNameList.map( discussion => {
         return (
           <>
           {
             discussion.vote_status?
-          <div className="row">
-          <div className="col-12">
-            <Link className="nav-link button" key={discussion.id} href={"Game/"+discussion.id}>
-              <a className="text-uppercase d-flex justify-content-between list-group-item list-group-item-action lead">
-                {discussion.name}
-                <button className="btn acc_button custom_button button-form-font acc_text">Play</button>
-              </a>
-            </Link>
-            </div>
+            <div className="col-12">
+              <Link className="nav-link button" key={discussion.id} href={"Game/"+discussion.id}>
+                <a className="my-2 Lato-bold align-items-center text-uppercase d-flex justify-content-between list-group-item list-group-item-action acc_button lead">
+                  {discussion.name}
+                  <button className="btn acc_button custom_button button-form-font acc_text">Play</button>
+                </a>
+              </Link>
             </div>:
-            <div className="row">
-              <div className="col-12">
-                <Link className="nav-link button" key={discussion.id} href={"Results/"+discussion.id}>
-                  <a className="text-uppercase d-flex justify-content-between list-group-item list-group-item-action lead">
-                    {discussion.name} (Results)
-                    <button className="align-items-center cursor  mx-2 text-center custom_button button-form-font acc_button acc_text" disabled>Closed</button>
-                  </a>
-                </Link>
-              </div>
+            <div className="col-12">
+              <Link className="nav-link button" key={discussion.id} href={"Results/"+discussion.id}>
+                <a className="my-2 Lato-bold align-items-center d-flex justify-content-between list-group-item list-group-item lead">
+                  {discussion.name} (Go to Results 🔗)
+                  <button className="align-items-center cursor  mx-2 text-center custom_button button-form-font acc_button acc_text" disabled>Closed</button>
+                </a>
+              </Link>
             </div>
           }
           
           </>
         )
       })}
-      </div>
-        <hr/>
-        <Link href="Results" className="nav-link button">
-          <div className="btn border acc_button custom_button button-form-font acc_text"> 
-              <text className="ml-2 acc_text">See results 🔗</text>
-          </div>
-        </Link>
+        <div className="col-12">
+            <a className="d-flex justify-content-center lead">
+          <Link href="Results" className="nav-link button">
+              <div className="mx-5 btn border acc_button custom_button button-form-font acc_text my-3"> 
+                <text className="mx-3 acc_text">See Results 🔗</text>
+              </div>
+          </Link>
+            </a>
+        </div>
       </div>
     </div>
   )
