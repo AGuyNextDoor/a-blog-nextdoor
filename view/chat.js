@@ -68,13 +68,13 @@ const ChatLayout = ({ results , sectionDis}) => {
     <div className={`bg-light d-flex flex-column rounded-bottom ${classes.container}`}>
       {
         parseInt(sectionDis.section) === 0?
-        <text className="text-center font-italic font-weight-light">Beginning of discussion</text>:
+        <text className="text-center font-italic font-weight-light">Beginning of Investigation</text>:
         <></>
       }
       {chatBubbles}
       {
         parseInt(sectionDis.section) === 5?
-        <text className="text-center font-italic font-weight-light">End of discussion</text>:
+        <text className="text-center font-italic font-weight-light">End of Investigation</text>:
         <></>
       }
     </div>

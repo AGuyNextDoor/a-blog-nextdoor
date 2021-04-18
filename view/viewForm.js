@@ -114,7 +114,7 @@ export const ViewForm = ({discussion_id, finalDiscuss, name}) => {
 
             <input class="cursor" type="radio" name="discussion_id" id="cant_tell" value={discussion_id} required/>
             <label class="ml-5 form-check-label" for="cantTell">
-              I hereby certify that this results are mine, that this submissions is UNIQUE for this discussion and that I have not gotten any previous knowledge of the answer of this discussion.
+              I hereby certify that this results are mine, that this submissions is UNIQUE for this Investigation and that I have not gotten any previous knowledge of the answer of this Investigation.
             </label>
             </li>
 
