@@ -44,7 +44,7 @@ const ProfilePage = ({user_result, all_result_discussion, all_result_user, user}
                 <div className="row justify-content-center align-items-center">
                   <div id="card-item-3" className='col-lg-5 col-8 m-3'>
                     <div className="text-center">
-                      <text className="Lato h3_turing_game">{val.name} is ... {val.ai?<text className="">AI</text>:<text className="">HUMAN</text>}</text>
+                      <text className="Lato h3_turing_game">{val.name} is ... {val.ai?<text className="h4_turing_game_ai">AI</text>:<text className="h4_turing_game_human">HUMAN</text>}</text>
                       {
                         val.ai?
                         <div className="row justify-content-center align-items-center">
@@ -67,8 +67,8 @@ const ProfilePage = ({user_result, all_result_discussion, all_result_user, user}
 
                   </div>
 
-                  <div className="row justify-content-md-center">
-                    <div id="turingLine" className="col-md-11 col-11 my-5">
+                  <div className="row justify-content-md-center Lato">
+                    <div id="turingLine" className="col-md-11 col-12 my-5">
                       <h3>Your investigation : {averageScore(val.vote).toFixed(2)}</h3>
                       <div id="" className="">
                         <InvestigationRecap scoreOne={averageScore(val.vote)}/>

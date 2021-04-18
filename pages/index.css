@@ -1114,6 +1114,20 @@ section div {
   color: #2a9d8f;
 }
 
+.h4_turing_game_ai{
+  text-align: center;
+  /* margin-top: 5%; */
+  text-justify: distribute;
+  color: rgb(49, 49, 255);
+}
+
+.h4_turing_game_human{
+  text-align: center;
+  /* margin-top: 5%; */
+  text-justify: distribute;
+  color: #2a9d8f;
+}
+
 
 .custom_button {
   border-radius: 15px;
