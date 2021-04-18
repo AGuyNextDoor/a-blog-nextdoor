@@ -52,7 +52,7 @@ const ProfilePage = ({user_result, all_result_discussion, all_result_user, user}
                               <Image src="/AILogo.jpg" width="500" height="500"></Image>
                             </div>
                           </div>:
-                          <div className="row justify-content-center align-items-center">
+                        <div className="row justify-content-center align-items-center">
                             <div class="justifiy-content-center">
                               <Image src="/humanLogo.jpg" width="500" height="500"></Image>
                             </div>
@@ -60,10 +60,15 @@ const ProfilePage = ({user_result, all_result_discussion, all_result_user, user}
                       }
                       </div>
                   </div>
-                  <div id="card-item-3" className='col-lg-5 col-8 m-3 justify-content-center'>
-                    <h3 id="h3_turing_game doughnut_number_you" className="text-center py-2">Score</h3>
-                    <DoughnutChart userScore={(val.total_value/3.6).toFixed(2)} averageScore={(all_disc[0].average_score/3.6).toFixed(2)}></DoughnutChart>
-                  </div>
+
+                  <div id="card-item-3" className='col-lg-10 col-8 m-3'>
+                    <div className="text-center">
+                      <h3 id="doughnut_number_you" className="Lato-bold h2_report_card m-2 text-center">Score</h3>
+                      <div className="text-center my-3 py-5">
+                        <DoughnutChart userScore={(val.total_value/3.6).toFixed(2)} averageScore={(all_disc[0].average_score/3.6).toFixed(2)}></DoughnutChart>
+                      </div>
+                    </div>
+                 </div>
 
                   </div>
 
