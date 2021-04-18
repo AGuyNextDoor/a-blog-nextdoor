@@ -225,7 +225,7 @@ body,html{
       height: 130px;
       justify-content: between;
       align-items: center;
-      width: 110vw !important;
+      /* width: 110vw !important; */
       overflow-y: scroll !important;
     }
 
@@ -512,7 +512,7 @@ body,html{
       height: 130px;
       justify-content: between;
       align-items: center;
-      width: 110vw !important;
+      width: 100vw !important;
       overflow-y: scroll !important;
     }
 

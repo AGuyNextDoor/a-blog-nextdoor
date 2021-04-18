@@ -1,12 +1,15 @@
 import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import { withTheme } from "@material-ui/core";
+import { parseInline } from "marked";
 
 
 
 const useStyles = makeStyles(theme => ({
   container: {
     bottom: 0,
+    display: "inline",
+    width: "100%"
     // ["min-width"]: "30em",
     // ["max-width"]: "70%"
     // position: "fixed" // remove this so we can apply flex design
@@ -41,7 +44,7 @@ const ChatLayout = ({ results , sectionDis}) => {
   const dummyData = results
 
   const chatBubbles = sectionDis.discussion.map((obj, i = 0) => (
-        <div className={`p-2 ${classes.bubbleContainer} ${obj.direction}`} key={i}>
+        <div className={`${classes.bubbleContainer} ${obj.direction}`} key={i}>
           {
             String(obj.direction) === "left"?
             <div key={i++} className={classes.bubbleLeft}>
@@ -62,7 +65,7 @@ const ChatLayout = ({ results , sectionDis}) => {
         );
 
   return (
-    <div className={`bg-light d-flex flex-column border-right rounded-bottom ${classes.container}`}>
+    <div className={`bg-light d-flex flex-column rounded-bottom ${classes.container}`}>
       {
         parseInt(sectionDis.section) === 0?
         <text className="text-center font-italic font-weight-light">Beginning of discussion</text>:

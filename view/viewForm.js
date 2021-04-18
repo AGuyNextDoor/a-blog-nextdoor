@@ -29,19 +29,20 @@ export const ViewForm = ({discussion_id, finalDiscuss, name}) => {
     <>
     <div className="container">
       <div className="row">
-        <div className="col-8">
+        <div className="col-lg-8 col-auto">
 
 
           <div className="font-weight-bold Lato-thin h3_turing_game align-items-center text-center">Can you guess if the mystery candidate is Human or an AI?</div>
           </div>
-         <div className="col-4 align-self-end">
+         <div className="col-lg-4 col-auto align-self-end">
           <Image src="/logoTuringJudges.jpg" width="800" height="800"/>
         </div>
         <div class="container">
-          
-          <button class="btn acc_button acc_text text-white visible-xs" type="button" data-toggle="collapse" data-target="#collapseRule" aria-expanded="false" aria-controls="collapseRule">
-            📜 Rules
-          </button>
+          <div className="row justify-content-center">
+            <button class="btn acc_button acc_text text-white visible-xs" type="button" data-toggle="collapse" data-target="#collapseRule" aria-expanded="false" aria-controls="collapseRule">
+              📜 Rules
+            </button>
+          </div>
           
           <div class="collapse dont-collase-sm" id="collapseRule">
             <p>
@@ -57,21 +58,20 @@ export const ViewForm = ({discussion_id, finalDiscuss, name}) => {
         </div>
 
         </div>
-    </div>
        
     <h2 className="ml-2 ">{name}</h2>
           <form className="needs-validation" method="POST" action="/api/submitForm" novalidate>
             {/* <label class="form-check-label" for="discussion_id">{discussion_id}</label> */}
             {/* <div class="container"> */}
+            <div classname="container">
+              <div className="row">
             {
               finalDiscuss.map(sectionDis => {
                 return(
                   <>
-                  <div classname="container">
 
-                  <div className="row">
                     {/* <div className="col-1"></div> */}
-                    <div className="col-xl-8 shadow border-left border-bottom-dark border-right border-bottom rounded-right">
+                    <div className="col-xl-8 col-sm-12 mx-3 shadow border-left border-bottom-dark border-right border-bottom rounded-right">
                       <ChatLayout discussion_id={discussion_id} sectionDis={sectionDis}/>
                       <div className="bg-light p-2 d-flex justify-content-center ">
 
@@ -99,14 +99,14 @@ export const ViewForm = ({discussion_id, finalDiscuss, name}) => {
                           <Section section={String(parseInt(sectionDis.section) + 1)}/>
                           </div>
                         </div>
-                      </div>
+                    </div>
                     }
-                  </div>
-                  </div>
                   </>
                 )
               })
             }
+            </div>
+            </div>
             {/* </div> */}
             {/* <input class="mb-5" name="discussion_id" type="radio" value={discussion_id} required/> */}
             <hr/>
@@ -120,16 +120,16 @@ export const ViewForm = ({discussion_id, finalDiscuss, name}) => {
 
             {/* <input class="form-check-input cursor" type="radio" name="Certification" id="cant_tell" value="0" required/>
           <label class="form-check-label" for="cantTell">
-            I hereby certify that this results are mine, that this submissions is unique and I have not gotten any previous knowledge of the answer of this game.
-          </label> */}
-            <div className="row justify-content-md-center">
-              <div className="col-md-auto m-4">
+          I hereby certify that this results are mine, that this submissions is unique and I have not gotten any previous knowledge of the answer of this game.
+        </label> */}
+            <div className="row justify-content-center">
+              <div className="col-md-auto m-4 text-center">
                 {/* <input class="form-check-input cursor" type="radio" name="1" required/>
                 <input class="form-check-input cursor" type="radio" name="2" required/>
                 <input class="form-check-input cursor" type="radio" name="3" required/>
                 <input class="form-check-input cursor" type="radio" name="4" required/>
                 <input class="form-check-input cursor" type="radio" name="5" required/>
-                <input class="form-check-input cursor" type="radio" name="6" required/> */}
+              <input class="form-check-input cursor" type="radio" name="6" required/> */}
                 <button onClick={() => setShowFlag(changeAll())} type="submit" class="btn rounded-pill button-form-font border-5 btn-lg acc_text text-white acc_button">
                     Submit your investigation 🔍
                 </button>
@@ -138,6 +138,7 @@ export const ViewForm = ({discussion_id, finalDiscuss, name}) => {
               </div>
             </div>
           </form>
+              </div>
     </>
   )
 }
