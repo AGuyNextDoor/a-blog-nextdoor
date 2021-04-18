@@ -31,34 +31,32 @@ const Navbar = ({children}) => {
 
   return (
     <div>
-      <nav
-        className="navbar navbar-expand-md navbar_background fixed-top"
-        // style="position: fixed; top: 0;right: 0;left: 0;z-index: 1030;}"
-      >
-        <div className="navbar-brand second_color" data-toggle="collapse" data-target=".navbar-collapse.show">
+      <nav className="navbar navbar-expand-md navbar_background fixed-top row ">
+        <div className="ml-2 navbar-brand second_color order-first" data-toggle="collapse" data-target=".navbar-collapse.show">
           <Link to="/" href="/">
             <div className="navbar-brand card_pile font-weight-bold ">A Blog Nextdoor</div>
           </Link>
         </div>
-
-
-            <button
-              className="navbar-toggler navbar_shadow"
-              type="button"
-              data-toggle="collapse"
-              data-target=".navbar-collapse"
-              aria-controls="navbarNavDropdown"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-              >
-              <span className="navbar-toggler-icon"></span>
-            </button>
-          <div className="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul className="navbar-nav">
-              {allTopics.map((topicName) => linkGenerator(topicName, location))}
-            </ul>
-          </div>
-              <Header ></Header>
+        <button
+          // id="navbar-collapse-button"
+          className="navbar-toggler navbar_shadow order-10"
+          type="button"
+          data-toggle="collapse"
+          data-target=".navbar-collapse"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse col-8 order-10" id="navbarNavDropdown">
+          <ul className="navbar-nav">
+            {allTopics.map((topicName) => linkGenerator(topicName, location))}
+          </ul>
+        </div>
+        <div id="navbar-header" className="order-11">
+          <Header />
+        </div>
         {/* <a className="d-flex flex-row-reverse-large">
 
           <div className="collapse navbar-collapse" id="navbarNavDropdown">

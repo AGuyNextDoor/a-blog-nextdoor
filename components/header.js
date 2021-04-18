@@ -16,13 +16,13 @@ const Header = () => {
                 signin();
               }}
             >
-              <div className="acc_button acc_text text-center cursor custom_button button-form-font navbar_shadow mx-2 p-2">Sign in</div>
+              <div className="acc_button acc_text text-center cursor custom_button button-form-font navbar_shadow mx-2 p-2">SIGN IN</div>
             </a>
           )}
           {session && (
             <><div className="dropdown">
                 <a 
-                    className="" 
+                    className="d-flex justify-content-end" 
                     type="button" 
                     id="dropdownMenuButton" 
                     data-toggle="dropdown" 

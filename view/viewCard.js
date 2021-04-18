@@ -54,7 +54,7 @@ export const ViewCard = ({results, name, identity}) => {
                       <div class="Lato h3_turing_game">{`IDENTITY OF ${name.toUpperCase()} `}</div>
                       <div className="text-center"> <text  className="Lato h3_turing_game">{"is ... "}</text><text className="h2_turing_game_ai">{iden.toUpperCase()}</text></div>
                     </div>
-                    <div class="col-4 justifiy-content-center">
+                    <div class="col-4 justify-content-center">
                       <Image src="/AILogo.png" width="500" height="500"></Image>
                     </div>
                   </div>:
@@ -65,7 +65,7 @@ export const ViewCard = ({results, name, identity}) => {
                         <text class="Lato h3_turing_game">{` is ... `}</text><text className="h2_turing_game_human"> {iden.toUpperCase()}</text>
                       </div>
                     </div>
-                      <div class="col-4 justifiy-content-center">
+                      <div class="col-4 justify-content-center">
                         <Image src="/humanLogo.jpg" width="500" height="500"></Image>
                       </div>
                   </div>
@@ -78,7 +78,7 @@ export const ViewCard = ({results, name, identity}) => {
                     <InvestigationRecap scoreOne={results.totalAverage.toFixed(3)}/>
                     {/* <TuringLine mean={results.totalAverage} name={name}/>  */}
                   </div>
-                  <div class="col-md-3 col-10 my-5 align-self-center">
+                  <div class="col-md-5 col-10 my-5 align-self-center">
                     <ul className="container list-group">
                       <li class="list-group-item d-flex justify-content-between"><text>Number of Votes : </text><text>{results.totalVotes}</text></li>
                       <li class={"list-group-item d-flex justify-content-between" + backgroundColorPicker(results.totalAverage)}>Global Mean : <text className={"font-weight-bold"}>{results.totalAverage.toFixed(3)}</text></li>
