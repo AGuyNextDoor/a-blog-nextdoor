@@ -15,7 +15,6 @@ const options = { useNewUrlParser: true, useUnifiedTopology: true };
 
 export function initDatabase(){
   return new Promise((resolve, reject) => {
-  console.warn(databaseUrl)
     mongo.MongoClient.connect(databaseUrl, options, (error, client) => {
       if (error) {
         console.log("ERROR OUPS");
@@ -271,8 +270,6 @@ export async function getDiscussionsText(dis_id){
 
 }
 
-
-
 export async function getUserResult(email){                         
   let client = await initDatabase();
   const db = await client.db();
@@ -299,4 +296,32 @@ export async function getUserResult(email){
   let result_all = calcAllScore(allVotes, identities_all)
 
   return [result_user, result_all];
-}0
+}
+
+export async function checkIfAlreadyVoted(userEmail, listOfInvestigation){
+  let client = await initDatabase();
+  const db = await client.db();
+
+  let allUserVotes = await db.collection("single_votes").find({user: userEmail}).toArray()
+  let finalResult = listOfInvestigation.map(investigation => {
+    if(allUserVotes.find(vote => vote.discussion_id === investigation.id)){
+      investigation.can_vote = false;
+    } else {
+      investigation.can_vote = true;
+    }
+    return investigation
+  })
+
+  return finalResult
+}
+
+
+export async function checkIfAlreadyVotedSingle(userEmail, investigationID){
+  let client = await initDatabase();
+  const db = await client.db();
+
+  const result = await db.collection("single_votes").find({user: userEmail, discussion_id: investigationID}).toArray()
+
+  return result[0]
+
+}

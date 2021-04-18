@@ -11,13 +11,18 @@ const Navbar = ({children}) => {
 
   const linkGenerator = (topicName, path) => {
     let className = "nav-item nav-link card_pile";
+    let hrefText = topicName
 
     if (path.pathname.includes(topicName)) {
       className = "nav-item nav-link card_pile text-dark font-weight-bold navbar_background navbar_shadow";
     }
+
+    if(topicName === "Turing_Judges"){
+      hrefText = hrefText + "/Home"
+    }
     return (
       <li className={className} data-toggle="collapse" data-target=".navbar-collapse.show">
-        <Link className={className} key={{ pathname: "/" + topicName, state: "plop" }} href={`/${topicName}`}>
+        <Link className={className} key={{ pathname: "/" + topicName, state: "plop" }} href={`/${hrefText}`}>
           <div className="mx-2 cursor">{topicName}</div>
         </Link>
       </li>

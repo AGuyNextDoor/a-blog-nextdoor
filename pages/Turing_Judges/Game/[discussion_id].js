@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { getDiscussionsText, getDiscussionsName, getOrderDiscussionGame } from "../../../controller/data-utils"
+import { checkIfAlreadyVotedSingle, getDiscussionsText, getDiscussionsName, getOrderDiscussionGame } from "../../../controller/data-utils"
 import { ViewForm } from "../../../view/viewForm"
+import { ViewFormWithoutVote } from "../../../view/viewFormWithoutVote"
 import Router, { useRouter } from 'next/router'
 import { ModalMessage } from "../../../components/ModalMessage"
 import { NavigationBar } from "../../../components/navigationBar"
-import Link from "next/link"
+import { getSession } from 'next-auth/client';
 
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
@@ -16,7 +17,7 @@ function shuffleArray(array) {
     return array
 }
 
-const Form = ({finalDiscuss, name, error, discussion_id, order}) => {
+const Form = ({finalDiscuss, name, error, discussion_id, order, canVote}) => {
   const router = useRouter()
 
   let type = null
@@ -58,7 +59,13 @@ const Form = ({finalDiscuss, name, error, discussion_id, order}) => {
         {
           error?
           <></>:
-          <ViewForm discussion_id={discussion_id} finalDiscuss={finalDiscuss} name={name}/>
+          <>
+            {
+              canVote?
+              <ViewForm discussion_id={discussion_id} finalDiscuss={finalDiscuss} name={name}/>:
+              <ViewFormWithoutVote discussion_id={discussion_id} finalDiscuss={finalDiscuss} name={name}/>
+            }
+          </>
           
         }
         </div>
@@ -70,37 +77,61 @@ const Form = ({finalDiscuss, name, error, discussion_id, order}) => {
 
 export async function getServerSideProps(context){
 
-  const dis_id = context.params.discussion_id
-  
-  let discuss = await getDiscussionsText(dis_id)
-  let discussion_name = await getDiscussionsName(dis_id)
-  let order = await getOrderDiscussionGame(dis_id)
+  const session = await getSession(context)
   
   
-  if(discuss[0] !== "error"){
-    
-    let firstEl = discuss.shift()
-    let lastEl = discuss.pop()
-    
-    discuss = shuffleArray(discuss)
-    
-    let finalDiscuss = [firstEl, ...discuss, lastEl]
+  
+  if(!session){
     
     return {
-      props: {
-        // results: JSON.parse(JSON.stringify(discussions))
-        finalDiscuss: finalDiscuss,
-        name: discussion_name,
-        discussion_id: dis_id,
-        error: false,
-        order: order
-      }
+      redirect: {
+        destination: '/Turing_Judges/Game',
+        permanent: false,
+      },
     }
+    
+    
   } else {
-    return {
-      props: {
-        discussion_id: dis_id,
-        error: true
+    let canVote = await checkIfAlreadyVotedSingle(session.user.email, context.params.discussion_id)
+    if(canVote){
+      canVote = false
+    } else {
+      canVote = true
+    }
+
+    const dis_id = context.params.discussion_id
+    
+    let discuss = await getDiscussionsText(dis_id)
+    let discussion_name = await getDiscussionsName(dis_id)
+    let order = await getOrderDiscussionGame(dis_id)
+    
+    
+    if(discuss[0] !== "error"){
+      
+      let firstEl = discuss.shift()
+      let lastEl = discuss.pop()
+      
+      discuss = shuffleArray(discuss)
+      
+      let finalDiscuss = [firstEl, ...discuss, lastEl]
+      
+      return {
+        props: {
+          // results: JSON.parse(JSON.stringify(discussions))
+          finalDiscuss: finalDiscuss,
+          name: discussion_name,
+          discussion_id: dis_id,
+          error: false,
+          order: order,
+          canVote: canVote
+        }
+      }
+    } else {
+      return {
+        props: {
+          discussion_id: dis_id,
+          error: true
+        }
       }
     }
   }

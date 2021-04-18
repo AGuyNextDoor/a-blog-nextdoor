@@ -67,6 +67,9 @@ const options = {
       session.id = user.id;
       return Promise.resolve(session);
     },
+    redirect: async (url, baseUrl) => {
+      return Promise.resolve(url)
+    }
   },
 };
 

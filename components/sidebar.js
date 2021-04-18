@@ -206,7 +206,7 @@ const getReflectionList = async (callback) => {
 };
 
 const getTuringJudgesList = (callback) => {
-  callback(["Game","Results", "Profile"])
+  callback(["Home", "Game","Results", "Profile"])
 }
 
 const empty = (callback) => {
