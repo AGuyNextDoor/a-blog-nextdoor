@@ -611,7 +611,12 @@ body,html{
   #max_body{
     max-width : calc(100% - 160px);
   }
-  
+}
+
+@media (max-width: 506px){
+  #max_body{
+    max-width : 100%
+  }
 }
 
 
@@ -639,6 +644,13 @@ body,html{
   }
 }
 
+@media (max-width: 500px){
+
+  #card-item-3{
+    max-width: 100%;
+    min-width: 30%
+  }
+}
 
 @media (min-width: 576px) {
   .ml-sm-auto, .mx-sm-auto .mt-sm {
@@ -1120,7 +1132,7 @@ section div {
 
 .h2_report_card{
   color:white;
-  text-align: justify;
+  text-align: center;
   font-size: 2em;
   max-height: 4em;
   /* margin-top: 5%; */

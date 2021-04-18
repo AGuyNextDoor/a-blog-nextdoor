@@ -7,7 +7,7 @@ export const BarInvestigation = ({scoreOne, scoreTwo}) => {
     labels: [String(scoreOne), String(scoreTwo)],
     datasets: [
       {
-        data: [scoreOne, scoreTwo],
+        data: [Number.parseFloat(scoreOne).toFixed(2), Number.parseFloat(scoreTwo).toFixed(2)],
         backgroundColor: [
           '#FDB45C',
           'rgba(54, 162, 235, 1)',
