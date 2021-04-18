@@ -31,7 +31,7 @@ export const ViewInvestigation = ({user_result, all_result_discussion, all_resul
             <BarInvestigation label={"Investigations"} scoreOne={user_result.length} scoreTwo={(all_result_user.reduce(( p, c ) => p + c.number_of_votes, 0 ) / all_result_user.length).toFixed(2)} />
           </div>
           <div id="card-item-3" className='col-md-4 col-12 my-3'>
-            <div className="Lato-bold h2_report_card mx-2 text-justify">Score</div>
+            <div className="Lato-bold h2_report_card mx-2 text-center">Score</div>
             <div className="text-center my-3 py-5">
               <DoughnutChart userScore={averageScore(user_result)} averageScore={((all_result_discussion.reduce(( p, c ) => p + c.average_score, 0 ) / all_result_discussion.length)/3.6).toFixed(2)}></DoughnutChart>
             </div>
