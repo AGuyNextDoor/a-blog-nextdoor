@@ -1233,3 +1233,7 @@ section div {
 .average_color{
   background-color: rgba(54, 162, 235, 1);
 }
+
+#color-light-grey{
+  background-color:rgb(209, 209, 209)
+}

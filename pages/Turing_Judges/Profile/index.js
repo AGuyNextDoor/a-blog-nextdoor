@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image"
 import { ViewInvestigation } from "../../../view/viewInvestigation"
-import { userSession, getSession } from 'next-auth/client';
+import { getSession } from 'next-auth/client';
 import { getUserResult } from "../../../controller/data-utils.js"
 import { InvestigationRecap } from "../../../view/investigationRecap"
 import { BarInvestigation } from "../../../view/bar"
@@ -98,7 +98,10 @@ export async function getServerSideProps (context) {
   
   if (!session) {
     return {
-      props: {logged: false},
+      redirect: {
+        destination: '/api/auth/signin',
+        permanent: false,
+      },
     }
   }
   let results = await getUserResult(session.user.email)

@@ -16,7 +16,7 @@ const Header = () => {
                 signin();
               }}
             >
-              <div className="acc_button acc_text cursor custom_button button-form-font navbar_shadow mx-2 p-2">Sign in</div>
+              <div className="acc_button acc_text text-center cursor custom_button button-form-font navbar_shadow mx-2 p-2">Sign in</div>
             </a>
           )}
           {session && (
