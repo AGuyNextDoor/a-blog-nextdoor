@@ -46,7 +46,7 @@ export const ViewCard = ({results, name, identity}) => {
     <>
       {/* <div class="card"> */}
         {/* <div class="card-body"> */}
-          <div class="container Lato">
+          <div class="container Lato pb-4">
                 {
                   identity? 
                   <div className="row justify-content-center align-items-center">
@@ -74,32 +74,32 @@ export const ViewCard = ({results, name, identity}) => {
             <div class="border rounded">
               <div class="Lato h3_turing_game">Global Score</div>
                 <div class="row justify-content-center">
-                  <div id="turingLine" class="col-md-6 col-10 my-5">
+                  <div id="turingLine" class="col-md-6 col-11 my-5">
                     <InvestigationRecap scoreOne={results.totalAverage.toFixed(3)}/>
                     {/* <TuringLine mean={results.totalAverage} name={name}/>  */}
                   </div>
-                  <div class="col-md-3 col-6 my-5">
-                    <ul className="list-group">
-                      <li class="list-group-item">Number of Votes : {results.totalVotes}</li>
-                      <li class={"list-group-item " + backgroundColorPicker(results.totalAverage)}>Global Mean : <text className={"font-weight-bold"}>{results.totalAverage.toFixed(3)}</text></li>
+                  <div class="col-md-3 col-10 my-5 align-self-center">
+                    <ul className="container list-group">
+                      <li class="list-group-item d-flex justify-content-between"><text>Number of Votes : </text><text>{results.totalVotes}</text></li>
+                      <li class={"list-group-item d-flex justify-content-between" + backgroundColorPicker(results.totalAverage)}>Global Mean : <text className={"font-weight-bold"}>{results.totalAverage.toFixed(3)}</text></li>
                     </ul>
                   </div>
                 </div>
                 <hr/>
-                <div class="Lato h3_turing_game">Score per Ability</div>
+                <div class="Lato h3_turing_game mx-1">Score per Ability</div>
 
-                <div class="row justify-content-center">
+                <div class="row justify-content-center ">
                   <div class="col-l-6 my-5 mx-3">
                     <TuringRadar means={results} name={name}/>
                   </div>
-                   <div class="col-l-6 my-5 mx-3">
+                   <div class="col-l-6 col-sm-6 col-10 my-5 mx-3 align-self-center">
                       <ul className="list-group">
-                        <li class="list-group-item">S1 - Introduction : <text class={textColorPicker(results.section1Sum)}>{results.section1Sum.toFixed(3)}</text></li>
-                        <li class="list-group-item">S2 - Objects and Physics : <text class={textColorPicker(results.section2Sum)}>{results.section2Sum.toFixed(3)}</text></li>
-                        <li class="list-group-item">S3 - Agent and Goal : <text class={textColorPicker(results.section3Sum)}>{results.section3Sum.toFixed(3)}</text></li>
-                        <li class="list-group-item">S4 - Natural Number : <text class={textColorPicker(results.section4Sum)}>{results.section4Sum.toFixed(3)}</text></li>
-                        <li class="list-group-item">S5 - Geometry : <text class={textColorPicker(results.section5Sum)}>{results.section5Sum.toFixed(3)}</text></li>
-                        <li class="list-group-item">S6 - ShortTermMemory : <text class={textColorPicker(results.section6Sum)}>{results.section6Sum.toFixed(3)}</text></li>
+                        <li class="list-group-item d-flex justify-content-between">S1 - Introduction : <text class={textColorPicker(results.section1Sum)}>{results.section1Sum.toFixed(3)}</text></li>
+                        <li class="list-group-item d-flex justify-content-between">S2 - Objects and Physics : <text class={textColorPicker(results.section2Sum)}>{results.section2Sum.toFixed(3)}</text></li>
+                        <li class="list-group-item d-flex justify-content-between">S3 - Agent and Goal : <text class={textColorPicker(results.section3Sum)}>{results.section3Sum.toFixed(3)}</text></li>
+                        <li class="list-group-item d-flex justify-content-between">S4 - Natural Number : <text class={textColorPicker(results.section4Sum)}>{results.section4Sum.toFixed(3)}</text></li>
+                        <li class="list-group-item d-flex justify-content-between">S5 - Geometry : <text class={textColorPicker(results.section5Sum)}>{results.section5Sum.toFixed(3)}</text></li>
+                        <li class="list-group-item d-flex justify-content-between">S6 - ShortTermMemory : <text class={textColorPicker(results.section6Sum)}>{results.section6Sum.toFixed(3)}</text></li>
                       </ul>
                     </div>
                   </div>

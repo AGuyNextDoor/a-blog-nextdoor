@@ -130,7 +130,7 @@ export const InvestigationRecap = ({scoreOne}) => {
         data={data}
         options={options_bar}
         width={90}
-        height={20}
+        height={40}
         />
   )
 }
