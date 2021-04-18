@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link"
 import Image from "next/image"
 import {ViewCard} from "../../view/viewCard.js"
+import HomeIndex from "./index"
 
 // console.log(process.env.ENV)
 
@@ -32,12 +33,12 @@ const Home = () => {
 
         <div className="container">
           <div className="row"> 
-            <Link href="Turing_Judges/Game" className="nav-link button">
+            <Link href="Game" className="nav-link button">
               <div className="align-items-center acc_button acc_text cursor col mx-2 text-center custom_button button-form-font navbar_shadow"> 
                 PLAY THE GAME
               </div>
             </Link>
-            <Link href="Turing_Judges/Results" className="nav-link button">
+            <Link href="Results" className="nav-link button">
               <div className=" align-items-center cursor col mx-2 text-center custom_button button-form-font acc_button acc_text navbar_shadow"> 
                 SEE THE RESULTS
               </div>

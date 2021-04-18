@@ -16,7 +16,7 @@ import {ViewCard} from "../../view/viewCard.js"
 //     client.close();
 //   });
 
-const Home = () => {
+const HomeIndex = () => {
   
   return (
     <div className="margin_sidebar" >
@@ -85,4 +85,4 @@ const Home = () => {
   );
 }
 
-export default Home;
+export default HomeIndex;
