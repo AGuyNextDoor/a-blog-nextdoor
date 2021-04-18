@@ -40,7 +40,7 @@ export const ViewFormWithoutVote = ({discussion_id, finalDiscuss, name}) => {
         </div>
        
     <div className="row justify-content-around"><h2>Investigation: {name}</h2></div>
-    <div className="row justify-content-around "><h2 className="Lato-thin text-center">You have already voted on this conversation</h2></div>
+    <div className="row justify-content-around "><h2 id="doughnut_number_you" className="Lato-thin text-center ">You have already voted on this conversation</h2></div>
     <hr/>
       <div className="needs-validation" method="POST" action="/api/submitForm" novalidate>
         {

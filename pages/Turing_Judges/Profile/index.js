@@ -49,7 +49,7 @@ const ProfilePage = ({user_result, all_result_discussion, all_result_user, user}
                         val.ai?
                         <div className="row justify-content-center align-items-center">
                             <div class="justifiy-content-center">
-                              <Image src="/AILogo.png" width="500" height="500"></Image>
+                              <Image src="/AILogo.jpg" width="500" height="500"></Image>
                             </div>
                           </div>:
                           <div className="row justify-content-center align-items-center">

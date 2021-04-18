@@ -37,6 +37,8 @@ const backgroundColorPicker = (val) => {
 
 export const ViewCard = ({results, name, identity}) => {
 
+  console.log({identity});
+
   let iden = " Human"
   if(identity){
     iden = " AI"
@@ -47,15 +49,16 @@ export const ViewCard = ({results, name, identity}) => {
       {/* <div class="card"> */}
         {/* <div class="card-body"> */}
           <div class="container Lato pb-4">
-                {
+                {/* {
                   identity? 
                   <div className="row justify-content-center align-items-center">
                     <div className="col-6">
                       <div class="Lato h3_turing_game">{`IDENTITY OF ${name.toUpperCase()} `}</div>
-                      <div className="text-center"> <text  className="Lato h3_turing_game">{"is ... "}</text><text className="h2_turing_game_ai">{iden.toUpperCase()}</text></div>
+                      <div className="text-center"> <text  className="Lato h3_turing_game">{"is ... "}</text>
+                      <text className="h2_turing_game_ai">{iden.toUpperCase()}</text></div>
                     </div>
                     <div class="col-4 justify-content-center">
-                      <Image src="/AILogo.png" width="500" height="500"></Image>
+                      <Image src="/AILogo.jpg" width="500" height="500"></Image>
                     </div>
                   </div>:
                   <div className="row justify-content-center align-items-center">
@@ -70,7 +73,25 @@ export const ViewCard = ({results, name, identity}) => {
                       </div>
                   </div>
                   
-                }
+                } */}
+                <div id="card-item-3" className='col-lg-5 col-8 m-3'>
+                    <div className="text-center">
+                      <text className="Lato h3_turing_game">{name.toUpperCase()} is ... {iden === " AI"?<text className="">AI</text>:<text className="">HUMAN</text>}</text>
+                      {
+                        iden === " AI"?
+                        <div className="row justify-content-center align-items-center">
+                            <div class="justifiy-content-center">
+                              <Image src="/AILogo.jpg" width="500" height="500"></Image>
+                            </div>
+                          </div>:
+                          <div className="row justify-content-center align-items-center">
+                            <div class="justifiy-content-center">
+                              <Image src="/humanLogo.jpg" width="500" height="500"></Image>
+                            </div>
+                          </div>
+                      }
+                      </div>
+                  </div>
             <div class="border rounded">
               <div class="Lato h3_turing_game">Global Score</div>
                 <div class="row justify-content-center">
