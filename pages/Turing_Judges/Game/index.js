@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link"
+import Head from "next/head"
 import { getAllDiscussions, checkIfAlreadyVoted } from "../../../controller/data-utils"
 import Header from "../../../components/header"
 import { getSession } from 'next-auth/client';
@@ -9,6 +10,11 @@ const Form = ({discussionNameList, user, logged}) => {
 
   if(logged){
     return (
+      <>
+      <Head>
+        <title>Turing Judges</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <div id="max_body" className="container margin_sidebar">
       <h2 className="my-5 h1_turing_game large_size">Choose an investigation</h2>
 
@@ -60,9 +66,11 @@ const Form = ({discussionNameList, user, logged}) => {
         </div>
       </div>
     </div>
+    </>
     )
   } else {
     return (
+      <>
       <div id="max_body" className="container margin_sidebar">
       <h2 className="my-5 h1_turing_game large_size">Choose an investigation</h2>
 
@@ -106,6 +114,7 @@ const Form = ({discussionNameList, user, logged}) => {
         </div>
       </div>
     </div>
+    </>
     )
   }
 }

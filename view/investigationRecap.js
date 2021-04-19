@@ -3,8 +3,6 @@ import { Scatter } from 'react-chartjs-2'
 
 export const InvestigationRecap = ({scoreOne}) => {
 
-  console.log({scoreOne})
-
   const data = {
     // labels:['-3', '-2', '-1', '0', '1', '2', '3'],
     labels: ["1"],

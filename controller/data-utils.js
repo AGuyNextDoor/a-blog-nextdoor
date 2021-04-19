@@ -17,7 +17,7 @@ export function initDatabase(){
   return new Promise((resolve, reject) => {
     mongo.MongoClient.connect(databaseUrl, options, (error, client) => {
       if (error) {
-        console.log("ERROR OUPS");
+        console.log("MONGO CONNEXION ERROR");
         reject(error);
       } else {
         resolve(client);
@@ -207,8 +207,6 @@ export async function getOrderDiscussionResult(dis_id){
   ]).toArray()
 
   let finalResult = orderIdResult(result, dis_id)
-
-  console.log({finalResult});
 
   return finalResult
 

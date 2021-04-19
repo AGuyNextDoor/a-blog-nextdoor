@@ -13,7 +13,6 @@ export default async function handler(req, res) {
     } else {
       submitResult["user"] = null
     }
-    console.log(submitResult);
     let result = await addVotes(submitResult)
 
     const urlDiscussionID = String("/Turing_Judges/Game")

@@ -27,9 +27,6 @@ const listGenerator = (topicName, path, topic = "", location) => {
 
   const linkUrl = "/" + topic + "/" + topicName;
 
-  console.log(location);
-  console.log(topicName);
-  console.log({topicTrimmed});
   if (linkUrl.includes(".") && typeof linkUrl === "string" && typeof topicName === "string") {
     
 

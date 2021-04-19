@@ -1,10 +1,11 @@
 import React, { useEffect }  from "react";
 import Router from "next/router"
+import Head from "next/head"
+import Link from "next/link"
 import  {discussionResultStatus, discussionName, discussionIdentity, getOrderDiscussionResult} from "../../../controller/data-utils.js";
 import {ViewCard} from "../../../view/viewCard.js"
 import {queryResults} from "../../../controller/data-viz.js"
 import { NavigationBar } from "../../../components/navigationBar"
-import Link from "next/link"
 
 // console.log(process.env.ENV)
 
@@ -32,6 +33,10 @@ const Home = ({ results, status, name, identity, order }) => {
   
   return (
     <>
+    <Head>
+      <title>Turing Judges</title>
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    </Head>
     <div className="margin_sidebar">
        <div className="container">
          <div className="mt-5">

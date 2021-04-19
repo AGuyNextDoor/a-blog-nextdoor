@@ -141,7 +141,6 @@ export function calcAllScore(votes, results){
     
     votes.forEach(vote => {
       if(final_result.discussion_id === vote.discussion_id){
-        console.log(vote);
         final_result.vote_list.push(vote)
       }
     })
@@ -231,9 +230,6 @@ export function calcAllScore(votes, results){
 
     return final_result
   })
-
-  console.log({userSummary});
-  console.log({discussionsSummary});
 
   return {discussionsSummary, userSummary}  
 }

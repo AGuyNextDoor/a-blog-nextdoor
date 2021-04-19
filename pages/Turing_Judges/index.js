@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link"
 import Image from "next/image"
+import Head from "next/head"
 import {ViewCard} from "../../view/viewCard.js"
 
 // console.log(process.env.ENV)
@@ -19,6 +20,11 @@ import {ViewCard} from "../../view/viewCard.js"
 const HomeIndex = () => {
   
   return (
+    <>
+      <Head>
+        <title>Turing Judges</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
     <div className="margin_sidebar" >
       <h2 className="mx-2 h1_turing_game">WELCOME TO THE TURING JUDGES EXPERIMENT</h2>
       <hr/>
@@ -82,6 +88,7 @@ const HomeIndex = () => {
           <Image src="/logoTuringJudges.jpg" width="300" height="300"/>
         </div>
     </div>
+    </>
   );
 }
 

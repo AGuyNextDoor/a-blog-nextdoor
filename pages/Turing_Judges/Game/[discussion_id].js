@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import Router, { useRouter } from 'next/router'
+import Head from "next/head"
 import { checkIfAlreadyVotedSingle, getDiscussionsText, getDiscussionsName, getOrderDiscussionGame } from "../../../controller/data-utils"
 import { ViewForm } from "../../../view/viewForm"
 import { ViewFormWithoutVote } from "../../../view/viewFormWithoutVote"
-import Router, { useRouter } from 'next/router'
 import { ModalMessage } from "../../../components/ModalMessage"
 import { NavigationBar } from "../../../components/navigationBar"
 import { getSession } from 'next-auth/client';
@@ -22,8 +23,6 @@ const Form = ({finalDiscuss, name, error, discussion_id, order, canVote}) => {
 
   let type = null
   let message = null
-
-  console.log({order});
 
   if(router.query.m){
     type = "info"
@@ -45,6 +44,10 @@ const Form = ({finalDiscuss, name, error, discussion_id, order, canVote}) => {
 
   return(
     <>
+      <Head>
+        <title>Turing Judges</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
         <div className="margin_sidebar">
           <div className="container">
           <h1 className="h1_turing_game mt-5">THE TURING GAME</h1>

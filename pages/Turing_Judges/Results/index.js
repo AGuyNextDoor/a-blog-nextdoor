@@ -1,10 +1,16 @@
 import React from "react";
 import Link from "next/link"
+import Head from "next/head"
 import { getAllDiscussions } from "../../../controller/data-utils.js";
 
 const Home = ({ discussionNameList }) => {
 
   return (
+    <>
+    <Head>
+      <title>Turing Judges</title>
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    </Head>
     <div id="max_body" className="container margin_sidebar">
       <div className=" my-5 h1_turing_game large_size">Results of investigations</div>
 
@@ -48,6 +54,7 @@ const Home = ({ discussionNameList }) => {
         </div>
       </div>
     </div>
+    </>
   )
 }
 

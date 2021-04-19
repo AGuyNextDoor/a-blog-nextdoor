@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image"
+import Head from "next/head"
 import { ViewInvestigation } from "../../../view/viewInvestigation"
 import { getSession } from 'next-auth/client';
 import { getUserResult } from "../../../controller/data-utils.js"
@@ -10,6 +11,11 @@ import { DoughnutChart } from "../../../view/doughnut"
 const ProfilePage = ({user_result, all_result_discussion, all_result_user, user}) => {
 
   return (
+    <>
+    <Head>
+      <title>Turing Judges</title>
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    </Head>
     <div id="max_body" className="container margin_sidebar  pb-3">
 
       <div id="card" className="my-5 col-12">
@@ -22,9 +28,6 @@ const ProfilePage = ({user_result, all_result_discussion, all_result_user, user}
     <div class="accordion">
       {
         user_result.map((val, index) => {
-
-          console.log("id here:",val);
-          console.log("average score here:",index, ":", averageScore(val.vote));
 
           let all_disc = all_result_discussion.filter(result => result.discussion_id === val.vote.discussion_id)
 
@@ -89,6 +92,7 @@ const ProfilePage = ({user_result, all_result_discussion, all_result_user, user}
       }
       </div>
     </div>
+    </>
   );
 };
 
