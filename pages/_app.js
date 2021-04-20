@@ -24,24 +24,24 @@ export default function MyApp({ Component, pageProps }) {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
         <link rel="manifest" href="/favicon/site.webmanifest" />
         <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5" />
-        <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet"></link>
+        {/* <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet"></link> */}
         <link
           rel="preload"
-          href="/fonts/Lato-Bold.ttf"
+          href="/fonts/Lato/Lato-Bold.ttf"
           as="font"
           crossOrigin=""
         />
         <link
           rel="preload"
-          href="/fonts/Lato-Regular.ttf"
+          href="/fonts/Lato/Lato-Regular.ttf"
           as="font"
           crossOrigin=""
         />
         <meta name="theme-color" content="#ffffff" />
-        <script
+        {/* <script
           async="async"
           src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"
-          ></script>
+          ></script> */}
         <title>A-Blog-Nextdoor</title>
       </Head>
       <header className="">
@@ -71,7 +71,7 @@ export default function MyApp({ Component, pageProps }) {
           integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
           crossOrigin="anonymous"
           ></script>
-        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        {/* <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> */}
       </body>
     </Provider>
   </>

@@ -2,8 +2,6 @@ import React from "react";
 import Link from "next/link"
 import Image from "next/image"
 import Head from "next/head"
-import {ViewCard} from "../../view/viewCard.js"
-import HomeIndex from "./index"
 
 // console.log(process.env.ENV)
 
@@ -17,7 +15,6 @@ import HomeIndex from "./index"
 //     console.log(doc);
 //     client.close();
 //   });
-
 const Home = () => {
   
   return (

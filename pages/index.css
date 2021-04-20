@@ -1257,7 +1257,7 @@ section div {
 
 .Lato {
   font-family: "Lato";
-  src: url("/fonts/Lato-Regular.ttf");
+  src: url("/fonts/Lato/Lato-Regular.ttf");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -1265,7 +1265,7 @@ section div {
 
 .Lato-thin {
   font-family: "Lato";
-  src: url("/fonts/Lato-Thin.ttf");
+  src: url("/fonts/Lato/Lato-Thin.ttf");
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -1273,7 +1273,7 @@ section div {
 
 .Lato-bold {
   font-family: "Lato";
-  src: url("/fonts/Lato-Bold.ttf");
+  src: url("/fonts/Lato/Lato-Bold.ttf");
   font-style: normal;
   font-weight: 700;
   font-display: swap;

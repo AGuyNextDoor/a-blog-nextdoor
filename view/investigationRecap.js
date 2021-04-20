@@ -1,5 +1,4 @@
 import { HorizontalBar } from "react-chartjs-2"
-import { Scatter } from 'react-chartjs-2'
 
 export const InvestigationRecap = ({scoreOne}) => {
 

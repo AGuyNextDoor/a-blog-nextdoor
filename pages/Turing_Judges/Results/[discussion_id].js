@@ -3,8 +3,8 @@ import Router from "next/router"
 import Head from "next/head"
 import Link from "next/link"
 import  {discussionResultStatus, discussionName, discussionIdentity, getOrderDiscussionResult} from "../../../controller/data-utils.js";
-import {ViewCard} from "../../../view/viewCard.js"
-import {queryResults} from "../../../controller/data-viz.js"
+import { ViewCard } from "../../../view/viewCard.js"
+import { queryResults } from "../../../controller/data-viz.js"
 import { NavigationBar } from "../../../components/navigationBar"
 
 // console.log(process.env.ENV)

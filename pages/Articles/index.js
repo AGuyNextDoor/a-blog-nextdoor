@@ -5,8 +5,6 @@ import ArticlesTags from "../../components/Articles_tags.js";
 import { useRouter } from "next/router";
 import Image from "next/image"
 
-// import MathJax from "@matejmazur/react-mathjax";
-
 const Articles = () => {
   const location = useRouter()
 
