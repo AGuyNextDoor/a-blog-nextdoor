@@ -539,6 +539,7 @@ body,html{
   }
 }
 
+
 @media (min-width: 769px){
   .second_navbar {
     margin-top: 20px;
@@ -554,6 +555,18 @@ body,html{
   }
 }
 
+.second_navbar {
+  padding-top: 60px;
+  display:flex;
+}
+
+@media (max-width: 769px){
+  .second_navbar {
+    padding-top: 38px;
+    align-items: center;
+    display:flex;
+  }
+}
 
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {
@@ -588,10 +601,7 @@ body,html{
   } */
 }
 
-.second_navbar {
-  padding-top: 60px;
-  display:flex;
-}
+
 
 @media (max-width: 576px) {
   .ml-sm-auto, .mx-sm-auto .mt-sm {

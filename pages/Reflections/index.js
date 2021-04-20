@@ -20,10 +20,10 @@ const introduction = (
 const Reflections = () => {
   const location = useRouter();
   return (
-    <>
+    <div className="mx-4">
       {location.pathname.length < 13 ? <div className="margin_sidebar">{introduction}</div> : <div></div>}
       {/* <Route path={`${process.env.URL + location.pathname}/:reflectionId`} component={Reflection} /> */}
-    </>
+    </div>
   );
 };
 

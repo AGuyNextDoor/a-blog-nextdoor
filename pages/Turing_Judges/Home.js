@@ -29,7 +29,7 @@ const Home = () => {
       <div className="mx-1 my-2">
         <div className="container">
         <div className="row">
-        <h5 className="col ont text-center">Can you guess if the mystery candidate is Human or an AI?</h5>
+        <h5 className="col text-center">Can you guess if the mystery candidate is Human or an AI?</h5>
 
         </div>
         </div>
@@ -60,13 +60,13 @@ const Home = () => {
         <p><a href="https://www.youtube.com/watch?v=3wLqsRLvV-c&t=29s&ab_channel=TED-Ed">Here is a video from TED-Ed</a> on the Turing test</p>
         <p>For those interested in Alan Turing's original paper, <a href="https://www.youtube.com/watch?v=MGW_Qcqr9eQ&ab_channel=LexFridman">Here is a video of Lex Fridman,</a> an MIT professor, discussing the Turing test.</p>
         
-        <div className="row justify-content-between align-items-center">
+        <div className="row justify-content-between align-items-end">
 
         <h3 className="col-5">The "Turing Judges"</h3>             
         <Link href="https://twitter.com/JudgesTuring?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">
 
-          <div id="twitterButton" className=" col-4 cursor mx-2 text-center">
-            <div className="row align-items-end">
+          <div id="twitterButton" className=" col-4 cursor mx-2 mb-3 text-center">
+            <div className="row">
               <div className="col-12">
 
 

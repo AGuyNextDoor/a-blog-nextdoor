@@ -17,10 +17,12 @@ const Form = ({discussionNameList, user, logged}) => {
   if(router.query.status === "201"){
     flag = true
     modal = (
-      <div className="row justify-content-center Lato">
-        <div id="tyMessage" className="my-5 text-center col-md-auto">
-          <p className="h3_turing_game ">Thank you for voting!</p>
-          <p>Results will soon be available in the <Link href="/Turing_Judges/Results">Results</Link> section. They will also appear in your <Link href="/Turing_Judges/Results">Profile</Link>!</p>
+      <div className="container">
+        <div className="row justify-content-center Lato">
+          <div id="tyMessage" className="my-5 text-center col-md-auto">
+            <p className="h3_turing_game ">Thank you for voting!</p>
+            <p>Results will soon be available in the <Link href="/Turing_Judges/Results">Results</Link> section. They will also appear in your <Link href="/Turing_Judges/Results">Profile</Link>!</p>
+          </div>
         </div>
       </div>
     )
