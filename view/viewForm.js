@@ -134,7 +134,7 @@ export const ViewForm = ({discussion_id, finalDiscuss, name}) => {
                     Submit your investigation 🔍
                 </button>
                 <p></p>
-                <p className="font-italic">Be sure to have answered all 6 forms!</p>
+                <p className="font-italic">Be sure to have answered all 6 inquiries!</p>
               </div>
             </div>
           </form>

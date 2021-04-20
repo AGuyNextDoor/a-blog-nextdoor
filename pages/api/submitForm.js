@@ -18,11 +18,11 @@ export default async function handler(req, res) {
     const urlDiscussionID = String("/Turing_Judges/Game")
 
     if(result === "Votes Disabled"){
-      res.redirect(urlDiscussionID +"?e="+encodeURIComponent("Votes are disabled"))
+      res.redirect(urlDiscussionID +"?status="+encodeURIComponent("401"))
     } else {
-      res.redirect(urlDiscussionID+"?m="+encodeURIComponent("Thank you!"))
+      res.redirect(urlDiscussionID+"?status="+encodeURIComponent("201"))
     }
    } else {
-      res.redirect(urlDiscussionID+"?e="+encodeURIComponent("Request Not a POST"))
-    }
+    res.redirect(urlDiscussionID+"?status="+encodeURIComponent("405"))
+  }
 }

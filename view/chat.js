@@ -1,7 +1,5 @@
 import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import { withTheme } from "@material-ui/core";
-import { parseInline } from "marked";
 
 
 
