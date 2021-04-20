@@ -1,12 +1,31 @@
 import React from "react";
 import Link from "next/link"
 import Head from "next/head"
+import {useRouter} from 'next/router'
 import { getAllDiscussions, checkIfAlreadyVoted } from "../../../controller/data-utils"
 import Header from "../../../components/header"
 import { getSession } from 'next-auth/client';
 
 
+
 const Form = ({discussionNameList, user, logged}) => {
+
+  const router = useRouter()
+  let flag = false
+  let modal = null
+
+  if(router.query.status === "201"){
+    flag = true
+    modal = (
+      <div className="row justify-content-center Lato">
+        <div id="tyMessage" className="my-5 text-center col-md-auto">
+          <p className="h3_turing_game ">Thank you for voting!</p>
+          <p>Results will soon be available in the <Link href="/Turing_Judges/Results">Results</Link> section. They will also appear in your <Link href="/Turing_Judges/Results">Profile</Link>!</p>
+        </div>
+      </div>
+    )
+    console.log({modal});
+  }
 
   if(logged){
     return (
@@ -16,6 +35,9 @@ const Form = ({discussionNameList, user, logged}) => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div id="max_body" className="container margin_sidebar">
+
+      {modal}
+
       <h2 className="my-5 h1_turing_game large_size">Choose an investigation</h2>
 
 

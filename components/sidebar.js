@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import Link from "next/link"
 import allTopics from "../allTopics.js";
-import slugify from "slugify"
 
 const listGenerator = (topicName, path, topic = "", location) => {
 

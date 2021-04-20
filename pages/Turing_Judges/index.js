@@ -25,7 +25,7 @@ const HomeIndex = () => {
         <title>Turing Judges</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-    <div className="margin_sidebar" >
+    <div className="margin_sidebar Lato" >
       <h2 className="mx-2 h1_turing_game">WELCOME TO THE TURING JUDGES EXPERIMENT</h2>
       <hr/>
       <div className="mx-1 my-2">

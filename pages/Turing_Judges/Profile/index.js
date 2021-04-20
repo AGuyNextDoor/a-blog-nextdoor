@@ -114,9 +114,6 @@ export async function getServerSideProps (context) {
     }
   }
   let results = await getUserResult(session.user.email)
-
-  console.log({results});
-  console.log(results[0]);
                        
   return {
     props: { 
