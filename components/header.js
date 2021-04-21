@@ -22,7 +22,7 @@ const Header = () => {
           {session && (
             <><div className="dropdown">
                 <a 
-                    className="d-flex justify-content-end" 
+                    className="" 
                     type="button" 
                     id="dropdownMenuButton" 
                     data-toggle="dropdown" 
@@ -79,6 +79,10 @@ const Header = () => {
           background-color: white;
           background-size: cover;
           border: 2px solid #ddd;
+        }
+        @media (min-width: 768px) {
+          .avatar {
+            float: right;
         }
         .signInButton,
         .signOutButton {
