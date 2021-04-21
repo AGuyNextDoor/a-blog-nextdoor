@@ -226,7 +226,7 @@ body,html{
       justify-content: between;
       align-items: center;
       /* width: 110vw !important; */
-      overflow-y: scroll !important;
+      /* overflow-y: scroll !important; */
     }
 
   
@@ -513,7 +513,7 @@ body,html{
       justify-content: between;
       align-items: center;
       width: 100vw !important;
-      overflow-y: scroll !important;
+      /* overflow-y: scroll !important; */
     }
 
   

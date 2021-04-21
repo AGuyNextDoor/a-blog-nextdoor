@@ -26,7 +26,6 @@ const Form = ({discussionNameList, user, logged}) => {
         </div>
       </div>
     )
-    console.log({modal});
   }
 
   if(logged){
