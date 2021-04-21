@@ -22,34 +22,33 @@ const HomeIndex = () => {
   return (
     <>
       <Head>
-        <title>Turing Judges</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
+      <title>Turing Judges</title>
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    </Head>
     <div className="margin_sidebar Lato" >
       <h2 className="mx-2 h1_turing_game">WELCOME TO THE TURING JUDGES EXPERIMENT</h2>
       <hr/>
       <div className="mx-1 my-2">
         <div className="container">
-          <div className="row">
-          <h5 className="col ont text-center">Can you guess if the mystery candidate is Human or an AI?</h5>
+        <div className="row">
+        <h5 className="col text-center">Can you guess if the mystery candidate is Human or an AI?</h5>
 
-          </div>
+        </div>
         </div>
 
         <div className="container">
-          <div className="row"> 
-            <Link href="Turing_Judges/Game" className="nav-link button">
-              <div className="align-items-center acc_button acc_text cursor col mx-2 text-center custom_button button-form-font navbar_shadow"> 
+          <div className="row justify-content-center mb-4"> 
+            <Link href="Game" className="nav-link button">
+              <div className="row align-items-center justify-content-center cursor col-4 mx-2 custom_button button-form-font acc_button acc_text navbar_shadow text-center"> 
                 PLAY THE GAME
               </div>
             </Link>
-            <Link href="Turing_Judges/Results" className="nav-link button">
-              <div className=" align-items-center cursor col mx-2 text-center custom_button button-form-font acc_button acc_text navbar_shadow"> 
+            <Link href="Results" className="nav-link button">
+              <div className="row align-items-center justify-content-center cursor col-4 mx-2 text-center custom_button button-form-font acc_button acc_text navbar_shadow text-center"> 
                 SEE THE RESULTS
               </div>
             </Link>
           </div>
-        </div>
 
         <h3>The Turing Test</h3>
 
@@ -63,7 +62,23 @@ const HomeIndex = () => {
         <p><a href="https://www.youtube.com/watch?v=3wLqsRLvV-c&t=29s&ab_channel=TED-Ed">Here is a video from TED-Ed</a> on the Turing test</p>
         <p>For those interested in Alan Turing's original paper, <a href="https://www.youtube.com/watch?v=MGW_Qcqr9eQ&ab_channel=LexFridman">Here is a video of Lex Fridman,</a> an MIT professor, discussing the Turing test.</p>
         
-        <h3>The "Turing Judges"</h3>
+        <div className="row justify-content-between align-items-end">
+
+        <h3 className="col-5">The "Turing Judges"</h3>             
+        <Link href="https://twitter.com/JudgesTuring?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">
+
+          <div id="twitterButton" className=" col-4 cursor mx-2 mb-3 text-center">
+            <div className="row">
+              <div className="col-12">
+
+
+            🐦 Follow @JudgesTuring
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+              </div>
+            </div>
+          </div>
+        </Link>
+        </div>
       
         <p className="">The Turing Judge is an experiment trying to apply a social dimension to the Imitation Game (aka. Turing Test).</p>
         <p>
@@ -86,6 +101,7 @@ const HomeIndex = () => {
       </div>
         <div className="text-center align-self-end">
           <Image src="/logoTuringJudges.jpg" width="300" height="300"/>
+        </div>
         </div>
     </div>
     </>

@@ -37,12 +37,12 @@ const Home = () => {
         <div className="container">
           <div className="row justify-content-center mb-4"> 
             <Link href="Game" className="nav-link button">
-              <div className="row align-items-center justify-content-center cursor col-4 mx-2 custom_button button-form-font acc_button acc_text navbar_shadow"> 
+              <div className="row align-items-center justify-content-center cursor col-4 mx-2 custom_button button-form-font acc_button acc_text navbar_shadow text-center"> 
                 PLAY THE GAME
               </div>
             </Link>
             <Link href="Results" className="nav-link button">
-              <div className="row align-items-center justify-content-center cursor col-4 mx-2 text-center custom_button button-form-font acc_button acc_text navbar_shadow"> 
+              <div className="row align-items-center justify-content-center cursor col-4 mx-2 text-center custom_button button-form-font acc_button acc_text navbar_shadow text-center"> 
                 SEE THE RESULTS
               </div>
             </Link>
