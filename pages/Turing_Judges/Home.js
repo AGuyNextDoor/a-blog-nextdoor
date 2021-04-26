@@ -57,7 +57,7 @@ const Home = () => {
         A <text className="font-weight-bold">JUDGE</text> is able to ask "any" amount of questions to the candidates.
         The judge's objective is to find which of the two candidates is the human. If he isn't able to find the identity, we can assume that the AI has an intelligence comparable to the human.</p>
 
-        <p><a href="https://www.youtube.com/watch?v=3wLqsRLvV-c&t=29s&ab_channel=TED-Ed">Here is a video from TED-Ed</a> on the Turing test</p>
+        <p><a href="https://www.youtube.com/watch?v=3wLqsRLvV-c&t=29s&ab_channel=TED-Ed">Here is a video from TED-Ed</a> on the Turing test.</p>
         <p>For those interested in Alan Turing's original paper, <a href="https://www.youtube.com/watch?v=MGW_Qcqr9eQ&ab_channel=LexFridman">Here is a video of Lex Fridman,</a> an MIT professor, discussing the Turing test.</p>
         
         <div className="row justify-content-between align-items-end">
@@ -89,13 +89,14 @@ const Home = () => {
         <ul>
           <li> Definitively an AI (-3 points)</li>
           <li> Maybe an AI (-1 points)</li>
-          <li> Can't tell. (0 points)</li>
+          <li> Can't tell (0 points)</li>
           <li> Maybe a Human (1 points)</li>
           <li> Definitively a Human (3 points)</li>
         </ul>
 
         <p>Different modern models of Natural Language Processing (<text className="font-weight-bold">NLP</text>) are being questionned on different form of behaviors and intelligence.</p>
-        <p>Once the votes are finished, results are accessibled for each judgement, revealing the identity </p>
+        <p>Once the votes are finished, results are accessible for each investigation, revealing the identity of the mysterious candidate.</p>
+        <p>A score is given which represents the average of all votes of the community.</p>
       </div>
         <div className="text-center align-self-end">
           <Image src="/logoTuringJudges.jpg" width="300" height="300"/>
