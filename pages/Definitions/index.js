@@ -4,40 +4,41 @@ import React, { useState, useEffect, Component } from "react";
 import DefinitionsTags from "../../components/Definitions_tags.js";
 import { useRouter } from "next/router";
 import showdown from "showdown";
+import defs from "../../components/definitionsJS"
 
-const converter = new showdown.Converter();
-// const data = import("../../public/definitions.csv")
-// console.log({data});
-const csvJSON = (csv) => {
+// const converter = new showdown.Converter();
+// // const data = import("../../public/definitions.csv")
+// // console.log({data});
+// const csvJSON = (csv) => {
 
-  let lines=csv.split("\n");
+//   let lines=csv.split("\n");
 
-  let result = [];
+//   let result = [];
 
-  // NOTE: If your columns contain commas in their values, you'll need
-  // to deal with those before doing the next step 
-  // (you might convert them to &&& or something, then covert them back later)
-  // jsfiddle showing the issue https://jsfiddle.net/
-  let headers=lines[0].split(";");
+//   // NOTE: If your columns contain commas in their values, you'll need
+//   // to deal with those before doing the next step 
+//   // (you might convert them to &&& or something, then covert them back later)
+//   // jsfiddle showing the issue https://jsfiddle.net/
+//   let headers=lines[0].split(";");
 
-  for(let i=1;i<lines.length;i++){
+//   for(let i=1;i<lines.length;i++){
 
-      let obj = {};
-      let currentline=lines[i].split(";");
+//       let obj = {};
+//       let currentline=lines[i].split(";");
 
       
-      for(let j=0;j<headers.length;j++){
-          if(headers[j]){
-            obj[headers[j]] = currentline[j];
-          }
-      }
+//       for(let j=0;j<headers.length;j++){
+//           if(headers[j]){
+//             obj[headers[j]] = currentline[j];
+//           }
+//       }
 
-      result.push(obj);
+//       result.push(obj);
 
-  }
+//   }
 
-  return result; //JavaScript object
-}
+//   return result; //JavaScript object
+// }
 
 const Definitions = () => {
   const location = useRouter()
@@ -46,23 +47,16 @@ const Definitions = () => {
 
   // Retrieves the list of items from the Express app
   const getList = () => {
-    fetch("\/Definitions.csv")
-    .then(res => {
-      return res.text()
-    })
-    .then((res) => {
-      return csvJSON(res)
-    })
-    // .then(result => {
-    //   updateListState([result.articles, result.dates, result.mods])
-    // })
-      .then((list) => {
-        const items = Object.keys(list[0])
+    const finalDefinitionObject = {}
+    for (let defObj in defs){
+      finalDefinitionObject[defs[defObj].Category] = ""
+    }
 
-        const tags = items;
+    console.log({finalDefinitionObject})
 
-        updateListState([list, tags])
-      });
+    const tags = Object.keys(finalDefinitionObject)
+
+    updateListState([defs, tags])
   };
 
   useEffect(() => {
