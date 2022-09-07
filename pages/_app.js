@@ -5,7 +5,6 @@ import Head from "next/head";
 import './index.css'
 import { Provider } from 'next-auth/client';
 
-
 import Router from 'next/router';
 import NProgress from 'nprogress'; //nprogress module
 import 'nprogress/nprogress.css'; //styles of nprogress

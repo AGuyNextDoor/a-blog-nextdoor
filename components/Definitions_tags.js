@@ -6,7 +6,7 @@ import ReactHtmlParser from "react-html-parser";
 
 const createState = (callback, state) => {
   const array = state.map(element => {
-    return {name: element, active : false}
+    return {name: element, active : true}
   })
 
   callback(array)
@@ -15,7 +15,7 @@ const createState = (callback, state) => {
 const isTagActive = (activeTags, word) => {
   let flag = false;
   activeTags.forEach(tag => {
-    if((word[tag.name] === "1") && !tag.active){
+    if ((word["Category"] === tag.name) && !tag.active) {
       flag = true;
     }
   })
@@ -24,15 +24,9 @@ const isTagActive = (activeTags, word) => {
 }
 
 const numberOfTags = (tag, words) => {
-  let frequency = 0;
-  words.forEach( word => {
-    // console.log(tag, word, parseInt(word[tag.name]));
-    if(parseInt(word[tag.name])){
-      frequency += parseInt(word[tag.name])
-    }
-  })
 
-  return frequency;
+  return words.filter(word => word.Category === tag.name).length
+
 }
 
 const DefinitionsTags = ({ words, tags }) => {
@@ -48,7 +42,6 @@ const DefinitionsTags = ({ words, tags }) => {
   const getButtons = (tag, index) => {
     const frequency = numberOfTags(tag, words)
     if(frequency){
-
       return (tag.active) ? (
         <button
         type="button"
@@ -56,7 +49,7 @@ const DefinitionsTags = ({ words, tags }) => {
         onClick={() => {
           changeState(tag, index);
         }}
-        className="text-monospace mx-2 active disabled rounded mr-2"
+        className="text-monospace mx-2 active disabled rounded mr-2 col"
         >
         {tag.name} ({frequency})
       </button>
@@ -67,7 +60,7 @@ const DefinitionsTags = ({ words, tags }) => {
       onClick={() => {
         changeState(tag, index);
       }}
-      className="text-monospace mx-2 rounded mr-2"
+      className="text-monospace mx-2 rounded mr-2 col"
       >
         {tag.name} ({frequency})
       </button>
@@ -86,25 +79,20 @@ const DefinitionsTags = ({ words, tags }) => {
       <div>
         <div>
           <div className="col-12 mt-5" data-toggle="buttons-radio" aria-label="Definition Tags">
-            <div className="d-flex justify-content-center my-3 mx-3">
+            <div className="d-flex justify-content-center my-3 mx-3 row">
               {activatedTags.map((tag, index) => {
+                console.log({tag})
                 return getButtons(tag, index);
               })}
             </div>
           </div>
         </div>
-          {words.map( (word, wordIndex) => {
-            // if(activatedTags[wordIndex]){
-            //   if(!activatedTags[wordIndex].active){
-            //     return word.map( line => {
-            //       return  <><div className="mt-5 container">{line[0]}</div><div className="mt-5 container definition_font margin_sidebar">{ReactHtmlParser(line[1])}</div></>
-            //     })
-            //   }
-            // }
-            if(isTagActive(activatedTags, word)){
-              return <><div className="mt-5 container">{word.Words}</div><div className="mt-5 container definition_font margin_sidebar">{ReactHtmlParser(word.Definition)}</div></>
-            }
-          })}
+          {words
+            .filter(word => activatedTags.some(tag => !tag.active && tag.name === word["Category"]))
+            .map( (word, wordIndex) => {
+              return <><h3 className="mt-5 container">{word.Words}</h3><div className="mt-5 container definition_font margin_sidebar">{ReactHtmlParser(word.Definition)}</div></>
+            })
+          }
       </div>
     </>
   );
