@@ -32,8 +32,9 @@
     "test": "NODE_OPTIONS='--inspect' next dev",
     "eject": "next eject",
     "dev": "yarn path && next",
-    "path": "node generateURL.js",
-    "definitions": "node updateDefinitions.js"
+    "path": "node generateURL.js && node updateReflections.js",
+    "definitions": "node updateDefinitions.js",
+    "reflections": "node updateReflections.js"
   },
   "eslintConfig": {
     "extends": "react-app"

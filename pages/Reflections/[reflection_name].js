@@ -13,15 +13,13 @@ const Reflection = () => {
   const router = useRouter()
   let { reflection_name } = router.query
 
-  
-
   // Retrieves the list of items from the Express app
   let title = "Loading...";
   const getReflection = () => {
     if(!(reflection_name)){
       reflection_name = "introduction.md"
     } else {
-      fetch("\/api\/reflections/" + reflection_name)
+      fetch("\/api\/reflections/" + reflection_name + ".md")
         .then((res) => {
           return res.text();
         })
@@ -39,7 +37,6 @@ const Reflection = () => {
 
   return (
     <div className="mt-5 margin_sidebar text-wrap">
- 
       {reflectionState ? <div>{ReactHtmlParser(reflectionState)}</div> : <div></div>}
     </div>
   );
