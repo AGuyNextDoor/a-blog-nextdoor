@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import Link from "next/link"
 import allTopics from "../allTopics.js";
+import path from 'path'
+import getConfig from 'next/config'
 
 const listGenerator = (topicName, path, topic = "", location) => {
 
@@ -84,12 +86,141 @@ const listGenerator = (topicName, path, topic = "", location) => {
   }
 };
 
+const accordionIterator = (topics, path, topic = "", location = "") => {
+
+  let folderKeys = Object.keys(topics)
+
+  console.log({location})
+  const topicName = location.query.reflection_name
+  console.log({topicName})
+
+  const keysFilt = folderKeys.filter(key => topics[key].length)
+
+  console.log({keysFilt})
+  
+  return (
+    <>
+      {
+          keysFilt.map((key, index) => {
+              return (           
+                <div className="accordion-item">
+                    <li className={`nav-item nav-link flex-fill p-2 sidebar-item mr-3 my-2 border border-white nav-item-hover`} type="button" data-toggle="collapse" data-target={"#collapseWidthExample"+index} aria-expanded={"false"} aria-controls={"collapseWidthExample"+index}>
+                        {key}
+                    </li>
+            {
+                topics[key].map(note => {
+                        return (
+                            <div 
+                              className = {
+                                `width nav-item flex-fill p-2 sidebar-item ${topics[key].includes(topicName) ? (note === topicName ? "active text-dark font-weight-bold bg-white shadow-sm" : "") : "collapse"}`
+                              }
+                              id={"collapseWidthExample" + index}
+                            >
+                                <Link className="nav-link" key={topic + topicName} href={"/Reflections/"+note}>
+                                    <text className="mx-2 cursor">{note}</text>
+                                </Link>
+                            </div>
+                        )
+                })
+            }
+            </div>
+          )
+        })
+    }
+    </>
+  )
+}
+
+const accordionGenerator = (sidebarState, path, topic = "", location = "") => {
+
+  console.log({
+    path
+  })
+  console.log({location})
+  
+  if (topic.length > 1) {
+    topic = topic[0];
+  }
+  console.log({
+    topicName
+  })
+
+  let query = location.query[Object.keys(location.query)[0]];
+
+  console.log({query})
+
+  let topicTrimmed = topicName.split(".").slice(0, -1).join(".");
+  topicTrimmed = topicTrimmed.replace(/_/g, " ");
+  topicTrimmed = topicTrimmed.replace(/-/g, " ");
+
+  const linkUrl = "/" + topic + "/" + topicName;
+
+  if (linkUrl.includes(".") && typeof linkUrl === "string" && typeof topicName === "string") {
+    
+
+    let pathTrimmed = decodeURI(path);
+    pathTrimmed = pathTrimmed.split(".").slice(0, -1).join(".");
+    pathTrimmed = pathTrimmed.replace(/_/g, " ");
+    pathTrimmed = pathTrimmed.replace(/-/g, " ");
+
+
+    if (query === topicName) {
+      return (
+        <li className="nav-item flex-fill p-2 sidebar-item active text-dark font-weight-bold bg-white shadow-sm">
+          <Link className="nav-link" key={topic + topicName} href={linkUrl}>
+            <text className="mx-2 cursor">{topicTrimmed}</text>
+          </Link>
+        </li>
+      );
+    } else {
+      return (
+        <li className="nav-item flex-fill p-2 sidebar-item">
+          <Link className="nav-link" key={topic + topicName} href={linkUrl}>
+            <text className="mx-2 cursor">{topicTrimmed}</text>
+          </Link>
+        </li>
+      );
+    }
+  } else {
+    if(!(topicTrimmed)){
+      topicTrimmed = topicName;
+    }
+    if (query === topicName) {
+      return (
+        <li className="nav-item flex-fill p-2 sidebar-item active text-dark font-weight-bold bg-white shadow-sm">
+          <Link className="nav-link" key={topic + topicName} href={linkUrl}>
+            <text className="mx-2 cursor">{topicTrimmed}</text>
+          </Link>
+        </li>
+      );
+    } else if (location.pathname.includes(topicName)) {
+      return (
+        <li className="nav-item flex-fill p-2 sidebar-item active text-dark font-weight-bold bg-white shadow-sm">
+          <Link className="nav-link" key={topic + topicName} href={linkUrl}>
+            <text className="mx-2 cursor">{topicTrimmed}</text>
+          </Link>
+        </li>
+      );
+    } else {
+      return (
+        <li className="nav-item flex-fill p-2 sidebar-item">
+          <Link className="nav-link" key={topic + topicName} href={linkUrl}>
+            <text className="mx-2 cursor">{topicTrimmed}</text>
+          </Link>
+        </li>
+      );
+    }
+  }
+}
+
 let test = 0;
 let tested = 0;
 
 const Sidebar = ({ match }) => {
   const location = useRouter();
   const [sidebarState, updatesideBarState] = useState([]);
+  const [topicState, updateTopicState] = useState("")
+
 
   let flag = true;
 
@@ -98,15 +229,28 @@ const Sidebar = ({ match }) => {
       return path.includes(element);
     });
 
-    return sidebarState.map((element) => {
-      return listGenerator(element, path, topic, location);
-    });
+    console.log({
+      topicState
+    })
+
+    if (topicState[0] === "Reflections") {
+      return accordionIterator(sidebarState, path, topicState, location)
+    } else {
+      return sidebarState.map((element) => {
+        return listGenerator(element, path, topicState, location);
+      });
+    }
+
   };
 
   const stateUpdate = (path) => {
     let topic = allTopics.filter((element) => {
       return path.includes(element);
     });
+
+    updateTopicState(topic)
+
+    console.log({topic})
 
     switch (topic[0]) {
       case "Drawings":
@@ -139,7 +283,7 @@ const Sidebar = ({ match }) => {
   }, [location.pathname, flag]);
 
   return (
-    <div className="navbar_expand">
+    <div className="navbar_expand pr-3">
       {sidebarState.length !== 0 ? (
         <div className="col-lg sidebar_background flex-wrap second_navbar">
           <nav className="mt-4 ml-2 flex-md-nowrap navbar-expand">
@@ -194,9 +338,9 @@ const getReflectionList = async (callback) => {
   let result = await fetch("/reflectionsURL.json").then((res) => res.json());
   // .then((list) => updateListState(list));
 
-  result = result.reflections
+  console.log({result})
 
-  callback([...result]);
+  callback(result);
 
   
 };

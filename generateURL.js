@@ -84,4 +84,4 @@ const constructObject = async (topic, topicOut) => {
 constructObject("drawings", "drawingsURL");
 constructObject("drawings", "drawingsURLThumb");
 constructObject("articles", "articlesURL");
-constructObject("reflections", "reflectionsURL");
+// constructObject("reflections", "reflectionsURL");

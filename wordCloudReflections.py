@@ -10,9 +10,7 @@ d = path.dirname(__file__) if "__file__" in locals() else os.getcwd()
 text = ""
 
 for file in os.listdir("./public/api/reflections"):
-    print(file)
     if file.endswith(".md"):
-        print(file)
         text = text + \
             open(os.path.join("./public/api/reflections", file)).read()
 

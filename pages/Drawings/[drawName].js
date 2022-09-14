@@ -22,7 +22,6 @@ const Folder = () => {
             <Image
               className="pt-3 rounded"
               src={"/api/drawings/" + location.query.drawName + "/mid/" + urlName}
-              unsized
               layout="fill"
             />
         </div>
