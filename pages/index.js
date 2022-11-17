@@ -11,22 +11,29 @@ const FooterGen = () => {
         <div className="row">
           <div className="">
             <div>
-              <a href="https://github.com/AGuyNextDoor">
+              <a href="https://github.com/AGuyNextDoor"  target="_blank">
                 <button className="bg-dark mr-2 text-light rounded drawing_title">GitHub</button>
               </a>
             </div>
           </div>
           <div className="">
             <div>
-              <a href="https://github.com/AGuyNextDoor/a-blog-nextdoor">
+              <a href="https://github.com/AGuyNextDoor/a-blog-nextdoor" target="_blank">
                 <button className="bg-dark mr-2 text-light rounded drawing_title">Blog's GitHub</button>
               </a>
             </div>
           </div>
           <div className="">
             <div>
-              <a href="https://www.linkedin.com/in/martinvielvoye/">
+              <a href="https://www.linkedin.com/in/martinvielvoye/" target="_blank">
                 <button className="bg-primary mr-2 text-light rounded drawing_title">Linkedin</button>
+              </a>
+            </div>
+          </div>
+          <div className="">
+            <div>
+              <a href="https://twitter.com/AGuyNextdoor1" target="_blank">
+                <button className="bg-primary mr-2 text-light rounded drawing_title">Twitter</button>
               </a>
             </div>
           </div>
