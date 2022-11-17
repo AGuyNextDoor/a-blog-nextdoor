@@ -32,8 +32,9 @@
     "build": "yarn path && next build",
     "test": "NODE_OPTIONS='--inspect' next dev",
     "eject": "next eject",
-    "dev": "yarn path && next",
-    "path": "node generateURL.js && node updateReflections.js",
+    "dev": "yarn path && yarn updateRef && next",
+    "path": "node generateURL.js",
+    "updateRef": "node updateReflections.js",
     "definitions": "node updateDefinitions.js",
     "reflections": "node updateReflections.js"
   },
