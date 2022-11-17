@@ -64,17 +64,28 @@ const HomePage = () => {
               Welcome to <text className="font-weight-bold">a-blog-nextdoor</text>
             </h1>
             <div className="">
-              <text className="font-weight-bold" name="homepage" id="homepage">
-                <p className="font-italic">This blog is a journal of somebody having fun with too many topics at the same time.</p>
+              <text className="font-weight-bold header-style" name="homepage" id="homepage">
+                <p className="font-italic span mb-5">This blog is a journal of somebody having fun with too many topics at the same time.</p>
+                <hr />
                 <p>
-                  I'm an independant learner and researcher since 2020. I mostly study parallels between core topics :
-                  <text className="text-monospace"> Machine Learning / Artificial Intelligence and Neurosciences.</text>
+                  I'm an independant learner and researcher since 2020. I mostly am interested in intersections between some core topics :
+                  <br /><text className="text-monospace"> Machine Learning / Artificial Intelligence and Neurosciences.</text>
                 </p>
-                Other topics may vary from Quantum Computing, Philosophy, Psychology, Psychotherapy, Physics, Electronics, ...
+                <hr />
+                Other topics may vary from 
+                <ul>
+                  <li>Quantum Computing</li>
+                  <li>Philosophy and Ethics</li>
+                  <li>Psychology</li>
+                  <li>Physics</li>
+                  <li>Electronics</li>
+                  <li>...</li>
+                </ul>
                 <p>
                   Without a specific goal, I wonder around diverse fields for the pleasure of connecting dots across
                   knowledge.
                 </p>
+                <hr />
                 <p>
                   This websites serves mostly as a host for written articles and reflections, but also as a portfolio
                   for various productions.
