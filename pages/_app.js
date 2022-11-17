@@ -4,7 +4,7 @@ import Sidebar from "../components/sidebar";
 import Head from "next/head";
 import './index.css'
 import { Provider } from 'next-auth/client';
-
+import { Analytics } from '@vercel/analytics/react';
 import Router from 'next/router';
 import NProgress from 'nprogress'; //nprogress module
 import 'nprogress/nprogress.css'; //styles of nprogress
@@ -61,6 +61,7 @@ export default function MyApp({ Component, pageProps }) {
         {/* <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> */}
       </body>
     </Provider>
+    < Analytics / >
   </>
   );
 }
