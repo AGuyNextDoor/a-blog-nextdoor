@@ -54,11 +54,11 @@ const HomePage = () => {
 
   return (
     <div id="container" className="pt-3">
+      <div className="skull">
+        <Image src="/half.png" className="full_image skull_image" layout={"fill"}></Image>
+      </div>
       <div id="body" className="container d-flex px-4 mr-5 ">
         <div className="row margin_large">
-          <div className="skull">
-            <Image src="/half.png" height="700" width="277"></Image>
-          </div>
           <div className="mt-4">
             <h1>
               Welcome to <text className="font-weight-bold">a-blog-nextdoor</text>

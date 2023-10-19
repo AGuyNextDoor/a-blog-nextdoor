@@ -20,7 +20,7 @@ const Folder = () => {
           <Link href={location.query.drawName + "/" + urlName}>
         <div className="col-md-4 pb-2 col-lg-6 m-auto hoverable">
             <Image
-              className="pt-3 rounded"
+              className="pt-3 rounded full_image"
               src={"/api/drawings/" + location.query.drawName + "/mid/" + urlName}
               layout="fill"
             />

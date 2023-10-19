@@ -107,7 +107,7 @@ body,html{
 
 #small_1{
   opacity:1;
-  position:absolute;
+  position:relative;
   max-height: 500px;
   left:0;
   top:0;
@@ -117,7 +117,7 @@ body,html{
 #small_2{
   opacity:1;
   position:relative;
-  transform: rotate(8deg);
+  transform: rotate(10deg);
   max-height: 500px;
   left:0;
   top:0;
@@ -126,10 +126,19 @@ body,html{
 #small_3{
   opacity:1;
   position:relative;
-  transform: rotate(-6deg);
+  transform: rotate(-10deg);
   max-height: 500px;
   left:0;
   top:0;
+}
+
+.full_image {
+  position:relative !important;
+}
+
+.skull_image{
+  max-height: 100vh;
+  
 }
 
 .top-navbar {

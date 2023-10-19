@@ -23,11 +23,9 @@ const Folder = () => {
     return (
       <div class="col-12 m-auto hoverable">
         <Image
-          class="pt-3 rounded"
+          class="pt-3 rounded full_image"
           src={"/api/drawings/" + location.query.drawName + "/full_images/" + urlName}
-          unsized
-          layout="fill"
-
+          layout={"fill"}
         />
       </div>
     );

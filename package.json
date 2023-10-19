@@ -15,14 +15,14 @@
     "fs": "^0.0.1-security",
     "moment": "^2.29.1",
     "mongodb": "^3.6.4",
-    "next": "^10.0.3",
+    "next": "^13.5.6",
     "next-auth": "^3.13.3",
     "next-connect": "^0.10.0",
     "nprogress": "^0.2.0",
     "popper.js": "^1.16.1",
-    "react": "^16.13.1",
+    "react": "^18.2.0",
     "react-chartjs-2": "^2.11.1",
-    "react-dom": "^16.13.1",
+    "react-dom": "^18.2.0",
     "react-html-parser": "^2.0.2",
     "showdown": "^1.9.1",
     "slugify": "^1.4.7"
@@ -32,7 +32,7 @@
     "build": "yarn path && next build",
     "test": "NODE_OPTIONS='--inspect' next dev",
     "eject": "next eject",
-    "dev": "yarn path && yarn updateRef && next",
+    "dev": "yarn path && next dev",
     "path": "node generateURL.js",
     "updateRef": "node updateReflections.js",
     "definitions": "node updateDefinitions.js",
@@ -60,5 +60,6 @@
   },
   "peerOptionalDependencies": {
     "mongodb": "^3.6.0"
-  }
+  },
+  "license": "MIT"
 }

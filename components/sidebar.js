@@ -108,7 +108,7 @@ const accordionIterator = (topics, path, topic = "", location = "") => {
                         {key}
                     </li>
             {
-                topics[key].map(note => {
+                topics && topics[key].map(note => {
                         return (
                             <div 
                               className = {

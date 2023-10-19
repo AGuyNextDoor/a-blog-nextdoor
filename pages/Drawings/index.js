@@ -51,8 +51,9 @@ const Images = () => {
                 <Image
                   id="copy"
                   src={"/api/drawings/" + category + "/thumbnails/" + urls[0]}
-                  class=" img-thumbnail rounded"
-                  layout='fill'
+                  className="img-thumbnail rounded"
+                  width={100}
+                  height={100}
                 ></Image>
               </Link>
             </div>
@@ -61,8 +62,9 @@ const Images = () => {
                 <Image
                   id="copy"
                   src={"/api/drawings/" + category + "/thumbnails/" + urls[1]}
-                  class=" img-thumbnail rounded"
-                  layout='fill'
+                  className="img-thumbnail rounded"
+                  width={100}
+                  height={100}
                 ></Image>
               </Link>
             </div>
@@ -71,8 +73,9 @@ const Images = () => {
                 <Image
                   id="copy"
                   src={"/api/drawings/" + category + "/thumbnails/" + urls[2]}
-                  class="img-thumbnail rounded"
-                  layout="fill"
+                  className="img-thumbnail rounded"
+                  width={100}
+                  height={100}
                 ></Image>
               </Link>
             </div>
@@ -87,7 +90,7 @@ const Images = () => {
   }, []);
 
   return (
-    <div id="drawing_body" className="album margin_sidebar text-center container">
+    <div id="drawing_body" className=" margin_sidebar text-center container">
       {Object.keys(imageState).length ? (
       <div id="main" className="row justify-content-center">
           {Object.keys(imageState).map((category) => {

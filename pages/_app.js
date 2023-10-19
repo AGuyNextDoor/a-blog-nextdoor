@@ -31,10 +31,10 @@ export default function MyApp({ Component, pageProps }) {
           ></script> */}
         <title>A-Blog-Nextdoor</title>
       </Head>
-      <header className="">
-        <Navbar></Navbar>
-      </header>
-      <body>
+      <div>
+        <header className="">
+          <Navbar></Navbar>
+        </header>
         <div className="content-area mt-sm" data-toggle="collapse" data-target=".navbar-collapse.show">
           <div className="pt-3 small_center">
             <Sidebar></Sidebar>
@@ -59,7 +59,7 @@ export default function MyApp({ Component, pageProps }) {
           crossOrigin="anonymous"
           ></script>
         {/* <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> */}
-      </body>
+      </div>
     </Provider>
     <Analytics />
   </>
